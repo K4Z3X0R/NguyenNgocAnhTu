@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- ========================================
+	     Locket Gold DNS Protection v3.0
+	     Updated: 2026-10-16
+	     Author: z3rokaze (NguyenNgocAnhTu)
+	     
+	     🔑 CÁCH HOẠT ĐỘNG:
+	     1. Shadowrocket BẬT → VPN tunnel xử lý DNS riêng
+	        → proxy intercept RevenueCat → inject Gold response
+	        → app cache lại subscription data
+	     2. Shadowrocket TẮT → DNS profile chặn revenuecat
+	        → app KHÔNG verify được → dùng cache cũ (Gold)
+	        → GIỮ GOLD KHI TẮT SHADOWROCKET ✅
+	     
+	     ⚠️ LƯU Ý: Phải mở Locket 1 lần với Shadowrocket BẬT
+	        để app cache Gold data trước, sau đó mới tắt được.
+	     
+	     ✅ Tương thích iOS 15.0+
+	     ======================================== -->
+	
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>DNSSettings</key>
+			<dict>
+				<key>DNSProtocol</key>
+				<string>HTTPS</string>
+				<key>ServerURL</key>
+				<string>https://dns.adguard-dns.com/dns-query</string>
+			</dict>
+			<key>OnDemandRules</key>
+			<array>
+				<dict>
+					<key>Action</key>
+					<string>EvaluateConnection</string>
+					<key>ActionParameters</key>
+					<array>
+						<dict>
+							<key>DomainAction</key>
+							<string>NeverConnect</string>
+							<key>Domains</key>
+							<array>
+								<!-- ══════════════════════════════════════
+								     🔐 REVENUECAT SUBSCRIPTION API
+								     Chặn verify subscription khi tắt proxy
+								     → App dùng cached Gold data
+								     ══════════════════════════════════════ -->
+								<string>api.revenuecat.com</string>
+								<string>api-production.revenuecat.com</string>
+								<string>api-staging.revenuecat.com</string>
+								<string>api.rc-backup.com</string>
+								
+								<!-- ══════════════════════════════════════
+								     🚫 LOCKET ANALYTICS & TELEMETRY
+								     ══════════════════════════════════════ -->
+								<string>app-measurement.com</string>
+								<string>firebase-settings.crashlytics.com</string>
+								<string>firebaselogging-pa.googleapis.com</string>
+								<string>firebaseinstallations.googleapis.com</string>
+								<string>analyticsreporting.googleapis.com</string>
+								<string>fcm.googleapis.com</string>
+								<string>settings.crashlytics.com</string>
+								<string>reports.crashlytics.com</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Action</key>
+					<string>Connect</string>
+				</dict>
+			</array>
+			<key>PayloadDescription</key>
+			<string>Chặn RevenueCat API + analytics/telemetry domains. Giữ Gold khi tắt Shadowrocket bằng cách chặn verify subscription → app dùng cached data.</string>
+			<key>PayloadDisplayName</key>
+			<string>Locket Gold DNS v3.0</string>
+			<key>PayloadIdentifier</key>
+			<string>com.z3rokaze.locketgold.dns</string>
+			<key>PayloadType</key>
+			<string>com.apple.dnsSettings.managed</string>
+			<key>PayloadUUID</key>
+			<string>8768AA60-F48B-44E9-A0CE-2879EBBE9451</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>ProhibitDisablement</key>
+			<false/>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Locket Gold DNS Protection v3.0 - Chặn RevenueCat API + analytics domains. Giữ Gold khi tắt Shadowrocket. Updated 2026-10-16 by z3rokaze.</string>
+	<key>PayloadDisplayName</key>
+	<string>🔒 Locket Gold DNS v3.0</string>
+	<key>PayloadIdentifier</key>
+	<string>com.z3rokaze.locketgold</string>
+	<key>PayloadOrganization</key>
+	<string>NguyenNgocAnhTu (z3rokaze)</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>75F884BB-E94E-49C5-92DF-0C7C6BF8186D</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+</dict>
+</plist>
