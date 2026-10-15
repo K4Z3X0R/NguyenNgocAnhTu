@@ -1336,7 +1336,7 @@ https://github.com/ekaznyra/NguyenNgocAnhTu/tree/master/Module
 
 | Bước | Thao tác | Chi tiết | Kết quả |
 |:---:|:---|:---|:---:|
-| ① | Tải profile **👑 Anh Tú • Locket Gold 💛** | Tải trực tiếp file [DNS.mobileconfig](https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/DNS.mobileconfig) hoặc [LocketGoldDNS.mobileconfig](https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/LocketGoldDNS.mobileconfig) | 📥 |
+| ① | Tải profile **👑 Anh Tú • Locket Gold 💛** | Tải trực tiếp file [DNS.mobileconfig](https://github.com/ekaznyra/NguyenNgocAnhTu/releases/latest/download/DNS.mobileconfig) (hoặc [LocketGoldDNS.mobileconfig](https://github.com/ekaznyra/NguyenNgocAnhTu/releases/latest/download/LocketGoldDNS.mobileconfig)) | 📥 |
 | ② | Cài vào iPhone | Cài đặt → Cài đặt chung → VPN & Quản lý thiết bị | ✅ |
 | ③ | **BẬT** proxy → Mở Locket | Đợi Gold hiện lên (lần đầu tiên) | 🟢 |
 | ④ | **TẮT** proxy → Mở lại Locket | Gold vẫn còn! | 🎉 |
