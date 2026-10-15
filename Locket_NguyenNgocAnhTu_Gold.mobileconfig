@@ -4,16 +4,15 @@
 <dict>
     <key>PayloadContent</key>
     <array>
-        <!-- 1. CHỨNG CHỈ ROOT CA ĐỂ IPHONE TIN CẬY KẾT NỐI -->
         <dict>
             <key>PayloadCertificateFileName</key>
             <string>LocketGold Root CA</string>
             <key>PayloadContent</key>
             <data>MIIDNTCCAh2gAwIBAgIUOQqYkU7yWPiIWMNdvcQ5vM1NKgQwDQYJKoZIhvcNAQELBQAwKjETMBEGA1UECgwKTG9ja2V0R29sZDETMBEGA1UEAwwKTG9ja2V0R29sZDAeFw0yNjA5MzAxNDI5MDhaFw0zNjA5MjcxNDI5MDhaMCoxEzARBgNVBAoMCkxvY2tldEdvbGQxEzARBgNVBAMMCkxvY2tldEdvbGQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSgDJzEKZDUijfA1HYVGAIc9e2LVUsDk82iubefLGBXp6Ia5/FzGCn7RI4kkM6B4Gzdqcj52nZ2mQkh2hlftsE4SyKGlqnL/+50GnNRV8FkrIWb0UUI8SK22evSa/SW70CXTtTsezAXT5wodUcOzDZvhI6pxKzySEujg7WxRzYsfq1vr8t2yGJoV5NP0tqZShWq4RxZ7Tj4HyISHFE9+Upvy/8N2KQMKvMkSEphhxpk645dl+tF0Q37VV6bqZGVNEO/MdGaPzqMld8V3qbrv5eebIrOZBfZU5hRiTHiqK19FPuvvGxAjPsKGx27tx6+UoAGRlbQAyNBj7vKNMT6n0tAgMBAAGjUzBRMB0GA1UdDgQWBBT5dQfm6Eu5mNz5Od9cch7UlizH+jAfBgNVHSMEGDAWgBT5dQfm6Eu5mNz5Od9cch7UlizH+jAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAXwYJMRJ9nPpRmS7IVWF0PcuLB9z5q3qanc/x+xOQOH4urgm8NAvHGkHNg7rE64wsMkA1O7GTUT+NP2pdEDu2/zfocfflvsN1l3Gu3Z193bWhcpvr8q8YgLJ4rP6relyFLIxEQ5FkDXsXqZFf5QOn6+KgdwdIwqos7knp5quBAKqHZbXXVWWxZgOILe4+8uRBAkG2ppZrZE9hocAQ8HlcQOX+FsDQZ74vKCPx+mS9szHJJigHNnJRXHD8Ys1oIOjvDUT2nfMGMKk5v1hO2IlF1wsGtaWn3ulMsmth4MVHtEtf5wJq48yc7UBXjaq/h9jnO81d9yyI2RAYZ52CqMLYR</data>
             <key>PayloadDescription</key>
-            <string>Xác thực bảo mật hệ thống Locket Gold</string>
+            <string>Adds a CA root certificate</string>
             <key>PayloadDisplayName</key>
-            <string>Locket Gold Root CA</string>
+            <string>LocketGold CA</string>
             <key>PayloadIdentifier</key>
             <string>com.apple.security.root.d1389de4-7dc7-4e9e-abd9-b2eadbf877ff</string>
             <key>PayloadType</key>
@@ -23,19 +22,17 @@
             <key>PayloadVersion</key>
             <integer>1</integer>
         </dict>
-
-        <!-- 2. ĐIỀU HƯỚNG DNS QUA SERVER TRUNG GIAN CLOUDFLARE CỦA TÚ -->
         <dict>
             <key>DNSSettings</key>
             <dict>
                 <key>DNSProtocol</key>
                 <string>HTTPS</string>
                 <key>ServerURL</key>
-                <string>https://locket-gold.nguyenngocanhtuwork.workers.dev/dns-query</string>
+                <string>https://doh.2707226.xyz/dns-query/aDBudGNQVlREaWJVajJtN2NzbGlDN1hzcVljMg.eRnl50KzjKvzHE7exnJtwi2K</string>
                 <key>ServerAddresses</key>
                 <array>
-                    <string>104.21.90.121</string>
-                    <string>172.67.156.112</string>
+                    <string>172.67.146.35</string>
+                    <string>104.21.10.172</string>
                 </array>
                 <key>SupplementalMatchDomains</key>
                 <array>
@@ -47,7 +44,7 @@
             <key>PayloadDescription</key>
             <string>DNS-over-HTTPS via LocketGold</string>
             <key>PayloadDisplayName</key>
-            <string>Locket Gold Ultra DNS</string>
+            <string>LocketGold DNS</string>
             <key>PayloadIdentifier</key>
             <string>com.apple.dnsSettings.managed.c80db67c-e551-4b7b-aa3e-5222eaba0316</string>
             <key>PayloadType</key>
@@ -58,14 +55,12 @@
             <integer>1</integer>
         </dict>
     </array>
-    
-    <!-- METADATA HIỂN THỊ TRÊN IPHONE -->
     <key>PayloadDescription</key>
-    <string>Kích hoạt đặc quyền Locket Gold &amp; Quay video 30s VIP - @nguyenngocanhtu</string>
+    <string>hoi tro lh admin</string>
     <key>PayloadDisplayName</key>
-    <string>Locket Gold • Nguyen Ngoc Anh Tu</string>
+    <string>locket.com</string>
     <key>PayloadIdentifier</key>
-    <string>com.anhtu.locket.shared.30s</string>
+    <string>com.camsitup.locket.h0ntcPVTDibUj2m7csliC7XsqYc2</string>
     <key>PayloadOrganization</key>
     <string>@nguyenngocanhtu</string>
     <key>PayloadRemovalDisallowed</key>
