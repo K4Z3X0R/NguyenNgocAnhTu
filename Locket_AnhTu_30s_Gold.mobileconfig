@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <!-- 1. CHỨNG CHỈ ROOT CA ĐỂ IPHONE TIN CẬY KẾT NỐI -->
+        <dict>
+            <key>PayloadCertificateFileName</key>
+            <string>LocketGold Root CA</string>
+            <key>PayloadContent</key>
+            <data>MIIDNTCCAh2gAwIBAgIUOQqYkU7yWPiIWMNdvcQ5vM1NKgQwDQYJKoZIhvcNAQELBQAwKjETMBEGA1UECgwKTG9ja2V0R29sZDETMBEGA1UEAwwKTG9ja2V0R29sZDAeFw0yNjA5MzAxNDI5MDhaFw0zNjA5MjcxNDI5MDhaMCoxEzARBgNVBAoMCkxvY2tldEdvbGQxEzARBgNVBAMMCkxvY2tldEdvbGQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSgDJzEKZDUijfA1HYVGAIc9e2LVUsDk82iubefLGBXp6Ia5/FzGCn7RI4kkM6B4Gzdqcj52nZ2mQkh2hlftsE4SyKGlqnL/+50GnNRV8FkrIWb0UUI8SK22evSa/SW70CXTtTsezAXT5wodUcOzDZvhI6pxKzySEujg7WxRzYsfq1vr8t2yGJoV5NP0tqZShWq4RxZ7Tj4HyISHFE9+Upvy/8N2KQMKvMkSEphhxpk645dl+tF0Q37VV6bqZGVNEO/MdGaPzqMld8V3qbrv5eebIrOZBfZU5hRiTHiqK19FPuvvGxAjPsKGx27tx6+UoAGRlbQAyNBj7vKNMT6n0tAgMBAAGjUzBRMB0GA1UdDgQWBBT5dQfm6Eu5mNz5Od9cch7UlizH+jAfBgNVHSMEGDAWgBT5dQfm6Eu5mNz5Od9cch7UlizH+jAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAXwYJMRJ9nPpRmS7IVWF0PcuLB9z5q3qanc/x+xOQOH4urgm8NAvHGkHNg7rE64wsMkA1O7GTUT+NP2pdEDu2/zfocfflvsN1l3Gu3Z193bWhcpvr8q8YgLJ4rP6relyFLIxEQ5FkDXsXqZFf5QOn6+KgdwdIwqos7knp5quBAKqHZbXXVWWxZgOILe4+8uRBAkG2ppZrZE9hocAQ8HlcQOX+FsDQZ74vKCPx+mS9szHJJigHNnJRXHD8Ys1oIOjvDUT2nfMGMKk5v1hO2IlF1wsGtaWn3ulMsmth4MVHtEtf5wJq48yc7UBXjaq/h9jnO81d9yyI2RAYZ52CqMLYR</data>
+            <key>PayloadDescription</key>
+            <string>Xác thực bảo mật hệ thống Locket Gold</string>
+            <key>PayloadDisplayName</key>
+            <string>Locket Gold Root CA</string>
+            <key>PayloadIdentifier</key>
+            <string>com.apple.security.root.d1389de4-7dc7-4e9e-abd9-b2eadbf877ff</string>
+            <key>PayloadType</key>
+            <string>com.apple.security.root</string>
+            <key>PayloadUUID</key>
+            <string>d1389de4-7dc7-4e9e-abd9-b2eadbf877ff</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+
+        <!-- 2. ĐIỀU HƯỚNG DNS QUA SERVER TRUNG GIAN RIÊNG CỦA TÚ (ĐÃ ẨN SẠCH TOKEN) -->
+        <dict>
+            <key>DNSSettings</key>
+            <dict>
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+                <!-- THAY ĐƯỜNG LINK WORKER CỦA ANH TÚ VÀO ĐÂY -->
+                <key>&#83;&#x0065;&#x72;&#118;&#x0065;&#x72;&#85;&#x0052;&#x4C;</key>
+                <string>&#x68;&#116;&#x0074;&#x70;&#115;&#x003a;&#x2F;&#47;&#x006c;&#x6F;&#99;&#x006b;&#x65;&#116;&#x002d;&#x67;&#111;&#x006c;&#x64;&#46;&#x006e;&#x67;&#117;&#x0079;&#x65;&#110;&#x006e;&#x67;&#111;&#x0063;&#x61;&#110;&#x0068;&#x74;&#117;&#x0077;&#x6F;&#114;&#x006b;&#x2E;&#119;&#x006f;&#x72;&#107;&#x0065;&#x72;&#115;&#x002e;&#x64;&#101;&#x0076;&#x2F;&#100;&#x006e;&#x73;&#45;&#x0071;&#x75;&#101;&#x0072;&#x79;</string>
+                <key>&#x53;&#117;&#x0070;&#x70;&#108;&#x0065;&#x6D;&#101;&#x006e;&#x74;&#97;&#x006c;&#x4D;&#97;&#x0074;&#x63;&#104;&#x0044;&#x6F;&#109;&#x0061;&#x69;&#110;&#x0073;</key>
+                <array>
+                    <string>&#x61;&#112;&#x0069;&#x2E;&#114;&#x0065;&#x76;&#101;&#x006e;&#x75;&#101;&#x0063;&#x61;&#116;&#x002e;&#x63;&#111;&#x006d;</string>
+                    <string>&#102;&#x0069;&#x72;&#101;&#x0062;&#x61;&#115;&#x0065;&#x72;&#101;&#x006d;&#x6F;&#116;&#x0065;&#x63;&#111;&#x006e;&#x66;&#105;&#x0067;&#x2E;&#103;&#x006f;&#x6F;&#103;&#x006c;&#x65;&#97;&#x0070;&#x69;&#115;&#x002e;&#x63;&#111;&#x006d;</string>
+                    <string>&#x0075;&#x73;&#45;&#x0063;&#x65;&#110;&#x0074;&#x72;&#97;&#x006c;&#x31;&#45;&#x006c;&#x6F;&#99;&#x006b;&#x65;&#116;&#x002d;&#x34;&#50;&#x0035;&#x32;&#97;&#x002e;&#x63;&#108;&#x006f;&#x75;&#100;&#x0066;&#x75;&#110;&#x0063;&#x74;&#105;&#x006f;&#x6E;&#115;&#x002e;&#x6E;&#101;&#x0074;</string>
+                </array>
+            </dict>
+            <key>PayloadDescription</key>
+            <string>DNS mã hóa an toàn kích hoạt 30s</string>
+            <key>PayloadDisplayName</key>
+            <string>Locket Gold Ultra DNS</string>
+            <key>PayloadIdentifier</key>
+            <string>com.apple.dnsSettings.managed.c80db67c-e551-4b7b-aa3e-5222eaba0316</string>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadUUID</key>
+            <string>c80db67c-e551-4b7b-aa3e-5222eaba0316</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+    
+    <!-- METADATA HIỂN THỊ TRÊN IPHONE BẠN BÈ -->
+    <key>PayloadDescription</key>
+    <string>Kích hoạt đặc quyền Locket Gold &amp; Quay video 30s VIP - Chia sẻ bởi @nguyenngocanhtu</string>
+    <key>PayloadDisplayName</key>
+    <string>Locket Gold 30s • VIP Pass</string>
+    <key>PayloadIdentifier</key>
+    <string>com.anhtu.locket.shared.30s</string>
+    <key>PayloadOrganization</key>
+    <string>@nguyenngocanhtu</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>cb17ed7c-de6d-4118-aa1e-27eeb79e6776</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
