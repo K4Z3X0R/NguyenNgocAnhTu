@@ -274,6 +274,15 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
   check('spotify: user-attributes type=premium', b.values && b.values.type === 'premium', out ? out.body : 'null');
 }
 
+// 35. Locket_30s.js (Remote Config 30s Video)
+{
+  const out = runScript('Locket_30s.js', { headers: { 'User-Agent': 'Locket/1.144.0 (co.locket.Locket; build:9692; iOS 18.0.0)' } }, { body: JSON.stringify({ entries: {} }) });
+  const b = JSON.parse(out.body);
+  const camera = b.entries && JSON.parse(b.entries.camera || '{}');
+  check('Locket_30s: 30s video recording & camera limits injected', camera.max_duration === 30 && b.entries.video_max_duration === '30.0' && b.entries.camera_roll_video_max_duration === '30.0', out ? out.body : 'null');
+}
+
 console.log('\n== KẾT QUẢ: ' + pass + ' PASS / ' + fail + ' FAIL ==');
 process.exit(fail === 0 ? 0 : 1);
+
 

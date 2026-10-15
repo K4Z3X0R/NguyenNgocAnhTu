@@ -1,7 +1,7 @@
 #!name=👑 Nguyễn Ngọc Anh Tú 🌸 ⁕ Ultimate Premium & Best AdBlock ⁕
-#!desc=🚀 Mở khóa 350+ App VIP (Locket Gold, Spotify, YouTube Premium, Captions AI, iScreen, MD Vinyl, Moises, Structured, iTunes 250+, SoundCloud, WPS, Darkroom, OldRoll, Fimo, Calm, Remini, PhotoRoom, ELSA...). 🛡️ Chặn Quảng Cáo 100% (AdGuard DoH, Rule-Sets Ads/Tracking/Malware/HostsVN/QC App VN). 🎮 Gaming DIRECT (PUBG, Liên Quân, Genshin...). 📺 Streaming PROXY (Netflix, Disney+, HBO...). ⚡ Tối ưu DNS, Banking VN, GeoIP VN, Chặn iOS OTA & App Store Ads. | v2.8.3-stable (2026-10-11)
-#!version=2.8.3-stable
-#!date=2026-10-11
+#!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 30s Video, Spotify, YouTube Premium, Captions AI, iScreen, MD Vinyl, Moises, Structured, iTunes 250+, SoundCloud, WPS, Darkroom, OldRoll, Fimo, Calm, Remini, PhotoRoom, ELSA...). 🛡️ Chặn Quảng Cáo 100% (AdGuard DoH, Rule-Sets Ads/Tracking/Malware/HostsVN/QC App VN). 🎮 Gaming DIRECT (PUBG, Liên Quân, Genshin...). 📺 Streaming PROXY (Netflix, Disney+, HBO...). ⚡ Tối ưu DNS, Banking VN, GeoIP VN, Chặn iOS OTA & App Store Ads. | v2.8.4-stable (2026-10-15)
+#!version=2.8.4-stable
+#!date=2026-10-15
 #!author=Nguyễn Ngọc Anh Tú (z3rokaze)
 #!homepage=https://github.com/ekaznyra/NguyenNgocAnhTu
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/VIP.png
@@ -21,7 +21,7 @@ udp-policy-not-supported-behaviour = REJECT
 always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, *.turn.apple.com, *.stun.services.mozilla.com
 skip-proxy = %APPEND% 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.lan, captive.apple.com, detectportal.firefox.com, connectivitycheck.gstatic.com, clients3.google.com, www.msftconnecttest.com, www.msftncsi.com
 tun-excluded-routes = %APPEND% 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, 239.255.255.250/32
-force-http-engine-hosts = %APPEND% api.revenuecat.com:443, api.rc-backup.com:443, buy.itunes.apple.com:443, api.intsig.net:443, api-cs.intsig.net:443, vsco.co:443, h5.xiuxiu.meitu.com:443, api.xiuxiu.meitu.com:443, api-sub.meitu.com:443, user-snow-api.snow.me:443, api.mr.pixocial.com:443, newbeee-api.beautyplus.com:443, premium-api.truecaller.com:443, lapi.photomath.net:443, us-central1-alight-creative.cloudfunctions.net:443, api-account.kinemasters.com:443, www.xmind.app:443, www.xmind.net:443, www.xmind.cn:443, api.funimate.com:443, api.busuu.com:443, app.algoriddim.com:443, api.prod.headspace.com:443, api.picsart.com:443, lcs-mobile-cops.adobe.io:443, mb3admin.com:443, api-mobile.soundcloud.com:443, account.wps.com:443, account.wps.cn:443, v1.darkroom.co:443, server.yoyiapp.com:443, api.calm.com:443, com.zijayrate.analogcam:443, api.elsaspeak.com:443, api.photoroom.com:443, api.remini.ai:443, api.bazaart.me:443, *.oracle.bendingspoonsapps.com:443, license.pdfexpert.com:443, app.bilibili.com:443, api.flexibits.com:443, youtubei.googleapis.com:443, www.youtube.com:443, s.youtube.com:443, spclient.wg.spotify.com:443, *-spclient.spotify.com:443, gads.current.spotify.com:443, api.spotify.com:443
+force-http-engine-hosts = %APPEND% api.revenuecat.com:443, api.rc-backup.com:443, buy.itunes.apple.com:443, api.intsig.net:443, api-cs.intsig.net:443, vsco.co:443, h5.xiuxiu.meitu.com:443, api.xiuxiu.meitu.com:443, api-sub.meitu.com:443, user-snow-api.snow.me:443, api.mr.pixocial.com:443, newbeee-api.beautyplus.com:443, premium-api.truecaller.com:443, lapi.photomath.net:443, us-central1-alight-creative.cloudfunctions.net:443, api-account.kinemasters.com:443, www.xmind.app:443, www.xmind.net:443, www.xmind.cn:443, api.funimate.com:443, api.busuu.com:443, app.algoriddim.com:443, api.prod.headspace.com:443, api.picsart.com:443, lcs-mobile-cops.adobe.io:443, mb3admin.com:443, api-mobile.soundcloud.com:443, account.wps.com:443, account.wps.cn:443, v1.darkroom.co:443, server.yoyiapp.com:443, api.calm.com:443, com.zijayrate.analogcam:443, api.elsaspeak.com:443, api.photoroom.com:443, api.remini.ai:443, api.bazaart.me:443, *.oracle.bendingspoonsapps.com:443, license.pdfexpert.com:443, app.bilibili.com:443, api.flexibits.com:443, youtubei.googleapis.com:443, www.youtube.com:443, s.youtube.com:443, spclient.wg.spotify.com:443, *-spclient.spotify.com:443, gads.current.spotify.com:443, api.spotify.com:443, firebaseremoteconfig.googleapis.com:443
 
 [Rule]
 # === SPOTIFY DIRECT DOMAINS (PERFECT PLAYBACK - NO AUDIO DROP) ===
@@ -180,6 +180,9 @@ Spotify_Premium = type=http-response, pattern=^https?:\/\/(api\.spotify\.com\/v1
 RevenueCat_Multi = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=-1, timeout=60
 RevenueCat_Multi_Backup = type=http-response, pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=-1, timeout=60
 
+# 💛 Locket Gold — Quay & Tải Video 30s VIP (Remote Config Rewrite)
+Locket_30s = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js, requires-body=1, max-size=-1, timeout=30
+
 # 📺 YouTube Premium — Full Response Handler (Chặn QC 100% + Nghe nhạc nền + PiP + Phụ đề Tiếng Việt)
 YouTube_Premium = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch), requires-body=1, max-size=-1, binary-body-mode=1, timeout=30, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/youtube.response.js, argument={"lyricLang":"vi","captionLang":"vi","blockUpload":false,"blockImmersive":false,"blockShorts":false,"debug":false}
 
@@ -187,16 +190,16 @@ YouTube_Premium = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.c
 iTunes_Premium = type=http-response, pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/iTunes.js, requires-body=1, max-size=-1, timeout=60
 
 # 📄 CamScanner Premium (Quét tài liệu HD, OCR nhận diện chữ Tiếng Việt, xuất Word/Excel/PDF VIP)
-CamScanner_Premium = type=http-response, pattern=^https:\/\/(api|api-cs.*)\.intsig\.net\/(purchase\/cs\/query_prop|queryProperty|getPrivilegeItem), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/camScanner.js, requires-body=1, max-size=0, timeout=15
+CamScanner_Premium = type=http-response, pattern=^https:\/\/(api|api-cs.*)\.intsig\.net\/(purchase\/cs\/query_prop|queryProperty|getPrivilegeItem), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/camScanner.js, requires-body=1, max-size=0, timeout=30
 
 # 📸 VSCO Membership (Mở khóa 200+ bộ lọc màu phim Preset VIP & công cụ chỉnh màu video)
-VSCO_Membership = type=http-response, pattern=^https:\/\/vsco\.co\/api\/subscriptions\/2\.1\/user-subscriptions, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/VSCO.js, requires-body=1, timeout=10, max-size=131072
+VSCO_Membership = type=http-response, pattern=^https:\/\/vsco\.co\/api\/subscriptions\/2\.1\/user-subscriptions, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/VSCO.js, requires-body=1, timeout=30, max-size=131072
 
 # 👑 Meitu XiuXiu VIP (Trang điểm AI, mịn da 4K, chỉnh vóc dáng chuẩn VIP)
 Meitu_VIP = type=http-response, pattern=^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/meitu.js, requires-body=1, max-size=0, timeout=60
 
 # 🎬 Wink Forever VIP (Làm nét video 4K 60fps, xóa watermark, làm đẹp video)
-Wink_VIP = type=http-response, pattern=^https?:\/\/api-sub\.meitu\.com\/.*vip, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Wink.js, requires-body=1, max-size=0, timeout=10
+Wink_VIP = type=http-response, pattern=^https?:\/\/api-sub\.meitu\.com\/.*vip, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Wink.js, requires-body=1, max-size=0, timeout=30
 
 # ❄️ SNOW / EPIK VIP (Filter & Sticker trang điểm VIP)
 Snow_VIP = type=http-response, pattern=^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Snow.js, requires-body=1, max-size=-1, timeout=60
@@ -205,176 +208,176 @@ Snow_VIP = type=http-response, pattern=^https?:\/\/user-snow-api\.snow\.me\/v\d\
 BeautyPlus_Premium = type=http-response, pattern=^https:\/\/(api\.mr\.pixocial\.com\/v1\/manual_unlock|newbeee-api\.beautyplus\.com\/api\/v1\/asset\/balance), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/BeautyPlus.js, requires-body=1, timeout=60, max-size=0
 
 # 📞 Truecaller Gold (Chặn cuộc gọi rác & lừa đảo, nhận diện tên người gọi)
-Truecaller_Gold = type=http-response, pattern=^https:\/\/premium-(.+)\.truecaller\.com\/v\d\/(subscriptions|products\/apple), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/TrueCaller.js, requires-body=1, max-size=0, timeout=10
+Truecaller_Gold = type=http-response, pattern=^https:\/\/premium-(.+)\.truecaller\.com\/v\d\/(subscriptions|products\/apple), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/TrueCaller.js, requires-body=1, max-size=0, timeout=30
 
 # 🧮 Photomath Plus (Quét đề toán, giải chi tiết từng bước 2099)
-Photomath_Plus = type=http-response, pattern=^https?:\/\/lapi\.photomath\.net\/v4\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/photomath.js, requires-body=1, max-size=0, timeout=10
+Photomath_Plus = type=http-response, pattern=^https?:\/\/lapi\.photomath\.net\/v4\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/photomath.js, requires-body=1, max-size=0, timeout=30
 
 # 🎬 Alight Motion Pro (Edit video Motion Graphics, hiệu ứng Pro 4K)
-AlightMotion_Pro = type=http-response, pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/AlightMotion.js, requires-body=1, max-size=0, timeout=10
+AlightMotion_Pro = type=http-response, pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/AlightMotion.js, requires-body=1, max-size=0, timeout=30
 
 # 🎬 KineMaster Premium (Biên tập video 4K nhiều lớp, xóa logo KineMaster)
-KineMaster_Premium = type=http-response, pattern=^https:\/\/api-account\.kinemasters\.com\/v\d\/user\/subscribe$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Kinemaster.js, requires-body=1, timeout=10, max-size=0
+KineMaster_Premium = type=http-response, pattern=^https:\/\/api-account\.kinemasters\.com\/v\d\/user\/subscribe$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Kinemaster.js, requires-body=1, timeout=30, max-size=0
 
 # 🧠 XMind Pro (Sơ đồ tư duy Mindmap Pro, xuất PDF HD)
-XMind_Pro = type=http-response, pattern=^https?:\/\/www\.xmind\.(cn|net|app)\/_res\/devices, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/xmind.js, requires-body=1, max-size=0, timeout=10
+XMind_Pro = type=http-response, pattern=^https?:\/\/www\.xmind\.(cn|net|app)\/_res\/devices, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/xmind.js, requires-body=1, max-size=0, timeout=30
 
 # 🎬 Funimate Pro (Hiệu ứng video độc quyền TikTok/Reels)
-Funimate_Pro = type=http-response, pattern=^https:\/\/api\.funimate\.com\/users\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/funimate.js, requires-body=1, timeout=10, max-size=131072
+Funimate_Pro = type=http-response, pattern=^https:\/\/api\.funimate\.com\/users\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/funimate.js, requires-body=1, timeout=30, max-size=131072
 
 # 📖 Busuu Premium (Học ngoại ngữ Anh/Nhật/Trung/Hàn & nhận chứng chỉ)
-Busuu_Premium = type=http-response, pattern=^https:\/\/api\.busuu\.com\/users\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/busuu.js, requires-body=1, timeout=10, max-size=0
+Busuu_Premium = type=http-response, pattern=^https:\/\/api\.busuu\.com\/users\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/busuu.js, requires-body=1, timeout=30, max-size=0
 
 # 🦉 Duolingo Super / Max (Vô hạn tim, Không Ads, Max AI)
-Duolingo_Super = type=http-response, pattern=^https?:\/\/(api|ios-api-cdn)\.duolingo\.com\/(2017-06-30\/users\/|users\/), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/duolingo.js, requires-body=1, timeout=10, max-size=0
+Duolingo_Super = type=http-response, pattern=^https?:\/\/(api|ios-api-cdn)\.duolingo\.com\/(2017-06-30\/users\/|users\/), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/duolingo.js, requires-body=1, timeout=30, max-size=0
 
 # 🍰 Cake English Plus (Luyện nói giao tiếp, video song ngữ)
-Cake_Plus = type=http-response, pattern=^https?:\/\/api\.mycake\.me\/v\d+\/users\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/cake.js, requires-body=1, timeout=10, max-size=0
+Cake_Plus = type=http-response, pattern=^https?:\/\/api\.mycake\.me\/v\d+\/users\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/cake.js, requires-body=1, timeout=30, max-size=0
 
 # 📑 Quizlet Plus (Flashcards, học Offline, giải thích chuyên sâu)
-Quizlet_Plus = type=http-response, pattern=^https?:\/\/quizlet\.com\/webapi\/3\.4\/users\/, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/quizlet.js, requires-body=1, timeout=10, max-size=0
+Quizlet_Plus = type=http-response, pattern=^https?:\/\/quizlet\.com\/webapi\/3\.4\/users\/, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/quizlet.js, requires-body=1, timeout=30, max-size=0
 
 # 🎵 djay Pro AI (Mix nhạc DJ chuyên nghiệp, Neural Mix tách nhạc AI)
-djay_Pro = type=http-response, pattern=^https:\/\/app\.algoriddim\.com\/api\/v1\/validate-receipt, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/djay.js, requires-body=1, timeout=10, max-size=0
+djay_Pro = type=http-response, pattern=^https:\/\/app\.algoriddim\.com\/api\/v1\/validate-receipt, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/djay.js, requires-body=1, timeout=30, max-size=0
 
 # 🧘 Headspace Plus (Thiền giảm stress & nhạc ru ngủ sâu)
-Headspace_Plus = type=http-response, pattern=^https:\/\/api\.prod\.headspace\.com\/.*\/user-subscriptions, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/headspace.js, requires-body=1, timeout=10, max-size=131072
+Headspace_Plus = type=http-response, pattern=^https:\/\/api\.prod\.headspace\.com\/.*\/user-subscriptions, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/headspace.js, requires-body=1, timeout=30, max-size=131072
 
 # 🎨 PicsArt Gold (Tách nền AI, sticker & font chữ Gold)
 PicsArt_Gold = type=http-response, pattern=^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/PicsArt.js, requires-body=1, timeout=60, max-size=0
 
 # 🎨 Adobe Photoshop Express Premium (Chỉnh ảnh chuyên nghiệp, xóa nhiễu noise)
-Photoshop_Express = type=http-response, pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/photoshop.js, requires-body=1, timeout=10, max-size=0
+Photoshop_Express = type=http-response, pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/photoshop.js, requires-body=1, timeout=30, max-size=0
 
 # 🎬 Emby Premiere (Phát phim & streaming media Premiere)
-Emby_Premiere = type=http-response, pattern=^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/emby.js, requires-body=1, timeout=10, max-size=0
+Emby_Premiere = type=http-response, pattern=^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/emby.js, requires-body=1, timeout=30, max-size=0
 
 # 🎧 SoundCloud Go+ (Nghe nhạc Lossless chất lượng cao, không QC, tải nhạc offline)
-SoundCloud_Go = type=http-response, pattern=^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/soundcloud.js, requires-body=1, timeout=15
+SoundCloud_Go = type=http-response, pattern=^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/soundcloud.js, requires-body=1, timeout=30
 
 # 📝 WPS Office Super VIP (Mở khóa toàn bộ tính năng VIP xem/chỉnh sửa Word, Excel, PowerPoint & PDF)
-WPS_Office = type=http-response, pattern=^https?:\/\/.*?account\.wps\.(com|cn)(:\d+)?\/api\/users\/\w+\/overview$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/wps.js, requires-body=1, timeout=10
+WPS_Office = type=http-response, pattern=^https?:\/\/.*?account\.wps\.(com|cn)(:\d+)?\/api\/users\/\w+\/overview$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/wps.js, requires-body=1, timeout=30
 
 # 🎨 Darkroom Pro (Chỉnh sửa ảnh màu phim chuyên nghiệp tốt nhất iOS)
-Darkroom_Pro = type=http-response, pattern=^https:\/\/v1\.darkroom\.co\/v1\/receipts\/apple, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/darkroom.js, requires-body=1, timeout=10
+Darkroom_Pro = type=http-response, pattern=^https:\/\/v1\.darkroom\.co\/v1\/receipts\/apple, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/darkroom.js, requires-body=1, timeout=30
 
 # 📷 OldRoll Camera VIP (Bộ máy ảnh phim cổ điển CCD/Leica/Y2K hot trend)
-OldRoll_Camera = type=http-response, pattern=^https?:\/\/com\.zijayrate\.analogcam\/vipforever10, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/oldroll.js, requires-body=1, timeout=10
+OldRoll_Camera = type=http-response, pattern=^https?:\/\/com\.zijayrate\.analogcam\/vipforever10, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/oldroll.js, requires-body=1, timeout=30
 
 # 📷 Fimo Camera VIP (Máy ảnh phim retro vintage)
-Fimo_Camera = type=http-response, pattern=^https:\/\/server\.yoyiapp\.com\/fimo-user\/user$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/fimo.js, requires-body=1, timeout=10
+Fimo_Camera = type=http-response, pattern=^https:\/\/server\.yoyiapp\.com\/fimo-user\/user$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/fimo.js, requires-body=1, timeout=30
 
 # 🧘 Calm Premium (Hướng dẫn thiền định & âm thanh giấc ngủ số 1 thế giới)
-Calm_Premium = type=http-response, pattern=^https?:\/\/api\.calm\.com\/(me|device|ios\/receipt), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/calm.js, requires-body=1, timeout=10
+Calm_Premium = type=http-response, pattern=^https?:\/\/api\.calm\.com\/(me|device|ios\/receipt), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/calm.js, requires-body=1, timeout=30
 
 # 🥄 Bending Spoons Suite (Splice, Remini, FilmicPro, Focos, 30DayFitness)
-BendingSpoons = type=http-response, pattern=^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify), script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Focos.js, requires-body=1, max-size=0, timeout=10
+BendingSpoons = type=http-response, pattern=^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify), script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Focos.js, requires-body=1, max-size=0, timeout=30
 
 # 📕 PDF Expert - Readdle (Mở khóa tính năng VIP)
-PDFExpert = type=http-request, pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/PDFExpert.js, requires-body=1, max-size=0, timeout=10
+PDFExpert = type=http-request, pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/PDFExpert.js, requires-body=1, max-size=0, timeout=30
 
 # 📁 Documents by Readdle
-Documents_Readdle = type=http-request, pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/documents.js, requires-body=1, max-size=0, timeout=10
+Documents_Readdle = type=http-request, pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/documents.js, requires-body=1, max-size=0, timeout=30
 
 # 📄 Adobe Scan (Quét PDF chuyên nghiệp)
-AdobeScan = type=http-response, pattern=^https?:\/\/lcs-mobile-cops\.adobe\.io\/(?!mobile_profile).+, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/adobeScanPdf.js, requires-body=1, timeout=10
+AdobeScan = type=http-response, pattern=^https?:\/\/lcs-mobile-cops\.adobe\.io\/(?!mobile_profile).+, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/adobeScanPdf.js, requires-body=1, timeout=30
 
 # 📺 Bilibili Premium
-Bilibili = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/bilibili.js, requires-body=1, timeout=10
+Bilibili = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/bilibili.js, requires-body=1, timeout=30
 
 # 📅 Fantastical Premium (Lịch & Lập kế hoạch)
-Fantastical = type=http-response, pattern=^https:\/\/api\.flexibits\.com\/(v1\/auth\/device|v1\/account\/details), script-path=https://raw.githubusercontent.com/deezertidal/private/38b9581548b5070f2dc9c6bfa243cdacf0672d31/js-backup/Crack/fantastical.js, requires-body=1, timeout=10
+Fantastical = type=http-response, pattern=^https:\/\/api\.flexibits\.com\/(v1\/auth\/device|v1\/account\/details), script-path=https://raw.githubusercontent.com/deezertidal/private/38b9581548b5070f2dc9c6bfa243cdacf0672d31/js-backup/Crack/fantastical.js, requires-body=1, timeout=30
 
 # 🌐 iTranslate Pro (Dịch thuật)
-iTranslate = type=http-request, pattern=^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/iTranslate.js, requires-body=1, max-size=0, timeout=10
+iTranslate = type=http-request, pattern=^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/iTranslate.js, requires-body=1, max-size=0, timeout=30
 
 # 🌐 Lingvist (Học ngoại ngữ AI)
-Lingvist = type=http-response, pattern=^https:\/\/payment-api\.lingvist\.com\/.+\/user\/services, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Lingvist.js, requires-body=1, max-size=0, timeout=10
+Lingvist = type=http-response, pattern=^https:\/\/payment-api\.lingvist\.com\/.+\/user\/services, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Lingvist.js, requires-body=1, max-size=0, timeout=30
 
 # 📅 Agenda Premium
-Agenda = type=http-response, pattern=^https:\/\/accounts\.agenda\.com\/users\/.*\/license, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Agenda.js, requires-body=1, max-size=0, timeout=10
+Agenda = type=http-response, pattern=^https:\/\/accounts\.agenda\.com\/users\/.*\/license, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Agenda.js, requires-body=1, max-size=0, timeout=30
 
 # 📄 iLovePDF Premium
-iLovePDF = type=http-response, pattern=^https?:\/\/service\.ilovepdf\.com\/v1\/user, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/lovePdf.js, requires-body=1, timeout=10
+iLovePDF = type=http-response, pattern=^https?:\/\/service\.ilovepdf\.com\/v1\/user, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/lovePdf.js, requires-body=1, timeout=30
 
 # 🌐 Mondly Premium
-Mondly = type=http-response, pattern=^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Mondly.js, requires-body=1, timeout=10
+Mondly = type=http-response, pattern=^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Mondly.js, requires-body=1, timeout=30
 
 # 🌐 Memrise Premium
-Memrise = type=http-response, pattern=^https:\/\/api\.memrise\.com\/v1\.18, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Memrise.js, requires-body=1, timeout=10
+Memrise = type=http-response, pattern=^https:\/\/api\.memrise\.com\/v1\.18, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Memrise.js, requires-body=1, timeout=30
 
 # 🌐 Aloha Browser Premium
-Aloha = type=http-response, pattern=^https?:\/\/api\.alohaprofile\.com\/v1\/profile_info, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/aloha.js, requires-body=1, timeout=10
+Aloha = type=http-response, pattern=^https?:\/\/api\.alohaprofile\.com\/v1\/profile_info, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/aloha.js, requires-body=1, timeout=30
 
 # 🧘 Daily Yoga Premium
-DailyYoga = type=http-response, pattern=^https?:\/\/pre\.dailyyoga\.com\/h2oapi\/user\/getUserDetail, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/dailyYoga.js, requires-body=1, timeout=10
+DailyYoga = type=http-response, pattern=^https?:\/\/pre\.dailyyoga\.com\/h2oapi\/user\/getUserDetail, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/dailyYoga.js, requires-body=1, timeout=30
 
 # 🌤 AccuWeather Premium
-AccuWeather = type=http-response, pattern=^https?:\/\/app-subscription-proxy\.accuweather\.com\/subscriptions\/v1\/apple\/validate, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/accuWeather.js, requires-body=1, timeout=10
+AccuWeather = type=http-response, pattern=^https?:\/\/app-subscription-proxy\.accuweather\.com\/subscriptions\/v1\/apple\/validate, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/accuWeather.js, requires-body=1, timeout=30
 
 # 😴 Endel Focus/Sleep
-Endel = type=http-response, pattern=^https:\/\/api-production\.endel\.io\/v4\/call, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Endel.js, requires-body=1, timeout=10
+Endel = type=http-response, pattern=^https:\/\/api-production\.endel\.io\/v4\/call, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Endel.js, requires-body=1, timeout=30
 
 # 📝 Flomo Notes
-Flomo = type=http-response, pattern=^https:\/\/flomoapp\.com\/api\/v1\/user\/me, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/flomo.js, requires-body=1, timeout=10
+Flomo = type=http-response, pattern=^https:\/\/flomoapp\.com\/api\/v1\/user\/me, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/flomo.js, requires-body=1, timeout=30
 
 # ✍ Drafts Pro
-Drafts = type=http-response, pattern=^https:\/\/backend\.getdrafts\.com\/api\/v1\/verification\/verify_receipt, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Drafts.js, requires-body=1, timeout=10
+Drafts = type=http-response, pattern=^https:\/\/backend\.getdrafts\.com\/api\/v1\/verification\/verify_receipt, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Drafts.js, requires-body=1, timeout=30
 
 # 💪 Keep Fitness
-Keep = type=http-response, pattern=^https:\/\/api\.gotokeep\.com, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/keep.js, requires-body=1, timeout=10
+Keep = type=http-response, pattern=^https:\/\/api\.gotokeep\.com, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/keep.js, requires-body=1, timeout=30
 
 # 🎬 InVideo Premium
-InVideo = type=http-response, pattern=^https?:\/\/payments\.invideo\.io\/(verify_purchase|subscription), script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/filmr.js, requires-body=1, max-size=0, timeout=10
+InVideo = type=http-response, pattern=^https?:\/\/payments\.invideo\.io\/(verify_purchase|subscription), script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/filmr.js, requires-body=1, max-size=0, timeout=30
 
 # 💬 Nicegram Premium
-Nicegram = type=http-request, pattern=^https?:\/\/restore-access\.indream\.app\/restoreAccess\?id=\w+$, script-path=https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/38f4fa9b9a963457d7ea5a93fdcd1cd44945a49e/Nicegram/Script/Nicegram.js, requires-body=0, max-size=0, timeout=10
+Nicegram = type=http-request, pattern=^https?:\/\/restore-access\.indream\.app\/restoreAccess\?id=\w+$, script-path=https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/38f4fa9b9a963457d7ea5a93fdcd1cd44945a49e/Nicegram/Script/Nicegram.js, requires-body=0, max-size=0, timeout=30
 
 # 🎨 Adobe Lightroom Premium
-Lightroom = type=http-response, pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts, script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/df5c91a861bc68652958150281a655d9d71bed74/Script/lightroom.js, requires-body=1, timeout=10, max-size=131072
+Lightroom = type=http-response, pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts, script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/df5c91a861bc68652958150281a655d9d71bed74/Script/lightroom.js, requires-body=1, timeout=30, max-size=131072
 
 # 📷 B612 Kaji VIP
 B612_Kaji = type=http-response, pattern=^https?:\/\/user-kaji-api\.b612kaji\.com\/v\d\/purchase\/subscription\/subscriber\/status, script-path=https://raw.githubusercontent.com/deezertidal/private/38b9581548b5070f2dc9c6bfa243cdacf0672d31/js-backup/Crack/612.js, requires-body=1, max-size=-1, timeout=60
 
 # ⏰ Alarmy Pro
-Alarmy = type=http-response, pattern=^https:\/\/ars\.alar\.my\/api\/v2\/user\/sync, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/alarmy.js, requires-body=1, max-size=0, timeout=10
+Alarmy = type=http-response, pattern=^https:\/\/ars\.alar\.my\/api\/v2\/user\/sync, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/alarmy.js, requires-body=1, max-size=0, timeout=30
 
 # ✍ Grammarly Premium
-Grammarly = type=http-response, pattern=^https?:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$, script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/08eada498e940f8ec190fb4233a781d1628abc80/GrammarlyPremiumCrack.js, requires-body=1, timeout=10
+Grammarly = type=http-response, pattern=^https?:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$, script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/08eada498e940f8ec190fb4233a781d1628abc80/GrammarlyPremiumCrack.js, requires-body=1, timeout=30
 
 # 📝 Notability Plus
-Notability = type=http-response, pattern=^https:\/\/notability\.com\/subscriptions, script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/df5c91a861bc68652958150281a655d9d71bed74/Script/notability.js, requires-body=1, timeout=10
+Notability = type=http-response, pattern=^https:\/\/notability\.com\/subscriptions, script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/df5c91a861bc68652958150281a655d9d71bed74/Script/notability.js, requires-body=1, timeout=30
 
 # 📄 Smallpdf Pro
-Smallpdf = type=http-response, pattern=^https?:\/\/pro\.smallpdf\.com\/pro\/account, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/smallpdf.js, requires-body=1, timeout=10
+Smallpdf = type=http-response, pattern=^https?:\/\/pro\.smallpdf\.com\/pro\/account, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/smallpdf.js, requires-body=1, timeout=30
 
 # 🧠 Peak Pro
-Peak = type=http-response, pattern=^https:\/\/billing\.peakcloud\.org\/billing\/2\/user\/me, script-path=https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/503cab549a2eae6004576481d3c54dd459a2b377/js/peak.js, requires-body=1, timeout=10
+Peak = type=http-response, pattern=^https:\/\/billing\.peakcloud\.org\/billing\/2\/user\/me, script-path=https://raw.githubusercontent.com/deezertidal/shadowrocket-rules/503cab549a2eae6004576481d3c54dd459a2b377/js/peak.js, requires-body=1, timeout=30
 
 # 🎨 Polarr Pro
-Polarr = type=http-response, pattern=^https:\/\/api\.polaxiong\.com\/v1\/payments\/appleiap\/receipts\/confirmation, script-path=https://raw.githubusercontent.com/NobyDa/Script/7f8b309f8d943806b90c6ff25d8b8aa0c59b0c03/Surge/JS/Polarr.js, requires-body=1, timeout=10
+Polarr = type=http-response, pattern=^https:\/\/api\.polaxiong\.com\/v1\/payments\/appleiap\/receipts\/confirmation, script-path=https://raw.githubusercontent.com/NobyDa/Script/7f8b309f8d943806b90c6ff25d8b8aa0c59b0c03/Surge/JS/Polarr.js, requires-body=1, timeout=30
 
 # 🏃 MyFitnessPal Premium
-MyFitnessPal = type=http-response, pattern=^https?:\/\/premium-api\.myfitnesspal\.com\/v3\/subscriptions\/MFP\/, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/myFitnessPal.js, requires-body=1, timeout=10
+MyFitnessPal = type=http-response, pattern=^https?:\/\/premium-api\.myfitnesspal\.com\/v3\/subscriptions\/MFP\/, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/myFitnessPal.js, requires-body=1, timeout=30
 
 # 🎵 Musixmatch Premium
-Musixmatch = type=http-response, pattern=^https?:\/\/apic\.musixmatch\.com\/ws\/1\.1\/config\.get, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/musixmatch.js, requires-body=1, timeout=10
+Musixmatch = type=http-response, pattern=^https?:\/\/apic\.musixmatch\.com\/ws\/1\.1\/config\.get, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/musixmatch.js, requires-body=1, timeout=30
 
 # 📷 Varlens DSLR Pro
-Varlens = type=http-response, pattern=^https:\/\/mid\.zineapi\.com\/@varlens\/api\/user\/info\/, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Varlens.js, requires-body=1, timeout=10
+Varlens = type=http-response, pattern=^https:\/\/mid\.zineapi\.com\/@varlens\/api\/user\/info\/, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Varlens.js, requires-body=1, timeout=30
 
 # 🎵 Boom 3D Equalizer
-Boom_3D = type=http-response, pattern=^https:\/\/apimboom2\.globaldelight\.net\/itunesreceipt_v2\.php$, script-path=https://raw.githubusercontent.com/deezertidal/private/38b9581548b5070f2dc9c6bfa243cdacf0672d31/js-backup/Crack/boom.js, requires-body=1, timeout=10
+Boom_3D = type=http-response, pattern=^https:\/\/apimboom2\.globaldelight\.net\/itunesreceipt_v2\.php$, script-path=https://raw.githubusercontent.com/deezertidal/private/38b9581548b5070f2dc9c6bfa243cdacf0672d31/js-backup/Crack/boom.js, requires-body=1, timeout=30
 
 # 📝 Craft Docs Pro (yfamilys)
-Craft_Pro = type=http-response, pattern=^https:\/\/api\.craft\.do\/auth\/v2\/profile, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Craft.js, requires-body=1, timeout=10
+Craft_Pro = type=http-response, pattern=^https:\/\/api\.craft\.do\/auth\/v2\/profile, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Craft.js, requires-body=1, timeout=30
 
 # 📅 Sorted³ Pro (yfamilys)
-Sorted_Pro = type=http-response, pattern=^https:\/\/api\.sortedapp\.com\/receipts\/verify, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Sorted.js, requires-body=1, timeout=10
+Sorted_Pro = type=http-response, pattern=^https:\/\/api\.sortedapp\.com\/receipts\/verify, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Sorted.js, requires-body=1, timeout=30
 
 # 📖 Day One Journal Premium (yfamilys)
-DayOne_Journal = type=http-response, pattern=^https?:\/\/dayone\.app\/api\/v2\/users\/(receipt|account-status), script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/dayone.js, requires-body=1, timeout=10
+DayOne_Journal = type=http-response, pattern=^https?:\/\/dayone\.app\/api\/v2\/users\/(receipt|account-status), script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/dayone.js, requires-body=1, timeout=30
 
 [MITM]
 enable = true
-hostname = %APPEND% api.revenuecat.com, api.rc-backup.com, buy.itunes.apple.com, api.intsig.net, api-cs.intsig.net, *.intsig.net, vsco.co, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com, api-sub.meitu.com, user-snow-api.snow.me, api.mr.pixocial.com, newbeee-api.beautyplus.com, *.truecaller.com, premium-*.truecaller.com, lapi.photomath.net, us-central1-alight-creative.cloudfunctions.net, api-account.kinemasters.com, www.xmind.app, www.xmind.net, www.xmind.cn, api.funimate.com, api.busuu.com, app.algoriddim.com, api.prod.headspace.com, api.picsart.com, api.picsart.cn, api.meiease.com, api.meiease.cn, lcs-mobile-cops.adobe.io, mb3admin.com, api-mobile.soundcloud.com, account.wps.com, account.wps.cn, *.account.wps.com, v1.darkroom.co, server.yoyiapp.com, api.calm.com, com.zijayrate.analogcam, api.elsaspeak.com, api.photoroom.com, api.remini.ai, api.bazaart.me, *.oracle.bendingspoonsapps.com, license.pdfexpert.com, app.bilibili.com, api.flexibits.com, ssl-api.itranslateapp.com, payment-api.lingvist.com, accounts.agenda.com, service.ilovepdf.com, api.mondlylanguages.com, api.memrise.com, api.alohaprofile.com, pre.dailyyoga.com, app-subscription-proxy.accuweather.com, api-production.endel.io, flomoapp.com, backend.getdrafts.com, api.gotokeep.com, payments.invideo.io, restore-access.indream.app, photos.adobe.io, user-kaji-api.b612kaji.com, ars.alar.my, subscription.grammarly.com, notability.com, pro.smallpdf.com, billing.peakcloud.org, api.polaxiong.com, premium-api.myfitnesspal.com, apic.musixmatch.com, mid.zineapi.com, apimboom2.globaldelight.net, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com, spclient.wg.spotify.com, *-spclient.spotify.com, gads.current.spotify.com, api.spotify.com, api.duolingo.com, ios-api-cdn.duolingo.com, api.mycake.me, quizlet.com, api.craft.do, api.sortedapp.com, dayone.app
+hostname = %APPEND% api.revenuecat.com, api.rc-backup.com, buy.itunes.apple.com, api.intsig.net, api-cs.intsig.net, *.intsig.net, vsco.co, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com, api-sub.meitu.com, user-snow-api.snow.me, api.mr.pixocial.com, newbeee-api.beautyplus.com, *.truecaller.com, premium-*.truecaller.com, lapi.photomath.net, us-central1-alight-creative.cloudfunctions.net, api-account.kinemasters.com, www.xmind.app, www.xmind.net, www.xmind.cn, api.funimate.com, api.busuu.com, app.algoriddim.com, api.prod.headspace.com, api.picsart.com, api.picsart.cn, api.meiease.com, api.meiease.cn, lcs-mobile-cops.adobe.io, mb3admin.com, api-mobile.soundcloud.com, account.wps.com, account.wps.cn, *.account.wps.com, v1.darkroom.co, server.yoyiapp.com, api.calm.com, com.zijayrate.analogcam, api.elsaspeak.com, api.photoroom.com, api.remini.ai, api.bazaart.me, *.oracle.bendingspoonsapps.com, license.pdfexpert.com, app.bilibili.com, api.flexibits.com, ssl-api.itranslateapp.com, payment-api.lingvist.com, accounts.agenda.com, service.ilovepdf.com, api.mondlylanguages.com, api.memrise.com, api.alohaprofile.com, pre.dailyyoga.com, app-subscription-proxy.accuweather.com, api-production.endel.io, flomoapp.com, backend.getdrafts.com, api.gotokeep.com, payments.invideo.io, restore-access.indream.app, photos.adobe.io, user-kaji-api.b612kaji.com, ars.alar.my, subscription.grammarly.com, notability.com, pro.smallpdf.com, billing.peakcloud.org, api.polaxiong.com, premium-api.myfitnesspal.com, apic.musixmatch.com, mid.zineapi.com, apimboom2.globaldelight.net, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com, spclient.wg.spotify.com, *-spclient.spotify.com, gads.current.spotify.com, api.spotify.com, api.duolingo.com, ios-api-cdn.duolingo.com, api.mycake.me, quizlet.com, api.craft.do, api.sortedapp.com, dayone.app, firebaseremoteconfig.googleapis.com

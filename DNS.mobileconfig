@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>DNSSettings</key>
+            <dict>
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+                <key>ServerURL</key>
+                <string>https://dns.nextdns.io/919bea</string>
+            </dict>
+            <key>PayloadDisplayName</key>
+            <string>👑 Anh Tú • Locket Gold 💛</string>
+            <key>PayloadIdentifier</key>
+            <string>com.apple.dnsSettings.managed.locket.919bea</string>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadUUID</key>
+            <string>8A1F3C4E-7B9D-4E2A-91C5-3F8E7D6A5B4C</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>✨ Duy trì Locket Gold trọn đời (Hạn 2099) khi tắt VPN • Chặn triệt để RevenueCat Validation • NextDNS DoH Bảo Mật Tuyệt Đối (ID: 919bea)</string>
+    <key>PayloadDisplayName</key>
+    <string>👑 Anh Tú • Locket Gold 💛</string>
+    <key>PayloadIdentifier</key>
+    <string>com.profile.system.locket.919bea</string>
+    <key>PayloadOrganization</key>
+    <string>Nguyễn Ngọc Anh Tú</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>FA4C1B2E-9D3F-4A7E-8C5B-1E2D3F4A5B6C</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
