@@ -1258,7 +1258,7 @@ scriptings:
       script-provider: yt-req
       require-body: true
       binary-mode: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: yt-res
       match: ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch)
@@ -1271,14 +1271,14 @@ scriptings:
       name: sp-json
       match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/
       script-provider: sp-json
-      timeout: 10
+      timeout: 30
   - http-response:
       name: sp-proto
       match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$
       script-provider: sp-proto
       require-body: true
       binary-mode: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: sp-premium-json
       match: ^https?:\/\/(api\.spotify\.com\/v1\/me|.*spclient.*\.spotify\.com(:443)?\/(identity\/v3\/me|device-capabilities\/v1\/capabilities|user-attributes\/v\d+\/attributes|bootstrap\/v1\/bootstrap|melody\/v1\/check_license))
@@ -1302,7 +1302,7 @@ scriptings:
       match: ^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios
       script-provider: sc-res
       require-body: true
-      timeout: 15
+      timeout: 30
   - http-response:
       name: pa-res
       match: ^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases
@@ -1326,91 +1326,91 @@ scriptings:
       match: ^https:\/\/photos\.adobe\.io\/v2\/accounts
       script-provider: lr-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: ps-res
       match: ^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile
       script-provider: ps-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: emby-res
       match: ^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice
       script-provider: emby-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: km-res
       match: ^https:\/\/api-account\.kinemasters\.com\/v\d\/user\/subscribe$
       script-provider: km-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: dj-res
       match: ^https:\/\/app\.algoriddim\.com\/api\/v1\/validate-receipt
       script-provider: dj-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: calm-res
       match: ^https?:\/\/api\.calm\.com\/(me|device|ios\/receipt)
       script-provider: calm-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: busuu-res
       match: ^https:\/\/api\.busuu\.com\/users\/me
       script-provider: busuu-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: duolingo-res
       match: ^https?:\/\/(api|ios-api-cdn)\.duolingo\.com\/(2017-06-30\/users\/|users\/)
       script-provider: duolingo-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: cake-res
       match: ^https?:\/\/api\.mycake\.me\/v\d+\/users\/me
       script-provider: cake-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: quizlet-res
       match: ^https?:\/\/quizlet\.com\/webapi\/3\.4\/users\/
       script-provider: quizlet-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: hs-res
       match: ^https:\/\/api\.prod\.headspace\.com\/.*\/user-subscriptions
       script-provider: hs-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: am-res
       match: ^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses
       script-provider: am-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: wink-res
       match: ^https?:\/\/api-sub\.meitu\.com\/.*vip
       script-provider: wink-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: tc-res
       match: ^https:\/\/premium-(.+)\.truecaller\.com\/v\d\/(subscriptions|products\/apple)
       script-provider: tc-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: cs-res
       match: ^https:\/\/(api|api-cs.*)\.intsig\.net\/(purchase\/cs\/query_prop|queryProperty|getPrivilegeItem)
       script-provider: cs-res
       require-body: true
-      timeout: 15
+      timeout: 30
   - http-response:
       name: bp-res
       match: ^https:\/\/(api\.mr\.pixocial\.com\/v1\/manual_unlock|newbeee-api\.beautyplus\.com\/api\/v1\/asset\/balance)
@@ -1422,7 +1422,7 @@ scriptings:
       match: ^https:\/\/vsco\.co\/api\/subscriptions\/2\.1\/user-subscriptions
       script-provider: vsco-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: snow-res
       match: ^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status
@@ -1446,7 +1446,7 @@ scriptings:
       match: ^https:\/\/api\.funimate\.com\/users\/me
       script-provider: fun-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: itunes-res
       match: ^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$
@@ -1458,237 +1458,237 @@ scriptings:
       match: ^https?:\/\/.*?account\.wps\.(com|cn)(:\d+)?\/api\/users\/\w+\/overview$
       script-provider: wps-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: darkroom-res
       match: ^https:\/\/v1\.darkroom\.co\/v1\/receipts\/apple
       script-provider: darkroom-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: oldroll-res
       match: ^https?:\/\/com\.zijayrate\.analogcam\/vipforever10
       script-provider: oldroll-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: xmind-res
       match: ^https?:\/\/www\.xmind\.(cn|net|app)\/_res\/devices
       script-provider: xmind-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: alarmy-res
       match: ^https:\/\/ars\.alar\.my\/api\/v2\/user\/sync
       script-provider: alarmy-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: grammarly-res
       match: ^https?:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$
       script-provider: grammarly-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: notability-res
       match: ^https:\/\/notability\.com\/subscriptions
       script-provider: notability-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: photomath-res
       match: ^https?:\/\/lapi\.photomath\.net\/v4\/me
       script-provider: photomath-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: smallpdf-res
       match: ^https?:\/\/pro\.smallpdf\.com\/pro\/account
       script-provider: smallpdf-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: peak-res
       match: ^https:\/\/billing\.peakcloud\.org\/billing\/2\/user\/me
       script-provider: peak-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: polarr-res
       match: ^https:\/\/api\.polaxiong\.com\/v1\/payments\/appleiap\/receipts\/confirmation
       script-provider: polarr-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: mfp-res
       match: ^https?:\/\/premium-api\.myfitnesspal\.com\/v3\/subscriptions\/MFP\/
       script-provider: mfp-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: mxm-res
       match: ^https?:\/\/apic\.musixmatch\.com\/ws\/1\.1\/config\.get
       script-provider: mxm-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: fimo-res
       match: ^https:\/\/server\.yoyiapp\.com\/fimo-user\/user$
       script-provider: fimo-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: varlens-res
       match: ^https:\/\/mid\.zineapi\.com\/@varlens\/api\/user\/info\/
       script-provider: varlens-res
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: boom-response
       match: ^https:\/\/apimboom2\.globaldelight\.net\/itunesreceipt_v2\.php$
       script-provider: boom-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: fantastical-response
       match: ^https:\/\/api\.flexibits\.com\/(v1\/auth\/device|v1\/account\/details)
       script-provider: fantastical-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: craft-response
       match: ^https:\/\/api\.craft\.do\/auth\/v2\/profile
       script-provider: craft-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: dayone-response
       match: ^https?:\/\/dayone\.app\/api\/v2\/users\/(receipt|account-status)
       script-provider: dayone-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-request:
       name: nicegram-request
       match: ^https?:\/\/restore-access\.indream\.app\/restoreAccess\?id=\w+$
       script-provider: nicegram-request
-      timeout: 10
+      timeout: 30
   - http-response:
       name: ilovepdf-response
       match: ^https?:\/\/service\.ilovepdf\.com\/v1\/user
       script-provider: ilovepdf-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: mondly-response
       match: ^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync
       script-provider: mondly-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: memrise-response
       match: ^https:\/\/api\.memrise\.com\/v1\.18
       script-provider: memrise-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: aloha-response
       match: ^https?:\/\/api\.alohaprofile\.com\/v1\/profile_info
       script-provider: aloha-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: dailyyoga-response
       match: ^https?:\/\/pre\.dailyyoga\.com\/h2oapi\/user\/getUserDetail
       script-provider: dailyyoga-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: accuweather-response
       match: ^https?:\/\/app-subscription-proxy\.accuweather\.com\/subscriptions\/v1\/apple\/validate
       script-provider: accuweather-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: endel-response
       match: ^https:\/\/api-production\.endel\.io\/v4\/call
       script-provider: endel-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: flomo-response
       match: ^https:\/\/flomoapp\.com\/api\/v1\/user\/me
       script-provider: flomo-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: drafts-response
       match: ^https:\/\/backend\.getdrafts\.com\/api\/v1\/verification\/verify_receipt
       script-provider: drafts-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: keep-response
       match: ^https:\/\/api\.gotokeep\.com
       script-provider: keep-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: invideo-response
       match: ^https?:\/\/payments\.invideo\.io\/(verify_purchase|subscription)
       script-provider: invideo-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-request:
       name: itranslate-request
       match: ^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios
       script-provider: itranslate-request
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: lingvist-response
       match: ^https:\/\/payment-api\.lingvist\.com\/.+\/user\/services
       script-provider: lingvist-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: bendingspoons-response
       match: ^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify)
       script-provider: bendingspoons-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: adobescan-response
       match: ^https?:\/\/lcs-mobile-cops\.adobe\.io\/(?!mobile_profile).+
       script-provider: adobescan-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: bilibili-response
       match: ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo
       script-provider: bilibili-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: agenda-response
       match: ^https:\/\/accounts\.agenda\.com\/users\/.*\/license
       script-provider: agenda-response
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-request:
       name: pdfexpert-request
       match: ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh
       script-provider: pdfexpert-request
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-request:
       name: documents-request
       match: ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh
       script-provider: documents-request
       require-body: true
-      timeout: 10
+      timeout: 30
   - http-response:
       name: sorted-response
       match: ^https:\/\/api\.sortedapp\.com\/receipts\/verify
       script-provider: sorted-response
       require-body: true
-      timeout: 10
+      timeout: 30

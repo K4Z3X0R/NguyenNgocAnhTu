@@ -351,6 +351,21 @@ def check_header_del_parity() -> None:
         print(f"[header-del] OK — 7/7 module hỗ trợ đều có header-del cho RevenueCat & iTunes (chống 304 cache)")
 
 
+def check_timeout_resilience() -> None:
+    bad = []
+    for f in module_files():
+        text = f.read_text(encoding="utf-8")
+        m1 = re.findall(r"timeout\s*=\s*(\d+)", text)
+        m2 = re.findall(r"timeout\s*:\s*(\d+)", text)
+        lows = [int(x) for x in m1 + m2 if int(x) < 30]
+        if lows:
+            bad.append(f"{f.name} (timeout: {set(lows)})")
+    if bad:
+        errors.append(f"[timeout] Module có script timeout < 30s: {'; '.join(bad)}")
+    else:
+        print("[timeout] OK — tất cả script trên mọi module đều có timeout >= 30s")
+
+
 def main() -> int:
     check_versions()
     check_json_arguments()
@@ -365,6 +380,7 @@ def main() -> int:
     check_all_local_js_parity()
     check_mitm_essential_parity()
     check_header_del_parity()
+    check_timeout_resilience()
     print("\n" + "=" * 60)
     if warnings:
         print(f"⚠️  {len(warnings)} cảnh báo:")

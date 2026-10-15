@@ -185,6 +185,7 @@ var entTemplate = {
     product_plan_identifier: prodKey,
     purchase_date: PURCHASED,
     original_purchase_date: PURCHASED,
+    ownership_type: "PURCHASED",
     store: "app_store",
     store_transaction_id: TXID
 };

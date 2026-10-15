@@ -298,3 +298,31 @@ DOMAIN,adeventtracker.spotify.com
 DOMAIN-SUFFIX,admarketing.facebook.com
 DOMAIN-SUFFIX,tr.facebook.com
 DOMAIN-SUFFIX,analytics.facebook.com
+
+# --- E-Commerce & Delivery Ads VN (Shopee, Lazada, Grab, Tiki, Sendo) ---
+DOMAIN-SUFFIX,ads.shopee.vn
+DOMAIN-SUFFIX,ad.shopee.vn
+DOMAIN-SUFFIX,tracking.shopee.vn
+DOMAIN-SUFFIX,ad.lazada.vn
+DOMAIN-SUFFIX,log.lazada.vn
+DOMAIN-SUFFIX,ads.grab.com
+DOMAIN-SUFFIX,ad.grab.com
+DOMAIN-SUFFIX,ads.tiki.vn
+DOMAIN-SUFFIX,ads.sendo.vn
+
+# --- Video Streaming & Truyền Hình VN Ads (FPT Play, VTV Go, VieON, ClipTV) ---
+DOMAIN-SUFFIX,ads.fptplay.net
+DOMAIN-SUFFIX,ad.fptplay.vn
+DOMAIN-SUFFIX,ads.vtvgo.vn
+DOMAIN-SUFFIX,ads.vieon.vn
+DOMAIN-SUFFIX,ads.cliptv.vn
+
+# --- Cốc Cốc & Trình duyệt Ads VN ---
+DOMAIN-SUFFIX,qc.coccoc.com
+DOMAIN-SUFFIX,ad.coccoc.com
+
+# --- ByteDance / TikTok Telemetry & Tracking bổ sung ---
+DOMAIN-SUFFIX,mon.zijieapi.com
+DOMAIN-SUFFIX,log.byteoversea.com
+DOMAIN-SUFFIX,log.ibytedtos.com
+
