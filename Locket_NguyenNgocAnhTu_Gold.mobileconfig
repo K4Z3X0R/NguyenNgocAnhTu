@@ -24,23 +24,28 @@
             <integer>1</integer>
         </dict>
 
-        <!-- 2. ĐIỀU HƯỚNG DNS QUA SERVER TRUNG GIAN RIÊNG CỦA TÚ (ĐÃ ẨN SẠCH TOKEN) -->
+        <!-- 2. ĐIỀU HƯỚNG DNS QUA SERVER TRUNG GIAN CLOUDFLARE CỦA TÚ -->
         <dict>
             <key>DNSSettings</key>
             <dict>
                 <key>DNSProtocol</key>
                 <string>HTTPS</string>
-                <key>&#83;&#x0065;&#x72;&#118;&#x0065;&#x72;&#85;&#x0052;&#x4C;</key>
-                <string>&#x68;&#116;&#x0074;&#x70;&#115;&#x003a;&#x2F;&#47;&#x006c;&#x6F;&#99;&#x006b;&#x65;&#116;&#x002d;&#x67;&#111;&#x006c;&#x64;&#46;&#x006e;&#x67;&#117;&#x0079;&#x65;&#110;&#x006e;&#x67;&#111;&#x0063;&#x61;&#110;&#x0068;&#x74;&#117;&#x0077;&#x6F;&#114;&#x006b;&#x2E;&#119;&#x006f;&#x72;&#107;&#x0065;&#x72;&#115;&#x002e;&#x64;&#101;&#x0076;&#x2F;&#100;&#x006e;&#x73;&#45;&#x0071;&#x75;&#101;&#x0072;&#x79;</string>
-                <key>&#x53;&#117;&#x0070;&#x70;&#108;&#x0065;&#x6D;&#101;&#x006e;&#x74;&#97;&#x006c;&#x4D;&#97;&#x0074;&#x63;&#104;&#x0044;&#x6F;&#109;&#x0061;&#x69;&#110;&#x0073;</key>
+                <key>ServerURL</key>
+                <string>https://locket-gold.nguyenngocanhtuwork.workers.dev/dns-query</string>
+                <key>ServerAddresses</key>
                 <array>
-                    <string>&#x61;&#112;&#x0069;&#x2E;&#114;&#x0065;&#x76;&#101;&#x006e;&#x75;&#101;&#x0063;&#x61;&#116;&#x002e;&#x63;&#111;&#x006d;</string>
-                    <string>&#102;&#x0069;&#x72;&#101;&#x0062;&#x61;&#115;&#x0065;&#x72;&#101;&#x006d;&#x6F;&#116;&#x0065;&#x63;&#111;&#x006e;&#x66;&#105;&#x0067;&#x2E;&#103;&#x006f;&#x6F;&#103;&#x006c;&#x65;&#97;&#x0070;&#x69;&#115;&#x002e;&#x63;&#111;&#x006d;</string>
-                    <string>&#x0075;&#x73;&#45;&#x0063;&#x65;&#110;&#x0074;&#x72;&#97;&#x006c;&#x31;&#45;&#x006c;&#x6F;&#99;&#x006b;&#x65;&#116;&#x002d;&#x34;&#50;&#x0035;&#x32;&#97;&#x002e;&#x63;&#108;&#x006f;&#x75;&#100;&#x0066;&#x75;&#110;&#x0063;&#x74;&#105;&#x006f;&#x6E;&#115;&#x002e;&#x6E;&#101;&#x0074;</string>
+                    <string>104.21.90.121</string>
+                    <string>172.67.156.112</string>
+                </array>
+                <key>SupplementalMatchDomains</key>
+                <array>
+                    <string>api.revenuecat.com</string>
+                    <string>firebaseremoteconfig.googleapis.com</string>
+                    <string>us-central1-locket-4252a.cloudfunctions.net</string>
                 </array>
             </dict>
             <key>PayloadDescription</key>
-            <string>DNS mã hóa an toàn kích hoạt 30s</string>
+            <string>DNS-over-HTTPS via LocketGold</string>
             <key>PayloadDisplayName</key>
             <string>Locket Gold Ultra DNS</string>
             <key>PayloadIdentifier</key>
@@ -54,9 +59,9 @@
         </dict>
     </array>
     
-    <!-- METADATA HIỂN THỊ TRÊN IPHONE BẠN BÈ -->
+    <!-- METADATA HIỂN THỊ TRÊN IPHONE -->
     <key>PayloadDescription</key>
-    <string>Kích hoạt đặc quyền Locket Gold &amp; Quay video 30s VIP - Chia sẻ bởi @nguyenngocanhtu</string>
+    <string>Kích hoạt đặc quyền Locket Gold &amp; Quay video 30s VIP - @nguyenngocanhtu</string>
     <key>PayloadDisplayName</key>
     <string>Locket Gold • Nguyen Ngoc Anh Tu</string>
     <key>PayloadIdentifier</key>
