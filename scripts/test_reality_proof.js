@@ -65,7 +65,7 @@ console.log('--- 1. LOCKET GOLD 45S VIDEO & REMOTE CONFIG ---');
             can_use_frames: "false"
         }
     };
-    const req = { url: "https://firebaseremoteconfig.googleapis.com/v1/projects/locket-4252a/namespaces/firebase:fetch" };
+    const req = { url: "https://firebaseremoteconfig.googleapis.com/v1/projects/locket-4252a/namespaces/firebase:fetch", headers: { "User-Agent": "Locket/1.144.0 (iPhone; iOS 18.0)" } };
     const res = { status: 200, body: JSON.stringify(originalFirebaseConfig) };
     const output = runScript(path.join(__dirname, '../Module/js/Locket_30s.js'), req, res);
     

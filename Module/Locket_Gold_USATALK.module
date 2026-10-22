@@ -1,0 +1,17 @@
+#!name=Locket Custom Edition (usatalk / nguyencongan)
+#!desc=Crack By nguyencongan | Tùy chỉnh Video 45s & Caption cá nhân 100% nguyên gốc.
+
+[General]
+
+[MITM]
+hostname = %APPEND% api.revenuecat.com, firebaseremoteconfig.googleapis.com
+
+[Script]
+# 1. Tùy chỉnh Feature, Video 45s & Caption cá nhân
+locket_remote = type=http-response, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.*, script-path=https://raw.githubusercontent.com/usatalk/my-script/main/locket.js, requires-body=true, max-size=524288, timeout=60
+
+# 2. Xóa ETag Header chống dính Cache (by nguyencongan)
+deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/usatalk/my-script/main/deleteHeader.js, timeout=60
+
+# 3. Kích hoạt Gold & Ngày 25/05/1111 (by nguyencongan)
+revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/usatalk/my-script/main/locket_sub.js, requires-body=true, max-size=-1, timeout=60

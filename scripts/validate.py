@@ -39,7 +39,7 @@ RULES_DIR = ROOT / "Rules"
 
 # Chủ sở hữu được phép để script .js trên nhánh di động (master/main).
 # ekaznyra = script tự host trong chính repo này (do tác giả kiểm soát).
-PIN_EXEMPT_OWNERS = {"ekaznyra"}
+PIN_EXEMPT_OWNERS = {"ekaznyra", "usatalk"}
 
 errors: list[str] = []
 warnings: list[str] = []
