@@ -182,12 +182,12 @@ Spotify_JSON = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com
 Spotify_Proto = type=http-response, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:\d+)?)\/(?:bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$, requires-body=1, binary-body-mode=1, max-size=0, script-path=https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/spotify-proto.js, script-update-interval=0
 Spotify_Premium = type=http-response, pattern=^https?:\/\/(api\.spotify\.com\/v1\/me|.*spclient.*\.spotify\.com(:443)?\/(identity\/v3\/me|device-capabilities\/v1\/capabilities|user-attributes\/v\d+\/attributes|bootstrap\/v1\/bootstrap|melody\/v1\/check_license)), requires-body=1, max-size=-1, timeout=30, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/spotify.js
 
-# 💛 Locket Gold & RevenueCat — Tầng 1: Xóa ETag Request Header chống dính Cache 304 (by z3rokaze)
-RC_DeleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, timeout=60
+# 💛 Locket Gold & RevenueCat — Tầng 1: Xóa ETag Request Header chống dính Cache 304 (by nguyencongan / usatalk)
+RC_DeleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/usatalk/my-script/main/deleteHeader.js, timeout=60 # Backup: Module/js/revenuecat_multi.js
 
-# 💛 Locket Gold & RevenueCat — Tầng 2: Kích hoạt Gold VIP & 70+ App VIP trọn đời (by z3rokaze)
-RevenueCat_Multi = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=-1, timeout=60
-RevenueCat_Multi_Backup = type=http-response, pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=-1, timeout=60
+# 💛 Locket Gold & RevenueCat — Tầng 2: Kích hoạt Gold VIP & 70+ App VIP trọn đời (by nguyencongan / usatalk)
+RevenueCat_Multi = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/usatalk/my-script/main/locket_sub.js, requires-body=1, max-size=-1, timeout=60 # Backup: Module/js/revenuecat_multi.js
+RevenueCat_Multi_Backup = type=http-response, pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/usatalk/my-script/main/locket_sub.js, requires-body=1, max-size=-1, timeout=60 # Backup: Module/js/revenuecat_multi.js
 
 # 💛 Locket Gold — Tầng 3: Tùy chỉnh Feature Gates, Video 45s, Custom Captions & Khung viền VIP (Remote Config Rewrite)
 Locket_30s = type=http-response, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*, script-path=https://raw.githubusercontent.com/usatalk/my-script/main/locket.js, requires-body=1, max-size=-1, timeout=60 # Backup: Module/js/Locket_30s.js

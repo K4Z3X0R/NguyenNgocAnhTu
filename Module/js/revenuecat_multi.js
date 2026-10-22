@@ -273,16 +273,39 @@ if (!match) {
   }
 }
 
-// Locket Gold: Inject toàn bộ danh mục product ID của Locket để tương thích mọi phiên bản / currency
+// Locket Gold: Inject theo định dạng chuẩn usatalk (nguyencongan)
 if (isLocket) {
-  var locketProds = ['locket_1600_1y', 'locket_3600_1y', 'locket_gold_yearly', 'locket_gold_monthly', 'locket_199_1m', 'locket_399_1m'];
-  for (var lp = 0; lp < locketProds.length; lp++) {
-    var pid = locketProds[lp];
-    obj.subscriber.subscriptions[pid] = Object.assign({}, obj.subscriber.subscriptions[pid] || {}, subTemplate, {
-      product_identifier: pid,
-      product_plan_identifier: pid
-    });
-  }
+  var MY_PURCHASE_DATE = "1111-05-25T10:10:14Z";
+  var MY_EXPIRES_DATE  = "9999-01-09T10:10:14Z";
+  var locketGoldSub = {
+    auto_resume_date: null,
+    display_name: "locket_1600_1y",
+    is_sandbox: true,
+    ownership_type: "PURCHASED",
+    billing_issues_detected_at: null,
+    management_url: "https://apps.apple.com/account/subscriptions",
+    period_type: "normal",
+    price: {
+      amount: 399000.0,
+      currency: "VND"
+    },
+    expires_date: MY_EXPIRES_DATE,
+    grace_period_expires_date: null,
+    refunded_at: null,
+    unsubscribe_detected_at: null,
+    original_purchase_date: MY_PURCHASE_DATE,
+    purchase_date: MY_PURCHASE_DATE,
+    store: "app_store",
+    store_transaction_id: "2000001108724193"
+  };
+  var locketGoldEnt = {
+    grace_period_expires_date: null,
+    purchase_date: MY_PURCHASE_DATE,
+    product_identifier: "locket_1600_1y",
+    expires_date: MY_EXPIRES_DATE
+  };
+  obj.subscriber.subscriptions["locket_1600_1y"] = locketGoldSub;
+  obj.subscriber.entitlements["Gold"] = locketGoldEnt;
 }
 
 // Cấp quyền dưới các entitlement key mục tiêu
