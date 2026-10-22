@@ -108,6 +108,8 @@ if (typeof $response === "undefined" || $response === null) {
   delete reqHeaders["x-revenuecat-etag"];
   delete reqHeaders["If-None-Match"];
   delete reqHeaders["if-none-match"];
+  delete reqHeaders["If-Modified-Since"];
+  delete reqHeaders["if-modified-since"];
   $done({ headers: reqHeaders });
 } else {
 var reqHeaders = ($request && $request.headers) || {};
@@ -304,8 +306,18 @@ if (isLocket) {
     product_identifier: "locket_1600_1y",
     expires_date: MY_EXPIRES_DATE
   };
-  obj.subscriber.subscriptions["locket_1600_1y"] = locketGoldSub;
+  obj.subscriber.subscriptions = obj.subscriber.subscriptions || {};
+  obj.subscriber.entitlements = obj.subscriber.entitlements || {};
+  var locketProds = ['locket_1600_1y', 'locket_3600_1y', 'locket_gold_yearly', 'locket_gold_monthly'];
+  for (var lp = 0; lp < locketProds.length; lp++) {
+    var pid = locketProds[lp];
+    obj.subscriber.subscriptions[pid] = Object.assign({}, locketGoldSub, {
+      display_name: pid,
+      product_identifier: pid
+    });
+  }
   obj.subscriber.entitlements["Gold"] = locketGoldEnt;
+  obj.subscriber.entitlements["gold"] = locketGoldEnt;
 }
 
 // Cấp quyền dưới các entitlement key mục tiêu (Trừ Locket đã inject chuẩn bên trên)
