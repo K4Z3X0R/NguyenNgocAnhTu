@@ -1,6 +1,6 @@
 #!name=⚡ Anh Tú Premium - Loon
 #!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy.
-#!version=2.8.5-stable
+#!version=2.8.6-stable
 #!date=2026-10-22
 #!author=Nguyễn Ngọc Anh Tú
 #!homepage=https://github.com/ekaznyra/NguyenNgocAnhTu
@@ -120,7 +120,8 @@ http-response ^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+
 http-response ^https:\/\/api\.rc-backup\.com\/.*\/(receipts$|subscribers\/[^/]+$) script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=60,tag=RC-Backup
 
 # 💛 Locket Gold 45s Video
-http-response ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.* script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js,requires-body=true,timeout=60,tag=Locket-30s
+http-request ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.* script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.6,timeout=60,tag=Locket-DeleteHeader
+http-response ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.* script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.6,requires-body=true,timeout=60,tag=Locket-30s
 
 # 🎧 SoundCloud Go+ (ekaznyra)
 http-response ^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/soundcloud.js,requires-body=true,timeout=30,tag=SC-Res

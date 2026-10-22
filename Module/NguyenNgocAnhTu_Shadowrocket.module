@@ -1,6 +1,6 @@
 #!name=🌸 Anh Tú • Ultimate VIP Bundle (Locket, Spotify, YouTube, iTunes 250+ & 70+ Apps Premium)
-#!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, YouTube Premium, Spotify, Captions AI, iScreen, MD Vinyl, Moises, Structured, SoundCloud Go+, WPS Office VIP, Darkroom Pro, OldRoll, Fimo Camera, Calm Premium, Remini, PhotoRoom, ELSA, iTunes 250+ Apps VIP...). 🛡️ Tích hợp Pure AdBlock & Bảo vệ Ngân hàng VN. | v2.8.5-stable (2026-10-22)
-#!version=2.8.5-stable
+#!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, YouTube Premium, Spotify, Captions AI, iScreen, MD Vinyl, Moises, Structured, SoundCloud Go+, WPS Office VIP, Darkroom Pro, OldRoll, Fimo Camera, Calm Premium, Remini, PhotoRoom, ELSA, iTunes 250+ Apps VIP...). 🛡️ Tích hợp Pure AdBlock & Bảo vệ Ngân hàng VN. | v2.8.6-stable (2026-10-22)
+#!version=2.8.6-stable
 #!date=2026-10-22
 #!author=Nguyễn Ngọc Anh Tú (z3rokaze)
 #!homepage=https://github.com/ekaznyra/NguyenNgocAnhTu
@@ -64,6 +64,11 @@ RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules
 RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/cd4d77094dd53290f24907711747cd977ee420ed/extensions/threat/surge-rule.conf,REJECT
 
 [Header Rewrite]
+# === FIREBASE REMOTE CONFIG & REVENUECAT CACHE-BUST (LOCKET GOLD 45S + RC APPS) ===
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del If-None-Match
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del if-none-match
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del If-Modified-Since
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del if-modified-since
 # === REVENUECAT REMOVE ETAG (APPLIES TO LOCKET + 70+ REVENUECAT APPS) ===
 ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers(\/.*)?\/?) header-del X-RevenueCat-ETag
 ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers(\/.*)?\/?) header-del x-revenuecat-etag
@@ -128,7 +133,8 @@ RevenueCat_Multi = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/
 RevenueCat_Multi_Backup = type=http-response, pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=-1, timeout=60
 
 # 💛 Locket Gold — Tầng 3: Tùy chỉnh Feature Gates, Video 45s, Custom Captions & Khung viền VIP (Remote Config Rewrite)
-Locket_30s = type=http-response, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.*, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js, requires-body=1, max-size=524288, timeout=60
+Locket_DeleteHeader = type=http-request, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.*, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.6, timeout=60
+Locket_30s = type=http-response, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.*, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.6, requires-body=1, max-size=524288, timeout=60
 
 # 📺 YouTube Premium — Full Response Handler (Chặn QC 100% + Nghe nhạc nền + PiP + Phụ đề Tiếng Việt)
 YouTube_Premium = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch), requires-body=1, max-size=-1, binary-body-mode=1, timeout=30, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/youtube.response.js, argument={"lyricLang":"vi","captionLang":"vi","blockUpload":false,"blockImmersive":false,"blockShorts":false,"debug":false}

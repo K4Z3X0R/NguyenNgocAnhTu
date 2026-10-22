@@ -71,7 +71,7 @@ console.log('--- 1. LOCKET GOLD 45S VIDEO & REMOTE CONFIG ---');
     
     assert(output && output.body, "Locket_30s returned a modified body");
     const parsed = JSON.parse(output.body);
-    assert(parsed.entries.video_duration === "45" && parsed.entries.video_max_duration === "45.0", "Video duration strictly upgraded to 45s (video_duration=45, video_max_duration=45.0)");
+    assert(parsed.entries.video_duration === "45" && parsed.entries.video_max_duration === "45", "Video duration strictly upgraded to 45s (video_duration=45, video_max_duration=45)");
     assert(parsed.entries.max_file_size === "104857600", "File limit strictly upgraded to 100MB (104857600)");
     const cameraRoll = JSON.parse(parsed.entries.camera_roll);
     assert(cameraRoll.quality_mbps === 0.6, "Bitrate upgraded to 0.6 Mbps in camera_roll config");

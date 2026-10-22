@@ -1,6 +1,6 @@
 #!name=⚡ Anh Tú Premium - Surge
 #!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy.
-#!version=2.8.5-stable
+#!version=2.8.6-stable
 #!date=2026-10-22
 #!author=Nguyễn Ngọc Anh Tú
 #!homepage=https://github.com/ekaznyra/NguyenNgocAnhTu
@@ -122,7 +122,8 @@ rc-res=type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts
 rc-backup=type=http-response,pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$),script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,max-size=-1,timeout=60
 
 # 💛 Locket Gold 45s Video
-locket-30s=type=http-response,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.*,script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js,requires-body=true,max-size=524288,timeout=60
+locket-req=type=http-request,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.*,script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.6,timeout=60
+locket-30s=type=http-response,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.*,script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.6,requires-body=true,max-size=524288,timeout=60
 
 # 🎧 SoundCloud Go+ (yfamilys)
 sc-res=type=http-response,pattern=^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios,requires-body=1,max-size=262144,timeout=30,script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/soundcloud.js
@@ -322,6 +323,11 @@ sorted-response = type=http-response,pattern=^https:\/\/api\.sortedapp\.com\/rec
 [Header Rewrite]
 # === YOUTUBE NONCE ===
 ^https?://www\.youtube\.com/youtubei/v1/player header-replace x-youtube-client-version 2.20240101.00.00
+# === FIREBASE REMOTE CONFIG & REVENUECAT CACHE-BUST (LOCKET GOLD 45S + RC APPS) ===
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del If-None-Match
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del if-none-match
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del If-Modified-Since
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/.+ header-del if-modified-since
 # === REVENUECAT REMOVE ETAG & CACHE-BUST (LOCKET + 70+ REVENUECAT APPS) ===
 ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers(\/.*)?\/?) header-del X-RevenueCat-ETag
 ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers(\/.*)?\/?) header-del x-revenuecat-etag
