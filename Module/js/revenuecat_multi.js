@@ -101,6 +101,15 @@ const MGMT_URL   = "https://apps.apple.com/account/subscriptions";
 
 // =========  Core Logic  ========= //
 // =========  @z3rokaze  ========= //
+// HTTP-REQUEST mode: Xóa ETag & cache validation headers để RevenueCat luôn trả về 200 OK đầy đủ body
+if (typeof $response === "undefined" || $response === null) {
+  var reqHeaders = ($request && $request.headers) ? Object.assign({}, $request.headers) : {};
+  delete reqHeaders["X-RevenueCat-ETag"];
+  delete reqHeaders["x-revenuecat-etag"];
+  delete reqHeaders["If-None-Match"];
+  delete reqHeaders["if-none-match"];
+  $done({ headers: reqHeaders });
+} else {
 var reqHeaders = ($request && $request.headers) || {};
 var ua = (reqHeaders["User-Agent"] || reqHeaders["user-agent"] || "");
 var uaDecoded; try { uaDecoded = decodeURIComponent(ua); } catch (e) { uaDecoded = ua; }
@@ -236,6 +245,10 @@ if (isLocket) {
 
 // Merge subscription (giữ field server có thể thêm mới) thay vì ghi đè cả object
 obj.subscriber.subscriptions[prodKey] = Object.assign({}, obj.subscriber.subscriptions[prodKey] || {}, subTemplate);
+if (isLocket) {
+  obj.subscriber.subscriptions[prodKey].display_name = prodKey;
+  obj.subscriber.subscriptions[prodKey].price = obj.subscriber.subscriptions[prodKey].price || { amount: 399000.0, currency: 'VND' };
+}
 
 // Với app chưa map: gia hạn luôn mọi entitlement server đã định nghĩa sẵn (nếu có)
 if (!match) {
@@ -308,4 +321,6 @@ try {
 } catch (e) {}
 
 $done(out);
+}
+
 }

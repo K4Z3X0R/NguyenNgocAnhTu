@@ -100,5 +100,58 @@ testApp('Generic Fallback', 'RandomApp/1.0', 'pro');
   }
 }
 
+
+// Test HTTP-REQUEST Mode (Header Stripper for ETag / Cache-Bust)
+{
+  let doneArg = null;
+  const sandbox = {
+    $request: {
+      url: 'https://api.revenuecat.com/v1/subscribers/test',
+      headers: {
+        'User-Agent': 'Locket/1.0',
+        'X-RevenueCat-ETag': 'etag_test_123',
+        'If-None-Match': 'match_123',
+        'Keep-Me': 'valid'
+      }
+    },
+    $done: (arg) => { doneArg = arg; },
+    console
+  };
+  const fn = new Function('$request', '$response', '$done', 'console', code);
+  fn(sandbox.$request, undefined, sandbox.$done, console);
+  const h = doneArg && doneArg.headers;
+  const strippedOk = h && !h['X-RevenueCat-ETag'] && !h['x-revenuecat-etag'] && !h['If-None-Match'] && h['Keep-Me'] === 'valid';
+  if (strippedOk) {
+    pass++;
+    console.log('  PASS  HTTP-REQUEST Mode: ETag & If-None-Match headers stripped successfully');
+  } else {
+    fail++;
+    console.log('  FAIL  HTTP-REQUEST Mode: headers not stripped correctly');
+  }
+}
+
+// Test Locket Specific Pricing & Display Name
+{
+  let doneArg = null;
+  const sandbox = {
+    $request: { url: 'https://api.revenuecat.com/v1/subscribers/test', headers: { 'User-Agent': 'Locket/1.144.0 (co.locket.Locket; build:9692; iOS 18.0.0)' } },
+    $response: { body: JSON.stringify({ subscriber: { subscriptions: {}, entitlements: {} } }) },
+    $done: (arg) => { doneArg = arg; },
+    console
+  };
+  const fn = new Function('$request', '$response', '$done', 'console', code);
+  fn(sandbox.$request, sandbox.$response, sandbox.$done, console);
+  const res = JSON.parse(doneArg.body);
+  const sub = res.subscriber && res.subscriber.subscriptions && res.subscriber.subscriptions['locket_1600_1y'];
+  const locketPricingOk = sub && sub.display_name === 'locket_1600_1y' && sub.price && sub.price.amount === 399000.0 && sub.price.currency === 'VND';
+  if (locketPricingOk) {
+    pass++;
+    console.log('  PASS  Locket Gold subscription pricing & display_name verified');
+  } else {
+    fail++;
+    console.log('  FAIL  Locket Gold subscription pricing & display_name missing');
+  }
+}
+
 console.log('\n== KẾT QUẢ: ' + pass + ' PASS / ' + fail + ' FAIL ==');
 process.exit(fail === 0 ? 0 : 1);

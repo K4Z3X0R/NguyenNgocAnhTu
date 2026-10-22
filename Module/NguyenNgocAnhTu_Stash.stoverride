@@ -1,5 +1,5 @@
 name: ⚡ Anh Tú Premium - Stash
-desc: "🚀 Mở khóa 350+ App VIP (Locket Gold 30s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.8.4-stable (2026-10-06)"
+desc: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.8.5-stable (2026-10-22)"
 author: Nguyễn Ngọc Anh Tú
 homepage: https://github.com/ekaznyra/NguyenNgocAnhTu
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -1295,6 +1295,12 @@ scriptings:
       name: rc-backup
       match: ^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$)
       script-provider: rc-backup
+      require-body: true
+      timeout: 60
+  - http-response:
+      name: locket-30s
+      match: ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-.*
+      script-provider: locket-30s
       require-body: true
       timeout: 60
   - http-response:

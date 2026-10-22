@@ -16,7 +16,7 @@
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 <a href="https://github.com/ekaznyra/NguyenNgocAnhTu">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=14&duration=3000&pause=500&color=00FF00&background=00000000&center=false&vCenter=true&repeat=true&width=450&height=100&lines=%5B+%2B+%5D+Initializing+Premium+Unlocker+v2.8.3-stable...;%5B+%2B+%5D+Bypassing+security+checks+and+receipts...;%5B+%2B+%5D+Injecting+premium+payload+via+MITM...;%5B+%2B+%5D+Success!+350%2B+Applications+Unlocked." alt="Terminal Simulation" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=14&duration=3000&pause=500&color=00FF00&background=00000000&center=false&vCenter=true&repeat=true&width=450&height=100&lines=%5B+%2B+%5D+Initializing+Premium+Unlocker+v2.8.5-stable...;%5B+%2B+%5D+Bypassing+security+checks+and+receipts...;%5B+%2B+%5D+Injecting+premium+payload+via+MITM...;%5B+%2B+%5D+Success!+350%2B+Applications+Unlocked." alt="Terminal Simulation" />
 </a>
 
 <br>
@@ -47,7 +47,7 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 <!-- HÀNG 1 — THÔNG TIN DỰ ÁN -->
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/releases"><img src="https://img.shields.io/badge/%E2%9A%A1_PHI%C3%8AN_B%E1%BA%A2N-v2.8.3--stable-00F0FF?style=for-the-badge&labelColor=0D1117" alt="version"/></a>
+<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/releases"><img src="https://img.shields.io/badge/%E2%9A%A1_PHI%C3%8AN_B%E1%BA%A2N-v2.8.5--stable-00F0FF?style=for-the-badge&labelColor=0D1117" alt="version"/></a>
 &nbsp;
 <a href="https://github.com/ekaznyra/NguyenNgocAnhTu/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/ekaznyra/NguyenNgocAnhTu/ci.yml?branch=master&style=for-the-badge&logo=githubactions&logoColor=00F0FF&label=%E2%9C%85+CI+TESTS&color=00FF88&labelColor=0D1117" alt="ci"/></a>
 &nbsp;
@@ -280,12 +280,13 @@
 @@ Locket Gold — Widget bạn bè Premium @@
 
 + ✅ Gold trọn đời (hết hạn năm 2099)
-+ ✅ Widget không giới hạn số lượng
-+ ✅ Không dính watermark trên ảnh
++ ✅ Quay & Tải lên video 45s từ thư viện (HD 100MB)
++ ✅ Trọn bộ Custom Captions cá nhân & Khung viền VIP (Royal Gold)
++ ✅ Widget không giới hạn số lượng & tính năng Gold
 + ✅ Giữ Gold khi tắt proxy (DNS Profile)
 + ✅ Hoạt động cả trên API dự phòng
 + ✅ Hỗ trợ RevenueCat + RC-Backup
-+ ✅ Xoá header ETag chống cache lỗi
++ ✅ Xoá header ETag chống cache lỗi (chống 304)
 ```
 
 </td>
@@ -478,6 +479,7 @@
 
 | | Phiên bản | Ngày | Nội dung cập nhật | Số app |
 |:---:|:---:|:---:|:---|:---:|
+| 👑 | **`v2.8.5-stable`** | `22.10.2026` | 🎬 **Locket Gold 45s Video (100MB HD), Custom Captions, Royal Gold Frames & Full Ecosystem Parity**: Nâng cấp thời lượng quay video Locket lên 45.0s, trần file upload 100MB (`104857600 bytes`), bitrate 0.6 Mbps • Tích hợp 13 danh mục Custom Captions Tiếng Việt & Khung viền Royal Gold VIP • Đồng bộ 100GB Cloud Storage cho PicsArt trên Shadowrocket & Surge Premium • Chuẩn hóa luồng YouTube trên LanceX • Tách riêng DNS Profile v4.0 độc lập sang hạ tầng AdGuard Anycast DoH không giới hạn quota và bảo toàn 100% push notifications • Bổ sung bộ kiểm thử thực thi `test_reality_proof.js` (40/40 assertions) & đạt 177/177 test pass 100%. | **350+** |
 | 👑 | **`v2.8.3-stable`** | `06.10.2026` | 🎵 **Spotify 2026, Scanner Suite & Full Ecosystem Upgrade**: Tích hợp `/device-capabilities/v1/capabilities`, HiFi 24-bit audio & QUIC UDP block cho Spotify • Mở rộng trọn bộ Scanner (CamScanner, Scanner Pro, iScanner, QuickScan, DocScanner) • Mở rộng RevenueCat (Speak, Praktika, Craft, Day One, DeepL, Epik, Notability) • Cập nhật AI Proxy 2026 (Cursor, Sora, Flux, Coze, Gemini) • Bổ sung CI/CD tự động kiểm thử toàn diện & Dead-link Auditor • Vá triệt để lỗi Facebook Login & Messenger images trong `Ads.list` • Tối ưu định tuyến VTV Go, VieON, TV360 trong `Direct.list` • Bọc null-safety 100% cho 28 script JS. | **350+** |
 | 👑 | **`v2.8.2-stable`** | `27.08.2026` | 🎵 **Spotify Premium & 404 Parity**: Sửa lỗi 404 do sai tên/hoa-thường (`busuu.js`, `meitu.js`, 10 script case sensitivity) • Thêm Spotify Premium cache-bust (xoá If-None-Match/ETag chống 304 cache đè) • Đồng bộ `api.spotify.com` và `gads.current.spotify.com` trên đủ 8/8 module • Chuẩn hóa hạn 2099. | **350+** |
 | 👑 | **`v2.8.1-stable`** | `13.08.2026` | 💎 **Spotify Unlocker & Standalone JSON Handler**: Thêm `Module/js/spotify.js` JSON-only độc lập không phụ thuộc protobuf • Khắc phục lỗi script protobuf treo im lặng trên client không hỗ trợ • Đồng bộ toàn bộ 8 module lên v2.8.1. | **350+** |

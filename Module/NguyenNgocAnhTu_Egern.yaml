@@ -1,5 +1,5 @@
 name: "👑 Nguyễn Ngọc Anh Tú 🌸 ⁕ Ultimate Premium (Egern) ⁕"
-description: "🚀 Mở khóa 350+ App VIP (Locket Gold 30s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.8.4-stable (2026-10-06)"
+description: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.8.5-stable (2026-10-22)"
 author: "Nguyễn Ngọc Anh Tú (z3rokaze)"
 homepage: "https://github.com/ekaznyra/NguyenNgocAnhTu"
 icon: "lock.open.fill"
@@ -2305,10 +2305,10 @@ scriptings:
       script_url: "https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 60
-  # 💛 Locket Gold 30s Video (Remote Config Rewrite)
+  # 💛 Locket Gold 45s Video (Remote Config Rewrite)
   - http_response:
-      name: "Locket 30s Video"
-      match: "^https://firebaseremoteconfig\\.googleapis\\.com/v1/projects/locket-4252a/.+"
+      name: "Locket 45s Video"
+      match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/locket-.*"
       script_url: "https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js"
       body_required: true
       timeout: 30

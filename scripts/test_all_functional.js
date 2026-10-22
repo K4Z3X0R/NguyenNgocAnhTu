@@ -274,12 +274,24 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
   check('spotify: user-attributes type=premium', b.values && b.values.type === 'premium', out ? out.body : 'null');
 }
 
-// 35. Locket_30s.js (Remote Config 30s Video)
+// 35. Locket_30s.js (Remote Config 45s Video & 100MB Upload Limits)
 {
   const out = runScript('Locket_30s.js', { headers: { 'User-Agent': 'Locket/1.144.0 (co.locket.Locket; build:9692; iOS 18.0.0)' } }, { body: JSON.stringify({ entries: {} }) });
   const b = JSON.parse(out.body);
   const camera = b.entries && JSON.parse(b.entries.camera || '{}');
-  check('Locket_30s: 30s video recording & camera limits injected', camera.max_duration === 30 && b.entries.video_max_duration === '30.0' && b.entries.camera_roll_video_max_duration === '30.0', out ? out.body : 'null');
+  const cameraRoll = b.entries && JSON.parse(b.entries.camera_roll || '{}');
+  const has45s = camera.max_duration === 45 && (b.entries.video_max_duration === '45.0' || b.entries.video_max_duration === '45');
+  const has100MB = cameraRoll.max_file_size === 104857600 && b.entries.max_file_size === '104857600';
+  check('Locket_30s: 45s video recording & camera limits injected', has45s && has100MB, out ? out.body : 'null');
+}
+
+// 36. Locket_30s.js (VIP Custom Captions & Royal Gold Frames)
+{
+  const out = runScript('Locket_30s.js', { headers: { 'User-Agent': 'Locket/1.144.0' } }, { body: JSON.stringify({ entries: {} }) });
+  const b = JSON.parse(out.body);
+  const hasOverlays = b.entries && typeof b.entries.overlay_items === 'string' && b.entries.overlay_items.includes('caption:z3rokaze');
+  const hasFrames = b.entries && typeof b.entries.widget_frames_config === 'string' && b.entries.widget_frames_config.includes('royal_gold_vip');
+  check('Locket_30s: VIP custom captions & frames verified', hasOverlays && hasFrames, out ? out.body : 'null');
 }
 
 console.log('\n== KẾT QUẢ: ' + pass + ' PASS / ' + fail + ' FAIL ==');
