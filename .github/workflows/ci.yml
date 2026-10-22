@@ -41,5 +41,8 @@ jobs:
       - name: Run Standalone Functional Positive Tests
         run: node scripts/test_all_functional.js
 
+      - name: Run Reality Proof End-to-End Suite
+        run: node scripts/test_reality_proof.js
+
       - name: Run Full Module & Rules Validation
         run: python scripts/validate.py
