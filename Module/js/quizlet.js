@@ -1,7 +1,7 @@
 /*
  * @name: Quizlet Plus Unlock
  * @author: Nguyễn Ngọc Anh Tú (z3rokaze)
- * @homepage: https://github.com/ekaznyra/NguyenNgocAnhTu
+ * @homepage: https://github.com/K4Z3X0R/NguyenNgocAnhTu
  * @date: 2026-10-07
  * @desc: Mở khóa Quizlet Plus (Flashcards, Giải thích chuyên sâu, Học Offline, Không quảng cáo)
  */

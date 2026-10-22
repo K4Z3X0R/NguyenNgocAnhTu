@@ -3,7 +3,7 @@
 #!version=2.8.8-stable
 #!date=2026-10-22
 #!author=Nguyễn Ngọc Anh Tú (z3rokaze)
-#!homepage=https://github.com/ekaznyra/NguyenNgocAnhTu
+#!homepage=https://github.com/K4Z3X0R/NguyenNgocAnhTu
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/VIP.png
 #!system=ios
 
@@ -74,16 +74,16 @@ DOMAIN,podcastads.spotify.com,REJECT
 # ===========================================================
 
 # --- Ngân hàng & Ví điện tử VN (PIN DIRECT, đặt TRÊN mọi list cộng đồng để không bị chặn nhầm) ---
-RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules/Banking_VN.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Rules/Banking_VN.list,DIRECT
 
 # --- Chặn Quảng Cáo (Ad Block) ---
-RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules/Ads.list,REJECT-DROP
+RULE-SET,https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Rules/Ads.list,REJECT-DROP
 
 # --- Chặn Tracking & Analytics ---
-RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules/Tracking.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Rules/Tracking.list,REJECT
 
 # --- Chặn Cá độ / Cờ bạc ---
-RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules/Gambling.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Rules/Gambling.list,REJECT
 
 # --- Chống Lừa đảo (Phishing/Scam) từ cộng đồng HostsVN ---
 # ⬆️ (2.4.2) ĐÃ CHUYỂN LÊN trước AI_Proxy/Proxy để rule REJECT bảo mật luôn thắng
@@ -94,19 +94,19 @@ RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules
 RULE-SET,https://raw.githubusercontent.com/bigdargon/hostsVN/cd4d77094dd53290f24907711747cd977ee420ed/extensions/threat/surge-rule.conf,REJECT
 
 # --- Định tuyến AI Services ---
-RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules/AI_Proxy.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Rules/AI_Proxy.list,PROXY
 
 # --- Streaming quốc tế đi qua Proxy (Netflix, Disney+, HBO...) ---
-RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules/Streaming_Proxy.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Rules/Streaming_Proxy.list,PROXY
 
 # --- Dịch vụ quốc tế (Game, Stream, Social, Dev) đi qua Proxy ---
-RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules/Proxy.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Rules/Proxy.list,PROXY
 
 # --- Dịch vụ nội địa (Ngân hàng, App VN, Apple CDN) kết nối trực tiếp ---
-RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules/Direct.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Rules/Direct.list,DIRECT
 
 # --- Gaming DIRECT (Giảm ping, không qua Proxy) ---
-RULE-SET,https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Rules/Gaming_Direct.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Rules/Gaming_Direct.list,DIRECT
 
 # --- Vietnam Local Network & GeoIP fallback ---
 GEOIP,VN,DIRECT
@@ -140,7 +140,7 @@ GEOIP,VN,DIRECT
 ^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$ header-del If-Modified-Since
 
 # === ELSA SPEAK PRO (Universal Local Receipt) ===
-elsaspeak-response = type=http-response, pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/iTunes.js, requires-body=1, max-size=-1, timeout=60
+elsaspeak-response = type=http-response, pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/iTunes.js, requires-body=1, max-size=-1, timeout=60
 
 # === X (TWITTER) PRO (No Ads, Unlock Features) - chxm1023 ===
 # DISABLED 2026-06-06: source URL 404
@@ -159,22 +159,22 @@ elsaspeak-response = type=http-response, pattern=^https?:\/\/buy\.itunes\.apple\
 (^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
 
 [Script]
-# === YOUTUBE PREMIUM - ekaznyra Version (2026-05-09) ===
+# === YOUTUBE PREMIUM - K4Z3X0R Version (2026-05-09) ===
 # Blocks all ads + enables background playback + PiP
 
-youtube.response = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch), requires-body=1, max-size=-1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/youtube.response.js, argument={"lyricLang":"vi","captionLang":"vi","blockUpload":false,"blockImmersive":false,"debug":false}
+youtube.response = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch), requires-body=1, max-size=-1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/youtube.response.js, argument={"lyricLang":"vi","captionLang":"vi","blockUpload":false,"blockImmersive":false,"debug":false}
 
 # ===== Spotify iOS15 (app2smile) =====
 spotify-json = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, requires-body=0, script-path=https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/spotify-json.js
 spotify-proto = type=http-response, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$, requires-body=1, binary-body-mode=1, max-size=0, script-path=https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/spotify-proto.js, script-update-interval=0
-Spotify_Premium = type=http-response, pattern=^https?:\/\/(api\.spotify\.com\/v1\/me|.*spclient.*\.spotify\.com(:443)?\/(identity\/v3\/me|device-capabilities\/v1\/capabilities|user-attributes\/v\d+\/attributes|bootstrap\/v1\/bootstrap|melody\/v1\/check_license)), requires-body=1, max-size=-1, timeout=30, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/spotify.js
+Spotify_Premium = type=http-response, pattern=^https?:\/\/(api\.spotify\.com\/v1\/me|.*spclient.*\.spotify\.com(:443)?\/(identity\/v3\/me|device-capabilities\/v1\/capabilities|user-attributes\/v\d+\/attributes|bootstrap\/v1\/bootstrap|melody\/v1\/check_license)), requires-body=1, max-size=-1, timeout=30, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js
 
-# === SOUNDCLOUD GO+ - ekaznyra (2026-05-19) ===
-soundcloud-response = type=http-response, pattern=^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/soundcloud.js, requires-body=1, timeout=30
+# === SOUNDCLOUD GO+ - K4Z3X0R (2026-05-19) ===
+soundcloud-response = type=http-response, pattern=^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/soundcloud.js, requires-body=1, timeout=30
 
-# === PICSART GOLD - ekaznyra (2026-04-21) ===
-picsart-response = type=http-response, pattern=^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/PicsArt.js, requires-body=1, max-size=0, timeout=60
-picsart-storages = type=http-response, pattern=^https:\/\/api\.picsart\.com\/gw-v2\/cloud-storage\/v1\/me\/storages, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/PicsArt.js, requires-body=1, max-size=0, timeout=60
+# === PICSART GOLD - K4Z3X0R (2026-04-21) ===
+picsart-response = type=http-response, pattern=^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/PicsArt.js, requires-body=1, max-size=0, timeout=60
+picsart-storages = type=http-response, pattern=^https:\/\/api\.picsart\.com\/gw-v2\/cloud-storage\/v1\/me\/storages, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/PicsArt.js, requires-body=1, max-size=0, timeout=60
 
 # === PICSART (NobyDa show/me endpoint) - yfamilys (2026-05-19) ===
 picsart-nobyda = type=http-response, pattern=^https?:\/\/api\.(picsart|meiease)\.c(n|om)\/users\/show\/me\.json, script-path=https://raw.githubusercontent.com/NobyDa/Script/7f8b309f8d943806b90c6ff25d8b8aa0c59b0c03/Surge/JS/PicsArt.js, requires-body=1, max-size=0, timeout=60
@@ -182,89 +182,89 @@ picsart-nobyda = type=http-response, pattern=^https?:\/\/api\.(picsart|meiease)\
 # === LIGHTROOM PREMIUM - litieyin/AD_VIP (yfamilys, 2026-05-19) ===
 lightroom-response = type=http-response, pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts, script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/df5c91a861bc68652958150281a655d9d71bed74/Script/lightroom.js, requires-body=1, timeout=30, max-size=131072
 
-# === PHOTOSHOP EXPRESS PREMIUM - ekaznyra (2026-05-09) ===
-photoshop-response = type=http-response, pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/photoshop.js, requires-body=1, timeout=30, max-size=131072
+# === PHOTOSHOP EXPRESS PREMIUM - K4Z3X0R (2026-05-09) ===
+photoshop-response = type=http-response, pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/photoshop.js, requires-body=1, timeout=30, max-size=131072
 
-# === EMBY PREMIERE - ekaznyra (2026-05-09) ===
-emby-response = type=http-response, pattern=^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/emby.js, requires-body=1, timeout=30
+# === EMBY PREMIERE - K4Z3X0R (2026-05-09) ===
+emby-response = type=http-response, pattern=^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/emby.js, requires-body=1, timeout=30
 
-# === KINEMASTER PRO - ekaznyra (2026-04-21) ===
-kinemaster-response = type=http-response, pattern=^https:\/\/api-account\.kinemasters\.com\/v\d\/user\/subscribe$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Kinemaster.js, requires-body=1, timeout=30
+# === KINEMASTER PRO - K4Z3X0R (2026-04-21) ===
+kinemaster-response = type=http-response, pattern=^https:\/\/api-account\.kinemasters\.com\/v\d\/user\/subscribe$, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Kinemaster.js, requires-body=1, timeout=30
 
-# === DJAY PRO - ekaznyra (2026-05-09) ===
-djay-response = type=http-response, pattern=^https:\/\/app\.algoriddim\.com\/api\/v1\/validate-receipt, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/djay.js, requires-body=1, timeout=30, max-size=131072
+# === DJAY PRO - K4Z3X0R (2026-05-09) ===
+djay-response = type=http-response, pattern=^https:\/\/app\.algoriddim\.com\/api\/v1\/validate-receipt, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/djay.js, requires-body=1, timeout=30, max-size=131072
 
-# === CALM PREMIUM - ekaznyra ===
-calm-response = type=http-response, pattern=^https?:\/\/api\.calm\.com\/(me|device|ios\/receipt), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/calm.js, requires-body=1, max-size=0, timeout=30
+# === CALM PREMIUM - K4Z3X0R ===
+calm-response = type=http-response, pattern=^https?:\/\/api\.calm\.com\/(me|device|ios\/receipt), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/calm.js, requires-body=1, max-size=0, timeout=30
 
-# === BUSUU PREMIUM - ekaznyra (2026-05-09) ===
-busuu-response = type=http-response, pattern=^https:\/\/api\.busuu\.com\/users\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/busuu.js, requires-body=1, timeout=30, max-size=131072
+# === BUSUU PREMIUM - K4Z3X0R (2026-05-09) ===
+busuu-response = type=http-response, pattern=^https:\/\/api\.busuu\.com\/users\/me, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/busuu.js, requires-body=1, timeout=30, max-size=131072
 
-# === DUOLINGO SUPER / MAX - ekaznyra (2026-10-07) ===
-duolingo-response = type=http-response, pattern=^https?:\/\/(api|ios-api-cdn)\.duolingo\.com\/(2017-06-30\/users\/|users\/), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/duolingo.js, requires-body=1, timeout=30, max-size=131072
+# === DUOLINGO SUPER / MAX - K4Z3X0R (2026-10-07) ===
+duolingo-response = type=http-response, pattern=^https?:\/\/(api|ios-api-cdn)\.duolingo\.com\/(2017-06-30\/users\/|users\/), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/duolingo.js, requires-body=1, timeout=30, max-size=131072
 
-# === CAKE ENGLISH PLUS - ekaznyra (2026-10-07) ===
-cake-response = type=http-response, pattern=^https?:\/\/api\.mycake\.me\/v\d+\/users\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/cake.js, requires-body=1, timeout=30, max-size=131072
+# === CAKE ENGLISH PLUS - K4Z3X0R (2026-10-07) ===
+cake-response = type=http-response, pattern=^https?:\/\/api\.mycake\.me\/v\d+\/users\/me, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/cake.js, requires-body=1, timeout=30, max-size=131072
 
-# === QUIZLET PLUS - ekaznyra (2026-10-07) ===
-quizlet-response = type=http-response, pattern=^https?:\/\/quizlet\.com\/webapi\/3\.4\/users\/, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/quizlet.js, requires-body=1, timeout=30, max-size=131072
+# === QUIZLET PLUS - K4Z3X0R (2026-10-07) ===
+quizlet-response = type=http-response, pattern=^https?:\/\/quizlet\.com\/webapi\/3\.4\/users\/, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/quizlet.js, requires-body=1, timeout=30, max-size=131072
 
-# === HEADSPACE PREMIUM - ekaznyra (2026-05-09) ===
-headspace-response = type=http-response, pattern=^https:\/\/api\.prod\.headspace\.com\/.*\/user-subscriptions, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/headspace.js, requires-body=1, timeout=30, max-size=131072
+# === HEADSPACE PREMIUM - K4Z3X0R (2026-05-09) ===
+headspace-response = type=http-response, pattern=^https:\/\/api\.prod\.headspace\.com\/.*\/user-subscriptions, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/headspace.js, requires-body=1, timeout=30, max-size=131072
 
-# === ALIGHT MOTION PRO - ekaznyra (2026-04-21) ===
-alightmotion-response = type=http-response, pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/AlightMotion.js, requires-body=1, timeout=30
+# === ALIGHT MOTION PRO - K4Z3X0R (2026-04-21) ===
+alightmotion-response = type=http-response, pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/AlightMotion.js, requires-body=1, timeout=30
 
-# === WINK FOREVER VIP - ekaznyra (2026-07-21) ===
-wink-response = type=http-response, pattern=^https?:\/\/api-sub\.meitu\.com\/.*vip, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Wink.js, requires-body=1, timeout=30
+# === WINK FOREVER VIP - K4Z3X0R (2026-07-21) ===
+wink-response = type=http-response, pattern=^https?:\/\/api-sub\.meitu\.com\/.*vip, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Wink.js, requires-body=1, timeout=30
 
-# === TRUECALLER PREMIUM - ekaznyra (2026-04-21) ===
-truecaller-response = type=http-response, pattern=^https:\/\/premium-(.+)\.truecaller\.com\/v\d\/(subscriptions|products\/apple), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/TrueCaller.js, requires-body=1, timeout=30
+# === TRUECALLER PREMIUM - K4Z3X0R (2026-04-21) ===
+truecaller-response = type=http-response, pattern=^https:\/\/premium-(.+)\.truecaller\.com\/v\d\/(subscriptions|products\/apple), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/TrueCaller.js, requires-body=1, timeout=30
 
-# === CAMSCANNER PREMIUM - ekaznyra (2026-04-21) ===
-camscanner-response = type=http-response, pattern=^https:\/\/(api|api-cs.*)\.intsig\.net\/(purchase\/cs\/query_prop|queryProperty|getPrivilegeItem), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/camScanner.js, requires-body=1, timeout=30
+# === CAMSCANNER PREMIUM - K4Z3X0R (2026-04-21) ===
+camscanner-response = type=http-response, pattern=^https:\/\/(api|api-cs.*)\.intsig\.net\/(purchase\/cs\/query_prop|queryProperty|getPrivilegeItem), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/camScanner.js, requires-body=1, timeout=30
 
-# === BEAUTYPLUS PREMIUM - ekaznyra (2026-04-21) ===
-beautyplus-response = type=http-response, pattern=^https:\/\/(api\.mr\.pixocial\.com\/v1\/manual_unlock|newbeee-api\.beautyplus\.com\/api\/v1\/asset\/balance), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/BeautyPlus.js, requires-body=1, timeout=60, max-size=0
+# === BEAUTYPLUS PREMIUM - K4Z3X0R (2026-04-21) ===
+beautyplus-response = type=http-response, pattern=^https:\/\/(api\.mr\.pixocial\.com\/v1\/manual_unlock|newbeee-api\.beautyplus\.com\/api\/v1\/asset\/balance), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/BeautyPlus.js, requires-body=1, timeout=60, max-size=0
 
-# === REVENUECAT MULTI-APP (Locket Gold) - ekaznyra (2026-04-21) ===
-revenuecat-response = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^\/]+$), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, timeout=60, max-size=-1
+# === REVENUECAT MULTI-APP (Locket Gold) - K4Z3X0R (2026-04-21) ===
+revenuecat-response = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^\/]+$), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, timeout=60, max-size=-1
 
-# === REVENUECAT BACKUP DOMAIN (rc-backup fallback) - ekaznyra (2026-05-09) ===
-revenuecat-backup = type=http-response, pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^\/]+$), script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=-1, timeout=60
+# === REVENUECAT BACKUP DOMAIN (rc-backup fallback) - K4Z3X0R (2026-05-09) ===
+revenuecat-backup = type=http-response, pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^\/]+$), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=-1, timeout=60
 
 # 💛 Locket Gold 45s Video
-locket-30s = type=http-response, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.8, requires-body=1, timeout=60, max-size=-1
+locket-30s = type=http-response, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.8, requires-body=1, timeout=60, max-size=-1
 
-# === VSCO PREMIUM - ekaznyra (2026-05-09) ===
-vsco-response = type=http-response, pattern=^https:\/\/vsco\.co\/api\/subscriptions\/2\.1\/user-subscriptions, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/VSCO.js, requires-body=1, timeout=30, max-size=131072
+# === VSCO PREMIUM - K4Z3X0R (2026-05-09) ===
+vsco-response = type=http-response, pattern=^https:\/\/vsco\.co\/api\/subscriptions\/2\.1\/user-subscriptions, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/VSCO.js, requires-body=1, timeout=30, max-size=131072
 
-# === FUNIMATE PRO - ekaznyra (2026-05-09) ===
-funimate-response = type=http-response, pattern=^https:\/\/api\.funimate\.com\/users\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/funimate.js, requires-body=1, timeout=30, max-size=131072
+# === FUNIMATE PRO - K4Z3X0R (2026-05-09) ===
+funimate-response = type=http-response, pattern=^https:\/\/api\.funimate\.com\/users\/me, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/funimate.js, requires-body=1, timeout=30, max-size=131072
 
-# === ITUNES PREMIUM (250+ Apps) - ekaznyra (2026-05-09) ===
-itunes-response = type=http-response, pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/iTunes.js, requires-body=1, max-size=-1, timeout=60
+# === ITUNES PREMIUM (250+ Apps) - K4Z3X0R (2026-05-09) ===
+itunes-response = type=http-response, pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/iTunes.js, requires-body=1, max-size=-1, timeout=60
 
-# === SNOW PREMIUM - ekaznyra (2026-05-09) ===
-snow-response = type=http-response, pattern=^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Snow.js, requires-body=1, max-size=-1, timeout=60
+# === SNOW PREMIUM - K4Z3X0R (2026-05-09) ===
+snow-response = type=http-response, pattern=^https?:\/\/user-snow-api\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Snow.js, requires-body=1, max-size=-1, timeout=60
 
 # === B612 KAJI VIP - ddgksf2013 (yfamilys, 2026-05-19) ===
 b612-response = type=http-response, pattern=^https?:\/\/user-kaji-api\.b612kaji\.com\/v\d\/purchase\/subscription\/subscriber\/status, script-path=https://raw.githubusercontent.com/deezertidal/private/38b9581548b5070f2dc9c6bfa243cdacf0672d31/js-backup/Crack/612.js, requires-body=1, max-size=-1, timeout=60
 
-# === MEITU XIUXIU PREMIUM - ekaznyra (2026-05-09) ===
-meitu-response = type=http-response, pattern=^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/meitu.js, requires-body=1, timeout=60
+# === MEITU XIUXIU PREMIUM - K4Z3X0R (2026-05-09) ===
+meitu-response = type=http-response, pattern=^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/meitu.js, requires-body=1, timeout=60
 
-# === WPS OFFICE PREMIUM - ekaznyra ===
-wps-response = type=http-response, pattern=^https?:\/\/.*?account\.wps\.(com|cn)(:\d+)?\/api\/users\/\w+\/overview$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/wps.js, requires-body=1, max-size=0, timeout=30
+# === WPS OFFICE PREMIUM - K4Z3X0R ===
+wps-response = type=http-response, pattern=^https?:\/\/.*?account\.wps\.(com|cn)(:\d+)?\/api\/users\/\w+\/overview$, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/wps.js, requires-body=1, max-size=0, timeout=30
 
-# === DARKROOM PRO - ekaznyra ===
-darkroom-response = type=http-response, pattern=^https:\/\/v1\.darkroom\.co\/v1\/receipts\/apple, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/darkroom.js, requires-body=1, timeout=30
+# === DARKROOM PRO - K4Z3X0R ===
+darkroom-response = type=http-response, pattern=^https:\/\/v1\.darkroom\.co\/v1\/receipts\/apple, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/darkroom.js, requires-body=1, timeout=30
 
-# === OLDROLL CAMERA VIP - ekaznyra ===
-oldroll-response = type=http-response, pattern=^https?:\/\/com\.zijayrate\.analogcam\/vipforever10, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/oldroll.js, requires-body=1, timeout=30
+# === OLDROLL CAMERA VIP - K4Z3X0R ===
+oldroll-response = type=http-response, pattern=^https?:\/\/com\.zijayrate\.analogcam\/vipforever10, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/oldroll.js, requires-body=1, timeout=30
 
-# === XMIND PREMIUM - ekaznyra (2026-05-09) ===
-xmind-response = type=http-response, pattern=^https?:\/\/www\.xmind\.(cn|net|app)\/_res\/devices, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/xmind.js, requires-body=1, max-size=0, timeout=30
+# === XMIND PREMIUM - K4Z3X0R (2026-05-09) ===
+xmind-response = type=http-response, pattern=^https?:\/\/www\.xmind\.(cn|net|app)\/_res\/devices, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/xmind.js, requires-body=1, max-size=0, timeout=30
 
 # === ALARMY PREMIUM ===
 alarmy-response = type=http-response, pattern=^https:\/\/ars\.alar\.my\/api\/v2\/user\/sync, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/alarmy.js, requires-body=1, max-size=0, timeout=30
@@ -276,7 +276,7 @@ grammarly-response = type=http-response, pattern=^https?:\/\/subscription\.gramm
 notability-response = type=http-response, pattern=^https:\/\/notability\.com\/subscriptions, script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/df5c91a861bc68652958150281a655d9d71bed74/Script/notability.js, requires-body=1, timeout=30
 
 # === PHOTOMATH PLUS - ddgksf2013 (yfamilys, 2026-05-19) ===
-photomath-response = type=http-response, pattern=^https?:\/\/lapi\.photomath\.net\/v4\/me, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/photomath.js, requires-body=1, timeout=30
+photomath-response = type=http-response, pattern=^https?:\/\/lapi\.photomath\.net\/v4\/me, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/photomath.js, requires-body=1, timeout=30
 
 # === SMALLPDF PRO - Marol62926 (yfamilys, 2026-05-19) ===
 smallpdf-response = type=http-response, pattern=^https?:\/\/pro\.smallpdf\.com\/pro\/account, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/smallpdf.js, requires-body=1, timeout=30
@@ -293,8 +293,8 @@ mfp-res=type=http-response, pattern=^https?:\/\/premium-api\.myfitnesspal\.com\/
 # === MUSIXMATCH PREMIUM - Marol62926 (yfamilys, 2026-05-19) ===
 mxm-res=type=http-response, pattern=^https?:\/\/apic\.musixmatch\.com\/ws\/1\.1\/config\.get, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/3ac7413fbcf58e2ca3e4a2b9353bccc9e4df6cce/musixmatch.js, requires-body=1, timeout=30
 
-# === FIMO CAMERA - ekaznyra (2026-05-19) ===
-fimo-res=type=http-response, pattern=^https:\/\/server\.yoyiapp\.com\/fimo-user\/user$, script-path=https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/fimo.js, requires-body=1, timeout=30
+# === FIMO CAMERA - K4Z3X0R (2026-05-19) ===
+fimo-res=type=http-response, pattern=^https:\/\/server\.yoyiapp\.com\/fimo-user\/user$, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/fimo.js, requires-body=1, timeout=30
 
 # === VARLENS PREMIUM - I-am-R-E (yfamilys, 2026-05-19) ===
 varlens-res=type=http-response, pattern=^https:\/\/mid\.zineapi\.com\/@varlens\/api\/user\/info\/, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Varlens.js, requires-body=1, timeout=30

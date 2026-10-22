@@ -2,7 +2,7 @@
  * @name: iTunes Premium Unlock
  * @desc: Unlock 250+ apps via App Store buy.itunes.apple.com verifyReceipt hijack
  * @author: Nguyễn Ngọc Anh Tú (z3rokaze)
- * @homepage: https://github.com/ekaznyra/NguyenNgocAnhTu
+ * @homepage: https://github.com/K4Z3X0R/NguyenNgocAnhTu
  * @date: 2026-07-16 (v2.2.0-stable)
  */
 
@@ -456,7 +456,7 @@ if (!anchor) {
       "auto_renew_product_id": fallbackId,
       "auto_renew_status": "1"
     }];
-    console.log('✅ iTunes Unlock: Fallback subscription applied — z3rokaze (https://github.com/ekaznyra/NguyenNgocAnhTu)');
+    console.log('✅ iTunes Unlock: Fallback subscription applied — z3rokaze (https://github.com/K4Z3X0R/NguyenNgocAnhTu)');
   }
 }
 

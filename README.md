@@ -15,7 +15,7 @@
 <br><br>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu">
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=14&duration=3000&pause=500&color=00FF00&background=00000000&center=false&vCenter=true&repeat=true&width=450&height=100&lines=%5B+%2B+%5D+Initializing+Premium+Unlocker+v2.8.8-stable...;%5B+%2B+%5D+Bypassing+security+checks+and+receipts...;%5B+%2B+%5D+Injecting+premium+payload+via+MITM...;%5B+%2B+%5D+Success!+350%2B+Applications+Unlocked." alt="Terminal Simulation" />
 </a>
 
@@ -23,7 +23,7 @@
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu">
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu">
 <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=26&duration=3500&pause=1200&color=00F0FF&background=0D111700&center=true&vCenter=true&repeat=true&width=800&height=70&lines=%F0%9F%8F%86+Ch%E1%BA%A1m+T%E1%BB%9Bi+%C4%90%E1%BB%89nh+Cao+Tr%E1%BA%A3i+Nghi%E1%BB%87m+Premium;%F0%9F%92%8E+B%E1%BB%A9t+Ph%C3%A1+Gi%E1%BB%9Bi+H%E1%BA%A1n+%E2%80%94+%C4%90%E1%BA%B3ng+C%E1%BA%A5p+Kh%C3%A1c+Bi%E1%BB%87t;%E2%9A%A1+350%2B+%E1%BB%A8ng+D%E1%BB%A5ng+%E2%80%A2+8+N%E1%BB%81n+T%E1%BA%A3ng+%E2%80%A2+Mi%E1%BB%85n+Ph%C3%AD+Tr%E1%BB%8Dn+%C4%90%E1%BB%9Di;%F0%9F%94%90+Kh%C3%B4ng+Jailbreak+%E2%80%A2+M%E1%BB%9F+Ngu%E1%BB%99n+M%E1%BB%9F+%E2%80%A2+T%E1%BB%91i+%C6%AFu+Tuy%E1%BB%87t+%C4%90%E1%BB%9D" alt="Typing SVG" />
 </a>
 
@@ -47,37 +47,37 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 <!-- HÀNG 1 — THÔNG TIN DỰ ÁN -->
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/releases"><img src="https://img.shields.io/badge/%E2%9A%A1_PHI%C3%8AN_B%E1%BA%A2N-v2.8.8--stable-00F0FF?style=for-the-badge&labelColor=0D1117" alt="version"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases"><img src="https://img.shields.io/badge/%E2%9A%A1_PHI%C3%8AN_B%E1%BA%A2N-v2.8.8--stable-00F0FF?style=for-the-badge&labelColor=0D1117" alt="version"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/ekaznyra/NguyenNgocAnhTu/ci.yml?branch=master&style=for-the-badge&logo=githubactions&logoColor=00F0FF&label=%E2%9C%85+CI+TESTS&color=00FF88&labelColor=0D1117" alt="ci"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/K4Z3X0R/NguyenNgocAnhTu/ci.yml?branch=master&style=for-the-badge&logo=githubactions&logoColor=00F0FF&label=%E2%9C%85+CI+TESTS&color=00FF88&labelColor=0D1117" alt="ci"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/blob/master/LICENSE"><img src="https://img.shields.io/badge/%F0%9F%93%9C_GI%E1%BA%A4Y_PH%C3%89P-AGPL--3.0-FF007F?style=for-the-badge&labelColor=0D1117" alt="license"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/blob/master/LICENSE"><img src="https://img.shields.io/badge/%F0%9F%93%9C_GI%E1%BA%A4Y_PH%C3%89P-AGPL--3.0-FF007F?style=for-the-badge&labelColor=0D1117" alt="license"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu"><img src="https://img.shields.io/github/repo-size/ekaznyra/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=00F0FF&label=%F0%9F%93%A6+DUNG+L%C6%AF%E1%BB%A2NG&color=FF007F&labelColor=0D1117" alt="size"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu"><img src="https://img.shields.io/github/repo-size/K4Z3X0R/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=00F0FF&label=%F0%9F%93%A6+DUNG+L%C6%AF%E1%BB%A2NG&color=FF007F&labelColor=0D1117" alt="size"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu"><img src="https://img.shields.io/badge/%F0%9F%8D%8E_N%E1%BB%80N_T%E1%BA%A2NG-iOS_15+-8A2BE2?style=for-the-badge&labelColor=0D1117" alt="platform"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu"><img src="https://img.shields.io/badge/%F0%9F%8D%8E_N%E1%BB%80N_T%E1%BA%A2NG-iOS_15+-8A2BE2?style=for-the-badge&labelColor=0D1117" alt="platform"/></a>
 
 <br><br>
 
 <!-- HÀNG 2 — TRẠNG THÁI ĐỘNG -->
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu"><img src="https://img.shields.io/github/last-commit/ekaznyra/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=00F0FF&label=%F0%9F%95%90+C%E1%BA%ACP+NH%E1%BA%ACT&color=c9a84c&labelColor=0D1117" alt="last-commit"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu"><img src="https://img.shields.io/github/last-commit/K4Z3X0R/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=00F0FF&label=%F0%9F%95%90+C%E1%BA%ACP+NH%E1%BA%ACT&color=c9a84c&labelColor=0D1117" alt="last-commit"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/stargazers"><img src="https://img.shields.io/github/stars/ekaznyra/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=00F0FF&label=%E2%AD%90+STARS&color=c9a84c&labelColor=0D1117" alt="stars"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/stargazers"><img src="https://img.shields.io/github/stars/K4Z3X0R/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=00F0FF&label=%E2%AD%90+STARS&color=c9a84c&labelColor=0D1117" alt="stars"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/network"><img src="https://img.shields.io/github/forks/ekaznyra/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=7b5ea7&label=%F0%9F%8D%B4+FORKS&color=7b5ea7&labelColor=0D1117" alt="forks"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/network"><img src="https://img.shields.io/github/forks/K4Z3X0R/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=7b5ea7&label=%F0%9F%8D%B4+FORKS&color=7b5ea7&labelColor=0D1117" alt="forks"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/issues"><img src="https://img.shields.io/github/issues/ekaznyra/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=e8d5b0&label=%F0%9F%90%9B+ISSUES&color=462670&labelColor=0D1117" alt="issues"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/issues"><img src="https://img.shields.io/github/issues/K4Z3X0R/NguyenNgocAnhTu?style=for-the-badge&logo=github&logoColor=e8d5b0&label=%F0%9F%90%9B+ISSUES&color=462670&labelColor=0D1117" alt="issues"/></a>
 
 <br><br>
 
 <!-- HÀNG 3 — LIÊN KẾT XÃ HỘI -->
 <a href="https://www.facebook.com/NguyenNgocAnhTu.VN"><img src="https://img.shields.io/badge/%F0%9F%92%AC_Facebook-C%E1%BB%99ng_%C4%90%E1%BB%93ng-5b3a8c?style=for-the-badge&logo=facebook&logoColor=white&labelColor=0D1117" alt="facebook"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra"><img src="https://img.shields.io/badge/%F0%9F%91%A4_T%C3%A1c_Gi%E1%BA%A3-ekaznyra-00F0FF?style=for-the-badge&logo=github&logoColor=white&labelColor=0D1117" alt="author"/></a>
+<a href="https://github.com/K4Z3X0R"><img src="https://img.shields.io/badge/%F0%9F%91%A4_T%C3%A1c_Gi%E1%BA%A3-K4Z3X0R-00F0FF?style=for-the-badge&logo=github&logoColor=white&labelColor=0D1117" alt="author"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/issues"><img src="https://img.shields.io/badge/%F0%9F%A4%9D_%C4%90%C3%B3ng_G%C3%B3p-Issues-FF007F?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0D1117" alt="contributing"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/issues"><img src="https://img.shields.io/badge/%F0%9F%A4%9D_%C4%90%C3%B3ng_G%C3%B3p-Issues-FF007F?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0D1117" alt="contributing"/></a>
 &nbsp;
-<img src="https://komarev.com/ghpvc/?username=ekaznyra-NguyenNgocAnhTu&style=for-the-badge&color=7b5ea7&labelColor=0D1117&label=%F0%9F%91%80+L%C6%AF%E1%BB%A2T+XEM" alt="views"/>
+<img src="https://komarev.com/ghpvc/?username=K4Z3X0R-NguyenNgocAnhTu&style=for-the-badge&color=7b5ea7&labelColor=0D1117&label=%F0%9F%91%80+L%C6%AF%E1%BB%A2T+XEM" alt="views"/>
 
 <br><br>
 
@@ -820,13 +820,13 @@ graph TD
 
 | | Ứng dụng | Giá | Link Module |
 |:---:|:---|:---:|:---|
-| ⭐ | **Shadowrocket** | `$2.99` | `https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Premium.module` |
-| 💰 | **LanceX** | `$1.99` | `https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_LanceX.module` |
-| 🔮 | **Egern** | `$2.99` | `https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Egern.yaml` |
-| 🌊 | **Surge** | `$49.99` | `https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Surge.sgmodule` |
-| 🎈 | **Loon** | `$5.99` | `https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Loon.plugin` |
-| ⚡ | **Quantumult X** | `$7.99` | `https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_QuantumultX.snippet` |
-| 💎 | **Stash** | `$5.99` | `https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Stash.stoverride` |
+| ⭐ | **Shadowrocket** | `$2.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Premium.module` |
+| 💰 | **LanceX** | `$1.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_LanceX.module` |
+| 🔮 | **Egern** | `$2.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Egern.yaml` |
+| 🌊 | **Surge** | `$49.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Surge.sgmodule` |
+| 🎈 | **Loon** | `$5.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Loon.plugin` |
+| ⚡ | **Quantumult X** | `$7.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_QuantumultX.snippet` |
+| 💎 | **Stash** | `$5.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Stash.stoverride` |
 
 > ⚠️ **Sau khi cài module, nhớ cài chứng chỉ MITM** (xem hướng dẫn chi tiết bên dưới)
 
@@ -854,10 +854,10 @@ graph TD
 Nếu bạn muốn tải toàn bộ mã nguồn về máy tính:
 
 ```bash
-git clone https://github.com/ekaznyra/NguyenNgocAnhTu.git
+git clone https://github.com/K4Z3X0R/NguyenNgocAnhTu.git
 ```
 
-Hoặc tải trực tiếp file ZIP từ trang [Releases](https://github.com/ekaznyra/NguyenNgocAnhTu/releases).
+Hoặc tải trực tiếp file ZIP từ trang [Releases](https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases).
 
 ---
 
@@ -902,7 +902,7 @@ Hoặc tải trực tiếp file ZIP từ trang [Releases](https://github.com/eka
 </div>
 
 ```
-https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Premium.module
+https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Premium.module
 ```
 
 <br>
@@ -994,7 +994,7 @@ https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenN
 | `1.6` | Nhấn **「完成」** (Xong) → Đảm bảo module bật ✅ | — |
 
 ```
-https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_LanceX.module
+https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_LanceX.module
 ```
 
 <br>
@@ -1048,7 +1048,7 @@ https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/NguyenN
 **Module folder:**
 
 ```
-https://github.com/ekaznyra/NguyenNgocAnhTu/tree/master/Module
+https://github.com/K4Z3X0R/NguyenNgocAnhTu/tree/master/Module
 ```
 
 <br>
@@ -1102,11 +1102,11 @@ https://github.com/ekaznyra/NguyenNgocAnhTu/tree/master/Module
 
 | # | | Ứng dụng | Mô tả chi tiết | Gói mở khoá | Engine xử lý |
 |:---:|:---:|:---|:---|:---:|:---:|
-| 01 | 🎬 | **YouTube** | Xem video, nghe nhạc — chặn ads, PiP | `Premium` | *ekaznyra* |
+| 01 | 🎬 | **YouTube** | Xem video, nghe nhạc — chặn ads, PiP | `Premium` | *K4Z3X0R* |
 | 02 | 🎬 | **Spotify** | Nghe nhạc trực tuyến — skip vô hạn | `Premium` | *app2smile* |
 | 03 | 🎬 | **SoundCloud** | Nghe nhạc, podcast — chất lượng cao | `Go+` | *Marol62926* |
-| 04 | 🎬 | **Emby** | Máy chủ phim cá nhân — stream | `Premiere` | *ekaznyra* |
-| 05 | 🎬 | **Djay** | Trộn nhạc DJ chuyên nghiệp | `Pro` | *ekaznyra* |
+| 04 | 🎬 | **Emby** | Máy chủ phim cá nhân — stream | `Premiere` | *K4Z3X0R* |
+| 05 | 🎬 | **Djay** | Trộn nhạc DJ chuyên nghiệp | `Pro` | *K4Z3X0R* |
 | 06 | 🎬 | **Musixmatch** | Lời bài hát đồng bộ thời gian thực | `Premium` | *Marol62926* |
 | 07 | 🎬 | **Boom** | Trình phát nhạc 3D, EQ & Bass Booster | `Premium` | *Premium API* |
 | 08 | 🎬 | **Audiomack** | Tải và nghe nhạc miễn phí | `Premium` | *Generic Fallback 🚀* |
@@ -1339,7 +1339,7 @@ https://github.com/ekaznyra/NguyenNgocAnhTu/tree/master/Module
 
 | Bước | Thao tác | Chi tiết | Kết quả |
 |:---:|:---|:---|:---:|
-| ① | Tải profile **👑 Anh Tú • Locket Gold 💛** | Tải trực tiếp file [DNS.mobileconfig](https://github.com/ekaznyra/NguyenNgocAnhTu/releases/latest/download/DNS.mobileconfig) | 📥 |
+| ① | Tải profile **👑 Anh Tú • Locket Gold 💛** | Tải trực tiếp file [DNS.mobileconfig](https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases/latest/download/DNS.mobileconfig) | 📥 |
 | ② | Cài vào iPhone | Cài đặt → Cài đặt chung → VPN & Quản lý thiết bị | ✅ |
 | ③ | **BẬT** proxy → Mở Locket | Đợi Gold hiện lên (lần đầu tiên) | 🟢 |
 | ④ | **TẮT** proxy → Mở lại Locket | Gold vẫn còn! | 🎉 |
@@ -1594,7 +1594,7 @@ https://github.com/ekaznyra/NguyenNgocAnhTu/tree/master/Module
 
 | | Tác giả | Vai trò | Đóng góp |
 |:---:|:---|:---|:---|
-| 👑 | **[ekaznyra](https://github.com/ekaznyra)** | Tác giả chính | YouTube, Locket, PicsArt, Photoshop, Emby, KineMaster, Djay, Busuu, Headspace, AlightMotion, Truecaller, CamScanner, BeautyPlus, VSCO, Snow, Meitu, Funimate, iTunes, Xmind |
+| 👑 | **[K4Z3X0R](https://github.com/K4Z3X0R)** | Tác giả chính | YouTube, Locket, PicsArt, Photoshop, Emby, KineMaster, Djay, Busuu, Headspace, AlightMotion, Truecaller, CamScanner, BeautyPlus, VSCO, Snow, Meitu, Funimate, iTunes, Xmind |
 | 🎵 | **[app2smile](https://github.com/app2smile)** | Script Spotify | Spotify Premium (proto + json) |
 | 🎧 | **[Marol62926](https://github.com/Marol62926)** | Script đa ứng dụng | SoundCloud, Alarmy, Smallpdf, MyFitnessPal, Musixmatch |
 | 🛡️ | **[NobyDa](https://github.com/NobyDa)** | Script gốc | PicsArt (phiên bản gốc), Polarr |
@@ -1624,7 +1624,7 @@ https://github.com/ekaznyra/NguyenNgocAnhTu/tree/master/Module
 
 <div align="center">
 
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/blob/master/LICENSE"><img src="https://img.shields.io/badge/📜_Giấy_phép-GNU_AGPL--3.0-00F0FF?style=for-the-badge&labelColor=0D1117" alt="license"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/blob/master/LICENSE"><img src="https://img.shields.io/badge/📜_Giấy_phép-GNU_AGPL--3.0-00F0FF?style=for-the-badge&labelColor=0D1117" alt="license"/></a>
 
 </div>
 
@@ -1659,13 +1659,13 @@ https://github.com/ekaznyra/NguyenNgocAnhTu/tree/master/Module
 
 | | Kênh | Đường dẫn | Mô tả |
 |:---:|:---|:---|:---|
-| 🏠 | **Repository** | [github.com/ekaznyra/NguyenNgocAnhTu](https://github.com/ekaznyra/NguyenNgocAnhTu) | Trang chính của dự án |
+| 🏠 | **Repository** | [github.com/K4Z3X0R/NguyenNgocAnhTu](https://github.com/K4Z3X0R/NguyenNgocAnhTu) | Trang chính của dự án |
 | 💬 | **Facebook** | [facebook.com/NguyenNgocAnhTu.VN](https://www.facebook.com/NguyenNgocAnhTu.VN) | Cộng đồng hỗ trợ |
-| 🐛 | **Báo lỗi** | [Issues](https://github.com/ekaznyra/NguyenNgocAnhTu/issues) | Gửi yêu cầu hoặc báo lỗi |
-| 📥 | **Phiên bản** | [Releases](https://github.com/ekaznyra/NguyenNgocAnhTu/releases) | Tải phiên bản mới nhất |
-| 👤 | **Tác giả** | [github.com/ekaznyra](https://github.com/ekaznyra) | Trang cá nhân tác giả |
+| 🐛 | **Báo lỗi** | [Issues](https://github.com/K4Z3X0R/NguyenNgocAnhTu/issues) | Gửi yêu cầu hoặc báo lỗi |
+| 📥 | **Phiên bản** | [Releases](https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases) | Tải phiên bản mới nhất |
+| 👤 | **Tác giả** | [github.com/K4Z3X0R](https://github.com/K4Z3X0R) | Trang cá nhân tác giả |
 | 📝 | **Nhật ký** | [Cập nhật mới nhất](#--cập-nhật-mới-nhất) | Lịch sử thay đổi phiên bản |
-| 📜 | **Giấy phép** | [LICENSE](https://github.com/ekaznyra/NguyenNgocAnhTu/blob/master/LICENSE) | Điều khoản mã nguồn mở AGPL-3.0 |
+| 📜 | **Giấy phép** | [LICENSE](https://github.com/K4Z3X0R/NguyenNgocAnhTu/blob/master/LICENSE) | Điều khoản mã nguồn mở AGPL-3.0 |
 
 </div>
 
@@ -1694,9 +1694,9 @@ https://github.com/ekaznyra/NguyenNgocAnhTu/tree/master/Module
 
 | | Tài liệu | Mô tả |
 |:---:|:---|:---|
-| 🐛 | **[Báo lỗi & Yêu cầu](https://github.com/ekaznyra/NguyenNgocAnhTu/issues)** | Gửi yêu cầu ứng dụng mới hoặc báo cáo lỗi |
+| 🐛 | **[Báo lỗi & Yêu cầu](https://github.com/K4Z3X0R/NguyenNgocAnhTu/issues)** | Gửi yêu cầu ứng dụng mới hoặc báo cáo lỗi |
 | 📝 | **[Nhật ký thay đổi](#--cập-nhật-mới-nhất)** | Lịch sử phiên bản & chi tiết cập nhật theo dòng thời gian |
-| 📜 | **[Giấy phép AGPL-3.0](https://github.com/ekaznyra/NguyenNgocAnhTu/blob/master/LICENSE)** | Điều khoản sử dụng mã nguồn mở |
+| 📜 | **[Giấy phép AGPL-3.0](https://github.com/K4Z3X0R/NguyenNgocAnhTu/blob/master/LICENSE)** | Điều khoản sử dụng mã nguồn mở |
 
 </div>
 
@@ -1728,47 +1728,47 @@ https://github.com/ekaznyra/NguyenNgocAnhTu/tree/master/Module
 
 ### ⭐ Star History
 
-<a href="https://star-history.com/#ekaznyra/NguyenNgocAnhTu&Date">
+<a href="https://star-history.com/#K4Z3X0R/NguyenNgocAnhTu&Date">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ekaznyra/NguyenNgocAnhTu&type=Date&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ekaznyra/NguyenNgocAnhTu&type=Date" />
-  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ekaznyra/NguyenNgocAnhTu&type=Date&theme=dark" width="70%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=K4Z3X0R/NguyenNgocAnhTu&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=K4Z3X0R/NguyenNgocAnhTu&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=K4Z3X0R/NguyenNgocAnhTu&type=Date&theme=dark" width="70%" />
 </picture>
 </a>
 
 <br>
 
 <!-- GITHUB STATS + STREAK -->
-<img src="https://github-readme-stats-eight-theta.vercel.app/api?username=ekaznyra&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117" width="49%" alt="stats"/>
-<img src="https://github-readme-streak-stats.herokuapp.com?user=ekaznyra&theme=radical&hide_border=true&background=0D1117" width="49%" alt="streak"/>
+<img src="https://github-readme-stats-eight-theta.vercel.app/api?username=K4Z3X0R&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117" width="49%" alt="stats"/>
+<img src="https://github-readme-streak-stats.herokuapp.com?user=K4Z3X0R&theme=radical&hide_border=true&background=0D1117" width="49%" alt="streak"/>
 
 <br><br>
 
 <!-- TOP LANGUAGES -->
-<img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=ekaznyra&layout=compact&theme=radical&hide_border=true&bg_color=0D1117" width="45%" alt="languages"/>
+<img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=K4Z3X0R&layout=compact&theme=radical&hide_border=true&bg_color=0D1117" width="45%" alt="languages"/>
 
 <br><br>
 
 <!-- CONTRIBUTION GRAPH -->
-<a href="https://github.com/ekaznyra">
+<a href="https://github.com/K4Z3X0R">
   <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg" width="95%" alt="Contribution Activity"/>
 </a>
 
 <br><br>
 
 <!-- SOCIAL BADGES -->
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu"><img src="https://img.shields.io/badge/%E2%AD%90_Star_Repo_N%C3%A0y-00F0FF?style=for-the-badge&logo=github&logoColor=0D1117&labelColor=0D1117" alt="star"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu"><img src="https://img.shields.io/badge/%E2%AD%90_Star_Repo_N%C3%A0y-00F0FF?style=for-the-badge&logo=github&logoColor=0D1117&labelColor=0D1117" alt="star"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/fork"><img src="https://img.shields.io/badge/%F0%9F%8D%B4_Fork_Repo-FF007F?style=for-the-badge&logo=git&logoColor=white&labelColor=0D1117" alt="fork"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/fork"><img src="https://img.shields.io/badge/%F0%9F%8D%B4_Fork_Repo-FF007F?style=for-the-badge&logo=git&logoColor=white&labelColor=0D1117" alt="fork"/></a>
 &nbsp;
 <a href="https://www.facebook.com/NguyenNgocAnhTu.VN"><img src="https://img.shields.io/badge/%F0%9F%92%AC_Facebook-5b3a8c?style=for-the-badge&logo=facebook&logoColor=white&labelColor=0D1117" alt="facebook"/></a>
 &nbsp;
-<a href="https://github.com/ekaznyra/NguyenNgocAnhTu/issues"><img src="https://img.shields.io/badge/%F0%9F%90%9B_B%C3%A1o_L%E1%BB%97i-8A2BE2?style=for-the-badge&logo=github&logoColor=white&labelColor=0D1117" alt="issues"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/issues"><img src="https://img.shields.io/badge/%F0%9F%90%9B_B%C3%A1o_L%E1%BB%97i-8A2BE2?style=for-the-badge&logo=github&logoColor=white&labelColor=0D1117" alt="issues"/></a>
 
 <br><br>
 
 <!-- VISITOR COUNTER -->
-<img src="https://komarev.com/ghpvc/?username=ekaznyra-NguyenNgocAnhTu&style=for-the-badge&color=7b5ea7&labelColor=0D1117&label=%F0%9F%91%80+L%C6%AF%E1%BB%A2T+XEM" alt="views"/>
+<img src="https://komarev.com/ghpvc/?username=K4Z3X0R-NguyenNgocAnhTu&style=for-the-badge&color=7b5ea7&labelColor=0D1117&label=%F0%9F%91%80+L%C6%AF%E1%BB%A2T+XEM" alt="views"/>
 
 <br><br>
 

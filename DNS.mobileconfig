@@ -61,13 +61,13 @@
         </dict>
     </array>
     <key>PayloadDescription</key>
-    <string>✨ Duy trì Locket Gold vĩnh viễn (2099) khi tắt VPN • AdGuard DoH Unlimited Anycast • Bảo toàn 100% Thông báo đẩy (FCM) &amp; Tốc độ mạng • Tác giả: Nguyễn Ngọc Anh Tú (@ekaznyra)</string>
+    <string>✨ Duy trì Locket Gold vĩnh viễn (2099) khi tắt VPN • AdGuard DoH Unlimited Anycast • Bảo toàn 100% Thông báo đẩy (FCM) &amp; Tốc độ mạng • Tác giả: Nguyễn Ngọc Anh Tú (@K4Z3X0R)</string>
     <key>PayloadDisplayName</key>
     <string>👑 Anh Tú • Locket Gold Ultra DNS 💛</string>
     <key>PayloadIdentifier</key>
-    <string>com.ekaznyra.profile.locketgold.dns.v4</string>
+    <string>com.K4Z3X0R.profile.locketgold.dns.v4</string>
     <key>PayloadOrganization</key>
-    <string>Nguyễn Ngọc Anh Tú (ekaznyra)</string>
+    <string>Nguyễn Ngọc Anh Tú (K4Z3X0R)</string>
     <key>PayloadRemovalDisallowed</key>
     <false/>
     <key>PayloadType</key>

@@ -1,7 +1,7 @@
 /*
  * @name: Duolingo Super / Duolingo Max Unlock
  * @author: Nguyễn Ngọc Anh Tú (z3rokaze)
- * @homepage: https://github.com/ekaznyra/NguyenNgocAnhTu
+ * @homepage: https://github.com/K4Z3X0R/NguyenNgocAnhTu
  * @date: 2026-10-07
  * @desc: Mở khóa Super Duolingo & Duolingo Max (Vô hạn tim, Không quảng cáo, Duolingo Max AI)
  */

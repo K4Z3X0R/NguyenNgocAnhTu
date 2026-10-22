@@ -10,7 +10,7 @@ Các kiểm tra:
   2. Mọi khối `argument={...}` trong module phải là JSON hợp lệ.
   3. Rules/*.list không có dòng trùng lặp.
   4. Chính sách ghim SHA: không được nạp script .js bên thứ ba từ nhánh
-     master/main (chỉ script tự host của ekaznyra mới được để master).
+     master/main (chỉ script tự host của K4Z3X0R mới được để master).
    5. Các file được README tham chiếu phải tồn tại.
    6. Mọi script Module/js/<tên>.js được tham chiếu trong module phải tồn tại
       trên đĩa VỚI ĐÚNG phân biệt hoa/thường (bắt lỗi typo như bussu/MeiTu
@@ -38,8 +38,8 @@ MODULE_DIR = ROOT / "Module"
 RULES_DIR = ROOT / "Rules"
 
 # Chủ sở hữu được phép để script .js trên nhánh di động (master/main).
-# ekaznyra = script tự host trong chính repo này (do tác giả kiểm soát).
-PIN_EXEMPT_OWNERS = {"ekaznyra"}
+# K4Z3X0R = script tự host trong chính repo này (do tác giả kiểm soát).
+PIN_EXEMPT_OWNERS = {"K4Z3X0R"}
 
 errors: list[str] = []
 warnings: list[str] = []

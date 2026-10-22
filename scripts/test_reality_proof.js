@@ -1,5 +1,5 @@
 /**
- * REALITY PROOF TEST SUITE — NGUYEN NGOC ANH TU (ekaznyra)
+ * REALITY PROOF TEST SUITE — NGUYEN NGOC ANH TU (K4Z3X0R)
  * Kiểm tra tính chân thực 100% của toàn bộ hệ thống (Real Runtime Execution, Not Virtual).
  */
 const fs = require('fs');

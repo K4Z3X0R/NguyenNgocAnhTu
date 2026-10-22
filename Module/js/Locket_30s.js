@@ -20,7 +20,7 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
   // CRITICAL: Đánh dấu state UPDATE để ép Firebase SDK ghi đè toàn bộ cache offline trong ứng dụng
   obj.state = "UPDATE";
   obj.entries = obj.entries || {};
-  obj.Attention = "Bản quyền cấu hình Locket Gold 45s thuộc về Nguyễn Ngọc Anh Tú (z3rokaze) - https://github.com/ekaznyra/NguyenNgocAnhTu";
+  obj.Attention = "Bản quyền cấu hình Locket Gold 45s thuộc về Nguyễn Ngọc Anh Tú (z3rokaze) - https://github.com/K4Z3X0R/NguyenNgocAnhTu";
 
     // ============================================================
 
@@ -136,7 +136,7 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
 
         settings_instagram_url: "https://www.instagram.com/ekaz.nyra",
 
-        settings_tiktok_url: "https://www.tiktok.com/@ekaznyra"
+        settings_tiktok_url: "https://www.tiktok.com/@K4Z3X0R"
 
     });
 

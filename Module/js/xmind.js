@@ -2,7 +2,7 @@
  * @name: Xmind Premium Unlock
  * @desc: Unlock Xmind mind-map subscription until year 2099
  * @author: Nguyễn Ngọc Anh Tú (z3rokaze)
- * @homepage: https://github.com/ekaznyra/NguyenNgocAnhTu
+ * @homepage: https://github.com/K4Z3X0R/NguyenNgocAnhTu
  * @date: 2026-05-09
  */
 

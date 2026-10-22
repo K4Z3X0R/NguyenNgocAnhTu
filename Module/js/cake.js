@@ -1,7 +1,7 @@
 /*
  * @name: Cake English & Korean Plus Unlock
  * @author: Nguyễn Ngọc Anh Tú (z3rokaze)
- * @homepage: https://github.com/ekaznyra/NguyenNgocAnhTu
+ * @homepage: https://github.com/K4Z3X0R/NguyenNgocAnhTu
  * @date: 2026-10-07
  * @desc: Mở khóa gói Cake Plus (Luyện nói không giới hạn, Video phụ đề song ngữ, Không quảng cáo)
  */

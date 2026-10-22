@@ -4,7 +4,7 @@
   "description": "Premium bypass modules, rewrite rules, and security testing harnesses for Surge, Loon, Shadowrocket, Quantumult X, Egern, LanceX, and Stash.",
   "author": "Nguy\u1ec5n Ng\u1ecdc Anh T\u00fa (z3rokaze)",
   "license": "AGPL-3.0",
-  "homepage": "https://github.com/ekaznyra/NguyenNgocAnhTu",
+  "homepage": "https://github.com/K4Z3X0R/NguyenNgocAnhTu",
   "scripts": {
     "test": "node scripts/test_spotify.js && node scripts/test_revenuecat.js && node scripts/test_education.js && node scripts/test_all_scripts.js && node scripts/test_all_functional.js && python scripts/validate.py",
     "test:spotify": "node scripts/test_spotify.js",

@@ -1,5 +1,5 @@
 /*
- * Photomath Plus Unlock - ekaznyra (rewrite 2026-06-15)
+ * Photomath Plus Unlock - K4Z3X0R (rewrite 2026-06-15)
  * Endpoint: ^https?:\/\/lapi\.photomath\.net\/v4\/me
  *
  * Vì sao viết lại:
