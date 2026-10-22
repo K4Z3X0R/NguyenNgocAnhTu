@@ -276,7 +276,7 @@ if (!match) {
 // Locket Gold: Inject theo định dạng chuẩn usatalk (nguyencongan)
 if (isLocket) {
   var MY_PURCHASE_DATE = "1111-05-25T10:10:14Z";
-  var MY_EXPIRES_DATE  = "9999-01-09T10:10:14Z";
+  var MY_EXPIRES_DATE  = EXPIRES;
   var locketGoldSub = {
     auto_resume_date: null,
     display_name: "locket_1600_1y",
@@ -308,14 +308,16 @@ if (isLocket) {
   obj.subscriber.entitlements["Gold"] = locketGoldEnt;
 }
 
-// Cấp quyền dưới các entitlement key mục tiêu
-for (var j = 0; j < entKeys.length; j++) {
-  var ek2 = entKeys[j];
-  obj.subscriber.entitlements[ek2] = Object.assign({}, obj.subscriber.entitlements[ek2] || {}, entTemplate);
+// Cấp quyền dưới các entitlement key mục tiêu (Trừ Locket đã inject chuẩn bên trên)
+if (!isLocket) {
+  for (var j = 0; j < entKeys.length; j++) {
+    var ek2 = entKeys[j];
+    obj.subscriber.entitlements[ek2] = Object.assign({}, obj.subscriber.entitlements[ek2] || {}, entTemplate);
+  }
 }
 
 // Bổ sung non_subscriptions cho các app kiểm tra purchases trọn đời/IAP không gia hạn
-if (!obj.subscriber.non_subscriptions[prodKey]) {
+if (!isLocket && !obj.subscriber.non_subscriptions[prodKey]) {
   obj.subscriber.non_subscriptions[prodKey] = [{
     id: TXID,
     is_sandbox: false,
