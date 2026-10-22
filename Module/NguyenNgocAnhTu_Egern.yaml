@@ -1,5 +1,5 @@
 name: "👑 Nguyễn Ngọc Anh Tú 🌸 ⁕ Ultimate Premium (Egern) ⁕"
-description: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.8.6-stable (2026-10-22)"
+description: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.8.7-stable (2026-10-22)"
 author: "Nguyễn Ngọc Anh Tú (z3rokaze)"
 homepage: "https://github.com/ekaznyra/NguyenNgocAnhTu"
 icon: "lock.open.fill"
@@ -28,6 +28,7 @@ rules:
   # EGERN NOT SUPPORT: cú pháp AND,((...),(PROTOCOL,UDP)),REJECT (giống Stash) — giữ tham chiếu, KHÔNG bật.
   # AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
   # AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
   # === BLOCK WEBRTC LEAK (Specific servers) ===
   # Note: Generic KEYWORD stun/turn removed â€” breaks VoIP (FaceTime, WhatsApp, Zoom)
   - domain_suffix:
@@ -2308,8 +2309,8 @@ scriptings:
   # 💛 Locket Gold 45s Video (Remote Config Rewrite)
   - http_response:
       name: "Locket 45s Video"
-      match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/locket-.*"
-      script_url: "https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.6"
+      match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/.*"
+      script_url: "https://raw.githubusercontent.com/ekaznyra/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.7"
       body_required: true
       timeout: 30
 
