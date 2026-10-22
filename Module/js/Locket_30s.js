@@ -2,7 +2,7 @@
 > Locket Gold 45s Video & Remote Config Unlocker
 > Cho phép quay video 45s, tải lên video 45s từ thư viện, cắt ghép 45s & mở khóa tính năng Gold, Custom Captions & Frames
 > Tác giả: Nguyễn Ngọc Anh Tú (z3rokaze)
-> Cập nhật: 2026-10-22 (v2.8.7 - Fix 45s Duration, State UPDATE & Pure Body Output)
+> Cập nhật: 2026-10-22 (v2.8.8 - Comprehensive 45s Duration (Ms + Sec + camera_video_recording))
 ***********************************************/
 
 var rawBody = (typeof $response !== "undefined" && $response && $response.body) || "";
@@ -181,14 +181,35 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
     });
 
     // ============================================================
-
-    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY
-
+    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY (45s VIDEO CHUẨN)
     // ============================================================
-
-    var MY_VIDEO_DURATION = 45;
-
+    var MY_VIDEO_DURATION = 45.0;
+    var MY_VIDEO_DURATION_MS = 45000;
     var durationStr = "45";
+    var durationMsStr = "45000";
+
+    var videoRecordingConfig = JSON.stringify({
+        display_mode: "toggle",
+        maximum_duration: MY_VIDEO_DURATION_MS,
+        max_duration: MY_VIDEO_DURATION_MS,
+        duration: MY_VIDEO_DURATION_MS,
+        default: {
+            maximum_duration: MY_VIDEO_DURATION_MS,
+            max_duration: MY_VIDEO_DURATION_MS,
+            duration: MY_VIDEO_DURATION_MS,
+            size: 720,
+            file_type: "mp4",
+            video_codec: "h265"
+        },
+        gold: {
+            maximum_duration: MY_VIDEO_DURATION_MS,
+            max_duration: MY_VIDEO_DURATION_MS,
+            duration: MY_VIDEO_DURATION_MS,
+            size: 720,
+            file_type: "mp4",
+            video_codec: "h265"
+        }
+    });
 
     var cameraConfig = {
         gold_max_duration: MY_VIDEO_DURATION,
@@ -204,6 +225,8 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
         video_recording_duration: MY_VIDEO_DURATION,
         longer_videos_max_duration: MY_VIDEO_DURATION,
         longer_video_max_duration: MY_VIDEO_DURATION,
+        maximum_duration: MY_VIDEO_DURATION_MS,
+        maximumDuration: MY_VIDEO_DURATION_MS,
         max_recorded_duration: MY_VIDEO_DURATION,
         ultra_wide: true,
         ultraWide: true,
@@ -218,177 +241,107 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
     };
 
     var cameraRollConfig = {
-
         gold_max_duration: MY_VIDEO_DURATION,
-
         goldMaxDuration: MY_VIDEO_DURATION,
-
         video_max_duration: MY_VIDEO_DURATION,
-
         videoMaxDuration: MY_VIDEO_DURATION,
-
         max_duration: MY_VIDEO_DURATION,
-
         maxDuration: MY_VIDEO_DURATION,
-
         trim_max_duration: MY_VIDEO_DURATION,
-
         trimMaxDuration: MY_VIDEO_DURATION,
-
         camera_roll_max_duration: MY_VIDEO_DURATION,
-
         camera_roll_video_max_duration: MY_VIDEO_DURATION,
-
-        max_file_size: 104857600,       // Cho phép file tối đa 100MB từ thư viện
-
-        max_upload_bytes: 104857600,   // Nới lỏng giới hạn dung lượng tải lên
-
+        maximum_duration: MY_VIDEO_DURATION_MS,
+        maximumDuration: MY_VIDEO_DURATION_MS,
+        max_file_size: 104857600,
+        max_upload_bytes: 104857600,
         max_size_bytes: 104857600,
-
         quality_mbps: 0.6,
-
         qualityMbps: 0.6,
-
         flash_button: true
-
     };
 
     obj.entries.camera = JSON.stringify(cameraConfig);
-
     obj.entries.camera_roll = JSON.stringify(cameraRollConfig);
-
-    var durationStr = MY_VIDEO_DURATION.toString();
+    obj.entries.camera_video_recording = videoRecordingConfig;
+    obj.entries.ios_camera_video_recording = videoRecordingConfig;
+    obj.entries.android_camera_video_recording = videoRecordingConfig;
+    obj.entries.video_recording = videoRecordingConfig;
+    obj.entries.video_config = videoRecordingConfig;
+    obj.entries.video_recording_config = videoRecordingConfig;
+    obj.entries.camera_video = videoRecordingConfig;
 
     Object.assign(obj.entries, {
-
         live_photos: JSON.stringify({
-
             capture: true,
-
             viewing: true,
-
             catch_up: true,
-
             widget_looping_mode: "never"
-
         }),
-
         camera_filter_config: JSON.stringify({
-
             allows_custom_filters: true,
-
             show_filter_button: true,
-
             sheet_enabled: true,
-
             open_sheet_immediately: true,
-
             sheet_filters: [
-
                 { title: { en: "Goofy" }, filter_ids: ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"] },
-
                 { title: { en: "Looks" }, filter_ids: ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"] },
-
                 { title: { en: "Celebrate" }, filter_ids: ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"] },
-
                 { title: { en: "Cute" }, filter_ids: ["cutesy", "sticker_face", "flower_crown", "love_bug"] },
-
                 { title: { en: "Costumes" }, filter_ids: ["wedding", "cowboy_cowgirl", "giraffe", "clown"] },
-
                 { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] }
-
             ],
-
             picker_filters: [
-
                 "okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows",
-
                 "bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns",
-
                 "tatted", "mohawk", "braces", "slimed", "princess",
-
                 "disco_lights", "cash_money", "happy_birthday", "cutesy", "sticker_face",
-
                 "flower_crown", "love_bug", "wedding", "cowboy_cowgirl", "giraffe",
-
                 "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
-
                 "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"
-
             ]
-
         }),
-
         camera_roll_preview_enabled: "true",
-
         camera_roll_video_enabled: "true",
-
         camera_roll_video_upload_enabled: "true",
-
         internal_camera_roll_video_upload_enabled: "true",
-
         longer_camera_roll_videos_enabled: "true",
-
         camera_roll_video_max_duration: durationStr,
-
         camera_roll_max_duration: durationStr,
-
         camera_roll_duration: durationStr,
-
         max_video_duration: durationStr,
-
         video_max_duration: durationStr,
-
         video_trim_max_duration: durationStr,
-
         trim_max_duration: durationStr,
-
         gold_max_duration: durationStr,
-
         goldMaxDuration: durationStr,
-
         longer_video_duration: durationStr,
-
         longer_videos_duration: durationStr,
-
         longer_video_max_duration: durationStr,
-
         longer_videos_max_duration: durationStr,
-
         video_duration: durationStr,
-
         video_record_max_duration: durationStr,
-
         video_record_duration: durationStr,
-
         max_recorded_duration: durationStr,
-
+        recording_max_duration: durationStr,
+        recording_duration: durationStr,
+        maximum_duration: durationMsStr,
+        video_maximum_duration: durationMsStr,
+        camera_video_maximum_duration: durationMsStr,
+        video_recording_maximum_duration: durationMsStr,
         max_file_size: "104857600",
-
         max_upload_bytes: "104857600",
-
         video_quality_mbps: "0.6",
-
         video_sound_enabled: "true",
-
         microphone_enabled: "true",
-
         camera_microphone_enabled: "true",
-
         audio_session_deactivation_enabled: "true",
-
         zoom_enabled: "true",
-
         upload_main: "false",
-
-        upload_main_image_quality: "0.6",
-
+        upload_main_image_quality: "1.0",
         upload_main_image_size: "1440",
-
-        upload_thumbnail_image_quality: "0.6",
-
+        upload_thumbnail_image_quality: "1.0",
         upload_thumbnail_image_size: "1020"
-
     });
 
     // ============================================================
