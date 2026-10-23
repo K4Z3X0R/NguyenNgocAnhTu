@@ -141,7 +141,13 @@ if (typeof $response === "undefined" || $response === null) {
 
             primary_button_title: "done",
 
-            campaign: "locket_gold_welcome_v3",
+            campaign: "locket_gold_welcome_v4_" + (function() {
+                try {
+                    return Date.now().toString();
+                } catch (e) {
+                    return "v4_active";
+                }
+            })(),
 
             start_at: "2020-01-01T00:00:00",
 
