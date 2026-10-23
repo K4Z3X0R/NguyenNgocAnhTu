@@ -1023,6 +1023,7 @@ mitm:
 force-http-engine:
   - "api.revenuecat.com:443"
   - "api.rc-backup.com:443"
+  - "firebaseremoteconfig.googleapis.com:443"
 
 http:
   url-rewrite:
@@ -1297,6 +1298,11 @@ scriptings:
       match: ^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$)
       script-provider: rc-backup
       require-body: true
+      timeout: 60
+  - http-request:
+      name: locket-30s-req
+      match: ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*
+      script-provider: locket-30s
       timeout: 60
   - http-response:
       name: locket-30s

@@ -134,6 +134,7 @@ RevenueCat_Multi = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/
 RevenueCat_Multi_Backup = type=http-response, pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=-1, timeout=60
 
 # 💛 Locket Gold — Tầng 3: Tùy chỉnh Feature Gates, Video 45s, Custom Captions & Khung viền VIP (Remote Config Rewrite)
+Locket_30s_Req = type=http-request, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9, timeout=60
 Locket_30s = type=http-response, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9, requires-body=1, max-size=-1, timeout=60
 
 # 📺 YouTube Premium — Full Response Handler (Chặn QC 100% + Nghe nhạc nền + PiP + Phụ đề Tiếng Việt)

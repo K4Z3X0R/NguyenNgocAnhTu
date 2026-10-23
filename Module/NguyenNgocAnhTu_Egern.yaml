@@ -2307,6 +2307,11 @@ scriptings:
       body_required: true
       timeout: 60
   # 💛 Locket Gold 45s Video (Remote Config Rewrite)
+  - http_request:
+      name: "Locket 45s Video Request"
+      match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/.*"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9"
+      timeout: 60
   - http_response:
       name: "Locket 45s Video"
       match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/.*"

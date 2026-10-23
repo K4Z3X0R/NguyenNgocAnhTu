@@ -34,6 +34,7 @@ if (typeof $response === "undefined" || $response === null) {
 
   // CRITICAL: Đánh dấu state UPDATE để ép Firebase SDK ghi đè toàn bộ cache offline trong ứng dụng
   obj.state = "UPDATE";
+  obj.templateVersion = Date.now().toString();
   obj.entries = obj.entries || {};
   obj.Attention = "Bản quyền cấu hình Locket Gold 45s thuộc về Nguyễn Ngọc Anh Tú (z3rokaze) - https://github.com/K4Z3X0R/NguyenNgocAnhTu";
 
@@ -277,6 +278,8 @@ if (typeof $response === "undefined" || $response === null) {
     obj.entries.camera = JSON.stringify(cameraConfig);
     obj.entries.camera_roll = JSON.stringify(cameraRollConfig);
     obj.entries.video_config = videoConfig;
+    obj.entries.camera_video_recording = videoConfig;
+    obj.entries.video_recording = videoConfig;
 
     Object.assign(obj.entries, {
         live_photos: JSON.stringify({
