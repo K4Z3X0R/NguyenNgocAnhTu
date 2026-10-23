@@ -277,12 +277,12 @@ if (!match) {
 
 // Locket Gold: Inject theo định dạng chuẩn usatalk (nguyencongan)
 if (isLocket) {
-  var MY_PURCHASE_DATE = "1111-05-25T10:10:14Z";
+  var MY_PURCHASE_DATE = "2024-07-28T01:04:17Z";
   var MY_EXPIRES_DATE  = EXPIRES;
   var locketGoldSub = {
     auto_resume_date: null,
     display_name: "locket_1600_1y",
-    is_sandbox: true,
+    is_sandbox: false,
     ownership_type: "PURCHASED",
     billing_issues_detected_at: null,
     management_url: "https://apps.apple.com/account/subscriptions",

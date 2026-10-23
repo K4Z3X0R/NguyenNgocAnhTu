@@ -24,8 +24,14 @@ if (typeof $response === "undefined" || $response === null) {
   }
 
   if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
-    $done({});
-  } else {
+    obj = {
+      state: "UPDATE",
+      entries: {},
+      appName: "Locket",
+      templateVersion: Date.now().toString()
+    };
+  }
+
   // CRITICAL: Đánh dấu state UPDATE để ép Firebase SDK ghi đè toàn bộ cache offline trong ứng dụng
   obj.state = "UPDATE";
   obj.entries = obj.entries || {};
@@ -3905,20 +3911,17 @@ if (typeof $response === "undefined" || $response === null) {
 
     });
 
-    var out = { body: JSON.stringify(obj) };
+    var out = { body: JSON.stringify(obj), status: 200 };
     try {
       var res = (typeof $response !== "undefined" && $response) ? $response : null;
-      if (res && res.headers) {
-        var h = Object.assign({}, res.headers);
-        h["Cache-Control"] = "no-store, no-cache, must-revalidate";
-        h["Pragma"] = "no-cache";
-        delete h["ETag"];
-        delete h["etag"];
-        delete h["If-None-Match"];
-        delete h["if-none-match"];
-        out.headers = h;
-      }
+      var h = (res && res.headers) ? Object.assign({}, res.headers) : {};
+      h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+      h["Pragma"] = "no-cache";
+      delete h["ETag"];
+      delete h["etag"];
+      delete h["If-None-Match"];
+      delete h["if-none-match"];
+      out.headers = h;
     } catch (e) {}
     $done(out);
-  }
 }
