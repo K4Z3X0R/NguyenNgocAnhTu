@@ -5,18 +5,27 @@
 > Cập nhật: 2026-10-22 (v2.8.9 - Fix 45s Duration, Safe Video Config & Cache-Bust)
 ***********************************************/
 
-var rawBody = (typeof $response !== "undefined" && $response && $response.body) || "";
-var obj = null;
-
-try {
-  obj = JSON.parse(rawBody);
-} catch (e) {
-  obj = null;
-}
-
-if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
-  $done({});
+// HTTP-REQUEST mode: Xóa If-None-Match & If-Modified-Since để ép Google luôn trả về HTTP 200 OK đầy đủ body
+if (typeof $response === "undefined" || $response === null) {
+  var reqHeaders = (typeof $request !== "undefined" && $request && $request.headers) ? Object.assign({}, $request.headers) : {};
+  delete reqHeaders["If-None-Match"];
+  delete reqHeaders["if-none-match"];
+  delete reqHeaders["If-Modified-Since"];
+  delete reqHeaders["if-modified-since"];
+  $done({ headers: reqHeaders });
 } else {
+  var rawBody = ($response && $response.body) || "";
+  var obj = null;
+
+  try {
+    obj = JSON.parse(rawBody);
+  } catch (e) {
+    obj = null;
+  }
+
+  if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
+    $done({});
+  } else {
   // CRITICAL: Đánh dấu state UPDATE để ép Firebase SDK ghi đè toàn bộ cache offline trong ứng dụng
   obj.state = "UPDATE";
   obj.entries = obj.entries || {};
@@ -3911,4 +3920,5 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
       }
     } catch (e) {}
     $done(out);
+  }
 }
