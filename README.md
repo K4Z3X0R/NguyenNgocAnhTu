@@ -16,7 +16,7 @@
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=14&duration=3000&pause=500&color=00FF00&background=00000000&center=false&vCenter=true&repeat=true&width=450&height=100&lines=%5B+%2B+%5D+Initializing+Premium+Unlocker+v2.8.8-stable...;%5B+%2B+%5D+Bypassing+security+checks+and+receipts...;%5B+%2B+%5D+Injecting+premium+payload+via+MITM...;%5B+%2B+%5D+Success!+350%2B+Applications+Unlocked." alt="Terminal Simulation" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=14&duration=3000&pause=500&color=00FF00&background=00000000&center=false&vCenter=true&repeat=true&width=450&height=100&lines=%5B+%2B+%5D+Initializing+Premium+Unlocker+v2.8.9-stable...;%5B+%2B+%5D+Bypassing+security+checks+and+receipts...;%5B+%2B+%5D+Injecting+premium+payload+via+MITM...;%5B+%2B+%5D+Success!+350%2B+Applications+Unlocked." alt="Terminal Simulation" />
 </a>
 
 <br>
@@ -47,7 +47,7 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 <!-- HÀNG 1 — THÔNG TIN DỰ ÁN -->
-<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases"><img src="https://img.shields.io/badge/%E2%9A%A1_PHI%C3%8AN_B%E1%BA%A2N-v2.8.8--stable-00F0FF?style=for-the-badge&labelColor=0D1117" alt="version"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases"><img src="https://img.shields.io/badge/%E2%9A%A1_PHI%C3%8AN_B%E1%BA%A2N-v2.8.9--stable-00F0FF?style=for-the-badge&labelColor=0D1117" alt="version"/></a>
 &nbsp;
 <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/K4Z3X0R/NguyenNgocAnhTu/ci.yml?branch=master&style=for-the-badge&logo=githubactions&logoColor=00F0FF&label=%E2%9C%85+CI+TESTS&color=00FF88&labelColor=0D1117" alt="ci"/></a>
 &nbsp;
@@ -479,6 +479,7 @@
 
 | | Phiên bản | Ngày | Nội dung cập nhật | Số app |
 |:---:|:---:|:---:|:---|:---:|
+| 👑 | **`v2.8.9-stable`** | `23.10.2026` | 💛 **Locket Gold 45s Video Fix**: Sửa dứt điểm lỗi video tụt về 10s do tràn ngưỡng mili-giây và schema video_config ngoại lai • Chuẩn hóa 45.0s đồng bộ trên toàn hệ thống • Bổ sung trọn bộ feature gates (longer_videos, video_recording, video_upload, camera_roll_video) & ép header Cache-Control no-store chống dính cache 304. | **350+** |
 | 👑 | **`v2.8.8-stable`** | `22.10.2026` | 💛 **Locket Gold 45s Unlimited & Hardened RevenueCat Multi-App Engine**: Mở khóa toàn diện Video 45s Locket (cả giây và mili-giây `45000ms`, `longer_video`, `camera_roll`, `trim_max_duration`, trần upload 100MB HD, bitrate 0.6 Mbps) • Gia cố tầng xác thực RevenueCat: hỗ trợ 4 Product ID Locket (`locket_1600_1y`, `locket_3600_1y`, `yearly`, `monthly`), `is_sandbox: true`, transaction chuẩn & triệt hạ toàn bộ 3 header dính cache (`X-RevenueCat-ETag`, `If-None-Match`, `If-Modified-Since`) • Tích hợp hồ sơ DNS Profile v4.0 (AdGuard DoH Anycast Unlimited & OnDemand NeverConnect) ngay tại root repo • Đạt chứng nhận 40/40 Reality Proof Assertions & 37/37 Functional Tests. | **350+** |
 | 👑 | **`v2.8.6-stable`** | `22.10.2026` | 🎬 **Locket Gold 45s Video (100MB HD), Custom Captions, Royal Gold Frames & Full Ecosystem Parity**: Nâng cấp thời lượng quay video Locket lên 45.0s, trần file upload 100MB (`104857600 bytes`), bitrate 0.6 Mbps • Tích hợp 13 danh mục Custom Captions Tiếng Việt & Khung viền Royal Gold VIP • Đồng bộ 100GB Cloud Storage cho PicsArt trên Shadowrocket & Surge Premium • Chuẩn hóa luồng YouTube trên LanceX • Tách riêng DNS Profile v4.0 độc lập sang hạ tầng AdGuard Anycast DoH không giới hạn quota và bảo toàn 100% push notifications • Bổ sung bộ kiểm thử thực thi `test_reality_proof.js` (40/40 assertions) & đạt 177/177 test pass 100%. | **350+** |
 | 👑 | **`v2.8.3-stable`** | `06.10.2026` | 🎵 **Spotify 2026, Scanner Suite & Full Ecosystem Upgrade**: Tích hợp `/device-capabilities/v1/capabilities`, HiFi 24-bit audio & QUIC UDP block cho Spotify • Mở rộng trọn bộ Scanner (CamScanner, Scanner Pro, iScanner, QuickScan, DocScanner) • Mở rộng RevenueCat (Speak, Praktika, Craft, Day One, DeepL, Epik, Notability) • Cập nhật AI Proxy 2026 (Cursor, Sora, Flux, Coze, Gemini) • Bổ sung CI/CD tự động kiểm thử toàn diện & Dead-link Auditor • Vá triệt để lỗi Facebook Login & Messenger images trong `Ads.list` • Tối ưu định tuyến VTV Go, VieON, TV360 trong `Direct.list` • Bọc null-safety 100% cho 28 script JS. | **350+** |

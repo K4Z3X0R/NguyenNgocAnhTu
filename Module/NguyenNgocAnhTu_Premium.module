@@ -1,7 +1,7 @@
 #!name=👑 Nguyễn Ngọc Anh Tú 🌸 ⁕ Ultimate Premium & Best AdBlock ⁕
-#!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube Premium, Captions AI, iScreen, MD Vinyl, Moises, Structured, iTunes 250+, SoundCloud, WPS, Darkroom, OldRoll, Fimo, Calm, Remini, PhotoRoom, ELSA...). 🛡️ Chặn Quảng Cáo 100% (AdGuard DoH, Rule-Sets Ads/Tracking/Malware/HostsVN/QC App VN). 🎮 Gaming DIRECT (PUBG, Liên Quân, Genshin...). 📺 Streaming PROXY (Netflix, Disney+, HBO...). ⚡ Tối ưu DNS, Banking VN, GeoIP VN, Chặn iOS OTA & App Store Ads. | v2.8.8-stable (2026-10-22)
-#!version=2.8.8-stable
-#!date=2026-10-22
+#!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube Premium, Captions AI, iScreen, MD Vinyl, Moises, Structured, iTunes 250+, SoundCloud, WPS, Darkroom, OldRoll, Fimo, Calm, Remini, PhotoRoom, ELSA...). 🛡️ Chặn Quảng Cáo 100% (AdGuard DoH, Rule-Sets Ads/Tracking/Malware/HostsVN/QC App VN). 🎮 Gaming DIRECT (PUBG, Liên Quân, Genshin...). 📺 Streaming PROXY (Netflix, Disney+, HBO...). ⚡ Tối ưu DNS, Banking VN, GeoIP VN, Chặn iOS OTA & App Store Ads. | v2.8.9-stable (2026-10-23)
+#!version=2.8.9-stable
+#!date=2026-10-23
 #!author=Nguyễn Ngọc Anh Tú (z3rokaze)
 #!homepage=https://github.com/K4Z3X0R/NguyenNgocAnhTu
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/VIP.png
@@ -190,7 +190,7 @@ RevenueCat_Multi = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/
 RevenueCat_Multi_Backup = type=http-response, pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=-1, timeout=60
 
 # 💛 Locket Gold — Tầng 3: Tùy chỉnh Feature Gates, Video 45s, Custom Captions & Khung viền VIP (Remote Config Rewrite)
-Locket_30s = type=http-response, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.8, requires-body=1, max-size=-1, timeout=60
+Locket_30s = type=http-response, pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9, requires-body=1, max-size=-1, timeout=60
 
 # 📺 YouTube Premium — Full Response Handler (Chặn QC 100% + Nghe nhạc nền + PiP + Phụ đề Tiếng Việt)
 YouTube_Premium = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch), requires-body=1, max-size=-1, binary-body-mode=1, timeout=30, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/youtube.response.js, argument={"lyricLang":"vi","captionLang":"vi","blockUpload":false,"blockImmersive":false,"blockShorts":false,"debug":false}

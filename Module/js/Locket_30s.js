@@ -2,7 +2,7 @@
 > Locket Gold 45s Video & Remote Config Unlocker
 > Cho phép quay video 45s, tải lên video 45s từ thư viện, cắt ghép 45s & mở khóa tính năng Gold, Custom Captions & Frames
 > Tác giả: Nguyễn Ngọc Anh Tú (z3rokaze)
-> Cập nhật: 2026-10-22 (v2.8.8 - Comprehensive 45s Duration (Ms + Sec + camera_video_recording))
+> Cập nhật: 2026-10-22 (v2.8.9 - Fix 45s Duration, Safe Video Config & Cache-Bust)
 ***********************************************/
 
 var rawBody = (typeof $response !== "undefined" && $response && $response.body) || "";
