@@ -44,6 +44,14 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
 
             longer_video: "enabled",
 
+            longer_videos: "enabled",
+
+            video_recording: "enabled",
+
+            video_upload: "enabled",
+
+            camera_roll_video: "enabled",
+
             unlimited_friends: "enabled",
 
             priority_support: "enabled",
@@ -184,32 +192,7 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
     // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY (45s VIDEO CHUẨN)
     // ============================================================
     var MY_VIDEO_DURATION = 45.0;
-    var MY_VIDEO_DURATION_MS = 45000;
     var durationStr = "45";
-    var durationMsStr = "45000";
-
-    var videoRecordingConfig = JSON.stringify({
-        display_mode: "toggle",
-        maximum_duration: MY_VIDEO_DURATION_MS,
-        max_duration: MY_VIDEO_DURATION_MS,
-        duration: MY_VIDEO_DURATION_MS,
-        default: {
-            maximum_duration: MY_VIDEO_DURATION_MS,
-            max_duration: MY_VIDEO_DURATION_MS,
-            duration: MY_VIDEO_DURATION_MS,
-            size: 720,
-            file_type: "mp4",
-            video_codec: "h265"
-        },
-        gold: {
-            maximum_duration: MY_VIDEO_DURATION_MS,
-            max_duration: MY_VIDEO_DURATION_MS,
-            duration: MY_VIDEO_DURATION_MS,
-            size: 720,
-            file_type: "mp4",
-            video_codec: "h265"
-        }
-    });
 
     var cameraConfig = {
         gold_max_duration: MY_VIDEO_DURATION,
@@ -225,8 +208,8 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
         video_recording_duration: MY_VIDEO_DURATION,
         longer_videos_max_duration: MY_VIDEO_DURATION,
         longer_video_max_duration: MY_VIDEO_DURATION,
-        maximum_duration: MY_VIDEO_DURATION_MS,
-        maximumDuration: MY_VIDEO_DURATION_MS,
+        maximum_duration: MY_VIDEO_DURATION,
+        maximumDuration: MY_VIDEO_DURATION,
         max_recorded_duration: MY_VIDEO_DURATION,
         ultra_wide: true,
         ultraWide: true,
@@ -251,8 +234,8 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
         trimMaxDuration: MY_VIDEO_DURATION,
         camera_roll_max_duration: MY_VIDEO_DURATION,
         camera_roll_video_max_duration: MY_VIDEO_DURATION,
-        maximum_duration: MY_VIDEO_DURATION_MS,
-        maximumDuration: MY_VIDEO_DURATION_MS,
+        maximum_duration: MY_VIDEO_DURATION,
+        maximumDuration: MY_VIDEO_DURATION,
         max_file_size: 104857600,
         max_upload_bytes: 104857600,
         max_size_bytes: 104857600,
@@ -261,15 +244,18 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
         flash_button: true
     };
 
+    var videoConfig = JSON.stringify({
+        enabled: true,
+        max_duration: MY_VIDEO_DURATION,
+        recording_duration: MY_VIDEO_DURATION,
+        longer_videos_duration: MY_VIDEO_DURATION,
+        camera_roll_enabled: true,
+        max_length: MY_VIDEO_DURATION
+    });
+
     obj.entries.camera = JSON.stringify(cameraConfig);
     obj.entries.camera_roll = JSON.stringify(cameraRollConfig);
-    obj.entries.camera_video_recording = videoRecordingConfig;
-    obj.entries.ios_camera_video_recording = videoRecordingConfig;
-    obj.entries.android_camera_video_recording = videoRecordingConfig;
-    obj.entries.video_recording = videoRecordingConfig;
-    obj.entries.video_config = videoRecordingConfig;
-    obj.entries.video_recording_config = videoRecordingConfig;
-    obj.entries.camera_video = videoRecordingConfig;
+    obj.entries.video_config = videoConfig;
 
     Object.assign(obj.entries, {
         live_photos: JSON.stringify({
@@ -325,10 +311,10 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
         max_recorded_duration: durationStr,
         recording_max_duration: durationStr,
         recording_duration: durationStr,
-        maximum_duration: durationMsStr,
-        video_maximum_duration: durationMsStr,
-        camera_video_maximum_duration: durationMsStr,
-        video_recording_maximum_duration: durationMsStr,
+        maximum_duration: durationStr,
+        video_maximum_duration: durationStr,
+        camera_video_maximum_duration: durationStr,
+        video_recording_maximum_duration: durationStr,
         max_file_size: "104857600",
         max_upload_bytes: "104857600",
         video_quality_mbps: "0.6",
@@ -3910,5 +3896,19 @@ if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
 
     });
 
-    $done({ body: JSON.stringify(obj) });
+    var out = { body: JSON.stringify(obj) };
+    try {
+      var res = (typeof $response !== "undefined" && $response) ? $response : null;
+      if (res && res.headers) {
+        var h = Object.assign({}, res.headers);
+        h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+        h["Pragma"] = "no-cache";
+        delete h["ETag"];
+        delete h["etag"];
+        delete h["If-None-Match"];
+        delete h["if-none-match"];
+        out.headers = h;
+      }
+    } catch (e) {}
+    $done(out);
 }
