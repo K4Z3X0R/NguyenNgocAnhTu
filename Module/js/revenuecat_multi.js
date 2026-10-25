@@ -336,7 +336,9 @@ if (isLocket) {
   // Unlock Filter Packs, Holiday Effects & Seasonal Frames (Photo Effects, AR Filters & Frames)
   var filterProds = [
     "com.locket.Locket.FilterPack_10Photos_400",
-    "com.locket.Locket.FilterPack_20Photos_500"
+    "com.locket.Locket.FilterPack_20Photos_500",
+    "com.locket.Locket.FilterPack_10Photo",
+    "com.locket.Locket.FilterPack_20Photo"
   ];
   for (var fp = 0; fp < filterProds.length; fp++) {
     var fpid = filterProds[fp];
@@ -390,6 +392,14 @@ if (isLocket) {
   };
   obj.subscriber.subscriber_attributes["badge"] = {
     "value": "verified",
+    "updated_at_ms": REQUEST_DATE_MS
+  };
+  obj.subscriber.subscriber_attributes["subscription_entitlement"] = {
+    "value": "locket_gold",
+    "updated_at_ms": REQUEST_DATE_MS
+  };
+  obj.subscriber.subscriber_attributes["is_gold"] = {
+    "value": "true",
     "updated_at_ms": REQUEST_DATE_MS
   };
 }

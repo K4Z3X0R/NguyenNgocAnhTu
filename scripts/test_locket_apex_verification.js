@@ -73,6 +73,14 @@ test('Locket: Video 45s chuẩn tuyệt đối (toàn bộ 15 cờ thời lượ
   assert.strictEqual(obj.entries.gold_max_duration, '45');
 });
 
+test('Locket: 4K Ultra HD Upload & 0.9 Mbps Quality Boost', () => {
+  const obj = JSON.parse(locketRes.body);
+  assert.strictEqual(obj.entries.upload_main_image_size, '2160', 'Ảnh chính phải upload chuẩn 4K (2160p)');
+  assert.strictEqual(obj.entries.upload_thumbnail_image_size, '1080', 'Thumbnail phải là 1080p');
+  assert.strictEqual(obj.entries.upload_main_image_quality, '1.0', 'Chất lượng nén ảnh phải là 1.0 (lossless)');
+  assert.strictEqual(obj.entries.video_quality_mbps, '0.9', 'Bitrate video phải đạt 0.9 Mbps');
+});
+
 test('Locket: Developer Debug Menu đã kích hoạt (debug_menu_enabled = true)', () => {
   const obj = JSON.parse(locketRes.body);
   const journal = JSON.parse(obj.entries.journal_settings);
@@ -106,6 +114,49 @@ test('Locket: Danh sách 7 khung viền VIP (widget_frames_config) chuẩn xác'
   assert(styleIds.includes('midautumn_festival'), 'Thiếu khung Trung Thu');
 });
 
+test('Locket: CDN Domain Replacement & 5 Năm Cache Tối Ưu', () => {
+  const obj = JSON.parse(locketRes.body);
+  const cdn = JSON.parse(obj.entries.cdn_domain_replacements);
+  assert.strictEqual(cdn['firebasestorage.googleapis.com'], 'cdn.locketcamera.com');
+  assert.strictEqual(obj.entries.image_cache_max_age_sec, '157680000', 'Cache ảnh phải là 5 năm (157680000s)');
+  assert.strictEqual(obj.entries.image_cache_max_size, '500000000', 'Bộ nhớ cache ảnh phải là 500MB');
+  assert.strictEqual(obj.entries.widget_auto_refresh_sec, '15', 'Widget phải tự refresh mỗi 15s');
+});
+
+test('Locket: Unlimited Friends & Global Reach (Bypass giới hạn kết bạn)', () => {
+  const obj = JSON.parse(locketRes.body);
+  assert.strictEqual(obj.entries.max_friends_count, '999999');
+  assert.strictEqual(obj.entries.soft_friend_limit_threshold_count, '999999');
+  assert.strictEqual(obj.entries.allow_any_country_code, 'true');
+  assert.strictEqual(obj.entries.enable_mutual_friends, 'true');
+});
+
+test('Locket: Ghost Mode, Anti-Screenshot & Watermark Stripping', () => {
+  const obj = JSON.parse(locketRes.body);
+  assert.strictEqual(obj.entries.ghost_mode_viewing, 'true');
+  assert.strictEqual(obj.entries.anti_screenshot_notify, 'false');
+  assert.strictEqual(obj.entries.bypass_screenshot_detection, 'true');
+  assert.strictEqual(obj.entries.save_moment_without_watermark, 'true');
+  assert.strictEqual(obj.entries.export_moment_raw_quality, 'true');
+});
+
+test('Locket: Audio Messages & Burst Reactions', () => {
+  const obj = JSON.parse(locketRes.body);
+  assert.strictEqual(obj.entries.audio_messages_enabled, 'true');
+  assert.strictEqual(obj.entries.voice_caption_enabled, 'true');
+  assert.strictEqual(obj.entries.burst_reactions_enabled, 'true');
+  assert.strictEqual(obj.entries.reaction_sound_effects, 'true');
+});
+
+test('Locket: Android Cross-Platform Compatibility (LSPosed / Android Shadowrocket)', () => {
+  const obj = JSON.parse(locketRes.body);
+  assert.strictEqual(obj.entries.android_gold_subscription_override, 'true');
+  assert.strictEqual(obj.entries.android_subscribe_gold_button_enabled, 'true');
+  const androidVid = JSON.parse(obj.entries.android_camera_video_recording);
+  assert.strictEqual(androidVid.gold.maximum_duration, 45000);
+  assert.strictEqual(androidVid.gold.size, 1080);
+});
+
 test('Locket: Toàn bộ JSON con trong obj.entries parse hợp lệ 100%', () => {
   const obj = JSON.parse(locketRes.body);
   const jsonKeys = [
@@ -113,7 +164,8 @@ test('Locket: Toàn bộ JSON con trong obj.entries parse hợp lệ 100%', () =
     'camera_filter_config', 'streak_config', 'journal_settings', 'qr_code_config',
     'widget_frame_event', 'widget_frames_config', 'widget_frame_styles',
     'seasonal_frames_config', 'overlay_dynamic_captions', 'overlay_items',
-    'paywall_presentation_config', 'feature_discovery_popup_config'
+    'paywall_presentation_config', 'feature_discovery_popup_config',
+    'cdn_domain_replacements', 'android_camera_video_recording'
   ];
   for (const k of jsonKeys) {
     if (obj.entries[k]) {
@@ -194,6 +246,8 @@ test('RevenueCat: locket_gold_since và first_seen đều là 18/07/2005', () =>
   assert.strictEqual(attrs.locket_gold_badge.value, 'true');
   assert.strictEqual(attrs.locket_verified.value, 'true');
   assert.strictEqual(attrs.badge.value, 'verified');
+  assert.strictEqual(attrs.subscription_entitlement.value, 'locket_gold');
+  assert.strictEqual(attrs.is_gold.value, 'true');
 });
 
 test('RevenueCat: Entitlements bao gồm full quyền Gold, Ngày lễ & Hiệu ứng', () => {
@@ -222,6 +276,13 @@ test('RevenueCat: Subscriptions chuẩn Production (is_sandbox = false)', () => 
   assert.strictEqual(sub.ownership_type, 'PURCHASED');
   assert.strictEqual(sub.store, 'app_store');
   assert.strictEqual(sub.expires_date, '2099-12-31T10:10:14Z');
+});
+
+test('RevenueCat: Multi-tier Filter Packs (10Photo & 10Photos) được cấp quyền', () => {
+  const obj = JSON.parse(rcRes.body);
+  const subs = obj.subscriber.subscriptions;
+  assert(subs['com.locket.Locket.FilterPack_10Photo'], 'Thiếu FilterPack_10Photo');
+  assert(subs['com.locket.Locket.FilterPack_10Photos_400'], 'Thiếu FilterPack_10Photos_400');
 });
 
 // ----------------------------------------------------
