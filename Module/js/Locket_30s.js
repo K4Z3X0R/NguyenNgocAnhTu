@@ -122,7 +122,22 @@ if (typeof $response === "undefined" || $response === null) {
 
             moment_effects: "enabled",
 
-            moment_reactions_effects: "enabled"
+            moment_reactions_effects: "enabled",
+            calendar_rewind: "enabled",
+            locket_yearbook: "enabled",
+            yearbook: "enabled",
+            year_in_review: "enabled",
+            streak_freeze: "enabled",
+            streak_shields: "enabled",
+            unlimited_streak_restores: "enabled",
+            ghost_mode: "enabled",
+            stealth_views: "enabled",
+            incognito_views: "enabled",
+            music_caption_full_preview: "enabled",
+            music_caption_lyrics: "enabled",
+            camera_hdr: "enabled",
+            camera_stabilization: "enabled",
+            fps_60: "enabled"
 
         }),
 
@@ -275,6 +290,10 @@ if (typeof $response === "undefined" || $response === null) {
         telephoto: true,
         srgb: true,
         lanczos: true,
+        hdr: true,
+        hdr_video: true,
+        stabilization: true,
+        fps_60: true,
         quality_mbps: 0.6,
         qualityMbps: 0.6
     };
@@ -321,7 +340,9 @@ if (typeof $response === "undefined" || $response === null) {
                 { title: { en: "Celebrate" }, filter_ids: ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"] },
                 { title: { en: "Cute" }, filter_ids: ["cutesy", "sticker_face", "flower_crown", "love_bug"] },
                 { title: { en: "Costumes" }, filter_ids: ["wedding", "cowboy_cowgirl", "giraffe", "clown"] },
-                { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] }
+                { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] },
+                { title: { en: "Aesthetic" }, filter_ids: ["vintage_90s", "kodak_gold", "cyber_glow", "film_grain", "soft_dream"] },
+                { title: { en: "Halloween" }, filter_ids: ["pumpkin_head", "vampire_fangs", "spooky_ghost", "witch_hat", "bat_wings"] }
             ],
             picker_filters: [
                 "okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows",
@@ -330,7 +351,7 @@ if (typeof $response === "undefined" || $response === null) {
                 "disco_lights", "cash_money", "happy_birthday", "cutesy", "sticker_face",
                 "flower_crown", "love_bug", "wedding", "cowboy_cowgirl", "giraffe",
                 "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
-                "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"
+                "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty", "vintage_90s", "kodak_gold", "cyber_glow", "film_grain", "soft_dream", "pumpkin_head", "vampire_fangs", "spooky_ghost", "witch_hat", "bat_wings"
             ]
         }),
         camera_roll_preview_enabled: "true",
@@ -373,7 +394,11 @@ if (typeof $response === "undefined" || $response === null) {
         upload_main_image_quality: "1.0",
         upload_main_image_size: "1440",
         upload_thumbnail_image_quality: "1.0",
-        upload_thumbnail_image_size: "1020"
+        upload_thumbnail_image_size: "1020",
+        camera_hdr_enabled: "true",
+        camera_stabilization_enabled: "true",
+        video_stabilization_enabled: "true",
+        high_quality_video_playback: "true"
     });
 
     // ============================================================
@@ -491,6 +516,10 @@ if (typeof $response === "undefined" || $response === null) {
         streak.minimum_recovery_count = 0;
 
         streak.minimum_display_count = 0;
+        streak.streak_freeze_enabled = true;
+        streak.unlimited_streak_restores = true;
+        streak.grace_period_days = 365;
+        streak.recovery_window_days = 365;
 
         obj.entries.streak_config = JSON.stringify(streak);
 
@@ -536,7 +565,20 @@ if (typeof $response === "undefined" || $response === null) {
 
         calendar_delete_moment_enabled: "true",
 
-        calendar_rewind_enabled: "false",
+        calendar_rewind_enabled: "true",
+        locket_yearbook_enabled: "true",
+        yearbook_enabled: "true",
+        year_in_review_enabled: "true",
+        streak_freeze_enabled: "true",
+        unlimited_streak_restores: "true",
+        streak_grace_period_days: "365",
+        streak_restore_without_gold: "true",
+        anonymous_views_enabled: "true",
+        stealth_views: "true",
+        incognito_views_enabled: "true",
+        hide_view_receipt: "true",
+        music_caption_full_song_preview: "true",
+        music_caption_lyrics_enabled: "true",
 
         locket_yearbook_story_sharing_encouraged: "true",
 
@@ -703,6 +745,50 @@ if (typeof $response === "undefined" || $response === null) {
                     overlay_asset: "royal_crown_frame"
                 },
                 {
+                    id: "halloween_spooky",
+                    name: "🎃 Halloween Spooky Night",
+                    border_style: "spooky_pumpkin_bat",
+                    crown_badge: false,
+                    badge_text: "Halloween",
+                    corner_radius: 28.0,
+                    glow_effect: true,
+                    glow_color: "#FF7518",
+                    overlay_asset: "halloween_frame"
+                },
+                {
+                    id: "merry_christmas",
+                    name: "🎄 Giáng Sinh Tuyết Rơi",
+                    border_style: "christmas_snow_pine",
+                    crown_badge: false,
+                    badge_text: "Noel",
+                    corner_radius: 28.0,
+                    glow_effect: true,
+                    glow_color: "#00FF7F",
+                    overlay_asset: "christmas_frame"
+                },
+                {
+                    id: "sweet_valentine",
+                    name: "💖 Sweet Valentine Trái Tim",
+                    border_style: "sweet_love_heart",
+                    crown_badge: false,
+                    badge_text: "Valentine",
+                    corner_radius: 28.0,
+                    glow_effect: true,
+                    glow_color: "#FF69B4",
+                    overlay_asset: "valentine_frame"
+                },
+                {
+                    id: "cyberpunk_neon",
+                    name: "⚡ Cyberpunk Neon Dark",
+                    border_style: "cyber_neon_glow",
+                    crown_badge: false,
+                    badge_text: "Cyber",
+                    corner_radius: 28.0,
+                    glow_effect: true,
+                    glow_color: "#00FFFF",
+                    overlay_asset: "cyberpunk_frame"
+                },
+                {
                     id: "midautumn_festival",
                     name: "🥮 Tết Trung Thu Đoàn Viên",
                     border_style: "lantern_moon",
@@ -721,6 +807,10 @@ if (typeof $response === "undefined" || $response === null) {
         widget_frame_styles: JSON.stringify([
             "vietnam_women_day_20_10",
             "royal_gold_vip",
+            "halloween_spooky",
+            "merry_christmas",
+            "sweet_valentine",
+            "cyberpunk_neon",
             "midautumn_festival",
             "gold_luxury",
             "classic"

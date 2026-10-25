@@ -1,6 +1,6 @@
 #!name=⚡ Anh Tú Premium - Loon
 #!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy.
-#!version=2.9.2-stable
+#!version=2.9.3-stable
 #!date=2026-10-25
 #!author=Nguyễn Ngọc Anh Tú
 #!homepage=https://github.com/K4Z3X0R/NguyenNgocAnhTu
@@ -114,15 +114,15 @@ http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|p
 # 🎵 Spotify Premium (app2smile)
 http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path=https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/spotify-json.js,tag=SP-JSON
 http-response ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/spotify-proto.js,requires-body=true,binary-body-mode=true,tag=SP-Proto
-http-response ^https?:\/\/(api\.spotify\.com\/v1\/me|.*spclient.*\.spotify\.com(:443)?\/(identity\/v3\/me|device-capabilities\/v1\/capabilities|user-attributes\/v\d+\/attributes|bootstrap\/v1\/bootstrap|melody\/v1\/check_license)) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=2.9.2, requires-body=true, timeout=30, tag=Spotify-Premium-JSON
+http-response ^https?:\/\/(api\.spotify\.com\/v1\/me|.*spclient.*\.spotify\.com(:443)?\/(identity\/v3\/me|device-capabilities\/v1\/capabilities|user-attributes\/v\d+\/attributes|bootstrap\/v1\/bootstrap|melody\/v1\/check_license)) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=2.9.3, requires-body=true, timeout=30, tag=Spotify-Premium-JSON
 
 # 🔐 RevenueCat Multi-App (Locket Gold)
-http-response ^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.2,requires-body=true,timeout=60,tag=RC-Multi
-http-response ^https:\/\/api\.rc-backup\.com\/.*\/(receipts$|subscribers\/[^/]+$) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.2,requires-body=true,timeout=60,tag=RC-Backup
+http-response ^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.3,requires-body=true,timeout=60,tag=RC-Multi
+http-response ^https:\/\/api\.rc-backup\.com\/.*\/(receipts$|subscribers\/[^/]+$) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.3,requires-body=true,timeout=60,tag=RC-Backup
 
 # 💛 Locket Gold 45s Video
-http-request ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.* script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.2,timeout=60,tag=Locket-30s-Req
-http-response ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.* script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.2,requires-body=true,timeout=60,tag=Locket-30s
+http-request ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.* script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.3,timeout=60,tag=Locket-30s-Req
+http-response ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.* script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.3,requires-body=true,timeout=60,tag=Locket-30s
 
 # 🎧 SoundCloud Go+ (K4Z3X0R)
 http-response ^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/soundcloud.js,requires-body=true,timeout=30,tag=SC-Res

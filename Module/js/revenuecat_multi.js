@@ -351,7 +351,8 @@ if (isLocket) {
     "filters", "filter_pack", "effects", "holiday_effects", "holiday_filters",
     "holiday_moments", "view_holiday_moments", "seasonal_effects", "seasonal_frames",
     "custom_frames", "frames", "widget_frames", "view_all_history", "view_history",
-    "past_moments", "camera_filter_holidays"
+    "past_moments", "camera_filter_holidays", "yearbook", "recap", "calendar_rewind",
+    "streak_freeze", "ghost_mode", "stealth_views", "music_preview"
   ];
   for (var fe = 0; fe < filterEnts.length; fe++) {
     var feKey = filterEnts[fe];
