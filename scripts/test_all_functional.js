@@ -545,6 +545,7 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
   const b = JSON.parse(out.body);
 
   check('spotify: user-attributes type=premium', b.values && b.values.type === 'premium', out ? out.body : 'null');
+  check('spotify: on-demand=true & shuffle=false', b.values && b.values['on-demand'] === 'true' && b.values['shuffle'] === 'false', out ? out.body : 'null');
 
 }
 

@@ -7,11 +7,13 @@ const src = fs.readFileSync(
   "utf-8"
 );
 
-function run(requestUrl, responseBody, responseHeaders) {
+function run(requestUrl, responseBody, responseHeaders, extraReq) {
   let doneArg = null;
+  const reqObj = Object.assign({ url: requestUrl }, extraReq || {});
+  const resObj = responseBody !== null ? { body: responseBody, headers: responseHeaders || {} } : undefined;
   const sandbox = {
-    $request: { url: requestUrl },
-    $response: { body: responseBody, headers: responseHeaders || {} },
+    $request: reqObj,
+    $response: resObj,
     $done: (arg) => { doneArg = arg; },
     console,
   };
@@ -22,6 +24,23 @@ function run(requestUrl, responseBody, responseHeaders) {
   );
   fn(sandbox.$request, sandbox.$response, sandbox.$done, console);
   return doneArg; // {body, headers} hoặc {}
+}
+
+function runQuanX(requestUrl, bodyBytes) {
+  let doneArg = null;
+  const sandbox = {
+    $task: {},
+    $request: { url: requestUrl },
+    $response: { bodyBytes: bodyBytes, headers: {} },
+    $done: (arg) => { doneArg = arg; },
+    console,
+  };
+  const fn = new Function(
+    "$request", "$response", "$done", "console", "$task",
+    src
+  );
+  fn(sandbox.$request, sandbox.$response, sandbox.$done, console, sandbox.$task);
+  return doneArg;
 }
 
 let pass = 0, fail = 0;
@@ -131,6 +150,88 @@ console.log("== spotify.js unit test ==");
   const out = run("https://api.spotify.com/v1/me", inBody, {});
   const b = JSON.parse(out.body);
   check("v1/me: explicit_content filter_locked=false", b.explicit_content && b.explicit_content.filter_locked === false, out.body);
+}
+
+// 11. user-attributes: on-demand=true & shuffle=false (v2.9.0)
+{
+  const inBody = JSON.stringify({
+    values: {
+      type: "free",
+      shuffle: "true",
+      "on-demand": "false"
+    }
+  });
+  const out = run("https://spclient.wg.spotify.com/user-attributes/v1/attributes", inBody, {});
+  const b = JSON.parse(out.body);
+  check("user-attributes: on-demand=true & shuffle=false", b.values && b.values["on-demand"] === "true" && b.values["shuffle"] === "false", out.body);
+}
+
+// 12. user-attributes: offline=true & lyrics-offline=true (v2.9.0)
+{
+  const inBody = JSON.stringify({ values: { type: "free" } });
+  const out = run("https://spclient.wg.spotify.com/user-attributes/v1/attributes", inBody, {});
+  const b = JSON.parse(out.body);
+  check("user-attributes: offline=true & lyrics-offline=true", b.values && b.values.offline === "true" && b.values["lyrics-offline"] === "true", out.body);
+}
+
+// 13. user-customization-service/v1/customize (JSON mode v2.9.0)
+{
+  const inBody = JSON.stringify({
+    accountAttributes: {
+      type: "free",
+      shuffle: "1"
+    }
+  });
+  const out = run("https://spclient.wg.spotify.com/user-customization-service/v1/customize", inBody, { ETag: "W/\"ucs\"" });
+  const b = JSON.parse(out.body);
+  check("customize: accountAttributes.type=premium", b.accountAttributes && b.accountAttributes.type === "premium", out.body);
+  check("customize: accountAttributes.shuffle=false", b.accountAttributes && b.accountAttributes.shuffle === "false", out.body);
+  check("customize: cache-bust headers", out.headers && out.headers["Cache-Control"] === "no-store");
+}
+
+// 14. HTTP-Request phase: URL rewriting platform=iphone -> platform=ipad (v2.9.0)
+{
+  const out = run("https://spclient.wg.spotify.com/artistview/v1/artist/12345?platform=iphone", null, null, {});
+  check("request: artistview platform=iphone rewritten to platform=ipad", out && out.url && out.url.includes("platform=ipad"), JSON.stringify(out));
+}
+
+// 15. HTTP-Request phase: strip If-None-Match & If-Modified-Since (chống 304 v2.9.0)
+{
+  const reqHeaders = {
+    "User-Agent": "Spotify/8.9.0 iOS",
+    "If-None-Match": "W/\"old-etag\"",
+    "If-Modified-Since": "Sat, 24 Oct 2026 12:00:00 GMT"
+  };
+  const out = run("https://api.spotify.com/v1/me", null, null, { headers: reqHeaders });
+  check("request: validation headers stripped", out && out.headers && out.headers["If-None-Match"] === undefined && out.headers["If-Modified-Since"] === undefined, JSON.stringify(out));
+}
+
+// 16. Protobuf Binary string: melody/v1/check_license (v2.9.0)
+{
+  const dummyProto = "prefix\x04freesuffix";
+  const out = run("https://spclient.wg.spotify.com/melody/v1/check_license", dummyProto, { ETag: "W/\"bin\"" });
+  check("proto string: license check replaced free with premium", out && out.body && out.body.indexOf("\x07premium") !== -1, JSON.stringify(out));
+  check("proto string: cache-bust applied", out && out.headers && out.headers["Cache-Control"] === "no-store");
+}
+
+// 17. Protobuf Binary Uint8Array: melody/v1/check_license (v2.9.0)
+{
+  const dummyStr = "prefix\x04freesuffix";
+  const u8 = new Uint8Array(dummyStr.length);
+  for (let i = 0; i < dummyStr.length; i++) u8[i] = dummyStr.charCodeAt(i);
+  const out = run("https://spclient.wg.spotify.com/melody/v1/check_license", u8, {});
+  const outStr = out && out.body instanceof Uint8Array ? Buffer.from(out.body).toString("binary") : "";
+  check("proto Uint8Array: license check replaced free with premium", outStr.indexOf("\x07premium") !== -1, outStr);
+}
+
+// 18. Quantumult X Protobuf bodyBytes: bootstrap/v1/bootstrap (v2.9.0)
+{
+  const dummyStr = "header\x06client\x04freefooter";
+  const u8 = new Uint8Array(dummyStr.length);
+  for (let i = 0; i < dummyStr.length; i++) u8[i] = dummyStr.charCodeAt(i);
+  const out = runQuanX("https://spclient.wg.spotify.com/bootstrap/v1/bootstrap", u8.buffer);
+  const outStr = out && out.bodyBytes ? Buffer.from(out.bodyBytes).toString("binary") : "";
+  check("proto QuanX bodyBytes: replaced free with premium", outStr.indexOf("\x06client\x07premium") !== -1, outStr);
 }
 
 console.log("\n== KẾT QUẢ: " + pass + " PASS / " + fail + " FAIL ==");

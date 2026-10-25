@@ -151,6 +151,20 @@ testApp('Generic Fallback', 'RandomApp/1.0', 'pro');
     fail++;
     console.log('  FAIL  Locket Gold subscription pricing & display_name missing');
   }
+
+  const ent = res.subscriber && res.subscriber.entitlements && res.subscriber.entitlements.Gold;
+  const entV5Ok = ent && ent.ownership_type === 'PURCHASED' && ent.store === 'app_store' && ent.product_plan_identifier === 'locket_1600_1y' && ent.original_purchase_date === '2005-07-18T10:10:14Z';
+  const subV5Ok = sub && sub.is_sandbox === false && sub.ownership_type === 'PURCHASED' && sub.original_purchase_date === '2005-07-18T10:10:14Z';
+  const multiProdOk = res.subscriber.subscriptions['locket_3600_1y'] && res.subscriber.subscriptions['locket_gold_yearly'] && res.subscriber.subscriptions['locket_gold_monthly'];
+  const firstSeenOk = res.subscriber.first_seen === '2005-07-18T10:10:14Z';
+
+  if (entV5Ok && subV5Ok && multiProdOk && firstSeenOk) {
+    pass++;
+    console.log('  PASS  Locket Gold SDK v5+ metadata, sandbox=false, first_seen & multi-products verified');
+  } else {
+    fail++;
+    console.log('  FAIL  Locket Gold SDK v5+ metadata verification failed');
+  }
 }
 
 console.log('\n== KẾT QUẢ: ' + pass + ' PASS / ' + fail + ' FAIL ==');

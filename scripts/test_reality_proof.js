@@ -80,6 +80,16 @@ console.log('--- 1. LOCKET GOLD 45S VIDEO & REMOTE CONFIG ---');
     assert(parsed.entries.widget_frames_config.includes("royal_gold_vip"), "Injected Royal Gold VIP frame");
     assert(parsed.entries.overlay_items.includes("caption:z3rokaze"), "Injected author caption:z3rokaze");
     assert(parsed.entries.overlay_items.includes("caption:deadline_ruot"), "Injected Vietnamese Gen Z captions");
+
+    // Test HTTP-Request phase (ETag Stripping & Body Preservation)
+    const reqWithBody = {
+        url: "https://firebaseremoteconfig.googleapis.com/v1/projects/locket-4252a/namespaces/firebase:fetch",
+        headers: { "If-None-Match": "etag123", "If-Modified-Since": "date123", "User-Agent": "Locket/1.144.0" },
+        body: JSON.stringify({ appId: "locket-app-id", appInstanceId: "test-instance" })
+    };
+    const reqOutput = runScript(path.join(__dirname, '../Module/js/Locket_30s.js'), reqWithBody, null);
+    assert(reqOutput && reqOutput.headers && !reqOutput.headers["If-None-Match"], "Locket_30s stripped If-None-Match from request");
+    assert(reqOutput.body === reqWithBody.body, "Locket_30s preserved Firebase POST request body");
 }
 
 // 2. REVENUECAT MULTI-APP UNLOCKER (LOCKET GOLD & 70+ APPS)
@@ -119,6 +129,10 @@ console.log('\n--- 2. REVENUECAT REAL MULTI-APP INJECTION ---');
     assert(parsed.subscriber.subscriptions["locket_1600_1y"] !== undefined, "Locket yearly subscription (locket_1600_1y) injected");
     assert(parsed.subscriber.subscriptions["locket_1600_1y"].ownership_type === "PURCHASED", "Ownership type is PURCHASED");
     assert(parsed.subscriber.subscriptions["locket_1600_1y"].store === "app_store", "Store is app_store");
+    assert(parsed.subscriber.subscriptions["locket_1600_1y"].is_sandbox === false, "Locket subscription is production (is_sandbox = false)");
+    assert(parsed.subscriber.subscriptions["locket_3600_1y"] !== undefined, "Locket multi-tier subscription locket_3600_1y injected");
+    assert(parsed.subscriber.entitlements.Gold.ownership_type === "PURCHASED", "Locket Gold entitlement ownership_type is PURCHASED");
+    assert(parsed.subscriber.entitlements.Gold.store === "app_store", "Locket Gold entitlement store is app_store");
 }
 
 // 3. SPOTIFY PREMIUM REAL UNLOCK
@@ -131,6 +145,8 @@ console.log('\n--- 3. SPOTIFY PREMIUM ATTRIBUTES & LICENSING ---');
     assert(output && output.body, "Spotify script returned modified body");
     const parsed = JSON.parse(output.body);
     assert(parsed.values.type === "premium", "Spotify account type changed from free to premium");
+    assert(parsed.values["on-demand"] === "true", "Spotify on-demand playback enabled (true)");
+    assert(parsed.values.shuffle === "false", "Spotify forced shuffle disabled (false)");
 }
 
 // 4. DUOLINGO SUPER & MAX REAL UNLOCK

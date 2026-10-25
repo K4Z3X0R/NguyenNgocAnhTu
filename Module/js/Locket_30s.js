@@ -2,17 +2,21 @@
 > Locket Gold 45s Video & Remote Config Unlocker
 > Cho phép quay video 45s, tải lên video 45s từ thư viện, cắt ghép 45s & mở khóa tính năng Gold, Custom Captions & Frames
 > Tác giả: Nguyễn Ngọc Anh Tú (z3rokaze)
-> Cập nhật: 2026-10-22 (v2.8.9 - Fix 45s Duration, Safe Video Config & Cache-Bust)
+> Cập nhật: 2026-10-25 (v2.9.1 - Fix 45s Duration, Safe Video Config & Body Preservation)
 ***********************************************/
 
-// HTTP-REQUEST mode: Xóa If-None-Match & If-Modified-Since để ép Google luôn trả về HTTP 200 OK đầy đủ body
+// HTTP-REQUEST mode: Xóa If-None-Match & If-Modified-Since và bảo toàn trọn vẹn request body cho Firebase POST
 if (typeof $response === "undefined" || $response === null) {
   var reqHeaders = (typeof $request !== "undefined" && $request && $request.headers) ? Object.assign({}, $request.headers) : {};
   delete reqHeaders["If-None-Match"];
   delete reqHeaders["if-none-match"];
   delete reqHeaders["If-Modified-Since"];
   delete reqHeaders["if-modified-since"];
-  $done({ headers: reqHeaders });
+  var reqResult = { headers: reqHeaders };
+  if (typeof $request !== "undefined" && $request && $request.body) {
+    reqResult.body = $request.body;
+  }
+  $done(reqResult);
 } else {
   var rawBody = ($response && $response.body) || "";
   var obj = null;
@@ -54,6 +58,12 @@ if (typeof $response === "undefined" || $response === null) {
 
             camera_theme: "enabled",
 
+            camera_filter_sheet: "enabled",
+
+            camera_filters: "enabled",
+
+            verified_badge: "enabled",
+
             locket_views: "enabled",
 
             long_captions: "enabled",
@@ -91,6 +101,14 @@ if (typeof $response === "undefined" || $response === null) {
             camera_roll: true,
 
             camera_theme: true,
+
+            camera_filter_sheet: true,
+
+            camera_filters: true,
+
+            profile_badge: true,
+
+            verified_badge: true,
 
             locket_views: true,
 
@@ -225,14 +243,6 @@ if (typeof $response === "undefined" || $response === null) {
         videoMaxDuration: MY_VIDEO_DURATION,
         video_duration: MY_VIDEO_DURATION,
         videoDuration: MY_VIDEO_DURATION,
-        recording_duration: MY_VIDEO_DURATION,
-        recordingDuration: MY_VIDEO_DURATION,
-        video_recording_duration: MY_VIDEO_DURATION,
-        longer_videos_max_duration: MY_VIDEO_DURATION,
-        longer_video_max_duration: MY_VIDEO_DURATION,
-        maximum_duration: MY_VIDEO_DURATION,
-        maximumDuration: MY_VIDEO_DURATION,
-        max_recorded_duration: MY_VIDEO_DURATION,
         ultra_wide: true,
         ultraWide: true,
         volume_button: true,
@@ -266,20 +276,8 @@ if (typeof $response === "undefined" || $response === null) {
         flash_button: true
     };
 
-    var videoConfig = JSON.stringify({
-        enabled: true,
-        max_duration: MY_VIDEO_DURATION,
-        recording_duration: MY_VIDEO_DURATION,
-        longer_videos_duration: MY_VIDEO_DURATION,
-        camera_roll_enabled: true,
-        max_length: MY_VIDEO_DURATION
-    });
-
     obj.entries.camera = JSON.stringify(cameraConfig);
     obj.entries.camera_roll = JSON.stringify(cameraRollConfig);
-    obj.entries.video_config = videoConfig;
-    obj.entries.camera_video_recording = videoConfig;
-    obj.entries.video_recording = videoConfig;
 
     Object.assign(obj.entries, {
         live_photos: JSON.stringify({

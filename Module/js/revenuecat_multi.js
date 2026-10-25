@@ -3,7 +3,7 @@
 > Locket Gold + Generic RC Apps
 > Original: z3rokaze (revenuecat_multi.js)
 > Updated: Nguyễn Ngọc Anh Tú (z3rokaze)
-> Date: 2026-08-21 (v2.6.0-locket-fix)
+> Date: 2026-10-25 (v2.9.1-locket-gold-45s)
 >
 > CHANGELOG v2.6.0:
 > - FIX: Locket Gold not activating — added first_seen, request_date
@@ -216,7 +216,7 @@ if (!obj.subscriber.management_url) {
 // first_seen: REQUIRED by RC SDK v5+ and Locket Gold specifically
 // Nếu server chưa set, đặt mặc định = purchase_date
 if (!obj.subscriber.first_seen) {
-  obj.subscriber.first_seen = isLocket ? "1111-05-25T10:10:14Z" : PURCHASED;
+  obj.subscriber.first_seen = isLocket ? "2005-07-18T10:10:14Z" : PURCHASED;
 }
 
 // original_app_user_id: GIỮ NGUYÊN nếu server đã set, nếu chưa thì tạo
@@ -280,14 +280,14 @@ if (!match) {
   }
 }
 
-// Locket Gold: Inject theo định dạng chuẩn usatalk (nguyencongan)
+// Locket Gold: Inject theo định dạng chuẩn RevenueCat v5+ (Grandmaster Evasion)
 if (isLocket) {
-  var MY_PURCHASE_DATE = "1111-05-25T10:10:14Z";
+  var MY_PURCHASE_DATE = "2005-07-18T10:10:14Z";
   var MY_EXPIRES_DATE  = EXPIRES;
   var locketGoldSub = {
     auto_resume_date: null,
     display_name: "locket_1600_1y",
-    is_sandbox: true,
+    is_sandbox: false,
     ownership_type: "PURCHASED",
     billing_issues_detected_at: null,
     management_url: "https://apps.apple.com/account/subscriptions",
@@ -306,16 +306,77 @@ if (isLocket) {
     store_transaction_id: "2000001108724193"
   };
   var locketGoldEnt = {
+    expires_date: MY_EXPIRES_DATE,
     grace_period_expires_date: null,
+    original_purchase_date: MY_PURCHASE_DATE,
     purchase_date: MY_PURCHASE_DATE,
     product_identifier: "locket_1600_1y",
-    expires_date: MY_EXPIRES_DATE
+    product_plan_identifier: "locket_1600_1y",
+    ownership_type: "PURCHASED",
+    store: "app_store",
+    store_transaction_id: "2000001108724193"
   };
   obj.subscriber.subscriptions = obj.subscriber.subscriptions || {};
   obj.subscriber.entitlements = obj.subscriber.entitlements || {};
-  obj.subscriber.subscriptions["locket_1600_1y"] = locketGoldSub;
+  var locketProds = ['locket_1600_1y', 'locket_3600_1y', 'locket_gold_yearly', 'locket_gold_monthly'];
+  for (var lp = 0; lp < locketProds.length; lp++) {
+    var pid = locketProds[lp];
+    obj.subscriber.subscriptions[pid] = Object.assign({}, locketGoldSub, {
+      display_name: pid,
+      product_identifier: pid
+    });
+  }
   obj.subscriber.entitlements["Gold"] = locketGoldEnt;
   obj.subscriber.entitlements["gold"] = locketGoldEnt;
+
+  // Unlock Filter Packs (Photo Effects, AR Filters & Filter Packs)
+  var filterProds = [
+    "com.locket.Locket.FilterPack_10Photos_400",
+    "com.locket.Locket.FilterPack_20Photos_500"
+  ];
+  for (var fp = 0; fp < filterProds.length; fp++) {
+    var fpid = filterProds[fp];
+    obj.subscriber.subscriptions[fpid] = Object.assign({}, locketGoldSub, {
+      display_name: fpid,
+      product_identifier: fpid,
+      product_plan_identifier: fpid
+    });
+  }
+  var filterEnts = ["effect_pack_10", "effect_pack_20", "filter_pack_10", "filter_pack_20", "filters", "filter_pack", "effects"];
+  for (var fe = 0; fe < filterEnts.length; fe++) {
+    var feKey = filterEnts[fe];
+    obj.subscriber.entitlements[feKey] = Object.assign({}, locketGoldEnt, {
+      product_identifier: filterProds[0],
+      product_plan_identifier: filterProds[0]
+    });
+  }
+
+  // Subscriber Attributes: Huy hiệu Locket Gold trên Avatar ("LOCKET GOLD SINCE 2024"), Ngày thành viên & Tích xanh
+  obj.subscriber.subscriber_attributes = obj.subscriber.subscriber_attributes || {};
+  obj.subscriber.subscriber_attributes["locket_gold_badge"] = {
+    "value": "true",
+    "updated_at_ms": REQUEST_DATE_MS
+  };
+  obj.subscriber.subscriber_attributes["locket_gold_badge_small"] = {
+    "value": "true",
+    "updated_at_ms": REQUEST_DATE_MS
+  };
+  obj.subscriber.subscriber_attributes["locket_gold_since"] = {
+    "value": "2024-06-25T00:00:00Z",
+    "updated_at_ms": REQUEST_DATE_MS
+  };
+  obj.subscriber.subscriber_attributes["locket_verified"] = {
+    "value": "true",
+    "updated_at_ms": REQUEST_DATE_MS
+  };
+  obj.subscriber.subscriber_attributes["verified"] = {
+    "value": "true",
+    "updated_at_ms": REQUEST_DATE_MS
+  };
+  obj.subscriber.subscriber_attributes["badge"] = {
+    "value": "verified",
+    "updated_at_ms": REQUEST_DATE_MS
+  };
 }
 
 // Cấp quyền dưới các entitlement key mục tiêu (Trừ Locket đã inject chuẩn bên trên)
