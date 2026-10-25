@@ -1046,13 +1046,13 @@ script-providers:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js
     interval: 86400
   rc-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.0
     interval: 86400
   rc-backup:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.0
     interval: 86400
   locket-30s:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.0
     interval: 86400
   sc-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/soundcloud.js

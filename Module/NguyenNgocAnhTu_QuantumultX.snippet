@@ -1029,12 +1029,12 @@ geoip, vn, direct
 ^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$ url request-header (\r\n)If-Modified-Since:.+(\r\n) request-header $1
 
 # 🔐 RevenueCat Multi-App (Locket Gold)
-^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$) url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
-^https:\/\/api\.rc-backup\.com\/.*\/(receipts$|subscribers\/[^/]+$) url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
+^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$) url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.0
+^https:\/\/api\.rc-backup\.com\/.*\/(receipts$|subscribers\/[^/]+$) url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.0
 
 # 💛 Locket Gold 45s Video
-^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.* url script-request-header https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9
-^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.* url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.* url script-request-header https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.0
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.* url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.0
 
 # 🎧 SoundCloud Go+ (K4Z3X0R)
 ^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/soundcloud.js

@@ -119,12 +119,12 @@ sp-proto=type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-sp
 Spotify_Premium=type=http-response,pattern=^https?:\/\/(api\.spotify\.com\/v1\/me|.*spclient.*\.spotify\.com(:443)?\/(identity\/v3\/me|device-capabilities\/v1\/capabilities|user-attributes\/v\d+\/attributes|bootstrap\/v1\/bootstrap|melody\/v1\/check_license)),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js,script-update-interval=0
 
 # 🔐 RevenueCat Multi-App (Locket Gold)
-rc-res=type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$),script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,max-size=-1,timeout=60
-rc-backup=type=http-response,pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$),script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,max-size=-1,timeout=60
+rc-res=type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$),script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.0,requires-body=true,max-size=-1,timeout=60
+rc-backup=type=http-response,pattern=^https:\/\/api\.rc-backup\.com\/.+\/(receipts$|subscribers\/[^/]+$),script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.0,requires-body=true,max-size=-1,timeout=60
 
 # 💛 Locket Gold 45s Video
-locket-30s-req=type=http-request,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9,timeout=60
-locket-30s=type=http-response,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9,requires-body=true,max-size=-1,timeout=60
+locket-30s-req=type=http-request,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.0,timeout=60
+locket-30s=type=http-response,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.0,requires-body=true,max-size=-1,timeout=60
 
 # 🎧 SoundCloud Go+ (yfamilys)
 sc-res=type=http-response,pattern=^https?:\/\/api-mobile\.soundcloud\.com\/configuration\/ios,requires-body=1,max-size=262144,timeout=30,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/soundcloud.js

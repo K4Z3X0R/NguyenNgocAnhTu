@@ -2295,7 +2295,7 @@ scriptings:
   - http_response:
       name: "RevenueCat Response"
       match: "^https://api\\.revenuecat\\.com/.+/(receipts$|subscribers/[^/]+$)"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.0"
       body_required: true
       timeout: 60
   # (2.4.4) Gỡ script deleteHeader.js: ETag X-RevenueCat-ETag đã được xóa native ở
@@ -2303,19 +2303,19 @@ scriptings:
   - http_response:
       name: "RevenueCat Backup"
       match: "^https://api\\.rc-backup\\.com/.+/(receipts$|subscribers/[^/]+$)"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.0"
       body_required: true
       timeout: 60
   # 💛 Locket Gold 45s Video (Remote Config Rewrite)
   - http_request:
       name: "Locket 45s Video Request"
       match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/.*"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.0"
       timeout: 60
   - http_response:
       name: "Locket 45s Video"
       match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/.*"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.8.9"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.0"
       body_required: true
       timeout: 30
 

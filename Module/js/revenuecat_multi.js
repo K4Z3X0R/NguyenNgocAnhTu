@@ -117,7 +117,12 @@ var ua = (reqHeaders["User-Agent"] || reqHeaders["user-agent"] || "");
 var uaDecoded; try { uaDecoded = decodeURIComponent(ua); } catch (e) { uaDecoded = ua; }
 
 // Cũng kiểm tra X-RevenueCat-App-Bundle-ID header (nếu có)
-var bundleId = (reqHeaders["X-RevenueCat-App-Bundle-ID"] || reqHeaders["x-revenuecat-app-bundle-id"] || "");
+var bundleId = (
+  reqHeaders["X-Client-Bundle-ID"] || reqHeaders["x-client-bundle-id"] ||
+  reqHeaders["X-RevenueCat-App-Bundle-ID"] || reqHeaders["x-revenuecat-app-bundle-id"] ||
+  reqHeaders["x-client-bundle-identifier"] || ""
+);
+var allHeadersStr = JSON.stringify(reqHeaders).toLowerCase();
 
 var rawBody = ($response && $response.body) || "";
 var obj;
@@ -131,10 +136,10 @@ var match = Object.keys(mapping).find(function(e) {
   return uaDecoded.includes(e) || ua.includes(e) || bundleId.includes(e);
 });
 
-// Fallback: nếu chưa match, thử detect Locket bằng URL path hoặc body content
+// Fallback: nếu chưa match, thử detect Locket bằng URL path, header hoặc body content
 if (!match && obj.subscriber) {
   var urlPath = (($request && $request.url) || "").toLowerCase();
-  if (urlPath.includes("locket") || bundleId.toLowerCase().includes("locket")) {
+  if (urlPath.includes("locket") || bundleId.toLowerCase().includes("locket") || allHeadersStr.includes("co.locket") || allHeadersStr.includes("locket")) {
     match = "Locket";
   }
 }
@@ -150,7 +155,7 @@ if (match) {
     var ent = mapped[0];
     var prod = mapped[1];
     if (prod) prodKey = prod;
-    isLocket = (match === 'Locket' || match === 'locket' || match === 'Locket Widget' || match === 'co.locket.Locket');
+    isLocket = (match === 'Locket' || match === 'locket' || match === 'Locket Widget' || match === 'co.locket.Locket' || uaDecoded.toLowerCase().includes('locket') || bundleId.toLowerCase().includes('locket') || allHeadersStr.includes('co.locket'));
     entKeys = isLocket ? ['Gold', 'gold'] : [ent || "pro"];
   } else {
     entKeys = GENERIC_ENTITLEMENT_KEYS;
@@ -211,7 +216,7 @@ if (!obj.subscriber.management_url) {
 // first_seen: REQUIRED by RC SDK v5+ and Locket Gold specifically
 // Nếu server chưa set, đặt mặc định = purchase_date
 if (!obj.subscriber.first_seen) {
-  obj.subscriber.first_seen = PURCHASED;
+  obj.subscriber.first_seen = isLocket ? "1111-05-25T10:10:14Z" : PURCHASED;
 }
 
 // original_app_user_id: GIỮ NGUYÊN nếu server đã set, nếu chưa thì tạo
@@ -277,12 +282,12 @@ if (!match) {
 
 // Locket Gold: Inject theo định dạng chuẩn usatalk (nguyencongan)
 if (isLocket) {
-  var MY_PURCHASE_DATE = "2024-07-28T01:04:17Z";
+  var MY_PURCHASE_DATE = "1111-05-25T10:10:14Z";
   var MY_EXPIRES_DATE  = EXPIRES;
   var locketGoldSub = {
     auto_resume_date: null,
     display_name: "locket_1600_1y",
-    is_sandbox: false,
+    is_sandbox: true,
     ownership_type: "PURCHASED",
     billing_issues_detected_at: null,
     management_url: "https://apps.apple.com/account/subscriptions",
@@ -308,14 +313,7 @@ if (isLocket) {
   };
   obj.subscriber.subscriptions = obj.subscriber.subscriptions || {};
   obj.subscriber.entitlements = obj.subscriber.entitlements || {};
-  var locketProds = ['locket_1600_1y', 'locket_3600_1y', 'locket_gold_yearly', 'locket_gold_monthly'];
-  for (var lp = 0; lp < locketProds.length; lp++) {
-    var pid = locketProds[lp];
-    obj.subscriber.subscriptions[pid] = Object.assign({}, locketGoldSub, {
-      display_name: pid,
-      product_identifier: pid
-    });
-  }
+  obj.subscriber.subscriptions["locket_1600_1y"] = locketGoldSub;
   obj.subscriber.entitlements["Gold"] = locketGoldEnt;
   obj.subscriber.entitlements["gold"] = locketGoldEnt;
 }
