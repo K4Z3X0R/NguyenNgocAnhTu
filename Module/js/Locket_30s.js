@@ -323,6 +323,14 @@ if (typeof $response === "undefined" || $response === null) {
 
     obj.entries.camera = JSON.stringify(cameraConfig);
     obj.entries.camera_roll = JSON.stringify(cameraRollConfig);
+    obj.entries.video_config = JSON.stringify({
+        enabled: true,
+        max_duration: 45,
+        recording_duration: 45,
+        longer_videos_duration: 45,
+        camera_roll_enabled: true,
+        max_length: 45
+    });
 
     Object.assign(obj.entries, {
         live_photos: JSON.stringify({
