@@ -90,33 +90,43 @@ if (typeof $response === "undefined" || $response === null) {
 
             custom_widget_frames: "enabled",
 
-            streak_recovery: "enabled"
+            streak_recovery: "enabled",
+
+            holiday_effects: "enabled",
+
+            holiday_filters: "enabled",
+
+            holiday_moments: "enabled",
+
+            view_holiday_moments: "enabled",
+
+            can_view_holiday_effects: "enabled",
+
+            seasonal_effects: "enabled",
+
+            seasonal_frames: "enabled",
+
+            view_all_history: "enabled",
+
+            past_moments: "enabled",
+
+            all_access: "enabled",
+
+            gold_entitlement: "enabled",
+
+            camera_filter_holidays: "enabled",
+
+            effects: "enabled",
+
+            filter_packs: "enabled",
+
+            moment_effects: "enabled",
+
+            moment_reactions_effects: "enabled"
 
         }),
 
-        upsell_features: JSON.stringify({
-
-            app_icon_picker: true,
-
-            camera_roll: true,
-
-            camera_theme: true,
-
-            camera_filter_sheet: true,
-
-            camera_filters: true,
-
-            profile_badge: true,
-
-            verified_badge: true,
-
-            locket_views: true,
-
-            remove_ads: true,
-
-            custom_widget_frames: true
-
-        }),
+        upsell_features: JSON.stringify({}),
 
         paywall_presentation_config: JSON.stringify({
 
@@ -130,7 +140,21 @@ if (typeof $response === "undefined" || $response === null) {
 
             interval: 2592000,
 
-            profile_banner: true
+            profile_banner: false,
+
+            holiday_effects: false,
+
+            holiday_filters: false,
+
+            holiday_effect_gate: false,
+
+            view_moment_gate: false,
+
+            moment_gate: false,
+
+            view_history: false,
+
+            seasonal_frames: false
 
         }),
 
@@ -554,9 +578,9 @@ if (typeof $response === "undefined" || $response === null) {
 
         widget_frame_event: JSON.stringify({
 
-            uid: "midautumn_2026",
+            uid: "vietnam_women_day_20_10",
 
-            url: "https://hosting.photobucket.com/884f09fa-d52e-40c7-b848-0dc5b19d4288/0cb2a814-22fe-4037-9a0a-25c0fe2476f5.png",
+            url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/assets/frame_20_10.png",
 
             use_local_time_zone: true,
 
@@ -649,72 +673,68 @@ if (typeof $response === "undefined" || $response === null) {
         custom_widget_frames_enabled: "true",
 
         // Cấu hình kho khung tĩnh VIP Gold tùy chỉnh
+        widget_frames_config: JSON.stringify({
+            enabled: true,
+            allow_custom_frames: true,
+            unlock_all_styles: true,
+            default_style: "vietnam_women_day_20_10",
+            styles: [
+                {
+                    id: "vietnam_women_day_20_10",
+                    name: "🌸 20-10 Ngày Phụ Nữ Việt Nam",
+                    border_style: "pink_floral_ribbon",
+                    crown_badge: false,
+                    badge_text: "20-10",
+                    corner_radius: 28.0,
+                    glow_effect: true,
+                    glow_color: "#FFB6C1",
+                    overlay_asset: "vietnam_women_day_20_10",
+                    url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/assets/frame_20_10.png"
+                },
+                {
+                    id: "royal_gold_vip",
+                    name: "👑 VIP Royal Gold",
+                    border_style: "ornate_gold",
+                    crown_badge: true,
+                    badge_text: "VIP",
+                    corner_radius: 28.0,
+                    glow_effect: true,
+                    glow_color: "#FFD700",
+                    overlay_asset: "royal_crown_frame"
+                },
+                {
+                    id: "midautumn_festival",
+                    name: "🥮 Tết Trung Thu Đoàn Viên",
+                    border_style: "lantern_moon",
+                    crown_badge: false,
+                    badge_text: "Trung Thu",
+                    corner_radius: 28.0,
+                    glow_effect: true,
+                    glow_color: "#FFA500",
+                    overlay_asset: "midautumn_frame",
+                    url: "https://hosting.photobucket.com/884f09fa-d52e-40c7-b848-0dc5b19d4288/0cb2a814-22fe-4037-9a0a-25c0fe2476f5.png"
+                }
+            ]
+        }),
 
-        widget_frames_config: JSON.stringify({
+        // Danh sách ID khung đè vào menu chọn widget
+        widget_frame_styles: JSON.stringify([
+            "vietnam_women_day_20_10",
+            "royal_gold_vip",
+            "midautumn_festival",
+            "gold_luxury",
+            "classic"
+        ]),
 
-            enabled: true,
+        // Cấu hình sự kiện / Seasonal Frames đè
+        seasonal_frames_config: JSON.stringify({
+            enabled: true,
+            auto_rotate: false,
+            override_default: true,
+            current_season_theme: "vietnam_women_day_20_10"
+        }),
 
-            allow_custom_frames: true,
-
-            unlock_all_styles: true,
-
-            default_style: "royal_gold_vip",
-
-            styles: [
-
-                {
-
-                    id: "royal_gold_vip",
-
-                    name: "👑 VIP Royal Gold",
-
-                    border_style: "ornate_gold",
-
-                    crown_badge: true,
-
-                    badge_text: "VIP",
-
-                    corner_radius: 28.0,
-
-                    glow_effect: true,
-
-                    glow_color: "#FFD700",
-
-                    overlay_asset: "royal_crown_frame"
-
-                }
-
-            ]
-
-        }),
-
-        // Danh sách ID khung đè vào menu chọn widget
-
-        widget_frame_styles: JSON.stringify([
-
-            "royal_gold_vip",
-
-            "gold_luxury",
-
-            "classic"
-
-        ]),
-
-        // Cấu hình sự kiện / Seasonal Frames đè
-
-        seasonal_frames_config: JSON.stringify({
-
-            enabled: true,
-
-            auto_rotate: false,
-
-            override_default: true,
-
-            current_season_theme: "royal_gold_vip"
-
-        }),
-
-        live_activity_onboarding: "true",
+        live_activity_onboarding: "true",
 
         live_activity_onboarding_variant: "friending",
 

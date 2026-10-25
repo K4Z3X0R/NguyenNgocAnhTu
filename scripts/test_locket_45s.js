@@ -8,6 +8,8 @@ console.log('====================================================\n');
 
 // 1. Kiểm tra Module/NguyenNgocAnhTu_Premium.module
 const premContent = fs.readFileSync('Module/NguyenNgocAnhTu_Premium.module', 'utf8');
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+const currentVer = pkg.version.split('-')[0];
 
 const checks = [
   { name: 'UDP QUIC REJECT firebaseremoteconfig', ok: premContent.includes('AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT') },
@@ -15,10 +17,10 @@ const checks = [
   { name: 'force-http-engine-hosts api.revenuecat.com:443', ok: premContent.includes('api.revenuecat.com:443') },
   { name: 'header-del If-None-Match firebaseremoteconfig', ok: premContent.includes('^https?:\\/\\/firebaseremoteconfig\\.googleapis\\.com\\/.+ header-del If-None-Match') },
   { name: 'header-del If-Modified-Since firebaseremoteconfig', ok: premContent.includes('^https?:\\/\\/firebaseremoteconfig\\.googleapis\\.com\\/.+ header-del If-Modified-Since') },
-  { name: 'RC_DeleteHeader request interceptor (?v=2.9.1)', ok: premContent.includes('RC_DeleteHeader = type=http-request, pattern=^https:\\/\\/api\\.revenuecat\\.com\\/.+\\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.1') },
-  { name: 'RevenueCat_Multi response interceptor (?v=2.9.1)', ok: premContent.includes('RevenueCat_Multi = type=http-response, pattern=^https:\\/\\/api\\.revenuecat\\.com\\/.+\\/(receipts$|subscribers\\/[^/]+$), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.1') },
-  { name: 'Locket_30s_Req request interceptor (?v=2.9.1)', ok: premContent.includes('Locket_30s_Req = type=http-request, pattern=^https?:\\/\\/firebaseremoteconfig\\.googleapis\\.com\\/v1\\/projects\\/.*, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.1') },
-  { name: 'Locket_30s response interceptor (?v=2.9.1)', ok: premContent.includes('Locket_30s = type=http-response, pattern=^https?:\\/\\/firebaseremoteconfig\\.googleapis\\.com\\/v1\\/projects\\/.*, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.1') },
+  { name: `RC_DeleteHeader request interceptor (?v=${currentVer})`, ok: premContent.includes(`RC_DeleteHeader = type=http-request, pattern=^https:\\/\\/api\\.revenuecat\\.com\\/.+\\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=${currentVer}`) },
+  { name: `RevenueCat_Multi response interceptor (?v=${currentVer})`, ok: premContent.includes(`RevenueCat_Multi = type=http-response, pattern=^https:\\/\\/api\\.revenuecat\\.com\\/.+\\/(receipts$|subscribers\\/[^/]+$), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=${currentVer}`) },
+  { name: `Locket_30s_Req request interceptor (?v=${currentVer})`, ok: premContent.includes(`Locket_30s_Req = type=http-request, pattern=^https?:\\/\\/firebaseremoteconfig\\.googleapis\\.com\\/v1\\/projects\\/.*, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=${currentVer}`) },
+  { name: `Locket_30s response interceptor (?v=${currentVer})`, ok: premContent.includes(`Locket_30s = type=http-response, pattern=^https?:\\/\\/firebaseremoteconfig\\.googleapis\\.com\\/v1\\/projects\\/.*, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=${currentVer}`) },
   { name: 'MITM hostname firebaseremoteconfig.googleapis.com', ok: premContent.includes('firebaseremoteconfig.googleapis.com') },
   { name: 'MITM hostname api.revenuecat.com', ok: premContent.includes('api.revenuecat.com') }
 ];

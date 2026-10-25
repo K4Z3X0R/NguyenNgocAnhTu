@@ -328,8 +328,12 @@ if (isLocket) {
   }
   obj.subscriber.entitlements["Gold"] = locketGoldEnt;
   obj.subscriber.entitlements["gold"] = locketGoldEnt;
+  obj.subscriber.entitlements["locket_gold"] = locketGoldEnt;
+  obj.subscriber.entitlements["premium"] = locketGoldEnt;
+  obj.subscriber.entitlements["pro"] = locketGoldEnt;
+  obj.subscriber.entitlements["all_access"] = locketGoldEnt;
 
-  // Unlock Filter Packs (Photo Effects, AR Filters & Filter Packs)
+  // Unlock Filter Packs, Holiday Effects & Seasonal Frames (Photo Effects, AR Filters & Frames)
   var filterProds = [
     "com.locket.Locket.FilterPack_10Photos_400",
     "com.locket.Locket.FilterPack_20Photos_500"
@@ -342,7 +346,13 @@ if (isLocket) {
       product_plan_identifier: fpid
     });
   }
-  var filterEnts = ["effect_pack_10", "effect_pack_20", "filter_pack_10", "filter_pack_20", "filters", "filter_pack", "effects"];
+  var filterEnts = [
+    "effect_pack_10", "effect_pack_20", "filter_pack_10", "filter_pack_20",
+    "filters", "filter_pack", "effects", "holiday_effects", "holiday_filters",
+    "holiday_moments", "view_holiday_moments", "seasonal_effects", "seasonal_frames",
+    "custom_frames", "frames", "widget_frames", "view_all_history", "view_history",
+    "past_moments", "camera_filter_holidays"
+  ];
   for (var fe = 0; fe < filterEnts.length; fe++) {
     var feKey = filterEnts[fe];
     obj.subscriber.entitlements[feKey] = Object.assign({}, locketGoldEnt, {
