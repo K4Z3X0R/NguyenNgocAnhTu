@@ -1,5 +1,5 @@
 name: "👑 Nguyễn Ngọc Anh Tú 🌸 ⁕ Ultimate Premium (Egern) ⁕"
-description: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.9.4-stable (2026-10-25)"
+description: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.9.5-stable (2026-10-25)"
 author: "Nguyễn Ngọc Anh Tú (z3rokaze)"
 homepage: "https://github.com/K4Z3X0R/NguyenNgocAnhTu"
 icon: "lock.open.fill"
@@ -2412,6 +2412,30 @@ scriptings:
       body_required: true
       timeout: 30
 
+  # 🎓 ELSA Speak VIP
+  - http_response:
+      name: "ELSA Speak VIP"
+      match: "^https?://pool\.elsanow\.io/(user/api/v\d+/purchase|entitlement/api/v\d+/user/entitlements)"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/elsa.js"
+      body_required: true
+      timeout: 30
+
+  # 🛡️ AdGuard Safari Pro
+  - http_response:
+      name: "AdGuard Safari Pro"
+      match: "^https?://mobile-api\.adguard\.org/api/.+/ios_validate_receipt/"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/adguard.js"
+      body_required: true
+      timeout: 30
+
+  # ✍️ Grammarly Premium
+  - http_response:
+      name: "Grammarly Premium"
+      match: "^https?://.*\.grammarly\.com/(api/v\d+/subscription|v\d+/user/oranonymous)"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/grammarly.js"
+      body_required: true
+      timeout: 30
+
   # 🍰 Cake
   - http_response:
       name: "Cake English Plus"
@@ -2829,6 +2853,9 @@ scriptings:
       timeout: 30
 mitm:
   hostnames:
+    - "pool.elsanow.io"
+    - "mobile-api.adguard.org"
+    - "*.grammarly.com"
     - "sub.store"
     - "*.googlevideo.com"
     - "youtubei.googleapis.com"

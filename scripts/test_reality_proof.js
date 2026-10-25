@@ -229,6 +229,44 @@ console.log('\n--- 9. WPS OFFICE SUPER VIP ---');
     assert(parsed.vip && parsed.vip.enabled.length === 3, "WPS 3 VIP packages enabled (Super VIP, Docer, WPS)");
 }
 
+// 10. ELSA SPEAK VIP & OXFORD / IELTS COURSES
+console.log('\n--- 10. ELSA SPEAK VIP & OXFORD / IELTS REAL UNLOCK ---');
+{
+    const req = { url: "https://pool.elsanow.io/entitlement/api/v1/user/entitlements" };
+    const res = { status: 200, body: JSON.stringify({ entitlements: { memberships: [], contents: [] } }) };
+    const output = runScript(path.join(__dirname, '../Module/js/elsa.js'), req, res);
+    assert(output && output.body, "ELSA script returned body");
+    const parsed = JSON.parse(output.body);
+    assert(parsed.tier && parsed.tier.code === "premium", "ELSA tier = premium");
+    assert(Array.isArray(parsed.entitlements.contents) && parsed.entitlements.contents.length >= 10, "ELSA Oxford/IELTS course topics unlocked");
+    assert(parsed.entitlements.memberships.some(m => m.code.includes("speech_analyzer")), "ELSA AI Speech Analyzer membership granted");
+}
+
+// 11. ADGUARD PRO SAFARI LIFETIME
+console.log('\n--- 11. ADGUARD SAFARI PRO LIFETIME REAL UNLOCK ---');
+{
+    const req = { url: "https://mobile-api.adguard.org/api/v1/ios_validate_receipt/" };
+    const res = { status: 200, body: JSON.stringify({}) };
+    const output = runScript(path.join(__dirname, '../Module/js/adguard.js'), req, res);
+    assert(output && output.body, "AdGuard script returned body");
+    const parsed = JSON.parse(output.body);
+    assert(parsed.products[0].product_id === "com.adguard.lifetimePurchase", "AdGuard lifetimePurchase granted");
+    assert(parsed.products[0].premium_status === "ACTIVE", "AdGuard premium_status = ACTIVE");
+}
+
+// 12. GRAMMARLY KEYBOARD PREMIUM
+console.log('\n--- 12. GRAMMARLY KEYBOARD PREMIUM REAL UNLOCK ---');
+{
+    const req = { url: "https://api.grammarly.com/api/v1/subscription" };
+    const res = { status: 200, body: JSON.stringify({}) };
+    const output = runScript(path.join(__dirname, '../Module/js/grammarly.js'), req, res);
+    assert(output && output.body, "Grammarly script returned body");
+    const parsed = JSON.parse(output.body);
+    assert(parsed.isPremium === true, "Grammarly isPremium = true");
+    assert(parsed.grammarlyEdu === true, "Grammarly grammarlyEdu = true");
+    assert(parsed.plagiarismOn === true, "Grammarly plagiarismOn = true");
+}
+
 console.log('\n============================================================');
 console.log(`🎉 ALL REALITY TESTS COMPLETED: ${passedTests}/${totalTests} ASSERTIONS VERIFIED!`);
 console.log('KHẲNG ĐỊNH 100%: TẤT CẢ CODE ĐỀU CHẠY THẬT, BIẾN ĐỔI THẬT, KHÔNG HỀ CÓ ẢO!');

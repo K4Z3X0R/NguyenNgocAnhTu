@@ -1,5 +1,5 @@
 name: ⚡ Anh Tú Premium - Stash
-desc: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.9.4-stable (2026-10-25)"
+desc: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.9.5-stable (2026-10-25)"
 author: Nguyễn Ngọc Anh Tú
 homepage: https://github.com/K4Z3X0R/NguyenNgocAnhTu
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -1090,6 +1090,15 @@ script-providers:
   duolingo-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/duolingo.js
     interval: 86400
+  elsa-res:
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/elsa.js
+    interval: 86400
+  adguard-res:
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/adguard.js
+    interval: 86400
+  grammarly-res:
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/grammarly.js
+    interval: 86400
   cake-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/cake.js
     interval: 86400
@@ -1380,6 +1389,24 @@ scriptings:
       name: duolingo-res
       match: ^https?:\/\/(api|ios-api-cdn)\.duolingo\.com\/(2017-06-30\/users\/|users\/)
       script-provider: duolingo-res
+      require-body: true
+      timeout: 30
+  - http-response:
+      name: elsa-res
+      match: ^https?:\/\/pool\.elsanow\.io\/(user\/api\/v\d\/purchase|entitlement\/api\/v\d\/user\/entitlements)
+      script-provider: elsa-res
+      require-body: true
+      timeout: 30
+  - http-response:
+      name: adguard-res
+      match: ^https?:\/\/mobile-api\.adguard\.org\/api\/.+\/ios_validate_receipt\/
+      script-provider: adguard-res
+      require-body: true
+      timeout: 30
+  - http-response:
+      name: grammarly-res
+      match: ^https?:\/\/.*\.grammarly\.com\/(api\/v\d\/subscription|v\d\/user\/oranonymous)
+      script-provider: grammarly-res
       require-body: true
       timeout: 30
   - http-response:

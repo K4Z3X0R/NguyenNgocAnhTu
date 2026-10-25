@@ -1,6 +1,6 @@
 #!name=⚡ Anh Tú Premium - Loon
 #!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy.
-#!version=2.9.4-stable
+#!version=2.9.5-stable
 #!date=2026-10-25
 #!author=Nguyễn Ngọc Anh Tú
 #!homepage=https://github.com/K4Z3X0R/NguyenNgocAnhTu
@@ -155,6 +155,15 @@ http-response ^https:\/\/api\.busuu\.com\/users\/me script-path=https://raw.gith
 
 # 🦉 Duolingo
 http-response ^https?:\/\/(api|ios-api-cdn)\.duolingo\.com\/(2017-06-30\/users\/|users\/) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/duolingo.js,requires-body=true,timeout=30,tag=Duolingo-Res
+
+# 🎓 ELSA Speak VIP
+http-response ^https?:\/\/pool\.elsanow\.io\/(user\/api\/v\d\/purchase|entitlement\/api\/v\d\/user\/entitlements) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/elsa.js,requires-body=true,timeout=30,tag=ELSA-Res
+
+# 🛡️ AdGuard Safari Pro
+http-response ^https?:\/\/mobile-api\.adguard\.org\/api\/.+\/ios_validate_receipt\/ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/adguard.js,requires-body=true,timeout=30,tag=AdGuard-Res
+
+# ✍️ Grammarly Premium
+http-response ^https?:\/\/.*\.grammarly\.com\/(api\/v\d\/subscription|v\d\/user\/oranonymous) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/grammarly.js,requires-body=true,timeout=30,tag=Grammarly-Res
 
 # 🍰 Cake
 http-response ^https?:\/\/api\.mycake\.me\/v\d+\/users\/me script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/cake.js,requires-body=true,timeout=30,tag=Cake-Res
@@ -324,4 +333,4 @@ http-response ^https:\/\/api\.sortedapp\.com\/receipts\/verify script-path=https
 ^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$ header-del If-Modified-Since
 
 [MITM]
-hostname=-redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*-spclient.spotify.com,gads.current.spotify.com,api.spotify.com,api.revenuecat.com,api.rc-backup.com,buy.itunes.apple.com,api.picsart.com, api.picsart.cn,api.meiease.com, api.meiease.cn,api-mobile.soundcloud.com,mb3admin.com,api-account.kinemasters.com,photos.adobe.io,lcs-mobile-cops.adobe.io,app.algoriddim.com,api.calm.com,api.busuu.com,api.prod.headspace.com,vsco.co,api.funimate.com,us-central1-alight-creative.cloudfunctions.net,api-sub.meitu.com,premium-*.truecaller.com,*.intsig.net,api.mr.pixocial.com,newbeee-api.beautyplus.com,user-snow-api.snow.me,user-kaji-api.b612kaji.com,h5.xiuxiu.meitu.com,api.xiuxiu.meitu.com,account.wps.cn,*.account.wps.com,www.xmind.cn,www.xmind.net,www.xmind.app,ars.alar.my,subscription.grammarly.com,notability.com,lapi.photomath.net,pro.smallpdf.com,billing.peakcloud.org,api.polaxiong.com,premium-api.myfitnesspal.com,apic.musixmatch.com,server.yoyiapp.com,mid.zineapi.com,apimboom2.globaldelight.net,api.flexibits.com,api.craft.do,dayone.app,restore-access.indream.app,service.ilovepdf.com,api.mondlylanguages.com,api.memrise.com,api.alohaprofile.com,pre.dailyyoga.com,app-subscription-proxy.accuweather.com,api-production.endel.io,flomoapp.com,backend.getdrafts.com,api.gotokeep.com,payments.invideo.io,ssl-api.itranslateapp.com,payment-api.lingvist.com,*.oracle.bendingspoonsapps.com,app.bilibili.com,accounts.agenda.com,license.pdfexpert.com,api.sortedapp.com,sub.store,api.duolingo.com,ios-api-cdn.duolingo.com,api.mycake.me,quizlet.com,v1.darkroom.co,com.zijayrate.analogcam,api.elsaspeak.com,api.photoroom.com,api.remini.ai,api.bazaart.me,firebaseremoteconfig.googleapis.com
+hostname=-redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*-spclient.spotify.com,gads.current.spotify.com,api.spotify.com,api.revenuecat.com,api.rc-backup.com,buy.itunes.apple.com,api.picsart.com, api.picsart.cn,api.meiease.com, api.meiease.cn,api-mobile.soundcloud.com,mb3admin.com,api-account.kinemasters.com,photos.adobe.io,lcs-mobile-cops.adobe.io,app.algoriddim.com,api.calm.com,api.busuu.com,api.prod.headspace.com,vsco.co,api.funimate.com,us-central1-alight-creative.cloudfunctions.net,api-sub.meitu.com,premium-*.truecaller.com,*.intsig.net,api.mr.pixocial.com,newbeee-api.beautyplus.com,user-snow-api.snow.me,user-kaji-api.b612kaji.com,h5.xiuxiu.meitu.com,api.xiuxiu.meitu.com,account.wps.cn,*.account.wps.com,www.xmind.cn,www.xmind.net,www.xmind.app,ars.alar.my,subscription.grammarly.com,notability.com,lapi.photomath.net,pro.smallpdf.com,billing.peakcloud.org,api.polaxiong.com,premium-api.myfitnesspal.com,apic.musixmatch.com,server.yoyiapp.com,mid.zineapi.com,apimboom2.globaldelight.net,api.flexibits.com,api.craft.do,dayone.app,restore-access.indream.app,service.ilovepdf.com,api.mondlylanguages.com,api.memrise.com,api.alohaprofile.com,pre.dailyyoga.com,app-subscription-proxy.accuweather.com,api-production.endel.io,flomoapp.com,backend.getdrafts.com,api.gotokeep.com,payments.invideo.io,ssl-api.itranslateapp.com,payment-api.lingvist.com,*.oracle.bendingspoonsapps.com,app.bilibili.com,accounts.agenda.com,license.pdfexpert.com,api.sortedapp.com,sub.store,api.duolingo.com,ios-api-cdn.duolingo.com,api.mycake.me,quizlet.com,v1.darkroom.co,com.zijayrate.analogcam,api.elsaspeak.com,api.photoroom.com,api.remini.ai,api.bazaart.me,firebaseremoteconfig.googleapis.com, pool.elsanow.io, mobile-api.adguard.org, *.grammarly.com

@@ -599,6 +599,30 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
   check('Locket_30s: Force state UPDATE from NO_CHANGE & 45s verified', ok, out ? out.body : 'null');
 }
 
+// 38. elsa.js (ELSA Speak VIP & Oxford / IELTS Master)
+{
+  const out = runScript('elsa.js', { url: 'https://pool.elsanow.io/entitlement/api/v1/user/entitlements' }, { body: JSON.stringify({ entitlements: {} }) });
+  const b = JSON.parse(out.body);
+  const ok = b && b.tier && b.tier.code === 'premium' && Array.isArray(b.entitlements.contents) && b.entitlements.contents.length >= 10;
+  check('elsa: tier=premium & Oxford/IELTS contents populated', ok, out ? out.body : 'null');
+}
+
+// 39. adguard.js (AdGuard Safari Pro Lifetime)
+{
+  const out = runScript('adguard.js', { url: 'https://mobile-api.adguard.org/api/v1/ios_validate_receipt/' }, { body: JSON.stringify({}) });
+  const b = JSON.parse(out.body);
+  const ok = b && Array.isArray(b.products) && b.products[0].product_id === 'com.adguard.lifetimePurchase' && b.products[0].premium_status === 'ACTIVE';
+  check('adguard: lifetimePurchase & ACTIVE verified', ok, out ? out.body : 'null');
+}
+
+// 40. grammarly.js (Grammarly Keyboard Premium)
+{
+  const out = runScript('grammarly.js', { url: 'https://api.grammarly.com/api/v1/subscription' }, { body: JSON.stringify({}) });
+  const b = JSON.parse(out.body);
+  const ok = b && b.isPremium === true && b.grammarlyEdu === true && b.type === 'Premium';
+  check('grammarly: isPremium=true & grammarlyEdu=true', ok, out ? out.body : 'null');
+}
+
 console.log('\n== KẾT QUẢ: ' + pass + ' PASS / ' + fail + ' FAIL ==');
 
 process.exit(fail === 0 ? 0 : 1);
