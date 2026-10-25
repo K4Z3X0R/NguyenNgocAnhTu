@@ -2,7 +2,7 @@
 > Locket Gold 45s Video & Remote Config Unlocker
 > Cho phép quay video 45s, tải lên video 45s từ thư viện, cắt ghép 45s & mở khóa tính năng Gold, Custom Captions & Frames
 > Tác giả: Nguyễn Ngọc Anh Tú (z3rokaze)
-> Cập nhật: 2026-10-25 (v2.9.1 - Fix 45s Duration, Safe Video Config & Body Preservation)
+> Cập nhật: 2026-10-26 (v2.9.5 - Apex Locket Suite: Dual FeatureGates, Extended Captions & Cross-Platform Evasion)
 ***********************************************/
 
 // HTTP-REQUEST mode: Xóa If-None-Match & If-Modified-Since và bảo toàn trọn vẹn request body cho Firebase POST
@@ -51,96 +51,117 @@ if (typeof $response === "undefined" || $response === null) {
     Object.assign(obj.entries, {
 
         feature_gates: JSON.stringify({
-
             app_icon_picker: "enabled",
-
+            appIconPicker: "enabled",
             camera_roll: "enabled",
-
+            cameraRoll: "enabled",
             camera_theme: "enabled",
-
+            cameraTheme: "enabled",
             camera_filter_sheet: "enabled",
-
+            cameraFilterSheet: "enabled",
             camera_filters: "enabled",
-
+            cameraFilters: "enabled",
             verified_badge: "enabled",
-
+            verifiedBadge: "enabled",
             locket_views: "enabled",
-
+            locketViews: "enabled",
             long_captions: "enabled",
-
+            longCaptions: "enabled",
             longer_video: "enabled",
-
+            longerVideo: "enabled",
             longer_videos: "enabled",
-
+            longerVideos: "enabled",
             video_recording: "enabled",
-
+            videoRecording: "enabled",
             video_upload: "enabled",
-
+            videoUpload: "enabled",
             camera_roll_video: "enabled",
-
+            cameraRollVideo: "enabled",
             unlimited_friends: "enabled",
-
+            unlimitedFriends: "enabled",
             priority_support: "enabled",
-
+            prioritySupport: "enabled",
             profile_badge: "enabled",
-
+            profileBadge: "enabled",
             remove_ads: "enabled",
-
+            removeAds: "enabled",
             video: "enabled",
-
             custom_widget_frames: "enabled",
-
+            customWidgetFrames: "enabled",
             streak_recovery: "enabled",
-
+            streakRecovery: "enabled",
             holiday_effects: "enabled",
-
+            holidayEffects: "enabled",
             holiday_filters: "enabled",
-
+            holidayFilters: "enabled",
             holiday_moments: "enabled",
-
+            holidayMoments: "enabled",
             view_holiday_moments: "enabled",
-
+            viewHolidayMoments: "enabled",
             can_view_holiday_effects: "enabled",
-
+            canViewHolidayEffects: "enabled",
             seasonal_effects: "enabled",
-
+            seasonalEffects: "enabled",
             seasonal_frames: "enabled",
-
+            seasonalFrames: "enabled",
             view_all_history: "enabled",
-
+            viewAllHistory: "enabled",
             past_moments: "enabled",
-
+            pastMoments: "enabled",
             all_access: "enabled",
-
+            allAccess: "enabled",
             gold_entitlement: "enabled",
-
+            goldEntitlement: "enabled",
             camera_filter_holidays: "enabled",
-
+            cameraFilterHolidays: "enabled",
             effects: "enabled",
-
             filter_packs: "enabled",
-
+            filterPacks: "enabled",
             moment_effects: "enabled",
-
+            momentEffects: "enabled",
             moment_reactions_effects: "enabled",
+            momentReactionsEffects: "enabled",
             calendar_rewind: "enabled",
+            calendarRewind: "enabled",
             locket_yearbook: "enabled",
+            locketYearbook: "enabled",
             yearbook: "enabled",
             year_in_review: "enabled",
+            yearInReview: "enabled",
             streak_freeze: "enabled",
+            streakFreeze: "enabled",
             streak_shields: "enabled",
+            streakShields: "enabled",
             unlimited_streak_restores: "enabled",
+            unlimitedStreakRestores: "enabled",
             ghost_mode: "enabled",
+            ghostMode: "enabled",
             stealth_views: "enabled",
+            stealthViews: "enabled",
             incognito_views: "enabled",
+            incognitoViews: "enabled",
             music_caption_full_preview: "enabled",
+            musicCaptionFullPreview: "enabled",
             music_caption_lyrics: "enabled",
+            musicCaptionLyrics: "enabled",
             camera_hdr: "enabled",
+            cameraHdr: "enabled",
             camera_stabilization: "enabled",
+            cameraStabilization: "enabled",
             fps_60: "enabled",
+            fps60: "enabled",
             debug_menu: "enabled",
-            developer_mode: "enabled"
-
+            debugMenu: "enabled",
+            developer_mode: "enabled",
+            developerMode: "enabled",
+            celebrity_inbox: "enabled",
+            celebrityInbox: "enabled",
+            conversation_drafts: "enabled",
+            conversationDrafts: "enabled",
+            user_data_export: "enabled",
+            userDataExport: "enabled",
+            username_suggestions: "enabled",
+            usernameSuggestions: "enabled"
         }),
 
         upsell_features: JSON.stringify({}),
@@ -225,7 +246,24 @@ if (typeof $response === "undefined" || $response === null) {
 
         settings_instagram_url: "https://www.instagram.com/ekaz.nyra",
 
-        settings_tiktok_url: "https://www.tiktok.com/@K4Z3X0R"
+        settings_tiktok_url: "https://www.tiktok.com/@K4Z3X0R",
+
+        celebrity_inbox_enabled: "true",
+        celebrity_vip_qr_redemption_enabled: "true",
+        chat_hyperlink_enabled_mode: "always_enabled",
+        conversation_drafts_enabled: "true",
+        group_contact_invites_enabled: "true",
+        groups_onboarding_accept_invite_preview_enabled: "true",
+        signup_custom_profile_picture: "true",
+        user_data_export_enabled: "true",
+        username_suggestions_enabled: "true",
+        material_blur: "regular",
+        mh_mic_enabled_v16: "true",
+        cameraRollSecondaryFlashButtonEnabled: "true",
+        qrCodeScanningEnabled: "true",
+        longerVideosEnabled: "true",
+        livePhotoCaptureEnabled: "true",
+        LocketConfigBeta: "true"
 
     });
 
@@ -868,7 +906,7 @@ if (typeof $response === "undefined" || $response === null) {
 
             "weather", "time", "streak", "star_sign", "party_time", "locket_count",
 
-            "good_morning", "goodnight", "ootd", "miss_you", "custom", "phunu_2010", "halloween_2026"
+            "good_morning", "goodnight", "ootd", "miss_you", "custom", "phunu_2010", "halloween_2026", "link", "live", "audio", "lyrics"
 
         ]),
 
@@ -900,7 +938,11 @@ if (typeof $response === "undefined" || $response === null) {
 
                     { overlay_id: "caption:color_palette", source: "local", caption: { type: "color_palette" } },
 
-                    { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } }
+                    { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } },
+
+                    { overlay_id: "caption:link", source: "local", caption: { type: "link" } },
+
+                    { overlay_id: "caption:live", source: "local", caption: { type: "live" } }
 
                 ]
 
@@ -4105,33 +4147,65 @@ if (typeof $response === "undefined" || $response === null) {
                     },
 
                     {
-
                         overlay_id: "caption:nghien_cuu_khoa_hoc",
-
                         source: "remote",
-
                         caption: {
-
                             background: { colors: ["#0F2027", "#2C5364"] },
-
                             icon: { data: "☕", type: "emoji" },
-
                             max_lines: 1,
-
                             text: "Cần nạp cafein gấp",
-
                             text_color: "#FFFFFFE6",
-
                             type: "static_content"
-
                         }
-
                     }
-
                 ]
-
+            },
+            {
+                section: "🎨 Chứng Nhận Locket VIP",
+                items: [
+                    { overlay_id: "caption:locket_cuti", source: "remote", caption: { background: { colors: ["#FF9A9E", "#FECFEF"] }, icon: { data: "🌸", type: "emoji" }, max_lines: 1, text: "Locket xác nhận bạn cutii", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:locket_xinh", source: "remote", caption: { background: { colors: ["#FA709A", "#FEE140"] }, icon: { data: "💅", type: "emoji" }, max_lines: 1, text: "Locket xác nhận bạn xinh gái", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:locket_dep", source: "remote", caption: { background: { colors: ["#4FACFE", "#00F2FE"] }, icon: { data: "👑", type: "emoji" }, max_lines: 1, text: "Locket xác nhận bạn đẹp trai", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:locket_dangiu", source: "remote", caption: { background: { colors: ["#F093FB", "#F5576C"] }, icon: { data: "🫶", type: "emoji" }, max_lines: 1, text: "Locket xác nhận bạn đáng yêu", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:gai_dep", source: "remote", caption: { background: { colors: ["#FF758C", "#FF7EB3"] }, icon: { data: "💋", type: "emoji" }, max_lines: 1, text: "Đã xác minh: Gái đẹp 100%", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:trai_dep", source: "remote", caption: { background: { colors: ["#13547A", "#80D0C7"] }, icon: { data: "🕶️", type: "emoji" }, max_lines: 1, text: "Đã xác minh: Trai đẹp 100%", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:be_ngoan", source: "remote", caption: { background: { colors: ["#FFE000", "#799F0C"] }, icon: { data: "🧸", type: "emoji" }, max_lines: 1, text: "Đã xác nhận: Bé ngoan xuất sắc", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:tuyen_duong", source: "remote", caption: { background: { colors: ["#F857A6", "#FF5858"] }, icon: { data: "🌟", type: "emoji" }, max_lines: 1, text: "Locket tuyên dương bạn cute", text_color: "#FFFFFFE6", type: "static_content" } }
+                ]
+            },
+            {
+                section: "☕ Daily Vibe & Chữa Lành",
+                items: [
+                    { overlay_id: "caption:matcha_latte", source: "remote", caption: { background: { colors: ["#11998E", "#38EF7D"] }, icon: { data: "🍵", type: "emoji" }, max_lines: 1, text: "Matcha Latte 🍵", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:rainy_day", source: "remote", caption: { background: { colors: ["#3A6073", "#3A7BD5"] }, icon: { data: "🌧️", type: "emoji" }, max_lines: 1, text: "Rainy Day ☕🌧️", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:night_vibes", source: "remote", caption: { background: { colors: ["#0F2027", "#2C5364"] }, icon: { data: "🌌", type: "emoji" }, max_lines: 1, text: "Night Vibes 🌌", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:2am_thoughts", source: "remote", caption: { background: { colors: ["#141E30", "#243B55"] }, icon: { data: "🌙", type: "emoji" }, max_lines: 1, text: "2:00 AM Thoughts 🌙", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:pin_1", source: "remote", caption: { background: { colors: ["#ED213A", "#93291E"] }, icon: { data: "🪫", type: "emoji" }, max_lines: 1, text: "Cảnh báo: Pin còn 1% 🪫", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:offline_heal", source: "remote", caption: { background: { colors: ["#0052D4", "#4364F7"] }, icon: { data: "🔋", type: "emoji" }, max_lines: 1, text: "Offline để hồi sinh 🔋", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:nam_im", source: "remote", caption: { background: { colors: ["#434343", "#000000"] }, icon: { data: "🛌", type: "emoji" }, max_lines: 1, text: "Nhiệm vụ hôm nay: Nằm im 🛌", text_color: "#FFFFFFE6", type: "static_content" } }
+                ]
+            },
+            {
+                section: "💕 Tình Bạn & Tình Yêu Son Sắt",
+                items: [
+                    { overlay_id: "caption:bet_phen", source: "remote", caption: { background: { colors: ["#F12711", "#F5AF19"] }, icon: { data: "👯‍♀️", type: "emoji" }, max_lines: 1, text: "Bét Phen Pho Ri Vờ 👯‍♀️", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:cuc_vang", source: "remote", caption: { background: { colors: ["#F7971E", "#FFD200"] }, icon: { data: "💛", type: "emoji" }, max_lines: 1, text: "Bạn là cục vàng cụa tui ✨", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:tren_tinh_ban", source: "remote", caption: { background: { colors: ["#E55D87", "#5FC3E4"] }, icon: { data: "💖", type: "emoji" }, max_lines: 1, text: "Trên tình bạn dưới tình yêu 💖", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:len_do", source: "remote", caption: { background: { colors: ["#FC466B", "#3F5EFB"] }, icon: { data: "🛵", type: "emoji" }, max_lines: 1, text: "Lên đồ đi chơi thôiiiii 🛵", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:tang_hoa", source: "remote", caption: { background: { colors: ["#EE9CA7", "#FFDDE1"] }, icon: { data: "💐", type: "emoji" }, max_lines: 1, text: "POV: Bạn được tặng hoa 💐", text_color: "#FFFFFFE6", type: "static_content" } }
+                ]
+            },
+            {
+                section: "🏝️ Check-in Du Lịch Việt Nam",
+                items: [
+                    { overlay_id: "caption:checkin_phuquy", source: "remote", caption: { background: { colors: ["#2193B0", "#6DD5ED"] }, icon: { data: "🌊", type: "emoji" }, max_lines: 1, text: "Đảo Phú Quý 🏝️", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:checkin_dalat", source: "remote", caption: { background: { colors: ["#134E5E", "#71B280"] }, icon: { data: "🌲", type: "emoji" }, max_lines: 1, text: "Đà Lạt Mộng Mơ 🌲", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:checkin_sapa", source: "remote", caption: { background: { colors: ["#556270", "#4ECDC4"] }, icon: { data: "🏔️", type: "emoji" }, max_lines: 1, text: "Sa Pa Trong Sương 🏔️", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:checkin_hanoi", source: "remote", caption: { background: { colors: ["#C33764", "#1D2671"] }, icon: { data: "🏮", type: "emoji" }, max_lines: 1, text: "Hà Nội 36 Phố Phường 🏮", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:checkin_saigon", source: "remote", caption: { background: { colors: ["#FF416C", "#FF4B2B"] }, icon: { data: "🏙️", type: "emoji" }, max_lines: 1, text: "Sài Gòn Hoa Lệ 🏙️", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:checkin_hoian", source: "remote", caption: { background: { colors: ["#FFB75E", "#ED8F03"] }, icon: { data: "✨", type: "emoji" }, max_lines: 1, text: "Phố Cổ Hội An 🏮", text_color: "#FFFFFFE6", type: "static_content" } }
+                ]
             }
-
         ])
 
     });
@@ -4146,6 +4220,8 @@ if (typeof $response === "undefined" || $response === null) {
       delete h["etag"];
       delete h["If-None-Match"];
       delete h["if-none-match"];
+      delete h["Last-Modified"];
+      delete h["last-modified"];
       out.headers = h;
     } catch (e) {}
     $done(out);

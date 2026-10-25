@@ -199,6 +199,58 @@ test('Locket: Streak Freeze 365 ngày & Calendar Rewind được kích hoạt', 
   assert.strictEqual(obj.entries.stealth_views, 'true');
 });
 
+test('Locket: Dual camelCase & snake_case Feature Gates (100% native IPA compatibility)', () => {
+  const obj = JSON.parse(locketRes.body);
+  const gates = JSON.parse(obj.entries.feature_gates);
+  // Kiểm tra cặp đôi tương thích tuyệt đối giữa Swift Codable và Remote Config
+  assert.strictEqual(gates.app_icon_picker, 'enabled');
+  assert.strictEqual(gates.appIconPicker, 'enabled');
+  assert.strictEqual(gates.camera_roll, 'enabled');
+  assert.strictEqual(gates.cameraRoll, 'enabled');
+  assert.strictEqual(gates.camera_theme, 'enabled');
+  assert.strictEqual(gates.cameraTheme, 'enabled');
+  assert.strictEqual(gates.longer_video, 'enabled');
+  assert.strictEqual(gates.longerVideo, 'enabled');
+  assert.strictEqual(gates.custom_widget_frames, 'enabled');
+  assert.strictEqual(gates.customWidgetFrames, 'enabled');
+  assert.strictEqual(gates.celebrity_inbox, 'enabled');
+  assert.strictEqual(gates.celebrityInbox, 'enabled');
+  assert.strictEqual(gates.conversation_drafts, 'enabled');
+  assert.strictEqual(gates.conversationDrafts, 'enabled');
+});
+
+test('Locket: Extended Remote Config Keys (Celebrity inbox, drafts, QR redemption & audio)', () => {
+  const obj = JSON.parse(locketRes.body);
+  assert.strictEqual(obj.entries.celebrity_inbox_enabled, 'true');
+  assert.strictEqual(obj.entries.celebrity_vip_qr_redemption_enabled, 'true');
+  assert.strictEqual(obj.entries.chat_hyperlink_enabled_mode, 'always_enabled');
+  assert.strictEqual(obj.entries.conversation_drafts_enabled, 'true');
+  assert.strictEqual(obj.entries.group_contact_invites_enabled, 'true');
+  assert.strictEqual(obj.entries.signup_custom_profile_picture, 'true');
+  assert.strictEqual(obj.entries.user_data_export_enabled, 'true');
+  assert.strictEqual(obj.entries.username_suggestions_enabled, 'true');
+  assert.strictEqual(obj.entries.material_blur, 'regular');
+  assert.strictEqual(obj.entries.mh_mic_enabled_v16, 'true');
+});
+
+test('Locket: Link & Live Captions + Bộ sưu tập Caption Chứng Nhận VIP & Check-in Việt Nam', () => {
+  const obj = JSON.parse(locketRes.body);
+  const dyn = JSON.parse(obj.entries.overlay_dynamic_captions);
+  assert(dyn.includes('link'), 'Thiếu link caption');
+  assert(dyn.includes('live'), 'Thiếu live caption');
+
+  const overlayItems = JSON.parse(obj.entries.overlay_items);
+  const genSec = overlayItems.find(s => s.section === '🎨 General');
+  assert(genSec.items.some(it => it.overlay_id === 'caption:link'), 'Thiếu caption:link trong General');
+  assert(genSec.items.some(it => it.overlay_id === 'caption:live'), 'Thiếu caption:live trong General');
+
+  const sections = overlayItems.map(s => s.section);
+  assert(sections.includes('🎨 Chứng Nhận Locket VIP'), 'Thiếu Chứng Nhận Locket VIP');
+  assert(sections.includes('☕ Daily Vibe & Chữa Lành'), 'Thiếu Daily Vibe & Chữa Lành');
+  assert(sections.includes('💕 Tình Bạn & Tình Yêu Son Sắt'), 'Thiếu Tình Bạn & Tình Yêu');
+  assert(sections.includes('🏝️ Check-in Du Lịch Việt Nam'), 'Thiếu Check-in Du Lịch Việt Nam');
+});
+
 // ----------------------------------------------------
 // 3. KIỂM TRA LOCKET REMOTE CONFIG (REQUEST MODE)
 // ----------------------------------------------------
