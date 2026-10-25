@@ -137,7 +137,9 @@ if (typeof $response === "undefined" || $response === null) {
             music_caption_lyrics: "enabled",
             camera_hdr: "enabled",
             camera_stabilization: "enabled",
-            fps_60: "enabled"
+            fps_60: "enabled",
+            debug_menu: "enabled",
+            developer_mode: "enabled"
 
         }),
 
@@ -253,7 +255,7 @@ if (typeof $response === "undefined" || $response === null) {
 
         history_ad_log_displayed_on_background: "false",
 
-        history_ads_debug_menu: "false",
+        history_ads_debug_menu: "true",
 
         sentry_sample_rate: "0",
 
@@ -656,7 +658,7 @@ if (typeof $response === "undefined" || $response === null) {
 
         journal_settings: JSON.stringify({
 
-            debug_menu_enabled: false,
+            debug_menu_enabled: true,
 
             focus_animation: true,
 
@@ -846,7 +848,7 @@ if (typeof $response === "undefined" || $response === null) {
 
         journal_settings: JSON.stringify({
 
-            debug_menu_enabled: false,
+            debug_menu_enabled: true,
 
             focus_animation: true,
 
@@ -3918,7 +3920,149 @@ if (typeof $response === "undefined" || $response === null) {
 
             },
 
+                        {
+                section: "📍 Check-in Vị Trí VIP",
+                items: [
+                    {
+                        overlay_id: "caption:location_paris",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#141E30", "#243B55"] },
+                            icon: { data: "🗼", type: "emoji" },
+                            max_lines: 1,
+                            text: "Tháp Eiffel, Paris 🇫🇷",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:location_tokyo",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#ED213A", "#93291E"] },
+                            icon: { data: "⛩️", type: "emoji" },
+                            max_lines: 1,
+                            text: "Shinjuku, Tokyo 🇯🇵",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:location_monaco",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#0F2027", "#203A43", "#2C5364"] },
+                            icon: { data: "🛥️", type: "emoji" },
+                            max_lines: 1,
+                            text: "Monaco Yacht Club ⚓",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:location_dalat",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#134E5E", "#71B280"] },
+                            icon: { data: "🌲", type: "emoji" },
+                            max_lines: 1,
+                            text: "Đà Lạt Sương Mù ☕",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:location_manhattan",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#232526", "#414345"] },
+                            icon: { data: "🗽", type: "emoji" },
+                            max_lines: 1,
+                            text: "Manhattan, New York 🇺🇸",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:location_gangnam",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#654ea3", "#eaafc8"] },
+                            icon: { data: "✨", type: "emoji" },
+                            max_lines: 1,
+                            text: "Gangnam, Seoul 🇰🇷",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    }
+                ]
+            },
             {
+                section: "⛅ Thời Tiết & Nhiệt Độ VIP",
+                items: [
+                    {
+                        overlay_id: "caption:weather_snow",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#70e1f5", "#ffd194"] },
+                            icon: { data: "❄️", type: "emoji" },
+                            max_lines: 1,
+                            text: "Tuyết rơi -2°C 🌨️",
+                            text_color: "#000000E6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:weather_rain",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#3a7bd5", "#3a6073"] },
+                            icon: { data: "🌧️", type: "emoji" },
+                            max_lines: 1,
+                            text: "Mưa rào lãng mạn 20°C ☔",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:weather_autumn",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#F3904F", "#3B4371"] },
+                            icon: { data: "🍂", type: "emoji" },
+                            max_lines: 1,
+                            text: "Nắng nhẹ chiều thu 24°C 🌤️",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:weather_stars",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#0F2027", "#2C5364"] },
+                            icon: { data: "🌌", type: "emoji" },
+                            max_lines: 1,
+                            text: "Trời đầy sao 18°C ✨",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    },
+                    {
+                        overlay_id: "caption:weather_mist",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#606c88", "#3f4c6b"] },
+                            icon: { data: "🌫️", type: "emoji" },
+                            max_lines: 1,
+                            text: "Sương mù giăng lối 15°C 💨",
+                            text_color: "#FFFFFFE6",
+                            type: "static_content"
+                        }
+                    }
+                ]
+            },
+{
 
                 section: "🎨 Góc Deadline & Đi Làm",
 

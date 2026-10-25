@@ -1,5 +1,5 @@
 name: ⚡ Anh Tú Premium - Stash
-desc: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.9.3-stable (2026-10-25)"
+desc: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.9.4-stable (2026-10-25)"
 author: Nguyễn Ngọc Anh Tú
 homepage: https://github.com/K4Z3X0R/NguyenNgocAnhTu
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -1043,16 +1043,16 @@ script-providers:
     url: https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/spotify-proto.js
     interval: 86400
   sp-premium-json:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=2.9.3
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=2.9.4
     interval: 86400
   rc-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.3
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.4
     interval: 86400
   rc-backup:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.3
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=2.9.4
     interval: 86400
   locket-30s:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.3
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=2.9.4
     interval: 86400
   sc-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/soundcloud.js

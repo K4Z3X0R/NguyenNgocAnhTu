@@ -372,8 +372,12 @@ if (isLocket) {
     "value": "true",
     "updated_at_ms": REQUEST_DATE_MS
   };
+  obj.subscriber.subscriber_attributes["locket_gold_badge_text"] = {
+    "value": "LOCKET GOLD SINCE 2005",
+    "updated_at_ms": REQUEST_DATE_MS
+  };
   obj.subscriber.subscriber_attributes["locket_gold_since"] = {
-    "value": "2024-06-25T00:00:00Z",
+    "value": "2005-07-18T10:10:14Z",
     "updated_at_ms": REQUEST_DATE_MS
   };
   obj.subscriber.subscriber_attributes["locket_verified"] = {
