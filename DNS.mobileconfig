@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>DNSSettings</key>
+            <dict>
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+                <key>ServerAddresses</key>
+                <array>
+                    <string>94.140.14.14</string>
+                    <string>94.140.15.15</string>
+                    <string>2a10:50c0::ad1:ff</string>
+                    <string>2a10:50c0::ad2:ff</string>
+                </array>
+                <key>ServerURL</key>
+                <string>https://dns.adguard-dns.com/dns-query</string>
+            </dict>
+            <key>OnDemandRules</key>
+            <array>
+                <dict>
+                    <key>Action</key>
+                    <string>EvaluateConnection</string>
+                    <key>ActionParameters</key>
+                    <array>
+                        <dict>
+                            <key>DomainAction</key>
+                            <string>NeverConnect</string>
+                            <key>Domains</key>
+                            <array>
+                                <string>audio-ak-spotify-com.akamaized.net</string>
+                                <string>audio4-ak-spotify-com.akamaized.net</string>
+                                <string>heads-ak-spotify-com.akamaized.net</string>
+                                <string>heads4-ak-spotify-com.akamaized.net</string>
+                                <string>audio-sp-sto.pscdn.co</string>
+                                <string>audio-sp-ash.pscdn.co</string>
+                                <string>audio-sp-dca.pscdn.co</string>
+                                <string>audio-sp-lon.pscdn.co</string>
+                                <string>podcastads.spotify.com</string>
+                                <string>ads-fa.spotify.com</string>
+                                <string>gads.current.spotify.com</string>
+                                <string>creativeservice-production.scdn.co</string>
+                                <string>analytics.spotify.com</string>
+                                <string>adeventtracker.spotify.com</string>
+                                <string>log.spotify.com</string>
+                                <string>pagead2.googlesyndication.com</string>
+                                <string>pagead2.googleadservices.com</string>
+                                <string>adservice.google.com</string>
+                                <string>afs.googlesyndication.com</string>
+                                <string>doubleclick.net</string>
+                                <string>googleads.g.doubleclick.net</string>
+                                <string>pubads.g.doubleclick.net</string>
+                                <string>securepubads.g.doubleclick.net</string>
+                                <string>static.doubleclick.net</string>
+                                <string>s.youtube.com</string>
+                                <string>video-stats.l.google.com</string>
+                                <string>youtube-ui.l.google.com</string>
+                                <string>ads.youtube.com</string>
+                                <string>yt-ad-events.l.google.com</string>
+                                <string>api.revenuecat.com</string>
+                                <string>api-production.revenuecat.com</string>
+                                <string>api-staging.revenuecat.com</string>
+                                <string>api.rc-backup.com</string>
+                            </array>
+                        </dict>
+                    </array>
+                </dict>
+                <dict>
+                    <key>Action</key>
+                    <string>Connect</string>
+                </dict>
+            </array>
+            <key>PayloadDescription</key>
+            <string>Chặn 100% quảng cáo Spotify Audio/Podcast, YouTube Ads &amp; Giữ Locket Gold • Mã hóa DoH Anycast AdGuard tốc độ cao • Không tốn pin • Bảo toàn thông báo đẩy</string>
+            <key>PayloadDisplayName</key>
+            <string>⚡ Spotify &amp; YouTube Ultra Clean DNS 🎵▶️</string>
+            <key>PayloadIdentifier</key>
+            <string>com.apple.dnsSettings.managed.spotify.youtube.clean.v4</string>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadUUID</key>
+            <string>4B315CCC-E29F-41D5-A934-066D3D29F726</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>ProhibitDisablement</key>
+            <false/>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>✨ Cấu hình DNS Chuyên Dụng: Triệt hạ hoàn toàn Audio Ads Spotify, Video Ads YouTube &amp; Bảo lưu Locket Gold • Nền tảng Apple OnDemand NeverConnect Layer-4 • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
+    <key>PayloadDisplayName</key>
+    <string>👑 Anh Tú • Spotify &amp; YouTube Ultra DNS 🎵▶️</string>
+    <key>PayloadIdentifier</key>
+    <string>com.z3rokaze.profile.spotify.youtube.dns.v4</string>
+    <key>PayloadOrganization</key>
+    <string>Nguyễn Ngọc Anh Tú (z3rokaze)</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>188D6032-F5E9-4570-B21A-1632B4BD338A</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
