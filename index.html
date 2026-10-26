@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" class="dark">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -15,7 +15,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -29,59 +28,59 @@
     <style>
         * { -webkit-tap-highlight-color: transparent; }
         body {
-            background-color: #060911;
-            color: #cbd5e1;
+            background-color: #f8fafc;
+            color: #1e293b;
             font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
             overflow-x: hidden;
         }
-        .bg-grid {
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-        .ambient-orb {
+        /* Soft Ambient Light Glows */
+        .ambient-light-top {
             position: fixed;
-            top: -200px;
+            top: -160px;
             left: 50%;
             transform: translateX(-50%);
             width: 800px;
             height: 450px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(124, 58, 237, 0.08) 50%, transparent 70%);
-            filter: blur(90px);
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(99, 102, 241, 0.06) 40%, rgba(245, 158, 11, 0.04) 70%, transparent 80%);
+            filter: blur(80px);
             pointer-events: none;
             z-index: 0;
-            animation: pulseOrb 8s ease-in-out infinite alternate;
+            animation: pulseLight 8s ease-in-out infinite alternate;
         }
-        @keyframes pulseOrb {
-            0% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
-            100% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+        @keyframes pulseLight {
+            0% { opacity: 0.7; transform: translateX(-50%) scale(0.96); }
+            100% { opacity: 1; transform: translateX(-50%) scale(1.04); }
         }
-        .card-panel {
-            background: rgba(13, 19, 33, 0.8);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+        /* Elegant Light Card */
+        .card-white {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .card-panel:hover {
-            border-color: rgba(255, 255, 255, 0.16);
+        .card-white:hover {
+            border-color: rgba(148, 163, 184, 0.5);
             transform: translateY(-2px);
-            box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.85);
+            box-shadow: 0 20px 35px -8px rgba(15, 23, 42, 0.08), 0 10px 15px -3px rgba(15, 23, 42, 0.04);
         }
-        .btn-cta {
+        /* Primary Blue Button with Apple Depth */
+        .btn-apple-blue {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .btn-cta:hover {
+        .btn-apple-blue:hover {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            box-shadow: 0 0 35px rgba(37, 99, 235, 0.6);
+            box-shadow: 0 6px 22px rgba(37, 99, 235, 0.45);
             transform: translateY(-1px);
         }
-        .terminal-box::-webkit-scrollbar { width: 4px; }
-        .terminal-box::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        .btn-apple-blue:active {
+            transform: translateY(0);
+        }
+        .terminal-scroll::-webkit-scrollbar { width: 5px; }
+        .terminal-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
         #confettiCanvas {
             position: fixed;
             top: 0; left: 0;
@@ -104,41 +103,41 @@
         #qrModal.active { display: flex; }
     </style>
 </head>
-<body class="min-h-screen bg-grid selection:bg-blue-600 selection:text-white relative">
+<body class="min-h-screen relative selection:bg-blue-600 selection:text-white">
 
-    <div class="ambient-orb"></div>
+    <div class="ambient-light-top"></div>
     <canvas id="confettiCanvas"></canvas>
 
     <!-- Top Navigation Bar -->
-    <nav class="border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md sticky top-0 z-40">
+    <nav class="border-b border-slate-200/90 bg-white/85 backdrop-blur-md sticky top-0 z-40 shadow-xs">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
             <div class="flex items-center gap-2.5">
-                <div class="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-xs shadow-inner">
+                <div class="w-8 h-8 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-bold text-sm shadow-xs">
                     ⚡
                 </div>
                 <div>
-                    <span class="text-sm font-bold text-white tracking-tight">K4Z3X0R</span>
-                    <span class="text-xs text-slate-500 font-mono hidden sm:inline">• AI Engine</span>
+                    <span class="text-sm font-bold text-slate-900 tracking-tight">K4Z3X0R</span>
+                    <span class="text-xs text-slate-500 font-mono hidden sm:inline ml-1">• AI Engine</span>
                 </div>
             </div>
 
             <div class="flex items-center gap-2 text-xs">
                 <!-- Live Ping Button -->
-                <button onclick="pingServer()" title="Bấm để kiểm tra độ trễ mạng thực tế" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/80 text-emerald-400 font-mono hover:bg-slate-800 transition-colors flex items-center gap-1.5 cursor-pointer">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <button onclick="pingServer()" title="Bấm để kiểm tra độ trễ mạng thực tế" class="px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 font-mono hover:bg-emerald-100 transition-colors flex items-center gap-1.5 cursor-pointer">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span id="navPing">Ping: 18ms</span>
                 </button>
                 <!-- Sound FX Toggle -->
-                <button onclick="toggleSound()" id="btnSound" title="Bật/Tắt hiệu ứng âm thanh" class="px-2 py-1 rounded-md bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white transition-colors cursor-pointer">
+                <button onclick="toggleSound()" id="btnSound" title="Bật/Tắt hiệu ứng âm thanh" class="px-2 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-900 transition-colors cursor-pointer">
                     🔊
                 </button>
                 <!-- QR Modal Button -->
-                <button onclick="toggleQrModal()" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/80 text-slate-300 font-medium hover:bg-slate-800 transition-colors flex items-center gap-1.5 cursor-pointer">
-                    <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+                <button onclick="toggleQrModal()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 font-medium transition-colors flex items-center gap-1.5 cursor-pointer">
+                    <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
                     <span>Quét QR</span>
                 </button>
                 <!-- GitHub Link -->
-                <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/80 text-slate-300 hover:text-white transition-colors">
+                <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium transition-colors shadow-xs">
                     GitHub
                 </a>
             </div>
@@ -148,290 +147,288 @@
     <!-- Main Content Container -->
     <main class="relative z-10 max-w-2xl mx-auto px-4 py-8 sm:py-10 space-y-6">
 
-        <!-- Header -->
-        <header class="space-y-2">
-            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono">
+        <!-- Title Section -->
+        <header class="space-y-2 text-center sm:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-mono font-medium shadow-xs">
                 <span>🤖 100% BY AUTONOMOUS AI</span>
-                <span class="text-slate-600">•</span>
+                <span class="text-blue-300">•</span>
                 <span>OPEN SOURCE SUITE</span>
-                <span class="text-slate-600">•</span>
-                <span class="text-emerald-400 font-semibold">v2.9.5</span>
+                <span class="text-blue-300">•</span>
+                <span class="font-bold">v2.9.5-STABLE</span>
             </div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 leading-tight">
                 Cổng Cấu Hình DNS & Hệ Sinh Thái iOS
             </h1>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Hạ tầng DNS-over-HTTPS (DoH) cao cấp duy trì Locket Gold 2099, chặn sạch quảng cáo Spotify và YouTube. Hoạt động độc lập ở nhân hệ điều hành, không hao tổn pin, không cần ứng dụng bên thứ ba.
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl">
+                Hạ tầng DNS-over-HTTPS (DoH) cao cấp duy trì Locket Gold 2099, chặn sạch quảng cáo Spotify và YouTube. Hoạt động độc lập ở nhân hệ điều hành, dịu mắt, không hao tổn pin, không cần ứng dụng bên thứ ba.
             </p>
         </header>
 
-        <!-- KHỐI ĐÁ ĐIỂU GIAN THƯƠNG (HOT ROAST SPOT) -->
-        <section class="card-panel rounded-2xl p-4 sm:p-5 border-amber-500/30 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-amber-950/20 space-y-3">
+        <!-- KHỐI ĐÁ ĐIỂU GIAN THƯƠNG (HOT ROAST SPOT - LIGHT PALETTE) -->
+        <section class="card-white rounded-2xl p-5 border-amber-200/90 bg-gradient-to-br from-amber-50/60 via-white to-orange-50/30 space-y-3">
             <div class="flex items-start gap-3">
                 <span class="text-2xl flex-shrink-0 animate-bounce">📢</span>
                 <div class="space-y-1">
-                    <h3 class="text-xs sm:text-sm font-bold text-amber-300 uppercase tracking-wide">
+                    <h3 class="text-xs sm:text-sm font-bold text-amber-800 uppercase tracking-wide">
                         Gửi Mấy Bạn Hay Copy Cấu Hình Mang Đi Bán 50k - 100k
                     </h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Toàn bộ hệ thống, server, cấu hình DNS và trang web này là do <strong class="text-white bg-blue-600/30 px-1.5 py-0.5 rounded border border-blue-500/40">A.I tự hành của Anh Tú vibe ra 100%</strong> trong vài phút và được chia sẻ <strong class="text-emerald-400">HOÀN TOÀN MIỄN PHÍ</strong>.
+                    <p class="text-xs text-slate-700 leading-relaxed">
+                        Toàn bộ hệ thống, server, cấu hình DNS và trang web này là do <strong class="text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200 font-bold">A.I tự hành của Anh Tú vibe ra 100%</strong> trong vài phút và được chia sẻ <strong class="text-emerald-700 font-bold">HOÀN TOÀN MIỄN PHÍ</strong>.
                     </p>
-                    <p class="text-xs text-amber-200/90 leading-relaxed font-mono pt-1">
+                    <p class="text-xs text-amber-900 leading-relaxed font-mono pt-1">
                         👉 Đem đồ A.I làm miễn phí đi bán lấy tiền người khác thì tự thấy quê giùm cái nhé! Ai lỡ mua thì gửi link này cho gian thương đòi lại tiền gấp!
                     </p>
                 </div>
             </div>
 
             <!-- Bảng đối chiếu giá trị châm biếm -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-800/80 font-mono text-[11px] text-center">
-                <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-amber-200/70 font-mono text-[11px] text-center">
+                <div class="p-2.5 rounded-xl bg-white border border-emerald-200 shadow-xs">
                     <div class="text-[10px] text-slate-500 font-sans">Giá Tại Web Này</div>
-                    <div class="text-emerald-400 font-bold text-sm mt-0.5">0 VNĐ</div>
+                    <div class="text-emerald-600 font-bold text-sm mt-0.5">0 VNĐ</div>
                 </div>
-                <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
+                <div class="p-2.5 rounded-xl bg-white border border-red-200 shadow-xs">
                     <div class="text-[10px] text-slate-500 font-sans">Giá Mấy Đứa Rao Bán</div>
-                    <div class="text-red-400 font-bold text-sm mt-0.5">50k - 100k</div>
+                    <div class="text-red-600 font-bold text-sm mt-0.5">50k - 100k</div>
                 </div>
-                <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
+                <div class="p-2.5 rounded-xl bg-white border border-amber-200 shadow-xs">
                     <div class="text-[10px] text-slate-500 font-sans">Công Sức Gian Thương</div>
-                    <div class="text-amber-400 font-bold text-sm mt-0.5">0 Giây (Ctrl+C)</div>
+                    <div class="text-amber-700 font-bold text-sm mt-0.5">0 Giây (Ctrl+C)</div>
                 </div>
-                <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
+                <div class="p-2.5 rounded-xl bg-white border border-blue-200 shadow-xs">
                     <div class="text-[10px] text-slate-500 font-sans">Thời Gian AI Vibe</div>
-                    <div class="text-blue-400 font-bold text-sm mt-0.5">30 Giây</div>
+                    <div class="text-blue-600 font-bold text-sm mt-0.5">30 Giây</div>
                 </div>
             </div>
         </section>
 
         <!-- WIDGET TƯƠNG TÁC 1: MÁY SOI HỌC PHÍ GIAN THƯƠNG -->
-        <section class="card-panel rounded-2xl p-4 sm:p-5 space-y-3 border-slate-700/80">
+        <section class="card-white rounded-2xl p-5 space-y-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <span class="text-base">🕵️‍♂️</span>
-                    <h3 class="text-xs sm:text-sm font-bold text-white">Máy Kiểm Định "Bạn Có Bị Gian Thương Lừa Tiền Không?"</h3>
+                    <h3 class="text-xs sm:text-sm font-bold text-slate-900">Máy Kiểm Định "Bạn Có Bị Gian Thương Lừa Tiền Không?"</h3>
                 </div>
-                <span class="text-[10px] font-mono text-slate-500">Interactive Tool</span>
+                <span class="text-[10px] font-mono text-slate-400">Interactive Tool</span>
             </div>
 
             <div class="flex gap-2">
-                <input type="number" id="inputScamAmount" placeholder="Nhập số tiền đã lỡ nộp cho gian thương (VNĐ)..." class="flex-1 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 font-mono transition-colors">
-                <button onclick="checkScam()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold text-white transition-colors cursor-pointer flex items-center gap-1.5 flex-shrink-0">
+                <input type="number" id="inputScamAmount" placeholder="Nhập số tiền đã lỡ nộp cho gian thương (VNĐ)..." class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-mono transition-colors">
+                <button onclick="checkScam()" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-bold text-white transition-colors cursor-pointer flex items-center gap-1.5 flex-shrink-0 shadow-xs">
                     <span>Soi Ngay</span>
                     <span>⚡</span>
                 </button>
             </div>
 
-            <div id="scamResult" class="hidden p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs leading-relaxed transition-all"></div>
+            <div id="scamResult" class="hidden p-3.5 rounded-xl border text-xs leading-relaxed transition-all"></div>
         </section>
 
         <!-- KHỐI CÀI ĐẶT TRỌNG TÂM (CORE ENGINE) -->
-        <section class="card-panel rounded-2xl p-5 sm:p-6 space-y-5 border-slate-700/80">
-            <div class="flex items-start justify-between pb-3.5 border-b border-slate-800">
+        <section class="card-white rounded-2xl p-5 sm:p-6 space-y-5">
+            <div class="flex items-start justify-between pb-3.5 border-b border-slate-100">
                 <div class="space-y-0.5">
-                    <h2 class="text-sm font-bold text-white flex items-center gap-2">
+                    <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
                         <span>Hồ Sơ Cấu Hình DNS 3-in-1</span>
-                        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Verified</span>
+                        <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 font-semibold">Verified</span>
                     </h2>
-                    <p class="text-xs text-slate-400">Tác giả: <strong class="text-slate-200">Nguyễn Ngọc Anh Tú</strong> (@z3rokaze / K4Z3X0R)</p>
+                    <p class="text-xs text-slate-500">Tác giả: <strong class="text-slate-800">Nguyễn Ngọc Anh Tú</strong> (@z3rokaze / K4Z3X0R)</p>
                 </div>
-                <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">
+                <span class="text-xs font-mono text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200 font-medium">
                     v2.9.5-stable
                 </span>
             </div>
 
             <!-- Specs Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono text-[11px]">
-                <div class="p-2 rounded-lg bg-slate-900/60 border border-slate-800">
-                    <div class="text-[10px] text-slate-500 font-sans">Giao thức</div>
-                    <div class="text-slate-200 font-semibold mt-0.5">DoH TLS 1.3</div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div class="text-[10px] text-slate-400 font-sans">Giao thức</div>
+                    <div class="text-slate-800 font-bold mt-0.5">DoH TLS 1.3</div>
                 </div>
-                <div class="p-2 rounded-lg bg-slate-900/60 border border-slate-800">
-                    <div class="text-[10px] text-slate-500 font-sans">Cụm máy chủ</div>
-                    <div class="text-slate-200 font-semibold mt-0.5">Singapore Anycast</div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div class="text-[10px] text-slate-400 font-sans">Cụm máy chủ</div>
+                    <div class="text-blue-600 font-bold mt-0.5">Singapore Anycast</div>
                 </div>
-                <div class="p-2 rounded-lg bg-slate-900/60 border border-slate-800">
-                    <div class="text-[10px] text-slate-500 font-sans">Chứng chỉ CA</div>
-                    <div class="text-slate-200 font-semibold mt-0.5">RSA 4096-bit</div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div class="text-[10px] text-slate-400 font-sans">Chứng chỉ CA</div>
+                    <div class="text-amber-700 font-bold mt-0.5">RSA 4096-bit</div>
                 </div>
-                <div class="p-2 rounded-lg bg-slate-900/60 border border-slate-800">
-                    <div class="text-[10px] text-slate-500 font-sans">Mức tiêu thụ Pin</div>
-                    <div class="text-emerald-400 font-semibold mt-0.5">0.0% (Native)</div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div class="text-[10px] text-slate-400 font-sans">Mức tiêu thụ Pin</div>
+                    <div class="text-emerald-600 font-bold mt-0.5">0.0% (Native)</div>
                 </div>
             </div>
 
             <!-- Big Primary CTA with Confetti -->
             <div class="space-y-2.5 pt-1">
-                <a href="https://13.229.210.222.sslip.io/DNS.mobileconfig" id="btnDownload" onclick="triggerConfetti()" class="btn-cta flex items-center justify-center gap-2.5 w-full py-4 px-6 rounded-xl text-white font-bold text-sm sm:text-base cursor-pointer">
+                <a href="https://13.229.210.222.sslip.io/DNS.mobileconfig" id="btnDownload" onclick="triggerConfetti()" class="btn-apple-blue flex items-center justify-center gap-2.5 w-full py-4 px-6 rounded-xl text-white font-bold text-sm sm:text-base cursor-pointer">
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                     <span>TẢI CẤU HÌNH DNS MIỄN PHÍ (.mobileconfig)</span>
                 </a>
 
                 <div class="grid grid-cols-2 gap-2 text-xs">
-                    <button onclick="copyDnsUrl()" class="py-2.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-slate-300 font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer">
-                        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10a2 2 0 00-2 2v3a2 2 0 002 2h10a2 2 0 002-2v-3a2 2 0 00-2-2z"/></svg>
+                    <button onclick="copyDnsUrl()" class="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs">
+                        <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10a2 2 0 00-2 2v3a2 2 0 002 2h10a2 2 0 002-2v-3a2 2 0 00-2-2z"/></svg>
                         <span>Sao Chép Link Tải</span>
                     </button>
-                    <a href="https://13.229.210.222.sslip.io/ca.crt" class="py-2.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-amber-300 font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer">
-                        <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    <a href="https://13.229.210.222.sslip.io/ca.crt" class="py-2.5 px-3 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-800 font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs">
+                        <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                         <span>Tải Chứng Chỉ Root CA</span>
                     </a>
                 </div>
             </div>
 
             <!-- Custom Profile Name Input -->
-            <div class="pt-3 border-t border-slate-800 space-y-2">
+            <div class="pt-3 border-t border-slate-100 space-y-2">
                 <div class="flex items-center justify-between text-xs">
-                    <span class="text-slate-300 font-medium">Tùy biến tên hiển thị trên cấu hình (Tùy chọn):</span>
-                    <span class="text-[10px] font-mono text-slate-500">Mặc định: Toàn cục</span>
+                    <span class="text-slate-600 font-medium">Tùy biến tên hiển thị trên cấu hình (Tùy chọn):</span>
+                    <span class="text-[10px] font-mono text-slate-400">Mặc định: Toàn cục</span>
                 </div>
                 <div class="flex gap-2">
-                    <input type="text" id="inputUsername" placeholder="Nhập tên riêng bạn muốn đặt..." class="flex-1 px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 font-mono transition-colors">
-                    <button onclick="personalizeProfile()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-white transition-colors cursor-pointer">
+                    <input type="text" id="inputUsername" placeholder="Nhập tên riêng bạn muốn đặt..." class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-mono transition-colors">
+                    <button onclick="personalizeProfile()" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-white transition-colors cursor-pointer shadow-xs">
                         Đổi Tên
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- WIDGET TƯƠNG TÁC 2: TRA CỨU DANH SÁCH TÊN MIỀN ĐƯỢC XỬ LÝ (DOMAIN FIREWALL INSPECTOR) -->
-        <section class="card-panel rounded-2xl p-5 space-y-3.5 border-slate-700/80">
+        <!-- WIDGET TƯƠNG TÁC 2: TRA CỨU DANH SÁCH TÊN MIỀN ĐƯỢC XỬ LÝ -->
+        <section class="card-white rounded-2xl p-5 space-y-3.5">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
                         <span>🛡️</span>
                         <span>Tra Cứu Tên Miền Được Bảo Vệ & Định Tuyến</span>
                     </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Tìm kiếm quy tắc lọc quảng cáo hoặc mở khóa theo tên miền thời gian thực.</p>
+                    <p class="text-xs text-slate-500 mt-0.5">Tìm kiếm quy tắc lọc quảng cáo hoặc mở khóa theo tên miền thời gian thực.</p>
                 </div>
-                <span id="domainCount" class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">25 Tên Miền</span>
+                <span id="domainCount" class="text-xs font-mono text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200 font-semibold">25 Tên Miền</span>
             </div>
 
             <!-- Search Bar & Category Filters -->
             <div class="space-y-2">
-                <input type="text" id="searchDomain" oninput="filterDomains()" placeholder="Tìm kiếm tên miền (ví dụ: revenuecat, spotify, youtube, googleads)..." class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 font-mono">
+                <input type="text" id="searchDomain" oninput="filterDomains()" placeholder="Tìm kiếm tên miền (ví dụ: revenuecat, spotify, youtube, googleads)..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-mono">
                 
                 <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
-                    <button onclick="setCategory('ALL')" class="cat-btn px-2.5 py-1 rounded-md bg-blue-600 text-white font-semibold cursor-pointer">Tất Cả</button>
-                    <button onclick="setCategory('LOCKET')" class="cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer">Locket Gold</button>
-                    <button onclick="setCategory('SPOTIFY')" class="cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer">Spotify Ads</button>
-                    <button onclick="setCategory('YOUTUBE')" class="cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer">YouTube Ads</button>
-                    <button onclick="setCategory('TRACKING')" class="cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer">Tracking</button>
+                    <button onclick="setCategory('ALL')" class="cat-btn px-2.5 py-1 rounded-lg bg-blue-600 text-white font-semibold cursor-pointer shadow-xs">Tất Cả</button>
+                    <button onclick="setCategory('LOCKET')" class="cat-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer">Locket Gold</button>
+                    <button onclick="setCategory('SPOTIFY')" class="cat-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer">Spotify Ads</button>
+                    <button onclick="setCategory('YOUTUBE')" class="cat-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer">YouTube Ads</button>
+                    <button onclick="setCategory('TRACKING')" class="cat-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer">Tracking</button>
                 </div>
             </div>
 
             <!-- Domain Results Box -->
-            <div id="domainList" class="max-h-48 overflow-y-auto terminal-box space-y-1.5 pr-1 font-mono text-xs"></div>
+            <div id="domainList" class="max-h-48 overflow-y-auto terminal-scroll space-y-1.5 pr-1 font-mono text-xs"></div>
         </section>
 
-        <!-- WIDGET TƯƠNG TÁC 3: HỆ SINH THÁI 8 ỨNG DỤNG PROXY (1-CLICK MODULE COPY) -->
-        <section class="card-panel rounded-2xl p-5 space-y-3.5 border-slate-700/80">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                        <span>📲</span>
-                        <span>Hệ Sinh Thái Module Cho 8 Ứng Dụng Proxy iOS</span>
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Dành cho bạn nào dùng app chuyên dụng (Surge, Shadowrocket, Loon, QX, v.v.). Bấm vào để copy link cấu hình.</p>
-                </div>
+        <!-- WIDGET TƯƠNG TÁC 3: HỆ SINH THÁI 8 ỨNG DỤNG PROXY -->
+        <section class="card-white rounded-2xl p-5 space-y-3.5">
+            <div>
+                <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <span>📲</span>
+                    <span>Hệ Sinh Thái Module Cho 8 Ứng Dụng Proxy iOS</span>
+                </h3>
+                <p class="text-xs text-slate-500 mt-0.5">Dành cho bạn nào dùng app chuyên dụng (Surge, Shadowrocket, Loon, QX, v.v.). Bấm vào để sao chép link cấu hình.</p>
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                <button onclick="copyAppModule('Shadowrocket')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
-                    <div class="font-bold text-slate-200">🚀 Shadowrocket</div>
+                <button onclick="copyAppModule('Shadowrocket')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-800">🚀 Shadowrocket</div>
                     <div class="text-[10px] text-slate-500 font-mono mt-0.5">.module copy</div>
                 </button>
-                <button onclick="copyAppModule('Loon')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
-                    <div class="font-bold text-slate-200">🎈 Loon</div>
+                <button onclick="copyAppModule('Loon')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-800">🎈 Loon</div>
                     <div class="text-[10px] text-slate-500 font-mono mt-0.5">.plugin copy</div>
                 </button>
-                <button onclick="copyAppModule('Surge')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
-                    <div class="font-bold text-slate-200">⚡ Surge</div>
+                <button onclick="copyAppModule('Surge')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-800">⚡ Surge</div>
                     <div class="text-[10px] text-slate-500 font-mono mt-0.5">.sgmodule copy</div>
                 </button>
-                <button onclick="copyAppModule('QuantumultX')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
-                    <div class="font-bold text-slate-200">⭕ Quantumult X</div>
+                <button onclick="copyAppModule('QuantumultX')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-800">⭕ Quantumult X</div>
                     <div class="text-[10px] text-slate-500 font-mono mt-0.5">.snippet copy</div>
                 </button>
-                <button onclick="copyAppModule('Egern')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
-                    <div class="font-bold text-slate-200">🐿️ Egern</div>
+                <button onclick="copyAppModule('Egern')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-800">🐿️ Egern</div>
                     <div class="text-[10px] text-slate-500 font-mono mt-0.5">.yaml copy</div>
                 </button>
-                <button onclick="copyAppModule('Stash')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
-                    <div class="font-bold text-slate-200">📦 Stash (Clash)</div>
+                <button onclick="copyAppModule('Stash')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-800">📦 Stash (Clash)</div>
                     <div class="text-[10px] text-slate-500 font-mono mt-0.5">.stoverride copy</div>
                 </button>
-                <button onclick="copyAppModule('LanceX')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
-                    <div class="font-bold text-slate-200">🛡️ LanceX</div>
+                <button onclick="copyAppModule('LanceX')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-800">🛡️ LanceX</div>
                     <div class="text-[10px] text-slate-500 font-mono mt-0.5">.module copy</div>
                 </button>
-                <button onclick="copyAppModule('All')" class="p-2.5 rounded-xl bg-blue-950/40 hover:bg-blue-900/40 border border-blue-500/30 text-left transition-all cursor-pointer">
-                    <div class="font-bold text-blue-300">📦 Toàn Bộ 350+ App</div>
-                    <div class="text-[10px] text-blue-400 font-mono mt-0.5">Full ecosystem</div>
+                <button onclick="copyAppModule('All')" class="p-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-blue-700">📦 Toàn Bộ 350+ App</div>
+                    <div class="text-[10px] text-blue-500 font-mono mt-0.5">Full ecosystem</div>
                 </button>
             </div>
         </section>
 
-        <!-- LIVE TERMINAL CONSOLE (SIMULATED DYNAMIC LOGS) -->
-        <section class="card-panel rounded-2xl p-4 sm:p-5 space-y-3 font-mono text-xs border-slate-800">
-            <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+        <!-- LIVE TERMINAL CONSOLE (LIGHT DEVELOPER THEME - ZERO EYE STRAIN) -->
+        <section class="card-white rounded-2xl p-5 space-y-3 font-mono text-xs">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
                 <div class="flex items-center gap-2">
                     <div class="flex gap-1.5">
-                        <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
                     </div>
-                    <span class="text-slate-400 font-sans font-medium text-xs ml-1">Live Telemetry Terminal</span>
+                    <span class="text-slate-600 font-sans font-semibold text-xs ml-1">Live Telemetry Console</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="pushSimulatedQuery()" class="text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800 border border-slate-700 cursor-pointer">
+                    <button onclick="pushSimulatedQuery()" class="text-[10px] text-blue-700 hover:text-blue-800 font-semibold px-2 py-0.5 rounded-md bg-blue-50 border border-blue-200 cursor-pointer">
                         Gửi test query ⚡
                     </button>
-                    <span class="text-[10px] text-emerald-400 flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span class="text-[10px] text-emerald-700 flex items-center gap-1 font-semibold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
                         REALTIME
                     </span>
                 </div>
             </div>
 
-            <!-- Terminal Screen -->
-            <div id="terminalBody" class="h-28 overflow-y-auto terminal-box space-y-1.5 text-[11px] text-slate-300 font-mono bg-slate-950/80 p-3 rounded-lg border border-slate-800/80">
-                <div class="text-slate-500">&gt; Initializing Apex DNS Gateway v2.9.5-stable...</div>
-                <div class="text-emerald-400">&gt; [STATUS] Edge Router Singapore 10Gbps: ONLINE</div>
-                <div class="text-blue-400">&gt; [INFO] Engine authored and vibed out by AI for Nguyen Ngoc Anh Tu</div>
+            <!-- Terminal Screen (Soft Light Slate Console) -->
+            <div id="terminalBody" class="h-28 overflow-y-auto terminal-scroll space-y-1.5 text-[11px] text-slate-700 font-mono bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <div class="text-slate-400">&gt; Initializing Apex DNS Gateway v2.9.5-stable...</div>
+                <div class="text-emerald-700 font-semibold">&gt; [STATUS] Edge Router Singapore 10Gbps: ONLINE</div>
+                <div class="text-blue-700 font-semibold">&gt; [INFO] Engine authored and vibed out by AI for Nguyen Ngoc Anh Tu</div>
             </div>
         </section>
 
         <!-- 4-STEP INSTALLATION GUIDE -->
-        <section class="card-panel rounded-2xl p-5 sm:p-6 space-y-3.5 border-slate-800">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
+        <section class="card-white rounded-2xl p-5 sm:p-6 space-y-3.5">
+            <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <span>📖</span>
                 <span>Hướng Dẫn Kích Hoạt 4 Bước (Chuẩn iOS)</span>
             </h2>
 
-            <ol class="space-y-2 text-xs text-slate-300">
-                <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 border border-slate-800/80">
-                    <span class="w-5 h-5 rounded-md bg-blue-600/20 text-blue-400 font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">1</span>
+            <ol class="space-y-2 text-xs text-slate-700">
+                <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                    <span class="w-5 h-5 rounded-md bg-blue-100 text-blue-700 font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">1</span>
                     <div class="leading-relaxed">
                         Mở bằng trình duyệt <strong>Safari</strong> trên iPhone, bấm nút <strong>TẢI CẤU HÌNH DNS MIỄN PHÍ</strong> ở trên và chọn <strong>Cho phép (Allow)</strong>.
                     </div>
                 </li>
 
-                <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 border border-slate-800/80">
-                    <span class="w-5 h-5 rounded-md bg-blue-600/20 text-blue-400 font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">2</span>
+                <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                    <span class="w-5 h-5 rounded-md bg-blue-100 text-blue-700 font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">2</span>
                     <div class="leading-relaxed">
                         Mở <strong>Cài đặt (Settings)</strong> trên iPhone → Bấm vào dòng <strong>Đã tải về hồ sơ (Profile Downloaded)</strong> ngay đầu trang → Bấm <strong>Cài đặt (Install)</strong> ở góc trên bên phải.
                     </div>
                 </li>
 
-                <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 border border-slate-800/80">
-                    <span class="w-5 h-5 rounded-md bg-amber-500/20 text-amber-400 font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">3</span>
+                <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                    <span class="w-5 h-5 rounded-md bg-amber-100 text-amber-800 font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">3</span>
                     <div class="leading-relaxed">
                         Bấm tải tiếp <strong>Chứng Chỉ Root CA</strong> và cài đặt. Sau đó vào: <strong>Cài đặt</strong> → <strong>Cài đặt chung</strong> → <strong>Giới thiệu</strong> → <strong>Cài đặt tin cậy chứng nhận</strong> → Gạt <strong>BẬT XANH</strong> cho <em>"Anh Tú VIP Apex Root CA"</em>.
                     </div>
                 </li>
 
-                <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 border border-slate-800/80">
-                    <span class="w-5 h-5 rounded-md bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">4</span>
+                <li class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                    <span class="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">4</span>
                     <div class="leading-relaxed">
                         Đóng hẳn ứng dụng <strong>Locket</strong> rồi mở lại để nhận tính năng Gold 2099 và video 45s. Mở <strong>Spotify</strong> & <strong>YouTube</strong> xem nhạc mượt mà không quảng cáo!
                     </div>
@@ -440,109 +437,109 @@
         </section>
 
         <!-- SECURITY & PRIVACY PLEDGE -->
-        <section class="card-panel rounded-2xl p-5 space-y-3 border-slate-800">
-            <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+        <section class="card-white rounded-2xl p-5 space-y-3">
+            <h2 class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
                 <span>🛡️</span>
                 <span>Cam Kết Kỹ Thuật & Bảo Mật</span>
             </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-400">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600">
                 <div class="space-y-1">
-                    <div class="text-slate-200 font-medium">• Zero-Logging Policy</div>
+                    <div class="text-slate-900 font-semibold">• Zero-Logging Policy</div>
                     <p class="leading-relaxed">Máy chủ chỉ xử lý phân giải tên miền bản quyền và chặn quảng cáo, tuyệt đối không lưu nhật ký web.</p>
                 </div>
                 <div class="space-y-1">
-                    <div class="text-slate-200 font-medium">• Mã Hóa Chuẩn DoH TLS 1.3</div>
+                    <div class="text-slate-900 font-semibold">• Mã Hóa Chuẩn DoH TLS 1.3</div>
                     <p class="leading-relaxed">Bảo vệ mọi truy vấn DNS an toàn, ngăn chặn việc theo dõi dữ liệu trên Wi-Fi công cộng.</p>
                 </div>
                 <div class="space-y-1">
-                    <div class="text-slate-200 font-medium">• Hoàn Toàn Không Tốn Pin</div>
+                    <div class="text-slate-900 font-semibold">• Hoàn Toàn Không Tốn Pin</div>
                     <p class="leading-relaxed">Chạy trực tiếp ở nhân hệ điều hành iOS, không duy trì ứng dụng VPN chạy nền làm nóng máy.</p>
                 </div>
                 <div class="space-y-1">
-                    <div class="text-slate-200 font-medium">• Gỡ Bỏ Trong 1 Nốt Nhạc</div>
+                    <div class="text-slate-900 font-semibold">• Gỡ Bỏ Trong 1 Nốt Nhạc</div>
                     <p class="leading-relaxed">Vào Cài đặt → VPN & Quản lý thiết bị → Xóa hồ sơ bất cứ khi nào muốn trở về mặc định.</p>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="card-panel rounded-2xl p-5 space-y-2.5 border-slate-800">
-            <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+        <section class="card-white rounded-2xl p-5 space-y-2.5">
+            <h2 class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
                 <span>💬</span>
                 <span>Câu Hỏi Thường Gặp</span>
             </h2>
 
-            <details class="group bg-slate-900/50 rounded-xl border border-slate-800 overflow-hidden">
-                <summary class="flex items-center justify-between p-3 text-xs font-medium text-slate-200 cursor-pointer select-none">
+            <details class="group bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                <summary class="flex items-center justify-between p-3 text-xs font-semibold text-slate-800 cursor-pointer select-none">
                     <span>Có mất tiền duy trì hàng tháng không?</span>
-                    <span class="text-slate-500 transition-transform group-open:rotate-180 text-[10px]">▼</span>
+                    <span class="text-slate-400 transition-transform group-open:rotate-180 text-[10px]">▼</span>
                 </summary>
-                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800 pt-2">
+                <div class="px-3 pb-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-2">
                     Không bao giờ! Toàn bộ dự án này được tạo ra bởi AI và duy trì hoàn toàn miễn phí trọn đời cho cộng đồng. Mọi hành vi thu phí đều là lừa đảo.
                 </div>
             </details>
 
-            <details class="group bg-slate-900/50 rounded-xl border border-slate-800 overflow-hidden">
-                <summary class="flex items-center justify-between p-3 text-xs font-medium text-slate-200 cursor-pointer select-none">
+            <details class="group bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                <summary class="flex items-center justify-between p-3 text-xs font-semibold text-slate-800 cursor-pointer select-none">
                     <span>Tại sao cần bật tin cậy chứng chỉ Root CA?</span>
-                    <span class="text-slate-500 transition-transform group-open:rotate-180 text-[10px]">▼</span>
+                    <span class="text-slate-400 transition-transform group-open:rotate-180 text-[10px]">▼</span>
                 </summary>
-                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800 pt-2">
+                <div class="px-3 pb-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-2">
                     Chứng chỉ Root CA giúp thiết bị iOS xác thực an toàn với Gateway nội bộ để đồng bộ phản hồi cấp phép bản quyền cho ứng dụng, đảm bảo hoạt động liên tục.
                 </div>
             </details>
 
-            <details class="group bg-slate-900/50 rounded-xl border border-slate-800 overflow-hidden">
-                <summary class="flex items-center justify-between p-3 text-xs font-medium text-slate-200 cursor-pointer select-none">
+            <details class="group bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                <summary class="flex items-center justify-between p-3 text-xs font-semibold text-slate-800 cursor-pointer select-none">
                     <span>Lỡ mua từ gian thương rồi có lấy lại tiền được không?</span>
-                    <span class="text-slate-500 transition-transform group-open:rotate-180 text-[10px]">▼</span>
+                    <span class="text-slate-400 transition-transform group-open:rotate-180 text-[10px]">▼</span>
                 </summary>
-                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800 pt-2">
+                <div class="px-3 pb-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-2">
                     Bạn hãy chụp ảnh màn hình trang web này hoặc copy đường link gửi thẳng cho người bán. Chỉ rõ ràng đây là dự án nguồn mở do AI của Anh Tú làm miễn phí, yêu cầu hoàn tiền hoặc bóc phốt để cảnh báo cho người khác.
                 </div>
             </details>
         </section>
 
         <!-- Footer -->
-        <footer class="pt-6 pb-2 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <footer class="pt-6 pb-2 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
             <div>
-                Dự án do <strong class="text-slate-300">A.I tự hành của Anh Tú</strong> vibe ra 100% • Miễn phí trọn đời.
+                Dự án do <strong class="text-slate-800">A.I tự hành của Anh Tú</strong> vibe ra 100% • Miễn phí trọn đời.
             </div>
             <div class="flex items-center gap-3">
-                <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub Repository</a>
+                <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition-colors">GitHub Repository</a>
                 <span>•</span>
-                <a href="https://www.facebook.com/NguyenNgocAnhTu.VN" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">Facebook Admin</a>
+                <a href="https://www.facebook.com/NguyenNgocAnhTu.VN" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition-colors">Facebook Admin</a>
             </div>
         </footer>
 
     </main>
 
-    <!-- QR Modal -->
-    <div id="qrModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md items-center justify-center p-4">
-        <div class="card-panel rounded-2xl p-6 max-w-xs w-full text-center space-y-3 relative border-slate-700 shadow-2xl">
-            <button onclick="toggleQrModal()" class="absolute top-3 right-3 text-slate-400 hover:text-white p-1 rounded-lg bg-slate-800 cursor-pointer">
+    <!-- QR Modal (Light Clean) -->
+    <div id="qrModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm items-center justify-center p-4">
+        <div class="card-white rounded-2xl p-6 max-w-xs w-full text-center space-y-3 relative border-slate-200 shadow-2xl">
+            <button onclick="toggleQrModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-800 p-1 rounded-lg bg-slate-100 cursor-pointer">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
 
             <div class="space-y-1">
-                <h3 class="text-sm font-bold text-white">Quét Bằng Camera iPhone</h3>
-                <p class="text-xs text-slate-400">Mở ứng dụng Camera trên iPhone/iPad hướng vào mã để tải cấu hình tức thì.</p>
+                <h3 class="text-sm font-bold text-slate-900">Quét Bằng Camera iPhone</h3>
+                <p class="text-xs text-slate-500">Mở ứng dụng Camera trên iPhone/iPad hướng vào mã để tải cấu hình tức thì.</p>
             </div>
 
-            <div class="p-2.5 bg-white rounded-xl inline-block shadow-inner">
+            <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl inline-block shadow-inner">
                 <img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2F13.229.210.222.sslip.io%2FDNS.mobileconfig&margin=4" alt="DNS QR Code" class="w-44 h-44 block mx-auto">
             </div>
 
             <div>
-                <button onclick="toggleQrModal()" class="w-full py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors cursor-pointer">
+                <button onclick="toggleQrModal()" class="w-full py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-white transition-colors cursor-pointer shadow-xs">
                     Đóng
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-xs font-semibold shadow-2xl backdrop-blur-md">
+    <!-- Toast Notification (Light Theme) -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-semibold shadow-2xl backdrop-blur-md">
         <span id="toastIcon">✅</span>
         <span id="toastMsg">Đã sao chép liên kết.</span>
     </div>
@@ -632,38 +629,38 @@
             res.classList.remove('hidden');
 
             if (isNaN(val) || val <= 0) {
-                res.innerHTML = '<span class="text-emerald-400 font-bold">🎉 Chúc mừng bạn:</span> Bạn chưa mất đồng nào! Dùng đồ do A.I của Anh Tú vibe ra hoàn toàn miễn phí là người tiêu dùng thông minh nhất quả đất.';
-                res.className = 'p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-xs text-slate-200';
+                res.innerHTML = '<span class="text-emerald-700 font-bold">🎉 Chúc mừng bạn:</span> Bạn chưa mất đồng nào! Dùng đồ do A.I của Anh Tú vibe ra hoàn toàn miễn phí là người tiêu dùng thông minh nhất quả đất.';
+                res.className = 'p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-slate-800 shadow-xs';
             } else {
-                res.innerHTML = '<span class="text-red-400 font-bold">🤡 Thiệt hại: ' + val.toLocaleString('vi-VN') + ' VNĐ!</span><br>' +
-                                '<span class="text-slate-300">Bạn đã chính thức nộp học phí cho gian thương copy đồ miễn phí. Hãy copy đường link web này gửi thẳng vào mặt đứa bán đòi lại tiền ngay và luôn! Web này do A.I vibe ra miễn phí 100%.</span>';
-                res.className = 'p-3 rounded-xl bg-red-950/40 border border-red-500/40 text-xs text-slate-200';
+                res.innerHTML = '<span class="text-red-700 font-bold">🤡 Thiệt hại: ' + val.toLocaleString('vi-VN') + ' VNĐ!</span><br>' +
+                                '<span class="text-slate-700">Bạn đã chính thức nộp học phí cho gian thương copy đồ miễn phí. Hãy copy đường link web này gửi thẳng vào mặt đứa bán đòi lại tiền ngay và luôn! Web này do A.I vibe ra miễn phí 100%.</span>';
+                res.className = 'p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs text-slate-800 shadow-xs';
             }
         }
 
         // Domain Firewall Filter Data
         const DOMAINS = [
-            { domain: 'api.revenuecat.com', cat: 'LOCKET', desc: 'Xác thực Locket Gold VIP 2099', action: 'SPOOFED', color: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
-            { domain: 'app.revenuecat.com', cat: 'LOCKET', desc: 'Đồng bộ hóa giấy phép Locket', action: 'SPOOFED', color: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
-            { domain: 'spclient.wg.spotify.com', cat: 'SPOTIFY', desc: 'Lọc âm thanh quảng cáo Spotify', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
-            { domain: 'audio-akp-spotify-com.akamaized.net', cat: 'SPOTIFY', desc: 'Direct CDN nghe nhạc trực tiếp', action: 'DIRECT', color: 'text-blue-400 bg-blue-500/10 border-blue-500/20' },
-            { domain: 'heads-akp-spotify-com.akamaized.net', cat: 'SPOTIFY', desc: 'Direct CDN luồng nhạc không ngắt', action: 'DIRECT', color: 'text-blue-400 bg-blue-500/10 border-blue-500/20' },
-            { domain: 'youtubei.googleapis.com', cat: 'YOUTUBE', desc: 'Lọc luồng chèn quảng cáo video', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
-            { domain: 'googleads.g.doubleclick.net', cat: 'YOUTUBE', desc: 'Máy chủ quảng cáo Google Ads', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
-            { domain: 'pubads.g.doubleclick.net', cat: 'YOUTUBE', desc: 'Phân phối banner & video ads', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
-            { domain: 'app-measurement.com', cat: 'TRACKING', desc: 'Theo dõi chỉ số ứng dụng Google', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
-            { domain: 'firebaseinstallations.googleapis.com', cat: 'TRACKING', desc: 'Kiểm tra mã thiết bị Firebase', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
-            { domain: 'launches.appsflyer.com', cat: 'TRACKING', desc: 'Thu thập sự kiện theo dõi AppsFlyer', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
-            { domain: 'api.mixpanel.com', cat: 'TRACKING', desc: 'Máy chủ phân tích hành vi Mixpanel', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' }
+            { domain: 'api.revenuecat.com', cat: 'LOCKET', desc: 'Xác thực Locket Gold VIP 2099', action: 'SPOOFED', color: 'text-amber-800 bg-amber-50 border-amber-200' },
+            { domain: 'app.revenuecat.com', cat: 'LOCKET', desc: 'Đồng bộ hóa giấy phép Locket', action: 'SPOOFED', color: 'text-amber-800 bg-amber-50 border-amber-200' },
+            { domain: 'spclient.wg.spotify.com', cat: 'SPOTIFY', desc: 'Lọc âm thanh quảng cáo Spotify', action: 'BLOCKED', color: 'text-red-700 bg-red-50 border-red-200' },
+            { domain: 'audio-akp-spotify-com.akamaized.net', cat: 'SPOTIFY', desc: 'Direct CDN nghe nhạc trực tiếp', action: 'DIRECT', color: 'text-blue-700 bg-blue-50 border-blue-200' },
+            { domain: 'heads-akp-spotify-com.akamaized.net', cat: 'SPOTIFY', desc: 'Direct CDN luồng nhạc không ngắt', action: 'DIRECT', color: 'text-blue-700 bg-blue-50 border-blue-200' },
+            { domain: 'youtubei.googleapis.com', cat: 'YOUTUBE', desc: 'Lọc luồng chèn quảng cáo video', action: 'BLOCKED', color: 'text-red-700 bg-red-50 border-red-200' },
+            { domain: 'googleads.g.doubleclick.net', cat: 'YOUTUBE', desc: 'Máy chủ quảng cáo Google Ads', action: 'BLOCKED', color: 'text-red-700 bg-red-50 border-red-200' },
+            { domain: 'pubads.g.doubleclick.net', cat: 'YOUTUBE', desc: 'Phân phối banner & video ads', action: 'BLOCKED', color: 'text-red-700 bg-red-50 border-red-200' },
+            { domain: 'app-measurement.com', cat: 'TRACKING', desc: 'Theo dõi chỉ số ứng dụng Google', action: 'BLOCKED', color: 'text-red-700 bg-red-50 border-red-200' },
+            { domain: 'firebaseinstallations.googleapis.com', cat: 'TRACKING', desc: 'Kiểm tra mã thiết bị Firebase', action: 'BLOCKED', color: 'text-red-700 bg-red-50 border-red-200' },
+            { domain: 'launches.appsflyer.com', cat: 'TRACKING', desc: 'Thu thập sự kiện theo dõi AppsFlyer', action: 'BLOCKED', color: 'text-red-700 bg-red-50 border-red-200' },
+            { domain: 'api.mixpanel.com', cat: 'TRACKING', desc: 'Máy chủ phân tích hành vi Mixpanel', action: 'BLOCKED', color: 'text-red-700 bg-red-50 border-red-200' }
         ];
 
         let currentCat = 'ALL';
         function setCategory(cat) {
             currentCat = cat;
             document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.className = 'cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer';
+                btn.className = 'cat-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer';
             });
-            event.target.className = 'cat-btn px-2.5 py-1 rounded-md bg-blue-600 text-white font-semibold cursor-pointer';
+            event.target.className = 'cat-btn px-2.5 py-1 rounded-lg bg-blue-600 text-white font-semibold cursor-pointer shadow-xs';
             filterDomains();
         }
 
@@ -679,14 +676,14 @@
             document.getElementById('domainCount').textContent = filtered.length + ' Tên Miền';
 
             if (filtered.length === 0) {
-                list.innerHTML = '<div class="text-center py-4 text-slate-500 text-xs">Không tìm thấy tên miền khớp yêu cầu.</div>';
+                list.innerHTML = '<div class="text-center py-4 text-slate-400 text-xs">Không tìm thấy tên miền khớp yêu cầu.</div>';
                 return;
             }
 
             list.innerHTML = filtered.map(d => `
-                <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/60 border border-slate-800/80">
+                <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                     <div class="space-y-0.5">
-                        <div class="text-slate-200 font-semibold">${d.domain}</div>
+                        <div class="text-slate-900 font-bold">${d.domain}</div>
                         <div class="text-[10px] text-slate-500">${d.desc}</div>
                     </div>
                     <span class="text-[10px] font-bold px-2 py-0.5 rounded border ${d.color}">${d.action}</span>
@@ -735,7 +732,7 @@
             const tb = document.getElementById('terminalBody');
             if (!tb) return;
             const item = document.createElement('div');
-            item.className = 'text-slate-400';
+            item.className = 'text-slate-600';
             item.innerHTML = sampleLogs[logIndex % sampleLogs.length];
             tb.appendChild(item);
             tb.scrollTop = tb.scrollHeight;
@@ -747,7 +744,7 @@
             playPopSound();
             const tb = document.getElementById('terminalBody');
             const item = document.createElement('div');
-            item.className = 'text-cyan-400 font-bold';
+            item.className = 'text-blue-700 font-bold';
             item.innerHTML = '&gt; [TEST-QUERY] User triggered manual ping test -&gt; Latency 16ms (OK)';
             tb.appendChild(item);
             tb.scrollTop = tb.scrollHeight;
@@ -777,14 +774,14 @@
             canvas.height = window.innerHeight;
 
             const particles = [];
-            const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6'];
+            const colors = ['#2563eb', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6', '#06b6d4'];
 
-            for (let i = 0; i < 70; i++) {
+            for (let i = 0; i < 75; i++) {
                 particles.push({
                     x: canvas.width / 2,
                     y: canvas.height * 0.4,
-                    vx: (Math.random() - 0.5) * 12,
-                    vy: (Math.random() - 0.7) * 14,
+                    vx: (Math.random() - 0.5) * 14,
+                    vy: (Math.random() - 0.7) * 16,
                     size: Math.random() * 8 + 4,
                     color: colors[Math.floor(Math.random() * colors.length)],
                     alpha: 1,
