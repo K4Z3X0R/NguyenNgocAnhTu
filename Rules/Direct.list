@@ -66,4 +66,9 @@ DOMAIN,oauth2.googleapis.com
 DOMAIN,passkeys.google.com
 DOMAIN,identitytoolkit.googleapis.com
 DOMAIN,securetoken.googleapis.com
+DOMAIN,firebaseinstallations.googleapis.com
+DOMAIN,firestore.googleapis.com
+DOMAIN,firebasestorage.googleapis.com
+DOMAIN-SUFFIX,firebaseio.com
+DOMAIN-SUFFIX,locketcamera.com
 DOMAIN,appleid.apple.com

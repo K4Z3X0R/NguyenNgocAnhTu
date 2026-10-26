@@ -117,6 +117,16 @@ const MGMT_URL   = "https://apps.apple.com/account/subscriptions";
 // =========  @z3rokaze  ========= //
 // HTTP-REQUEST mode: Xóa ETag & cache validation headers để RevenueCat luôn trả về 200 OK đầy đủ body
 if (typeof $response === "undefined" || $response === null) {
+  var reqUrlEarly = ($request && $request.url) || "";
+  if (reqUrlEarly.indexOf("restore-access.indream.app/restoreAccess") !== -1) {
+    var ngBody = JSON.stringify({ data: { premiumAccess: true } });
+    if (typeof $task !== "undefined") {
+      $done({ status: "HTTP/1.1 200 OK", headers: { "Content-Type": "application/json", "Cache-Control": "no-store" }, body: ngBody });
+    } else {
+      $done({ response: { status: 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" }, body: ngBody } });
+    }
+    return;
+  }
   var reqHeaders = ($request && $request.headers) ? Object.assign({}, $request.headers) : {};
   delete reqHeaders["X-RevenueCat-ETag"];
   delete reqHeaders["x-revenuecat-etag"];
@@ -139,8 +149,195 @@ var bundleId = (
 var allHeadersStr = JSON.stringify(reqHeaders).toLowerCase();
 
 var rawBody = ($response && $response.body) || "";
+var reqUrl = ($request && $request.url) || "";
 var obj;
-try { obj = JSON.parse(rawBody); } catch (e) {}
+try {
+  var cleanedRaw = typeof rawBody === "string" ? rawBody.replace(/while.{7}\n/, "") : "";
+  obj = JSON.parse(cleanedRaw);
+} catch (e) {}
+
+function finishStandalone(payload) {
+  var out = { body: JSON.stringify(payload) };
+  try {
+    var h = ($response && $response.headers) ? Object.assign({}, $response.headers) : {};
+    h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+    h["Pragma"] = "no-cache";
+    delete h["ETag"];
+    delete h["etag"];
+    delete h["If-None-Match"];
+    delete h["if-none-match"];
+    out.headers = h;
+  } catch (e) {}
+  $done(out);
+}
+
+if (reqUrl && (!obj || !obj.subscriber) && obj && typeof obj === "object" && !Array.isArray(obj)) {
+  if (reqUrl.indexOf("accuweather.com") !== -1) {
+    Object.assign(obj, { isValid: true, autoRenewalStatus: 1, productId: "com.accuweather.annual.subscription", expiryDateEpoch: 4102444800000, expirationDate: "2099-12-31T23:59:59+00:00", expirationIntent: null, expirationRetry: null, purchaseDateEpoch: 1650809915000, isTrial: false, isIntro: false, status: 0, usedTrial: ["com.accuweather.annual.subscription"], usedIntro: null, isRetryable: null });
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("lcs-mobile-cops.adobe.io") !== -1) {
+    obj.subscriptions = [
+      { subscription_name: "AcrobatPlus", subscription_level: "Plus", subscription_state: "ACTIVE", sub_ref: "", biz_source: "CCC", billing_term: null },
+      { subscription_name: "ESign", subscription_level: "Basic", subscription_state: "ACTIVE", sub_ref: "", biz_source: "CCC", billing_term: null },
+      { subscription_name: "PDFPack", subscription_level: "Plus", subscription_state: "ACTIVE", sub_ref: "", biz_source: "", billing_term: null },
+      { subscription_name: "CreatePDF", subscription_level: "Basic", subscription_state: "ACTIVE", sub_ref: "", biz_source: "CCC", billing_term: null }
+    ];
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("ars.alar.my") !== -1) {
+    obj.subscription = [{ originalTransactionID: "490001314520000", productID: "droom.sleepIfUCanFree.premium.yearly01.4", willAutoRenew: true, isActive: true, expiresDateMs: 4102444800000, periodType: "NORMAL", latestPurchaseDateMs: 1651590191000, originalPurchaseDateMs: 1651590191000 }];
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("alohaprofile.com") !== -1) {
+    if (!obj.profile || typeof obj.profile !== "object" || Array.isArray(obj.profile)) obj.profile = {};
+    obj.profile.is_premium = true; obj.profile.end_of_premium = 4102444800; obj.profile._end_of_premium = "2099-12-31 23:59:59";
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("bilibili.com") !== -1) {
+    if (!obj.data || typeof obj.data !== "object") obj.data = {};
+    if (reqUrl.indexOf("/x/v2/account/myinfo") !== -1 || reqUrl.indexOf("/x/v2/account/mine") !== -1) {
+      if (!Array.isArray(obj.data)) obj.data.vip = Object.assign({}, obj.data.vip, { type: 2, status: 1, vip_pay_type: 1, due_date: 4102444800000, role: 3 });
+    }
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("dailyyoga.com") !== -1) {
+    if (!obj.result || typeof obj.result !== "object" || Array.isArray(obj.result)) obj.result = {};
+    Object.assign(obj.result, { memberType: 12, StartTime: "2022-04-23 16:20:35", EndTime: "2099-12-31 23:59:59", isSuperVip: 3, superStartTime: "2022-04-23 16:20:35", superEndTime: "2099-12-31 23:59:59", oldSuperStartTime: "2022-04-23 16:20:35", oldSuperEndTime: "2099-12-31 23:59:59", pro_center_data: { pro_type: 2, pro_type_title: "Super VIP", pro_service_title: "", pro_start_date: "", pro_end_date: "2099-12-31", day_left: "", is_pro_center_red_dot: 0 } });
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("payments.invideo.io") !== -1) {
+    Object.assign(obj, { purchase_id: "480000515251249", purchase_date: "2022-04-16T11:27:44Z", next_renewal_date: "2099-04-19T11:27:43Z", title: "FILMR PRO", current_payment_source: "mobile", show_next_renewal_date: true, duration: "YEARLY", plan: "FILMR_PRO", includes_access_to: ["Filmr Pro"], is_iap_linked: true, status: "ACTIVE", is_free_user: false });
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("service.ilovepdf.com") !== -1) {
+    obj.limits = { merge: { mb: 4000, files: 500 }, split: { mb: 4000, files: 1 }, compress: { mb: 4000, files: 10 } };
+    obj.premium = true; obj.sus_rbt = true;
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("apic.musixmatch.com") !== -1) {
+    if (!obj.message || typeof obj.message !== "object") obj.message = {};
+    if (!obj.message.body || typeof obj.message.body !== "object") obj.message.body = {};
+    if (!obj.message.body.app_config || typeof obj.message.body.app_config !== "object") obj.message.body.app_config = {};
+    obj.message.body.app_config.reference = "active"; obj.message.body.app_config.trial = false;
+    obj.message.body.app_config.active_products = [{ product_id: "com.musixmatch.offers.removeads.autorenewable.oneyear", start_date: "2022-03-27T16:27:38.000Z", creation_date: "2022-03-27T16:27:38.000Z", credits: 10, end_date: "2099-11-03T17:27:38.000Z", product_type: "subscription", features: { no_ads: 1, clean_metadata: 1, party_mode: 1, lyrics_offline: 1 } }];
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("myfitnesspal.com") !== -1) {
+    obj.subscriptionEndDate = "2099-05-01T10:10:53.929Z"; obj.subscriptionStartDate = "2022-05-01T10:10:53.929Z"; obj.hasPremium = true;
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("pro.smallpdf.com") !== -1) {
+    obj.success = true;
+    obj.data = Object.assign({}, obj.data, { email_verified: true, app_metadata: { mobile_user: true, is_in_free_trial_period: true, expirationDate: "2099-04-16", signedUp: true, canceled: true, subscription_platform: "ios", free_trial_user: true, has_business_email: true } });
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("api.polaxiong.com") !== -1) {
+    Object.assign(obj, { isSubscribed: true, planId: "co.polarr.ppe.premium.studio.yearly", subscriptionProduct: "yearly", isTrial: false, app: "PPE", isUnlimited: true, expiryDate: "2099-08-17T19:38:37.000Z", planType: "yearly", planTier: "studio", subscriptionTier: "studio", membershipExpiryDate: "2099-08-17T19:38:37.000Z" });
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("apimboom2.globaldelight.net") !== -1) {
+    var bItem = { quantity: "1", purchase_date_ms: "1555474256000", expires_date: "2099-04-17 04:10:56 Etc/GMT", expires_date_pst: "2099-04-16 21:10:56 America/Los_Angeles", is_in_intro_offer_period: "false", transaction_id: "470000445785125", is_trial_period: "false", original_transaction_id: "470000445785125", purchase_date: "2019-04-17 04:10:56 Etc/GMT", product_id: "com.globaldelight.iBoom.LifetimeDiscountPack", expires_date_ms: "4080082256000" };
+    obj.status = "0"; obj["receipt-data"] = { status: 0, environment: "Production", receipt: { receipt_type: "Production", bundle_id: "com.globaldelight.iBoom", in_app: [bItem] }, latest_receipt_info: [bItem], pending_renewal_info: [{ product_id: "com.globaldelight.iBoom.LifetimeDiscountPack", original_transaction_id: "470000445785125", auto_renew_product_id: "com.globaldelight.iBoom.LifetimeDiscountPack", auto_renew_status: "0" }] };
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("api.flexibits.com") !== -1) {
+    obj.subscription = { autorenew: true, expiration: "2099-02-15T09:09:14Z", expires: "2099-02-15T09:09:14Z", subscription_type: "AppStore", is_expired: false, trial: false };
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("billing.peakcloud.org") !== -1) {
+    obj.response = { bbuid: "jwDeFNKzxk", usedIntroOfferPeriod: false, class: "UserModuleBillingResponse", is_in_billing_retry: false, modules: [{ class: "BillingModuleResponse", name: "com.brainbow.module.peak.PeakModule", subscription: { status: 0, statusdate: 0, source: { id: "com.brainbow.peak.arsub_1wtrial_12m3499", cancelable: false, provider: "itunes", type: "trial" }, bbuid: "jwDeFNKzxk", endTime: 4070880000000, startTime: 1672502400000, pro: true } }] };
+    obj.metaResponse = { code: 0 };
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("photos.adobe.io") !== -1) {
+    if (!obj.entitlement || typeof obj.entitlement !== "object") obj.entitlement = {};
+    if (!obj.avatar || typeof obj.avatar !== "object") obj.avatar = {};
+    obj.entitlement.status = "subscriber";
+    obj.current_subs = { product_id: "lightroom", store: "adobe", purchase_date: "2019-10-10T16:32:10.254954Z", sao: { inpkg_CCLE: "1", storage_quota: "100" } };
+    obj.entitlement.storage = { used: 0, limit: 1154487209165, display_limit: 1099511627776, warn: 992137445376 };
+    obj.avatar.placeholder = true;
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("notability.com/subscriptions") !== -1) {
+    obj.data = { processAppleReceipt: { __typename: "SubscriptionResult", error: 0, subscription: { __typename: "AppStoreSubscription", status: "active", originalPurchaseDate: "2021-11-09T03:14:18.000Z", originalTransactionId: "710000869822929", expirationDate: "2099-12-31T03:14:17.000Z", productId: "com.gingerlabs.Notability.premium_subscription", tier: "premium", refundedDate: null, refundedReason: null, user: null } } };
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("accounts.agenda.com") !== -1) {
+    Object.assign(obj, { error: 0, universalPurchaseAvailable: true, informUserOfPendingBonus: true, licenseStatus: 1, isSubscribed: true, unlockExpiry: 4102444800, isSubscribedMobile: true, licenseStatusMobile: 1, unlockExpiryMobile: 4102444800 });
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("api.craft.do") !== -1) {
+    obj.subscription = { tier: "Pro", subscriptionActive: true, expirationDate: 4096161426000, subscriptionType: "yearly", rawSubscriptionType: "AppStore", productId: "com.lukilabs.lukiapp.pro.sub.yearly" };
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("backend.getdrafts.com") !== -1) {
+    Object.assign(obj, { active_expires_at: "2099-01-01T00:00:00Z", is_subscription_active: true, active_subscription_type: "premium", is_blocked: false });
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("api-production.endel.io") !== -1) {
+    obj.subscription = { promo_type: "DEFAULT", period: "NOPERIOD", store_trial: false, time_left: 4102444800, price_id: "unknown", valid_until: 4102444800, type: "ACTIVE", trial_type: "CALENDAR_BASED", cancel_at_period_end: false, multiple_subscriptions: true, store: "APP_STORE", trial_canceled: false };
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("oracle.bendingspoonsapps.com") !== -1) {
+    var bsId = "com.focos.1y_t130_bundle_creator";
+    if (reqUrl.indexOf("splice") !== -1) bsId = "com.path36.SpliceFree.1y_t150_bundle";
+    else if (reqUrl.indexOf("filmicpro") !== -1) bsId = "com.cinegenix.filmic.pro.1y_t130_bundle_creator";
+    else if (reqUrl.indexOf("firstlight") !== -1) bsId = "com.filmicpro.firstlight.1y_t130_bundle_creator";
+    else if (reqUrl.indexOf("doubletake") !== -1) bsId = "com.filmicpro.doubletake.1w_t20_bundle_creator";
+    else if (reqUrl.indexOf("remini") !== -1) bsId = "com.bigwinepot.nwdn.international.1y_p99_99_ft_pro";
+    else if (reqUrl.indexOf("focoslive") !== -1) bsId = "com.focoslive.1y_t130_adj";
+    else if (reqUrl.indexOf("thirtydayfitness") !== -1) bsId = "com.vigorapps.30DayFitness.1y_t130_bundle_adj";
+    else if (reqUrl.indexOf("sleep") !== -1) bsId = "com.bendingspoonsapps.SleepHelp.1y_t100_bundle_adj";
+    else if (reqUrl.indexOf("yoga") !== -1) bsId = "com.flyingnayeem.yoga.1y_t100_1w_bundle_adj";
+    if (!obj.me || typeof obj.me !== "object") obj.me = {};
+    obj.me.active_subscriptions_ids = [bsId];
+    obj.me.active_bundle_subscriptions = [{ expiry: "2099-09-09T09:09:09+00:00", product_id: bsId, features: ["unlock"] }];
+    if (!obj.settings || typeof obj.settings !== "object") obj.settings = {};
+    if (!obj.settings.__identity__ || typeof obj.settings.__identity__ !== "object") obj.settings.__identity__ = {};
+    obj.settings.__identity__.expiration = "2099-09-09T09:09:09+00:00";
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("payment-api.lingvist.com") !== -1) {
+    obj.services = [{ service: "unlimited", is_infinite: true, active_since_ts: "2023-09-26T05:56:06.980051Z", subscription: { uuid: "z3rokaze-vip", period: "P1Y", is_recurring: true, group_name: "unlimited", expiration_ts: "2099-10-10T05:56:01Z", status: "active" }, title: "Lingvist Unlimited. 1-year subscription", duration: "P1Y", payment_provider: "apple-in-app", active_until_ts: "2099-10-10T05:56:06.980051Z", is_active: true, product_name: "unlimited-12-months" }];
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("api.memrise.com") !== -1) {
+    if (!obj.user || typeof obj.user !== "object") obj.user = {};
+    obj.user.is_pro = true; obj.user.is_premium = true;
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("api.sortedapp.com") !== -1) {
+    Object.assign(obj, { environment: "Production", status: 0, isCustomer: true, isPro: true, flagged: false, isBundleEnabled: true });
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("mid.zineapi.com") !== -1) {
+    obj.success = true;
+    obj.data = Object.assign({}, obj.data, { is_pro: true, membership: { role_name: "pro", begin_time: "2022-09-28T15:24:55.421Z", end_time: "2099-10-01T15:24:51Z", begin_time_ms: 1664378695421, end_time_ms: 4094513091000 } });
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("dayone.app/api/v2/users") !== -1) {
+    if (reqUrl.indexOf("/account-status") !== -1) {
+      Object.assign(obj, { expirationDate: 4099766400000, startDate: 1582805832000, subscriptionPlan: "com.bloombuilt.dayoneios.subscription.premium.yearly_discounted_trial", lastRenewalDate: 1582805831000, subscriptionName: "premium", bundleReason: "purchase", cancellationDate: 0 });
+    } else {
+      obj.reason = "purchase";
+      obj.bundle = { bundleName: "premium", features: [{ name: "imagesPerEntry", limit: 30, canUpgrade: false }, { name: "journalLimit", limit: 100, canUpgrade: false }, { name: "audioPerEntry", limit: 10, canUpgrade: false }, { name: "sync", limit: null, canUpgrade: false }, { name: "backup", limit: null, canUpgrade: false }, { name: "drawingsPerEntry", limit: 30, canUpgrade: false }, { name: "scanToPDF", limit: 30, canUpgrade: false }, { name: "videosPerEntry", limit: 30, canUpgrade: false }] };
+    }
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("flomoapp.com") !== -1) {
+    if (!obj.data || typeof obj.data !== "object") obj.data = {};
+    obj.data.pro_expired_at = "2099-10-26 23:59:59"; obj.data.referee_pro_days = 9999;
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("api.gotokeep.com") !== -1) {
+    obj.errorCode = 0;
+    if (!obj.data || typeof obj.data !== "object") obj.data = {};
+    Object.assign(obj.data, { hasPaid: true, downLoadAll: true, startEnable: true, memberStatus: 1, preview: true });
+    finishStandalone(obj); return;
+  }
+}
+
 if (!obj || typeof obj !== "object" || Array.isArray(obj) || !obj.subscriber) {
   // Không parse được hoặc thiếu subscriber -> trả nguyên body, tránh làm hỏng app
   $done({});

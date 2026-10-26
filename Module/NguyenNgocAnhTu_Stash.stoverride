@@ -1082,7 +1082,7 @@ script-providers:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/PicsArt.js
     interval: 86400
   lr-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/lightroom.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   ps-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/photoshop.js
@@ -1169,103 +1169,103 @@ script-providers:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/xmind.js
     interval: 86400
   alarmy-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/alarmy.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   grammarly-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/grammarly.js
     interval: 86400
   notability-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/notability.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   photomath-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/photomath.js
     interval: 86400
   smallpdf-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/smallpdf.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   peak-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/peak.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   polarr-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Polarr.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   mfp-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/myFitnessPal.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   mxm-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/musixmatch.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   fimo-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/fimo.js
     interval: 86400
   varlens-res:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Varlens.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   boom-response:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/boom.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   fantastical-response:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/fantastical.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   craft-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Craft.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   dayone-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/dayone.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   nicegram-request:
-    url: https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/38f4fa9b9a963457d7ea5a93fdcd1cd44945a49e/Nicegram/Script/Nicegram.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   ilovepdf-response:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/lovePdf.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   mondly-response:
     url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Mondly.js
     interval: 86400
   memrise-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Memrise.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   aloha-response:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/aloha.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   dailyyoga-response:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/dailyYoga.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   accuweather-response:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/accuWeather.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   endel-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Endel.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   flomo-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/flomo.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   drafts-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Drafts.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   keep-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/keep.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   invideo-response:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/filmr.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   itranslate-request:
     url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/iTranslate.js
     interval: 86400
   lingvist-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Lingvist.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   bendingspoons-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Focos.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   adobescan-response:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/adobeScanPdf.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   bilibili-response:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/bilibili.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   agenda-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Agenda.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
   pdfexpert-request:
     url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/PDFExpert.js
@@ -1274,7 +1274,7 @@ script-providers:
     url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/documents.js
     interval: 86400
   sorted-response:
-    url: https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Sorted.js
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
     interval: 86400
 
 scriptings:

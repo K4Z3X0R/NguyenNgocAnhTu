@@ -89,3 +89,12 @@ DOMAIN-SUFFIX,tome.app
 DOMAIN-SUFFIX,descript.com
 DOMAIN-SUFFIX,assemblyai.com
 DOMAIN-SUFFIX,glif.app
+
+# --- AI Services m?i nh?t (10-2026) ---
+DOMAIN-SUFFIX,v0.app
+DOMAIN-SUFFIX,trae.ai
+DOMAIN-SUFFIX,zed.dev
+DOMAIN-SUFFIX,kimi.ai
+DOMAIN-SUFFIX,minimax.io
+DOMAIN-SUFFIX,hailuoai.video
+DOMAIN-SUFFIX,stepfun.com

@@ -641,63 +641,63 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
 
 // 43. accuWeather.js
 {
-  const out = runScript('accuWeather.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://app-subscription-proxy.accuweather.com/subscriptions/v1/apple/validate' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('accuWeather: isValid=true & annual subscription', b.isValid === true && b.productId === 'com.accuweather.annual.subscription', out ? out.body : 'null');
 }
 
 // 44. adobeScanPdf.js
 {
-  const out = runScript('adobeScanPdf.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://lcs-mobile-cops.adobe.io/subscriptions' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('adobeScanPdf: AcrobatPlus & PDFPack ACTIVE', Array.isArray(b.subscriptions) && b.subscriptions.length === 4 && b.subscriptions[0].subscription_state === 'ACTIVE', out ? out.body : 'null');
 }
 
 // 45. alarmy.js
 {
-  const out = runScript('alarmy.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://ars.alar.my/api/v2/user/sync' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('alarmy: isActive=true & 2099 expiry', Array.isArray(b.subscription) && b.subscription[0].isActive === true, out ? out.body : 'null');
 }
 
 // 46. aloha.js
 {
-  const out = runScript('aloha.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://api.alohaprofile.com/v1/profile_info' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('aloha: profile.is_premium=true', b.profile && b.profile.is_premium === true, out ? out.body : 'null');
 }
 
 // 47. bilibili.js
 {
-  const out = runScript('bilibili.js', { url: 'https://app.bilibili.com/x/v2/account/myinfo' }, { body: JSON.stringify({ code: 0, data: {} }) });
+  const out = runScript('revenuecat_multi.js', { url: 'https://app.bilibili.com/x/v2/account/myinfo' }, { body: JSON.stringify({ code: 0, data: {} }) });
   const b = JSON.parse(out.body);
   check('bilibili: vip.status=1 & type=2', b.data && b.data.vip && b.data.vip.status === 1 && b.data.vip.type === 2, out ? out.body : 'null');
 }
 
 // 48. dailyYoga.js
 {
-  const out = runScript('dailyYoga.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://pre.dailyyoga.com/h2oapi/user/getUserDetail' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('dailyYoga: isSuperVip=3 & memberType=12', b.result && b.result.isSuperVip === 3 && b.result.memberType === 12, out ? out.body : 'null');
 }
 
 // 49. filmr.js
 {
-  const out = runScript('filmr.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://payments.invideo.io/subscription' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('filmr: plan=FILMR_PRO & status=ACTIVE', b.plan === 'FILMR_PRO' && b.status === 'ACTIVE', out ? out.body : 'null');
 }
 
 // 50. lovePdf.js
 {
-  const out = runScript('lovePdf.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://service.ilovepdf.com/v1/user' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('lovePdf: premium=true & 4000MB limits', b.premium === true && b.limits && b.limits.merge.mb === 4000, out ? out.body : 'null');
 }
 
 // 51. musixmatch.js
 {
-  const out = runScript('musixmatch.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://apic.musixmatch.com/ws/1.1/config.get' }, { body: '{}' });
   const b = JSON.parse(out.body);
   const cfg = b.message && b.message.body && b.message.body.app_config;
   check('musixmatch: reference=active & lyrics_offline=1', cfg && cfg.reference === 'active' && cfg.active_products[0].features.lyrics_offline === 1, out ? out.body : 'null');
@@ -705,56 +705,56 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
 
 // 52. myFitnessPal.js
 {
-  const out = runScript('myFitnessPal.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://premium-api.myfitnesspal.com/v3/subscriptions/MFP/' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('myFitnessPal: hasPremium=true', b.hasPremium === true, out ? out.body : 'null');
 }
 
 // 53. smallpdf.js
 {
-  const out = runScript('smallpdf.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://pro.smallpdf.com/pro/account' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('smallpdf: success=true & 2099 expirationDate', b.success === true && b.data && b.data.app_metadata.expirationDate === '2099-04-16', out ? out.body : 'null');
 }
 
 // 54. Polarr.js
 {
-  const out = runScript('Polarr.js', { url: 'https://api.polaxiong.com/v1/payments/profiles/@me/subscription' }, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://api.polaxiong.com/v1/payments/profiles/@me/subscription' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('Polarr: isSubscribed=true & planTier=studio', b.isSubscribed === true && b.planTier === 'studio', out ? out.body : 'null');
 }
 
 // 55. boom.js
 {
-  const out = runScript('boom.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://apimboom2.globaldelight.net/itunesreceipt_v2.php' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('boom: LifetimeDiscountPack receipt injected', b.status === '0' && b['receipt-data'] && b['receipt-data'].receipt.in_app[0].product_id === 'com.globaldelight.iBoom.LifetimeDiscountPack', out ? out.body : 'null');
 }
 
 // 56. fantastical.js
 {
-  const out = runScript('fantastical.js', { url: 'https://api.flexibits.com/v1/account/details' }, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://api.flexibits.com/v1/account/details' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('fantastical: subscription.autorenew=true & is_expired=false', b.subscription && b.subscription.autorenew === true && b.subscription.is_expired === false, out ? out.body : 'null');
 }
 
 // 57. peak.js
 {
-  const out = runScript('peak.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://billing.peakcloud.org/billing/2/user/me' }, { body: '{}' });
   const b = JSON.parse(out.body);
   check('peak: PeakModule subscription.pro=true', b.response && b.response.modules[0].subscription.pro === true, out ? out.body : 'null');
 }
 
 // 58. lightroom.js
 {
-  const out = runScript('lightroom.js', {}, { body: 'while (1) {}\n{"entitlement":{},"avatar":{}}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://photos.adobe.io/v2/accounts' }, { body: 'while (1) {}\n{"entitlement":{},"avatar":{}}' });
   const b = JSON.parse(out.body);
   check('lightroom: entitlement.status=subscriber & 1TB storage', b.entitlement && b.entitlement.status === 'subscriber' && b.current_subs.product_id === 'lightroom', out ? out.body : 'null');
 }
 
 // 59. notability.js
 {
-  const out = runScript('notability.js', {}, { body: '{}' });
+  const out = runScript('revenuecat_multi.js', { url: 'https://notability.com/subscriptions' }, { body: '{}' });
   const b = JSON.parse(out.body);
   const sub = b.data && b.data.processAppleReceipt && b.data.processAppleReceipt.subscription;
   check('notability: tier=premium & status=active', sub && sub.tier === 'premium' && sub.status === 'active', out ? out.body : 'null');

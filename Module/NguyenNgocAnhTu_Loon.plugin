@@ -151,7 +151,7 @@ http-response ^https:\/\/api\.picsart\.com\/gw-v2\/cloud-storage\/v1\/me\/storag
 http-response ^https?:\/\/api\.(picsart|meiease)\.c(n|om)\/users\/show\/me\.json script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/PicsArt.js,requires-body=true,timeout=60,tag=PA-NobyDa
 
 # 🎨 Lightroom (yfamilys)
-http-response ^https:\/\/photos\.adobe\.io\/v2\/accounts script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/lightroom.js,requires-body=true,timeout=30,tag=LR-Res
+http-response ^https:\/\/photos\.adobe\.io\/v2\/accounts script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=LR-Res
 
 # 🎨 Photoshop Express
 http-response ^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/photoshop.js,requires-body=true,timeout=30,tag=PS-Res
@@ -238,93 +238,93 @@ http-response ^https?:\/\/com\.zijayrate\.analogcam\/vipforever10 script-path=ht
 http-response ^https?:\/\/www\.xmind\.(cn|net|app)\/_res\/devices script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/xmind.js,requires-body=true,timeout=30,tag=Xmind-Res
 
 # 🔔 Alarmy Premium
-http-response ^https:\/\/ars\.alar\.my\/api\/v2\/user\/sync script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/alarmy.js,requires-body=true,timeout=30,tag=Alarmy-Res
+http-response ^https:\/\/ars\.alar\.my\/api\/v2\/user\/sync script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Alarmy-Res
 
 # ✍️ Grammarly Premium (yfamilys)
 http-response ^https?:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/grammarly.js,requires-body=true,timeout=30,tag=Grammarly-Res
 
 # 📒 Notability Plus (yfamilys)
-http-response ^https:\/\/notability\.com\/subscriptions script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/notability.js,requires-body=true,timeout=30,tag=Notability-Res
+http-response ^https:\/\/notability\.com\/subscriptions script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Notability-Res
 
 # 🧮 Photomath Plus (yfamilys)
 http-response ^https?:\/\/lapi\.photomath\.net\/v4\/me script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/photomath.js,requires-body=true,timeout=30,tag=Photomath-Res
 
 # 📄 Smallpdf Pro (yfamilys)
-http-response ^https?:\/\/pro\.smallpdf\.com\/pro\/account script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/smallpdf.js,requires-body=true,timeout=30,tag=Smallpdf-Res
+http-response ^https?:\/\/pro\.smallpdf\.com\/pro\/account script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Smallpdf-Res
 
 # 🧠 Peak Pro (yfamilys)
-http-response ^https:\/\/billing\.peakcloud\.org\/billing\/2\/user\/me script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/peak.js,requires-body=true,timeout=30,tag=Peak-Res
+http-response ^https:\/\/billing\.peakcloud\.org\/billing\/2\/user\/me script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Peak-Res
 
 # 🎨 Polarr Pro (yfamilys)
-http-response ^https:\/\/api\.polaxiong\.com\/v1\/payments\/appleiap\/receipts\/confirmation script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Polarr.js,requires-body=true,timeout=30,tag=Polarr-Res
+http-response ^https:\/\/api\.polaxiong\.com\/v1\/payments\/appleiap\/receipts\/confirmation script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Polarr-Res
 
 # 🏃 MyFitnessPal Premium (yfamilys)
-http-response ^https?:\/\/premium-api\.myfitnesspal\.com\/v3\/subscriptions\/MFP\/ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/myFitnessPal.js,requires-body=true,timeout=30,tag=MFP-Res
+http-response ^https?:\/\/premium-api\.myfitnesspal\.com\/v3\/subscriptions\/MFP\/ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=MFP-Res
 
 # 🎼 Musixmatch Premium (yfamilys)
-http-response ^https?:\/\/apic\.musixmatch\.com\/ws\/1\.1\/config\.get script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/musixmatch.js,requires-body=true,timeout=30,tag=MXM-Res
+http-response ^https?:\/\/apic\.musixmatch\.com\/ws\/1\.1\/config\.get script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=MXM-Res
 
 # 📷 Fimo Camera (K4Z3X0R)
 http-response ^https:\/\/server\.yoyiapp\.com\/fimo-user\/user$ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/fimo.js,requires-body=true,timeout=30,tag=Fimo-Res
 
 # 📷 Varlens Premium (yfamilys)
-http-response ^https:\/\/mid\.zineapi\.com\/@varlens\/api\/user\/info\/ script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Varlens.js,requires-body=true,timeout=30,tag=Varlens-Res
+http-response ^https:\/\/mid\.zineapi\.com\/@varlens\/api\/user\/info\/ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Varlens-Res
 
 # 🎵 Boom Equalizer (yfamilys)
-http-response ^https:\/\/apimboom2\.globaldelight\.net\/itunesreceipt_v2\.php$ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/boom.js,requires-body=true,timeout=60,tag=Boom-Res
+http-response ^https:\/\/apimboom2\.globaldelight\.net\/itunesreceipt_v2\.php$ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=60,tag=Boom-Res
 # 📅 Fantastical Premium (yfamilys)
-http-response ^https:\/\/api\.flexibits\.com\/(v1\/auth\/device|v1\/account\/details) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/fantastical.js,requires-body=true,timeout=30,tag=Fantastical-Res
+http-response ^https:\/\/api\.flexibits\.com\/(v1\/auth\/device|v1\/account\/details) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Fantastical-Res
 # 📝 Craft Premium (yfamilys)
-http-response ^https:\/\/api\.craft\.do\/auth\/v2\/profile script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Craft.js,requires-body=true,timeout=30,tag=Craft-Res
+http-response ^https:\/\/api\.craft\.do\/auth\/v2\/profile script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Craft-Res
 # 📓 Day One Premium (yfamilys)
-http-response ^https?:\/\/dayone\.app\/api\/v2\/users\/(receipt|account-status) script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/dayone.js,requires-body=true,timeout=30,tag=DayOne-Res
+http-response ^https?:\/\/dayone\.app\/api\/v2\/users\/(receipt|account-status) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=DayOne-Res
 # 💬 Nicegram Premium (yfamilys)
-http-request ^https?:\/\/restore-access\.indream\.app\/restoreAccess\?id=\w+$ script-path=https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/38f4fa9b9a963457d7ea5a93fdcd1cd44945a49e/Nicegram/Script/Nicegram.js,tag=Nicegram-Req
+http-request ^https?:\/\/restore-access\.indream\.app\/restoreAccess\?id=\w+$ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,tag=Nicegram-Req
 # 📄 iLovePDF Premium (yfamilys)
-http-response ^https?:\/\/service\.ilovepdf\.com\/v1\/user script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/lovePdf.js,requires-body=true,timeout=30,tag=iLovePDF-Res
+http-response ^https?:\/\/service\.ilovepdf\.com\/v1\/user script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=iLovePDF-Res
 # 🌐 Mondly Premium (yfamilys)
 http-response ^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Mondly.js,requires-body=true,timeout=30,tag=Mondly-Res
 # 🌐 Memrise Premium (yfamilys)
-http-response ^https:\/\/api\.memrise\.com\/v1\.18 script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Memrise.js,requires-body=true,timeout=30,tag=Memrise-Res
+http-response ^https:\/\/api\.memrise\.com\/v1\.18 script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Memrise-Res
 # 🌐 Aloha Browser (yfamilys)
-http-response ^https?:\/\/api\.alohaprofile\.com\/v1\/profile_info script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/aloha.js,requires-body=true,timeout=30,tag=Aloha-Res
+http-response ^https?:\/\/api\.alohaprofile\.com\/v1\/profile_info script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Aloha-Res
 # 🧘 Daily Yoga (yfamilys)
-http-response ^https?:\/\/pre\.dailyyoga\.com\/h2oapi\/user\/getUserDetail script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/dailyYoga.js,requires-body=true,timeout=30,tag=DailyYoga-Res
+http-response ^https?:\/\/pre\.dailyyoga\.com\/h2oapi\/user\/getUserDetail script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=DailyYoga-Res
 # 🌤 AccuWeather (yfamilys)
-http-response ^https?:\/\/app-subscription-proxy\.accuweather\.com\/subscriptions\/v1\/apple\/validate script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/accuWeather.js,requires-body=true,timeout=30,tag=AccuWeather-Res
+http-response ^https?:\/\/app-subscription-proxy\.accuweather\.com\/subscriptions\/v1\/apple\/validate script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=AccuWeather-Res
 # 😴 Endel (yfamilys)
-http-response ^https:\/\/api-production\.endel\.io\/v4\/call script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Endel.js,requires-body=true,timeout=30,tag=Endel-Res
+http-response ^https:\/\/api-production\.endel\.io\/v4\/call script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Endel-Res
 # 📝 Flomo (yfamilys)
-http-response ^https:\/\/flomoapp\.com\/api\/v1\/user\/me script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/flomo.js,requires-body=true,timeout=30,tag=Flomo-Res
+http-response ^https:\/\/flomoapp\.com\/api\/v1\/user\/me script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Flomo-Res
 # ✍ Drafts Pro (yfamilys)
-http-response ^https:\/\/backend\.getdrafts\.com\/api\/v1\/verification\/verify_receipt script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Drafts.js,requires-body=true,timeout=30,tag=Drafts-Res
+http-response ^https:\/\/backend\.getdrafts\.com\/api\/v1\/verification\/verify_receipt script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Drafts-Res
 # 💪 Keep Fitness (yfamilys)
-http-response ^https:\/\/api\.gotokeep\.com script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/keep.js,requires-body=true,timeout=30,tag=Keep-Res
+http-response ^https:\/\/api\.gotokeep\.com script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Keep-Res
 # 🎨 Color Widgets → Đã gộp vào revenuecat_multi.js (generic fallback). Gỡ script riêng để tránh xung đột hostname với Locket Gold.
 # 🎬 InVideo (yfamilys)
-http-response ^https?:\/\/payments\.invideo\.io\/(verify_purchase|subscription) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/filmr.js,requires-body=true,timeout=30,tag=InVideo-Res
+http-response ^https?:\/\/payments\.invideo\.io\/(verify_purchase|subscription) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=InVideo-Res
 
 # === iTRANSLATE PRO (dịch thuật) - 89996462 ===
 http-request ^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/iTranslate.js,requires-body=true,timeout=30,tag=iTranslate-Req
 # === LINGVIST HỌC NGOẠI NGỮ - 89996462 ===
-http-response ^https:\/\/payment-api\.lingvist\.com\/.+\/user\/services script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Lingvist.js,requires-body=true,timeout=30,tag=Lingvist-Res
+http-response ^https:\/\/payment-api\.lingvist\.com\/.+\/user\/services script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Lingvist-Res
 # === BENDING SPOONS BUNDLE (Splice, Remini, FilmicPro, Focos, 30DayFitness...) - 89996462 ===
-http-response ^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify) script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Focos.js,requires-body=true,timeout=30,tag=BendingSpoons-Res
+http-response ^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=BendingSpoons-Res
 
 # === ADOBE SCAN (PDF Scanner) - Marol62926 ✅ VERIFIED ===
 # Note: pattern excludes /mobile_profile to avoid conflict with Photoshop Express script above
-http-response ^https?:\/\/lcs-mobile-cops\.adobe\.io\/(?!mobile_profile).+ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/adobeScanPdf.js,requires-body=true,tag=AdobeScan
+http-response ^https?:\/\/lcs-mobile-cops\.adobe\.io\/(?!mobile_profile).+ script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,tag=AdobeScan
 # === BILIBILI (CN Video Platform) - Marol62926 ✅ VERIFIED ===
-http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/bilibili.js,requires-body=true,tag=Bilibili
+http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,tag=Bilibili
 
 # 📅 Agenda Premium
-http-response ^https:\/\/accounts\.agenda\.com\/users\/.*\/license script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Agenda.js,requires-body=true,timeout=30,tag=Agenda
+http-response ^https:\/\/accounts\.agenda\.com\/users\/.*\/license script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Agenda
 # 📕 PDF Expert - Readdle (host riêng)
 http-request ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/PDFExpert.js,requires-body=true,timeout=30,tag=PDFExpert
 # 📁 Documents by Readdle
 http-request ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/documents.js,requires-body=true,timeout=30,tag=Documents
 # 📆 Sorted Calendar/Planner
-http-response ^https:\/\/api\.sortedapp\.com\/receipts\/verify script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Sorted.js,requires-body=true,timeout=30,tag=Sorted
+http-response ^https:\/\/api\.sortedapp\.com\/receipts\/verify script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Sorted
 
 [Header Rewrite]
 # === REVENUECAT REMOVE ETAG & CACHE-BUST (LOCKET + 70+ REVENUECAT APPS) ===

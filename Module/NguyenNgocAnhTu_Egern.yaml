@@ -2405,7 +2405,7 @@ scriptings:
   - http_response:
       name: "Lightroom Premium"
       match: "^https://photos\\.adobe\\.io/v2/accounts"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/lightroom.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2637,7 +2637,7 @@ scriptings:
   - http_response:
       name: "Alarmy Premium"
       match: "^https://ars\\.alar\\.my/api/v2/user/sync"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/alarmy.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2653,7 +2653,7 @@ scriptings:
   - http_response:
       name: "Notability Plus"
       match: "^https://notability\\.com/subscriptions"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/notability.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2669,7 +2669,7 @@ scriptings:
   - http_response:
       name: "Smallpdf Pro"
       match: "^https?://pro\\.smallpdf\\.com/pro/account"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/smallpdf.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2677,7 +2677,7 @@ scriptings:
   - http_response:
       name: "Peak Pro"
       match: "^https://billing\\.peakcloud\\.org/billing/2/user/me"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/peak.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2685,7 +2685,7 @@ scriptings:
   - http_response:
       name: "Polarr Pro"
       match: "^https://api\\.polaxiong\\.com/v1/payments/appleiap/receipts/confirmation"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Polarr.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2693,7 +2693,7 @@ scriptings:
   - http_response:
       name: "MyFitnessPal Premium"
       match: "^https?://premium-api\\.myfitnesspal\\.com/v3/subscriptions/MFP/"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/myFitnessPal.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2701,7 +2701,7 @@ scriptings:
   - http_response:
       name: "Musixmatch Premium"
       match: "^https?://apic\\.musixmatch\\.com/ws/1\\.1/config\\.get"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/musixmatch.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2717,7 +2717,7 @@ scriptings:
   - http_response:
       name: "Varlens Premium"
       match: "^https://mid\\.zineapi\\.com/@varlens/api/user/info/"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Varlens.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2730,7 +2730,7 @@ scriptings:
   - http_response:
       name: "Boom Equalizer"
       match: "^https://apimboom2\\.globaldelight\\.net/itunesreceipt_v2\\.php$"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/boom.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
       timeout: 30
@@ -2738,34 +2738,34 @@ scriptings:
   - http_response:
       name: "Fantastical Premium"
       match: "^https://api\\.flexibits\\.com/(v1/auth/device|v1/account/details)"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/fantastical.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 📝 Craft Premium (yfamilys)
   - http_response:
       name: "Craft Premium"
       match: "^https://api\\.craft\\.do/auth/v2/profile"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Craft.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 📓 Day One Premium (yfamilys)
   - http_response:
       name: "Day One Premium"
       match: "^https?://dayone\\.app/api/v2/users/(receipt|account-status)"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/dayone.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 💬 Nicegram Premium (yfamilys)
   - http_request:
       name: "Nicegram Premium"
       match: "^https?://restore-access\\.indream\\.app/restoreAccess\\?id=\\w+$"
-      script_url: "https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/38f4fa9b9a963457d7ea5a93fdcd1cd44945a49e/Nicegram/Script/Nicegram.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       timeout: 30
   # 📄 iLovePDF Premium (yfamilys)
   - http_response:
       name: "iLovePDF Premium"
       match: "^https?://service\\.ilovepdf\\.com/v1/user"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/lovePdf.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 🌐 Mondly Premium (yfamilys)
@@ -2779,56 +2779,56 @@ scriptings:
   - http_response:
       name: "Memrise Premium"
       match: "^https://api\\.memrise\\.com/v1\\.18"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Memrise.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 🌐 Aloha Browser (yfamilys)
   - http_response:
       name: "Aloha Browser"
       match: "^https?://api\\.alohaprofile\\.com/v1/profile_info"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/aloha.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 🧘 Daily Yoga (yfamilys)
   - http_response:
       name: "Daily Yoga"
       match: "^https?://pre\\.dailyyoga\\.com/h2oapi/user/getUserDetail"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/dailyYoga.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 🌤 AccuWeather (yfamilys)
   - http_response:
       name: "AccuWeather Premium"
       match: "^https?://app-subscription-proxy\\.accuweather\\.com/subscriptions/v1/apple/validate"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/accuWeather.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 😴 Endel (yfamilys)
   - http_response:
       name: "Endel Focus"
       match: "^https://api-production\\.endel\\.io/v4/call"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Endel.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 📝 Flomo (yfamilys)
   - http_response:
       name: "Flomo Notes"
       match: "^https://flomoapp\\.com/api/v1/user/me"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/flomo.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # ✍ Drafts Pro (yfamilys)
   - http_response:
       name: "Drafts Pro"
       match: "^https://backend\\.getdrafts\\.com/api/v1/verification/verify_receipt"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Drafts.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 💪 Keep Fitness (yfamilys)
   - http_response:
       name: "Keep Fitness"
       match: "^https://api\\.gotokeep\\.com"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/keep.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 🎨 Color Widgets → Đã gộp vào revenuecat_multi.js (generic fallback). Gỡ script riêng để tránh xung đột hostname với Locket Gold.
@@ -2844,14 +2844,14 @@ scriptings:
   - http_response:
       name: "Lingvist"
       match: "^https://payment-api\\.lingvist\\.com/.+/user/services"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Lingvist.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # === BENDING SPOONS BUNDLE (Splice, Remini, FilmicPro, Focos, 30DayFitness...) - 89996462 ===
   - http_response:
       name: "Bending Spoons Bundle"
       match: "^https?://.*\\.oracle\\.bendingspoonsapps\\.com/v\\d/(users/.+|purchases/verify)"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Focos.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 
@@ -2859,28 +2859,28 @@ scriptings:
   - http_response:
       name: "Adobe Scan"
       match: "^https?://lcs-mobile-cops\\.adobe\\.io/(?!mobile_profile).+"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/adobeScanPdf.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # === BILIBILI (CN Video Platform) - Marol62926 ✅ VERIFIED ===
   - http_response:
       name: "Bilibili"
       match: "^https?://app\\.bilibili\\.com/x/v2/account/myinfo"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/bilibili.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 🎬 InVideo Premium
   - http_response:
       name: "InVideo Premium"
       match: "^https?://payments\\.invideo\\.io/(verify_purchase|subscription)"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/filmr.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 📅 Agenda Premium
   - http_response:
       name: "Agenda Premium"
       match: "^https://accounts\\.agenda\\.com/users/.*/license"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Agenda.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 📕 PDF Expert - Readdle (host riêng)
@@ -2901,7 +2901,7 @@ scriptings:
   - http_response:
       name: "Sorted Planner"
       match: "^https://api\\.sortedapp\\.com/receipts/verify"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Sorted.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
 mitm:
