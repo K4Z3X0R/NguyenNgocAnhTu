@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Hồ Sơ Cấu Hình DNS Cho iOS • Nguyễn Ngọc Anh Tú</title>
     <meta name="description" content="Hồ sơ cấu hình DNS mã hóa (DoH) tối ưu hóa kết nối và hỗ trợ trải nghiệm ứng dụng trên iOS.">
     <link rel="icon" href="https://img.icons8.com/color/96/lightning-bolt.png" type="image/png">
@@ -29,17 +32,17 @@
         }
         body {
             background-color: #0b0f17;
-            color: #e2e8f0;
+            color: #cbd5e1;
             font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
         }
-        .card-clean {
+        .card-surface {
             background-color: #111726;
             border: 1px solid #1e293b;
         }
         #toast {
             visibility: hidden;
             opacity: 0;
-            transform: translate(-50%, 12px);
+            transform: translate(-50%, 8px);
             transition: all 0.2s ease-out;
         }
         #toast.show {
@@ -59,22 +62,19 @@
 
     <!-- Navbar -->
     <nav class="border-b border-slate-800 bg-[#0d131f] sticky top-0 z-40">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
+        <div class="max-w-2xl mx-auto px-4 h-13 flex items-center justify-between py-3">
+            <div class="flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-slate-400"></span>
-                <span class="text-sm font-semibold text-slate-200 tracking-tight">K4Z3X0R</span>
+                <span class="text-xs font-semibold text-slate-200 tracking-tight">K4Z3X0R</span>
                 <span class="text-xs text-slate-500 font-mono">/ DNS Gateway</span>
             </div>
 
-            <div class="flex items-center gap-2.5 text-xs">
-                <span id="navPing" class="text-slate-400 font-mono hidden sm:inline px-2 py-0.5 rounded bg-slate-800/80 border border-slate-700/60">
-                    Edge: 18ms
-                </span>
+            <div class="flex items-center gap-2 text-xs">
                 <button onclick="toggleQrModal()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 transition-colors cursor-pointer flex items-center gap-1.5">
                     <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
                     </svg>
-                    <span>Mã QR</span>
+                    <span>Mã QR iPhone</span>
                 </button>
                 <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 transition-colors">
                     GitHub
@@ -84,49 +84,49 @@
     </nav>
 
     <!-- Main Container -->
-    <main class="max-w-2xl mx-auto px-4 py-8 sm:py-12 space-y-6">
+    <main class="max-w-2xl mx-auto px-4 py-8 space-y-6">
 
-        <!-- Header -->
-        <header class="space-y-2">
-            <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white">
+        <!-- Title Section -->
+        <header class="space-y-1.5">
+            <h1 class="text-xl font-bold tracking-tight text-white">
                 Hồ Sơ Cấu Hình DNS Cho iOS
             </h1>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Hồ sơ mã hóa DNS-over-HTTPS (DoH) tối ưu hóa kết nối, hỗ trợ duy trì quyền truy cập Locket, lọc quảng cáo Spotify và YouTube. Cài đặt trực tiếp qua Safari, hoạt động ở tầng mạng hệ thống và không sử dụng VPN chạy ngầm.
+            <p class="text-xs text-slate-400 leading-relaxed">
+                Hồ sơ mã hóa DNS-over-HTTPS (DoH) tối ưu hóa kết nối, hỗ trợ đồng bộ trạng thái Locket, lọc quảng cáo Spotify và YouTube. Hoạt động trực tiếp ở tầng mạng hệ điều hành, không sử dụng VPN chạy ngầm.
             </p>
         </header>
 
-        <!-- Primary Installation Hub -->
-        <section class="card-clean rounded-xl p-5 sm:p-6 space-y-5">
-            <!-- Profile Info Header -->
-            <div class="flex items-start justify-between pb-4 border-b border-slate-800">
-                <div>
+        <!-- Main Installation Box -->
+        <section class="card-surface rounded-xl p-5 space-y-4">
+            <!-- Header of Card -->
+            <div class="flex items-start justify-between pb-3.5 border-b border-slate-800">
+                <div class="space-y-0.5">
                     <h2 class="text-sm font-semibold text-white flex items-center gap-2">
-                        <span>Cấu Hình DNS 3-in-1</span>
-                        <span class="text-[10px] font-mono text-slate-400 px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700">iOS 15+</span>
+                        <span>Cấu hình DNS 3-in-1 (DNS.mobileconfig)</span>
+                        <span class="text-[10px] font-mono text-slate-400 px-1.5 py-0.2 rounded bg-slate-800 border border-slate-700">iOS 15+</span>
                     </h2>
-                    <p class="text-xs text-slate-400 mt-1">Phát triển bởi: <span class="text-slate-300 font-medium">Nguyễn Ngọc Anh Tú</span> (@z3rokaze)</p>
+                    <p class="text-xs text-slate-400">Tác giả: <span class="text-slate-300 font-medium">Nguyễn Ngọc Anh Tú</span> (@z3rokaze)</p>
                 </div>
-                <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">
-                    v2.9.5-stable
+                <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                    v2.9.5
                 </span>
             </div>
 
-            <!-- Technical Tags (Monochrome, clean) -->
-            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-300">
+            <!-- Monochrome Tags -->
+            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
                 <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">DoH (TLS 1.3)</span>
-                <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">Singapore Anycast</span>
+                <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">Anycast Singapore</span>
                 <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">Root CA 4096-bit</span>
-                <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">Không tiêu hao pin</span>
+                <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">Không tốn pin</span>
             </div>
 
             <!-- Action Buttons -->
-            <div class="space-y-2.5 pt-1">
-                <a href="https://13.229.210.222.sslip.io/DNS.mobileconfig" id="btnDownload" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-colors cursor-pointer shadow-sm">
+            <div class="space-y-2 pt-1">
+                <a href="https://13.229.210.222.sslip.io/DNS.mobileconfig" id="btnDownload" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-colors cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
-                    <span>Tải Hồ Sơ Cấu Hình (.mobileconfig)</span>
+                    <span>Tải Hồ Sơ Cấu Hình</span>
                 </a>
 
                 <div class="grid grid-cols-2 gap-2 text-xs">
@@ -134,13 +134,13 @@
                         <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10a2 2 0 00-2 2v3a2 2 0 002 2h10a2 2 0 002-2v-3a2 2 0 00-2-2z" />
                         </svg>
-                        <span>Sao Chép Link DNS</span>
+                        <span>Sao chép link tải</span>
                     </button>
                     <a href="https://13.229.210.222.sslip.io/ca.crt" class="py-2.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-slate-300 transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
                         <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        <span>Tải Chứng Chỉ Gốc (CA)</span>
+                        <span>Tải chứng chỉ Root CA</span>
                     </a>
                 </div>
             </div>
@@ -152,7 +152,7 @@
                     <span class="text-[11px] text-slate-500">Mặc định: Toàn cục</span>
                 </div>
                 <div class="flex gap-2">
-                    <input type="text" id="inputUsername" placeholder="Nhập tên của bạn..." class="flex-1 px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 font-mono transition-colors">
+                    <input type="text" id="inputUsername" placeholder="Nhập tên của bạn..." class="flex-1 px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-slate-500 font-mono transition-colors">
                     <button onclick="personalizeProfile()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-200 transition-colors cursor-pointer">
                         Áp Dụng
                     </button>
@@ -160,91 +160,91 @@
             </div>
         </section>
 
-        <!-- Step-by-Step Installation Guide -->
-        <section class="card-clean rounded-xl p-5 sm:p-6 space-y-3.5">
+        <!-- Installation Steps -->
+        <section class="card-surface rounded-xl p-5 space-y-3">
             <h2 class="text-sm font-semibold text-white">
                 Hướng Dẫn Cài Đặt (4 Bước)
             </h2>
 
-            <ol class="space-y-2.5 text-xs text-slate-300">
-                <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-900/60 border border-slate-800/80">
+            <ol class="space-y-2 text-xs text-slate-300">
+                <li class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-900/50 border border-slate-800">
                     <span class="w-5 h-5 rounded bg-slate-800 text-slate-300 font-mono flex items-center justify-center text-[11px] flex-shrink-0">1</span>
                     <div class="leading-relaxed">
-                        Dùng trình duyệt <strong>Safari</strong>, bấm nút <strong>Tải Hồ Sơ Cấu Hình</strong> ở trên và chọn <strong>Cho phép (Allow)</strong> khi có thông báo tải về.
+                        Mở bằng trình duyệt <strong>Safari</strong>, bấm nút <strong>Tải Hồ Sơ Cấu Hình</strong> ở trên và chọn <strong>Cho phép (Allow)</strong>.
                     </div>
                 </li>
 
-                <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-900/60 border border-slate-800/80">
+                <li class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-900/50 border border-slate-800">
                     <span class="w-5 h-5 rounded bg-slate-800 text-slate-300 font-mono flex items-center justify-center text-[11px] flex-shrink-0">2</span>
                     <div class="leading-relaxed">
-                        Mở <strong>Cài đặt</strong> trên iPhone → Bấm vào <strong>Đã tải về hồ sơ</strong> ở đầu trang → Chọn <strong>Cài đặt</strong> ở góc trên bên phải.
+                        Mở <strong>Cài đặt</strong> trên iPhone → Bấm vào dòng <strong>Đã tải về hồ sơ</strong> ở đầu trang → Chọn <strong>Cài đặt</strong> ở góc trên bên phải.
                     </div>
                 </li>
 
-                <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-900/60 border border-slate-800/80">
+                <li class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-900/50 border border-slate-800">
                     <span class="w-5 h-5 rounded bg-slate-800 text-slate-300 font-mono flex items-center justify-center text-[11px] flex-shrink-0">3</span>
                     <div class="leading-relaxed">
-                        Tải tiếp <strong>Chứng Chỉ Gốc (CA)</strong> và cài đặt. Sau đó vào: <strong>Cài đặt</strong> → <strong>Cài đặt chung</strong> → <strong>Giới thiệu</strong> → <strong>Cài đặt tin cậy chứng nhận</strong> → Bật <strong>Tin cậy</strong> cho <em>"Anh Tú VIP Apex Root CA"</em>.
+                        Bấm tải tiếp nút <strong>Tải chứng chỉ Root CA</strong> ở trên và cài đặt. Sau đó vào: <strong>Cài đặt</strong> → <strong>Cài đặt chung</strong> → <strong>Giới thiệu</strong> → <strong>Cài đặt tin cậy chứng nhận</strong> → Bật <strong>Tin cậy</strong> cho <em>"Anh Tú VIP Apex Root CA"</em>.
                     </div>
                 </li>
 
-                <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-900/60 border border-slate-800/80">
+                <li class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-900/50 border border-slate-800">
                     <span class="w-5 h-5 rounded bg-slate-800 text-slate-300 font-mono flex items-center justify-center text-[11px] flex-shrink-0">4</span>
                     <div class="leading-relaxed">
-                        Đóng hẳn ứng dụng <strong>Locket</strong> rồi mở lại để nhận tính năng Gold và video 45s. Mở <strong>Spotify</strong> và <strong>YouTube</strong> để trải nghiệm nghe nhìn không có quảng cáo.
+                        Khởi động lại ứng dụng <strong>Locket</strong> để nhận tính năng. Mở <strong>Spotify</strong> và <strong>YouTube</strong> để nghe nhìn không bị chèn quảng cáo.
                     </div>
                 </li>
             </ol>
         </section>
 
-        <!-- Technical Standards & Privacy -->
-        <section class="card-clean rounded-xl p-5 space-y-3">
+        <!-- Technical & Privacy Notes (100% Neutral, No Shade) -->
+        <section class="card-surface rounded-xl p-5 space-y-3">
             <h2 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">
                 Đặc Tính Kỹ Thuật & Bảo Mật
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-400">
                 <div class="space-y-1">
-                    <div class="text-slate-200 font-medium">• Chính sách Không Lưu Nhật Ký (Zero-logging)</div>
-                    <p class="leading-relaxed">Máy chủ chỉ xử lý phân giải tên miền và chặn tên miền quảng cáo, không ghi lại lịch sử duyệt web.</p>
+                    <div class="text-slate-200 font-medium">• Không lưu nhật ký (Zero-logging)</div>
+                    <p class="leading-relaxed">Hệ thống chỉ làm nhiệm vụ phân giải tên miền và chặn các tên miền quảng cáo, hoàn toàn không lưu lịch sử duyệt web.</p>
                 </div>
                 <div class="space-y-1">
-                    <div class="text-slate-200 font-medium">• Mã hóa DoH TLS 1.3</div>
-                    <p class="leading-relaxed">Mọi truy vấn DNS được mã hóa an toàn, phòng chống rò rỉ hoặc giả mạo từ nhà mạng.</p>
+                    <div class="text-slate-200 font-medium">• Chuẩn mã hóa DoH TLS 1.3</div>
+                    <p class="leading-relaxed">Các yêu cầu tên miền được mã hóa an toàn, phòng ngừa can thiệp hoặc theo dõi từ mạng công cộng.</p>
                 </div>
                 <div class="space-y-1">
                     <div class="text-slate-200 font-medium">• Không tiêu hao pin</div>
-                    <p class="leading-relaxed">Hồ sơ sử dụng cấu hình DNS tích hợp sẵn của iOS, không phải ứng dụng VPN chạy ngầm.</p>
+                    <p class="leading-relaxed">Cấu hình chạy trực tiếp ở cơ chế DNS tích hợp của hệ điều hành iOS, không duy trì ứng dụng VPN chạy nền.</p>
                 </div>
                 <div class="space-y-1">
                     <div class="text-slate-200 font-medium">• Gỡ bỏ dễ dàng</div>
-                    <p class="leading-relaxed">Vào Cài đặt → VPN & Quản lý thiết bị → Xóa hồ sơ bất kỳ lúc nào nếu không còn nhu cầu sử dụng.</p>
+                    <p class="leading-relaxed">Người dùng có thể xóa hồ sơ bất cứ lúc nào tại Cài đặt → VPN & Quản lý thiết bị để đưa máy về mặc định.</p>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="card-clean rounded-xl p-5 space-y-3">
+        <section class="card-surface rounded-xl p-5 space-y-2.5">
             <h2 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">
                 Câu Hỏi Thường Gặp
             </h2>
 
-            <details class="group bg-slate-900/60 rounded-lg border border-slate-800/80 overflow-hidden">
+            <details class="group bg-slate-900/50 rounded-lg border border-slate-800 overflow-hidden">
                 <summary class="flex items-center justify-between p-3 text-xs font-medium text-slate-200 cursor-pointer select-none">
                     <span>Cấu hình này có ảnh hưởng đến tốc độ mạng không?</span>
                     <span class="text-slate-500 transition-transform group-open:rotate-180 text-[10px]">▼</span>
                 </summary>
-                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50 pt-2">
-                    Không. DNS chỉ làm nhiệm vụ chuyển đổi tên miền sang IP trong vài mili-giây đầu tiên. Tốc độ xem video, tải file hay chơi game vẫn phụ thuộc 100% vào băng thông nhà mạng của bạn.
+                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800 pt-2">
+                    Không. DNS chỉ xử lý việc chuyển đổi tên miền sang IP ở vài mili-giây đầu tiên. Tốc độ truyền tải dữ liệu, xem video và chơi game vẫn phụ thuộc hoàn toàn vào mạng của bạn.
                 </div>
             </details>
 
-            <details class="group bg-slate-900/60 rounded-lg border border-slate-800/80 overflow-hidden">
+            <details class="group bg-slate-900/50 rounded-lg border border-slate-800 overflow-hidden">
                 <summary class="flex items-center justify-between p-3 text-xs font-medium text-slate-200 cursor-pointer select-none">
                     <span>Tại sao cần bật tin cậy chứng chỉ Root CA?</span>
                     <span class="text-slate-500 transition-transform group-open:rotate-180 text-[10px]">▼</span>
                 </summary>
-                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50 pt-2">
-                    Chứng chỉ Root CA giúp iOS xác thực kết nối bảo mật nội bộ để đồng bộ phản hồi cấp phép cho ứng dụng, đảm bảo trạng thái hoạt động ổn định.
+                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800 pt-2">
+                    Chứng chỉ Root CA giúp thiết bị iOS xác thực an toàn với Gateway nội bộ để đồng bộ phản hồi cấp phép bản quyền cho ứng dụng.
                 </div>
             </details>
         </section>
@@ -252,7 +252,7 @@
         <!-- Footer -->
         <footer class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
             <div>
-                Mã nguồn mở bởi <span class="text-slate-300 font-medium">Nguyễn Ngọc Anh Tú</span>.
+                Dự án mã nguồn mở bởi <span class="text-slate-300 font-medium">Nguyễn Ngọc Anh Tú</span>.
             </div>
             <div class="flex items-center gap-3">
                 <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub Repository</a>
@@ -263,19 +263,19 @@
 
     </main>
 
-    <!-- QR Code Modal (Minimal, Clean) -->
+    <!-- Clean QR Modal -->
     <div id="qrModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm items-center justify-center p-4">
-        <div class="card-clean rounded-xl p-5 max-w-xs w-full text-center space-y-3 relative border-slate-700">
+        <div class="card-surface rounded-xl p-5 max-w-xs w-full text-center space-y-3 relative border-slate-700">
             <button onclick="toggleQrModal()" class="absolute top-3 right-3 text-slate-400 hover:text-white p-1 rounded bg-slate-800 cursor-pointer">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
 
             <div class="space-y-1">
                 <h3 class="text-sm font-semibold text-white">Quét Bằng Camera iPhone</h3>
-                <p class="text-xs text-slate-400">Mở Camera trên thiết bị iOS hướng vào mã để tải cấu hình.</p>
+                <p class="text-xs text-slate-400">Mở ứng dụng Camera trên iPhone hướng vào mã để tải cấu hình.</p>
             </div>
 
-            <div class="p-2.5 bg-white rounded-lg inline-block">
+            <div class="p-2 bg-white rounded-lg inline-block">
                 <img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2F13.229.210.222.sslip.io%2FDNS.mobileconfig&margin=4" alt="DNS QR Code" class="w-44 h-44 block mx-auto">
             </div>
 
@@ -287,7 +287,7 @@
         </div>
     </div>
 
-    <!-- Toast Notification (Monochrome) -->
+    <!-- Toast -->
     <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 text-xs font-medium shadow-lg">
         <svg class="w-3.5 h-3.5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -338,28 +338,12 @@
             const downloadUrl = VPS_HOST + '/DNS.mobileconfig?username=' + encodeURIComponent(u);
             const btn = document.getElementById('btnDownload');
             btn.href = downloadUrl;
-            btn.querySelector('span').textContent = 'Tải Hồ Sơ Cho @' + u.toUpperCase() + ' (.mobileconfig)';
+            btn.querySelector('span').textContent = 'Tải Hồ Sơ Cho @' + u.toUpperCase();
             
             document.getElementById('qrImage').src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(downloadUrl) + '&margin=4';
             
             showToast('Đã cập nhật tên @' + u);
         }
-
-        // Live ping measurement
-        async function updatePing() {
-            const startPing = performance.now();
-            try {
-                await fetch(VPS_HOST + '/api/stats', { mode: 'cors', cache: 'no-store' });
-                const lat = Math.round(performance.now() - startPing);
-                if (lat < 1000) {
-                    document.getElementById('navPing').textContent = 'Edge: ' + lat + 'ms';
-                }
-            } catch (e) {
-                document.getElementById('navPing').textContent = 'Gateway Active';
-            }
-        }
-        updatePing();
-        setInterval(updatePing, 10000);
     </script>
 </body>
 </html>
