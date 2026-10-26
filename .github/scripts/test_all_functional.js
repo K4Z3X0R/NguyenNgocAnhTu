@@ -858,6 +858,27 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
   check('Nicegram: premiumAccess=true synthetic response', b.data && b.data.premiumAccess === true, out ? JSON.stringify(out) : 'null');
 }
 
+// 74. Mondly Languages (via revenuecat_multi.js - preserves user & sets 2099 expiry)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://api.mondlylanguages.com/v1/ios/user/sync' }, { body: JSON.stringify({ user: { name: 'AnhTu' } }) });
+  const b = JSON.parse(out.body);
+  check('Mondly: preserves user & 2099 purchased_products', b.user && b.user.name === 'AnhTu' && Array.isArray(b.purchased_products) && b.purchased_products[0].expiration_date === 4102444800, out ? out.body : 'null');
+}
+
+// 75. iTranslate Pro (HTTP-REQUEST via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://ssl-api.itranslateapp.com/accounts/v4/subscriptions/verify/ios' }, null);
+  const b = JSON.parse(out.body);
+  check('iTranslate: 2099 license injected', Array.isArray(b.licenses) && b.licenses[0].expires_date_ms === 4102444800000, out ? out.body : 'null');
+}
+
+// 76. PDF Expert & Documents (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://license.pdfexpert.com/api/2.0/pdfexpert6/subscription/refresh' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('PDFExpert: subscriptionState=active & 2099', b.subscriptionState === 'active' && b.isPDFExpert6User === true, out ? out.body : 'null');
+}
+
 console.log('\n== KẾT QUẢ: ' + pass + ' PASS / ' + fail + ' FAIL ==');
 
 process.exit(fail === 0 ? 0 : 1);

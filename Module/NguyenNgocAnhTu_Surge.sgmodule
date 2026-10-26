@@ -294,7 +294,7 @@ nicegram-request = type=http-request,pattern=^https?:\/\/restore-access\.indream
 # 📄 iLovePDF Premium (yfamilys)
 ilovepdf-response = type=http-response,pattern=^https?:\/\/service\.ilovepdf\.com\/v1\/user,requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 # 🌐 Mondly Premium (yfamilys)
-mondly-response = type=http-response,pattern=^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync,requires-body=1,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Mondly.js
+mondly-response = type=http-response,pattern=^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync,requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 # 🌐 Memrise Premium (yfamilys)
 memrise-response = type=http-response,pattern=^https:\/\/api\.memrise\.com\/v1\.18,requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 # 🌐 Aloha Browser (yfamilys)
@@ -316,7 +316,7 @@ keep-response = type=http-response,pattern=^https:\/\/api\.gotokeep\.com,require
 # 🎬 InVideo (yfamilys)
 invideo-response = type=http-response,pattern=^https?:\/\/payments\.invideo\.io\/(verify_purchase|subscription),requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 # === iTRANSLATE PRO (dịch thuật) - 89996462 ===
-itranslate-request = type=http-request,pattern=^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios,requires-body=1,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/iTranslate.js
+itranslate-request = type=http-request,pattern=^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios,requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 # === LINGVIST HỌC NGOẠI NGỮ - 89996462 ===
 lingvist-response = type=http-response,pattern=^https:\/\/payment-api\.lingvist\.com\/.+\/user\/services,requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 # === BENDING SPOONS BUNDLE (Splice, Remini, FilmicPro, Focos, 30DayFitness...) - 89996462 ===
@@ -332,9 +332,9 @@ bilibili-response = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x
 # 📅 Agenda Premium (89996462)
 agenda-response = type=http-response,pattern=^https:\/\/accounts\.agenda\.com\/users\/.*\/license,requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 # 📕 PDF Expert - Readdle (89996462, host riêng - không trùng iTunes/RevenueCat)
-pdfexpert-request = type=http-request,pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh,requires-body=1,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/PDFExpert.js
+pdfexpert-request = type=http-request,pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh,requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 # 📁 Documents by Readdle (89996462)
-documents-request = type=http-request,pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh,requires-body=1,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/documents.js
+documents-request = type=http-request,pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh,requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 # 📆 Sorted Calendar/Planner (89996462)
 sorted-response = type=http-response,pattern=^https:\/\/api\.sortedapp\.com\/receipts\/verify,requires-body=1,script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 

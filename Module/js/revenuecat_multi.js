@@ -118,6 +118,20 @@ const MGMT_URL   = "https://apps.apple.com/account/subscriptions";
 // HTTP-REQUEST mode: Xóa ETag & cache validation headers để RevenueCat luôn trả về 200 OK đầy đủ body
 if (typeof $response === "undefined" || $response === null) {
   var reqUrlEarly = ($request && $request.url) || "";
+  if (reqUrlEarly.indexOf("ssl-api.itranslateapp.com") !== -1) {
+    var itBody = JSON.stringify({
+      licenses: [
+        { bundle_id: "com.outerspaceapps.itranslate", expires_date_ms: 4102444800000, is_trial_period: false, original_transaction_id: "160000714859958", product_id: "com.itranslate.pro.yearly", transaction_id: "160000714859958" }
+      ]
+    });
+    $done({ body: itBody });
+    return;
+  }
+  if (reqUrlEarly.indexOf("license.pdfexpert.com") !== -1) {
+    var peBundle = reqUrlEarly.indexOf("/documents/") !== -1 ? "com.readdle.ReaddleDocsIPad" : "com.readdle.PDFExpert5";
+    $done({ body: JSON.stringify({ bundleId: peBundle, chargingPlatform: "iOS AppStore", receiptStatus: "ok", subscriptionState: "active", subscriptionExpirationDate: "23:59 31/12/2099", isPDFExpert6User: true }) });
+    return;
+  }
   if (reqUrlEarly.indexOf("restore-access.indream.app/restoreAccess") !== -1) {
     var ngBody = JSON.stringify({ data: { premiumAccess: true } });
     if (typeof $task !== "undefined") {
@@ -328,6 +342,17 @@ if (reqUrl && (!obj || !obj.subscriber) && obj && typeof obj === "object" && !Ar
   if (reqUrl.indexOf("flomoapp.com") !== -1) {
     if (!obj.data || typeof obj.data !== "object") obj.data = {};
     obj.data.pro_expired_at = "2099-10-26 23:59:59"; obj.data.referee_pro_days = 9999;
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("api.mondlylanguages.com") !== -1) {
+    obj.purchased_products = [
+      { is_from_current_platform: true, id: "12month_all_4_trial", role: "12month", is_grace_period: false, is_auto_renewing: true, expiration_date: 4102444800, is_billing_retry_period: false, is_initial_purchase: false, is_in_free_trial_period: false, is_upgraded: false },
+      { is_from_current_platform: true, id: "categ22", role: "categ22", is_grace_period: false, is_auto_renewing: true, expiration_date: 4102444800, is_billing_retry_period: false, is_initial_purchase: false, is_in_free_trial_period: false, is_upgraded: false }
+    ];
+    finishStandalone(obj); return;
+  }
+  if (reqUrl.indexOf("license.pdfexpert.com") !== -1) {
+    Object.assign(obj, { isEligibleForTrial: false, subscriptionState: "active", subscriptionExpirationDate: "23:59 31/12/2099", isPDFExpert6User: true, isReaddleStorageUser: true, subscriptionAutoRenewStatus: "autoRenewOn" });
     finishStandalone(obj); return;
   }
   if (reqUrl.indexOf("api.gotokeep.com") !== -1) {

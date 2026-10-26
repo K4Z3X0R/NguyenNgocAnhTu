@@ -308,10 +308,10 @@ Calm_Premium = type=http-response, pattern=^https?:\/\/api\.calm\.com\/(me|devic
 BendingSpoons = type=http-response, pattern=^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=0, timeout=30
 
 # 📕 PDF Expert - Readdle (Mở khóa tính năng VIP)
-PDFExpert = type=http-request, pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/PDFExpert.js, requires-body=1, max-size=0, timeout=30
+PDFExpert = type=http-request, pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=0, timeout=30
 
 # 📁 Documents by Readdle
-Documents_Readdle = type=http-request, pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/documents.js, requires-body=1, max-size=0, timeout=30
+Documents_Readdle = type=http-request, pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=0, timeout=30
 
 # 📄 Adobe Scan (Quét PDF chuyên nghiệp)
 AdobeScan = type=http-response, pattern=^https?:\/\/lcs-mobile-cops\.adobe\.io\/(?!mobile_profile).+, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, timeout=30
@@ -323,7 +323,7 @@ Bilibili = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/ac
 Fantastical = type=http-response, pattern=^https:\/\/api\.flexibits\.com\/(v1\/auth\/device|v1\/account\/details), script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, timeout=30
 
 # 🌐 iTranslate Pro (Dịch thuật)
-iTranslate = type=http-request, pattern=^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/iTranslate.js, requires-body=1, max-size=0, timeout=30
+iTranslate = type=http-request, pattern=^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=0, timeout=30
 
 # 🌐 Lingvist (Học ngoại ngữ AI)
 Lingvist = type=http-response, pattern=^https:\/\/payment-api\.lingvist\.com\/.+\/user\/services, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, max-size=0, timeout=30
@@ -335,7 +335,7 @@ Agenda = type=http-response, pattern=^https:\/\/accounts\.agenda\.com\/users\/.*
 iLovePDF = type=http-response, pattern=^https?:\/\/service\.ilovepdf\.com\/v1\/user, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, timeout=30
 
 # 🌐 Mondly Premium
-Mondly = type=http-response, pattern=^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Mondly.js, requires-body=1, timeout=30
+Mondly = type=http-response, pattern=^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, timeout=30
 
 # 🌐 Memrise Premium
 Memrise = type=http-response, pattern=^https:\/\/api\.memrise\.com\/v1\.18, script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js, requires-body=1, timeout=30

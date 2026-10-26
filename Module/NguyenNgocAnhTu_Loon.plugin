@@ -283,7 +283,7 @@ http-request ^https?:\/\/restore-access\.indream\.app\/restoreAccess\?id=\w+$ sc
 # 📄 iLovePDF Premium (yfamilys)
 http-response ^https?:\/\/service\.ilovepdf\.com\/v1\/user script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=iLovePDF-Res
 # 🌐 Mondly Premium (yfamilys)
-http-response ^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Mondly.js,requires-body=true,timeout=30,tag=Mondly-Res
+http-response ^https:\/\/api\.mondlylanguages\.com\/v3\/ios\/user\/sync script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Mondly-Res
 # 🌐 Memrise Premium (yfamilys)
 http-response ^https:\/\/api\.memrise\.com\/v1\.18 script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Memrise-Res
 # 🌐 Aloha Browser (yfamilys)
@@ -305,7 +305,7 @@ http-response ^https:\/\/api\.gotokeep\.com script-path=https://raw.githubuserco
 http-response ^https?:\/\/payments\.invideo\.io\/(verify_purchase|subscription) script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=InVideo-Res
 
 # === iTRANSLATE PRO (dịch thuật) - 89996462 ===
-http-request ^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/iTranslate.js,requires-body=true,timeout=30,tag=iTranslate-Req
+http-request ^https:\/\/ssl-api\.itranslateapp\.com\/accounts\/v\d\/subscriptions\/verify\/ios script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=iTranslate-Req
 # === LINGVIST HỌC NGOẠI NGỮ - 89996462 ===
 http-response ^https:\/\/payment-api\.lingvist\.com\/.+\/user\/services script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Lingvist-Res
 # === BENDING SPOONS BUNDLE (Splice, Remini, FilmicPro, Focos, 30DayFitness...) - 89996462 ===
@@ -320,9 +320,9 @@ http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo script-path
 # 📅 Agenda Premium
 http-response ^https:\/\/accounts\.agenda\.com\/users\/.*\/license script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Agenda
 # 📕 PDF Expert - Readdle (host riêng)
-http-request ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/PDFExpert.js,requires-body=true,timeout=30,tag=PDFExpert
+http-request ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=PDFExpert
 # 📁 Documents by Readdle
-http-request ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/documents.js,requires-body=true,timeout=30,tag=Documents
+http-request ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Documents
 # 📆 Sorted Calendar/Planner
 http-response ^https:\/\/api\.sortedapp\.com\/receipts\/verify script-path=https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js,requires-body=true,timeout=30,tag=Sorted
 

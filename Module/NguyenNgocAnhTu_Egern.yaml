@@ -2772,7 +2772,7 @@ scriptings:
   - http_response:
       name: "Mondly Premium"
       match: "^https://api\\.mondlylanguages\\.com/v3/ios/user/sync"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/Mondly.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 🌐 Memrise Premium (yfamilys)
@@ -2837,7 +2837,7 @@ scriptings:
   - http_request:
       name: "iTranslate Pro"
       match: "^https://ssl-api\\.itranslateapp\\.com/accounts/v\\d/subscriptions/verify/ios"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/iTranslate.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # === LINGVIST HỌC NGOẠI NGỮ - 89996462 ===
@@ -2887,14 +2887,14 @@ scriptings:
   - http_request:
       name: "PDF Expert"
       match: "^https://license\\.pdfexpert\\.com/api/2\\.0/pdfexpert6/subscription/refresh"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/PDFExpert.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 📁 Documents by Readdle
   - http_request:
       name: "Documents by Readdle"
       match: "^https://license\\.pdfexpert\\.com/api/2\\.0/documents/subscription/refresh"
-      script_url: "https://raw.githubusercontent.com/89996462/Quantumult-X/5fc9502f3ff98b331a068729cb4b922eccc84bcd/ycdz/documents.js"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js"
       body_required: true
       timeout: 30
   # 📆 Sorted Calendar/Planner
