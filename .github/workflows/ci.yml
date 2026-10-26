@@ -50,5 +50,8 @@ jobs:
       - name: Run Reality Proof End-to-End Suite
         run: node .github/scripts/test_reality_proof.js
 
+      - name: Run Web Security Defenses & Anti-Scraping Tests
+        run: node .github/scripts/test_security_defenses.js
+
       - name: Run Full Module & Rules Validation
         run: python .github/scripts/validate.py
