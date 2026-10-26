@@ -34,6 +34,44 @@ jobs:
         with:
           enablement: true
 
+      - name: Generate .nojekyll and robots.txt for Pages
+        run: |
+          touch .nojekyll
+          cat << 'EOF' > robots.txt
+          User-agent: GPTBot
+          Disallow: /
+
+          User-agent: ChatGPT-User
+          Disallow: /
+
+          User-agent: ClaudeBot
+          Disallow: /
+
+          User-agent: Claude-Web
+          Disallow: /
+
+          User-agent: anthropic-ai
+          Disallow: /
+
+          User-agent: PerplexityBot
+          Disallow: /
+
+          User-agent: Google-Extended
+          Disallow: /
+
+          User-agent: Bytespider
+          Disallow: /
+
+          User-agent: CCBot
+          Disallow: /
+
+          User-agent: *
+          Disallow: /Module/
+          Disallow: /Rules/
+          Disallow: /*.mobileconfig$
+          Disallow: /*.crt$
+          EOF
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -2340,7 +2340,7 @@ scriptings:
   - http_response:
       name: "Spotify Premium JSON"
       match: "^https?://(api\\.spotify\\.com/v1/me|.*spclient.*\\.spotify\\.com(:443)?/(identity/v3/me|device-capabilities/v1/capabilities|user-attributes/v\\d+/attributes|bootstrap/v1/bootstrap|melody/v1/check_license))"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=2.9.4"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=2.9.5"
       body_required: true
       timeout: 30
 

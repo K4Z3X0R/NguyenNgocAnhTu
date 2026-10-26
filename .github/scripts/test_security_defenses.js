@@ -7,7 +7,9 @@ console.log('🛡️ RUNNING COMPREHENSIVE SECURITY DEFENSES TEST SUITE (APEX V6
 console.log('====================================================');
 
 const indexPath = path.join(__dirname, '..', '..', 'index.html');
-const robotsPath = path.join(__dirname, '..', '..', 'robots.txt');
+const robotsPath = fs.existsSync(path.join(__dirname, '..', '..', 'robots.txt'))
+  ? path.join(__dirname, '..', '..', 'robots.txt')
+  : path.join(__dirname, '..', 'workflows', 'pages.yml');
 const html = fs.readFileSync(indexPath, 'utf8');
 
 // 1. TEST: Zero Static URLs in HTML
@@ -48,12 +50,12 @@ console.log('  ✅ [PASS] Brutal Roast Security Shield modal verified');
 
 // 5. TEST: Robots.txt AI Scraper Blocking RFC Standard
 console.log('\n--- 5. ROBOTS.TXT AI CRAWLERS SHUTDOWN ---');
-assert.ok(fs.existsSync(robotsPath), 'FAIL: robots.txt file missing at root!');
+assert.ok(fs.existsSync(robotsPath), 'FAIL: robots.txt / pages.yml missing!');
 const robotsTxt = fs.readFileSync(robotsPath, 'utf8');
-assert.ok(robotsTxt.includes('User-agent: GPTBot\nDisallow: /'), 'FAIL: GPTBot not blocked in robots.txt');
-assert.ok(robotsTxt.includes('User-agent: ClaudeBot\nDisallow: /'), 'FAIL: ClaudeBot not blocked in robots.txt');
-assert.ok(robotsTxt.includes('User-agent: PerplexityBot\nDisallow: /'), 'FAIL: PerplexityBot not blocked in robots.txt');
-assert.ok(robotsTxt.includes('User-agent: Bytespider\nDisallow: /'), 'FAIL: Bytespider not blocked in robots.txt');
+assert.ok(/User-agent:\s*GPTBot\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: GPTBot not blocked in robots.txt');
+assert.ok(/User-agent:\s*ClaudeBot\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: ClaudeBot not blocked in robots.txt');
+assert.ok(/User-agent:\s*PerplexityBot\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: PerplexityBot not blocked in robots.txt');
+assert.ok(/User-agent:\s*Bytespider\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: Bytespider not blocked in robots.txt');
 console.log('  ✅ [PASS] robots.txt successfully blocks all major commercial AI crawlers');
 
 // 6. TEST: Invisible LLM Prompt Poisoning & Canary Trap

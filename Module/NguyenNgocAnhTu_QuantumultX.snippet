@@ -1021,12 +1021,6 @@ geoip, vn, direct
 
 # 📦 Sub-Store
 ^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) url script-request-body https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js
-
-# === ADOBE SCAN (PDF Scanner) - Marol62926 ✅ VERIFIED ===
-# Note: pattern excludes /mobile_profile to avoid conflict with Photoshop Express script above
-^https?:\/\/lcs-mobile-cops\.adobe\.io\/(?!mobile_profile).+ url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
-# === BILIBILI (CN Video Platform) - Marol62926 ✅ VERIFIED ===
-^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js
 ^https?:\/\/sub\.store url script-request-body https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js
 
 # 📺 YouTube Premium - K4Z3X0R
@@ -1035,7 +1029,7 @@ geoip, vn, direct
 # 🎵 Spotify Premium (app2smile)
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ url script-request-header https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/spotify-json.js
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ url script-response-body https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/spotify-proto.js
-^https?:\/\/(api\.spotify\.com\/v1\/me|.*spclient.*\.spotify\.com(:443)?\/(identity\/v3\/me|device-capabilities\/v1\/capabilities|user-attributes\/v\d+\/attributes|bootstrap\/v1\/bootstrap|melody\/v1\/check_license)) url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=2.9.4
+^https?:\/\/(api\.spotify\.com\/v1\/me|.*spclient.*\.spotify\.com(:443)?\/(identity\/v3\/me|device-capabilities\/v1\/capabilities|user-attributes\/v\d+\/attributes|bootstrap\/v1\/bootstrap|melody\/v1\/check_license)) url script-response-body https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=2.9.5
 
 # === SPOTIFY PREMIUM CACHE-BUST (xoá request validator để server trả 200, không 304) ===
 ^https?:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap) url request-header (\r\n)If-None-Match:.+(\r\n) request-header $1
