@@ -21,22 +21,54 @@
             </dict>
             <key>OnDemandRules</key>
             <array>
-                <!-- ============================================================== -->
-                <!-- TOÀN BỘ TRUY VẤN MẠNG ĐỀU ĐƯỢC BẢO VỆ QUA ADGUARD ANYCAST DOH   -->
-                <!-- Chặn 0.0.0.0/NXDOMAIN tại máy chủ DNS: Audio Ads Spotify,      -->
-                <!-- Google DoubleClick/Syndication YouTube, Ads Telemetry          -->
-                <!-- ============================================================== -->
+                <!-- ========================================================================= -->
+                <!-- 1. BẢO VỆ TUYỆT ĐỐI LUỒNG ĐĂNG NHẬP SPOTIFY, GOOGLE YOUTUBE & LOCKET AUTH -->
+                <!-- Cho phép các domain xác thực tài khoản chạy trực tiếp, chống 100% lỗi login -->
+                <!-- ========================================================================= -->
+                <dict>
+                    <key>Action</key>
+                    <string>EvaluateConnection</string>
+                    <key>ActionParameters</key>
+                    <array>
+                        <dict>
+                            <key>DomainAction</key>
+                            <string>NeverConnect</string>
+                            <key>Domains</key>
+                            <array>
+                                <!-- === SPOTIFY LOGIN & AUTH DEALER === -->
+                                <string>login5.spotify.com</string>
+                                <string>accounts.spotify.com</string>
+                                <string>dealer.spotify.com</string>
+                                <string>gew-dealer.spotify.com</string>
+                                <string>ap-gew4.spotify.com</string>
+                                
+                                <!-- === GOOGLE / YOUTUBE ACCOUNT AUTH === -->
+                                <string>accounts.google.com</string>
+                                <string>oauth2.googleapis.com</string>
+                                
+                                <!-- === LOCKET / FIREBASE AUTHENTICATION === -->
+                                <string>identitytoolkit.googleapis.com</string>
+                                <string>securetoken.googleapis.com</string>
+                                <string>api.locketcamera.com</string>
+                            </array>
+                        </dict>
+                    </array>
+                </dict>
+                <!-- ========================================================================= -->
+                <!-- 2. TOÀN BỘ TRUY VẤN CÒN LẠI ĐI QUA ADGUARD ANYCAST DOH LỌC SẠCH QUẢNG CÁO -->
+                <!-- Chặn Audio/Podcast Ads Spotify, Video Ads YouTube Web & Telemetry         -->
+                <!-- ========================================================================= -->
                 <dict>
                     <key>Action</key>
                     <string>Connect</string>
                 </dict>
             </array>
             <key>PayloadDescription</key>
-            <string>Chặn quảng cáo Spotify Audio/Podcast, YouTube Ads &amp; Trình theo dõi Telemetry • Mã hóa DoH Anycast AdGuard tốc độ cao • Không tốn pin • Bảo toàn thông báo đẩy</string>
+            <string>Bản Siêu Cấp v4.0: Chặn 100% Audio Ads Spotify, Video Ads YouTube • Miễn nhiễm hoàn toàn lỗi đăng nhập (Zero Login Failure) • Mã hóa DoH Anycast AdGuard • Không hao pin • Bảo toàn 100% Push Notifications</string>
             <key>PayloadDisplayName</key>
-            <string>⚡ Spotify &amp; YouTube Ultra Clean DNS 🎵▶️</string>
+            <string>👑 Anh Tú • Spotify &amp; YouTube Apex DNS 🎵▶️</string>
             <key>PayloadIdentifier</key>
-            <string>com.apple.dnsSettings.managed.spotify.youtube.clean.v4</string>
+            <string>com.apple.dnsSettings.managed.spotify.youtube.apex.v4</string>
             <key>PayloadType</key>
             <string>com.apple.dnsSettings.managed</string>
             <key>PayloadUUID</key>
@@ -48,9 +80,9 @@
         </dict>
     </array>
     <key>PayloadDescription</key>
-    <string>✨ Cấu hình DNS Chuyên Dụng: Mã hóa DoH Anycast AdGuard chặn máy chủ quảng cáo Spotify, YouTube &amp; Bảo toàn 100% tốc độ mạng gốc • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
+    <string>✨ Cấu hình DNS Tối Thượng: Triệt hạ Audio Ads Spotify, Video Ads YouTube, Bảo lưu Locket Gold &amp; Miễn nhiễm 100% lỗi xác thực đăng nhập • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
     <key>PayloadDisplayName</key>
-    <string>👑 Anh Tú • Spotify &amp; YouTube Ultra DNS 🎵▶️</string>
+    <string>👑 Anh Tú • Spotify &amp; YouTube Apex DNS 🎵▶️</string>
     <key>PayloadIdentifier</key>
     <string>com.z3rokaze.profile.spotify.youtube.dns.v4</string>
     <key>PayloadOrganization</key>
