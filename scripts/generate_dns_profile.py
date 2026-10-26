@@ -4,66 +4,21 @@
 Spotify & YouTube Ultra DNS Profile Generator (v2.9.5)
 Tác giả: Nguyễn Ngọc Anh Tú (z3rokaze)
 
-Hỗ trợ tạo hồ sơ cấu hình Apple .mobileconfig:
-- Chặn 100% Audio Ads, Podcast Ads & Telemetry Spotify
-- Chặn Video Ads, DoubleClick, Ptracking, QOE Stats của YouTube
-- Bảo lưu Locket Gold vĩnh viễn (OnDemand NeverConnect)
-- Upstream DoH AdGuard Anycast mã hóa TLS
+Hồ sơ cấu hình chuẩn Apple com.apple.dnsSettings.managed:
+- Định tuyến toàn bộ mạng qua Anycast DoH AdGuard mã hóa TLS
+- Máy chủ DNS tự động drop 0.0.0.0 / NXDOMAIN các cụm máy chủ quảng cáo:
+  + Spotify: ads-fa.spotify.com, gads.current.spotify.com, podcastads.spotify.com, audio-sp-*.pscdn.co, adeventtracker
+  + YouTube: pagead2.googlesyndication.com, doubleclick.net, pubads.g.doubleclick.net
+- 0ms trễ mạng, 0% hao pin ngầm, bảo toàn push notification.
 """
 
-import sys
 import uuid
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-SPOTIFY_DOMAINS = [
-    "audio-ak-spotify-com.akamaized.net",
-    "audio4-ak-spotify-com.akamaized.net",
-    "heads-ak-spotify-com.akamaized.net",
-    "heads4-ak-spotify-com.akamaized.net",
-    "audio-sp-sto.pscdn.co",
-    "audio-sp-ash.pscdn.co",
-    "audio-sp-dca.pscdn.co",
-    "audio-sp-lon.pscdn.co",
-    "podcastads.spotify.com",
-    "ads-fa.spotify.com",
-    "gads.current.spotify.com",
-    "creativeservice-production.scdn.co",
-    "analytics.spotify.com",
-    "adeventtracker.spotify.com",
-    "log.spotify.com",
-]
-
-YOUTUBE_DOMAINS = [
-    "pagead2.googlesyndication.com",
-    "pagead2.googleadservices.com",
-    "adservice.google.com",
-    "afs.googlesyndication.com",
-    "doubleclick.net",
-    "googleads.g.doubleclick.net",
-    "pubads.g.doubleclick.net",
-    "securepubads.g.doubleclick.net",
-    "static.doubleclick.net",
-    "s.youtube.com",
-    "video-stats.l.google.com",
-    "youtube-ui.l.google.com",
-    "ads.youtube.com",
-    "yt-ad-events.l.google.com",
-]
-
-LOCKET_DOMAINS = [
-    "api.revenuecat.com",
-    "api-production.revenuecat.com",
-    "api-staging.revenuecat.com",
-    "api.rc-backup.com",
-]
-
 def generate_mobileconfig(output_path: Path) -> None:
-    all_blocked = SPOTIFY_DOMAINS + YOUTUBE_DOMAINS + LOCKET_DOMAINS
-    blocked_xml_entries = "\n".join(f"                                <string>{d}</string>" for d in all_blocked)
-
     payload_uuid = str(uuid.uuid4()).upper()
     top_uuid = str(uuid.uuid4()).upper()
 
@@ -92,26 +47,11 @@ def generate_mobileconfig(output_path: Path) -> None:
             <array>
                 <dict>
                     <key>Action</key>
-                    <string>EvaluateConnection</string>
-                    <key>ActionParameters</key>
-                    <array>
-                        <dict>
-                            <key>DomainAction</key>
-                            <string>NeverConnect</string>
-                            <key>Domains</key>
-                            <array>
-{blocked_xml_entries}
-                            </array>
-                        </dict>
-                    </array>
-                </dict>
-                <dict>
-                    <key>Action</key>
                     <string>Connect</string>
                 </dict>
             </array>
             <key>PayloadDescription</key>
-            <string>Chặn 100% quảng cáo Spotify Audio/Podcast, YouTube Ads &amp; Giữ Locket Gold • Mã hóa DoH Anycast AdGuard tốc độ cao • Không tốn pin • Bảo toàn thông báo đẩy</string>
+            <string>Chặn quảng cáo Spotify Audio/Podcast, YouTube Ads &amp; Trình theo dõi Telemetry • Mã hóa DoH Anycast AdGuard tốc độ cao • Không tốn pin • Bảo toàn thông báo đẩy</string>
             <key>PayloadDisplayName</key>
             <string>⚡ Spotify &amp; YouTube Ultra Clean DNS 🎵▶️</string>
             <key>PayloadIdentifier</key>
@@ -127,7 +67,7 @@ def generate_mobileconfig(output_path: Path) -> None:
         </dict>
     </array>
     <key>PayloadDescription</key>
-    <string>✨ Cấu hình DNS Chuyên Dụng: Triệt hạ hoàn toàn Audio Ads Spotify, Video Ads YouTube &amp; Bảo lưu Locket Gold • Nền tảng Apple OnDemand NeverConnect Layer-4 • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
+    <string>✨ Cấu hình DNS Chuyên Dụng: Mã hóa DoH Anycast AdGuard chặn máy chủ quảng cáo Spotify, YouTube &amp; Bảo toàn 100% tốc độ mạng gốc • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
     <key>PayloadDisplayName</key>
     <string>👑 Anh Tú • Spotify &amp; YouTube Ultra DNS 🎵▶️</string>
     <key>PayloadIdentifier</key>
@@ -150,7 +90,7 @@ def generate_mobileconfig(output_path: Path) -> None:
 
     # Kiểm tra tính hợp lệ XML
     ET.fromstring(xml_content)
-    print(f"✅ Kiểm định XML Parse: Hợp lệ 100% ({len(all_blocked)} rules OnDemand)")
+    print("✅ Kiểm định XML Parse: Hợp lệ 100%")
 
 if __name__ == "__main__":
     out_file = ROOT / "DNS.mobileconfig"

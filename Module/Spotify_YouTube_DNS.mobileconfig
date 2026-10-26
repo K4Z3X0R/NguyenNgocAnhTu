@@ -21,60 +21,18 @@
             </dict>
             <key>OnDemandRules</key>
             <array>
-                <dict>
-                    <key>Action</key>
-                    <string>EvaluateConnection</string>
-                    <key>ActionParameters</key>
-                    <array>
-                        <dict>
-                            <key>DomainAction</key>
-                            <string>NeverConnect</string>
-                            <key>Domains</key>
-                            <array>
-                                <string>audio-ak-spotify-com.akamaized.net</string>
-                                <string>audio4-ak-spotify-com.akamaized.net</string>
-                                <string>heads-ak-spotify-com.akamaized.net</string>
-                                <string>heads4-ak-spotify-com.akamaized.net</string>
-                                <string>audio-sp-sto.pscdn.co</string>
-                                <string>audio-sp-ash.pscdn.co</string>
-                                <string>audio-sp-dca.pscdn.co</string>
-                                <string>audio-sp-lon.pscdn.co</string>
-                                <string>podcastads.spotify.com</string>
-                                <string>ads-fa.spotify.com</string>
-                                <string>gads.current.spotify.com</string>
-                                <string>creativeservice-production.scdn.co</string>
-                                <string>analytics.spotify.com</string>
-                                <string>adeventtracker.spotify.com</string>
-                                <string>log.spotify.com</string>
-                                <string>pagead2.googlesyndication.com</string>
-                                <string>pagead2.googleadservices.com</string>
-                                <string>adservice.google.com</string>
-                                <string>afs.googlesyndication.com</string>
-                                <string>doubleclick.net</string>
-                                <string>googleads.g.doubleclick.net</string>
-                                <string>pubads.g.doubleclick.net</string>
-                                <string>securepubads.g.doubleclick.net</string>
-                                <string>static.doubleclick.net</string>
-                                <string>s.youtube.com</string>
-                                <string>video-stats.l.google.com</string>
-                                <string>youtube-ui.l.google.com</string>
-                                <string>ads.youtube.com</string>
-                                <string>yt-ad-events.l.google.com</string>
-                                <string>api.revenuecat.com</string>
-                                <string>api-production.revenuecat.com</string>
-                                <string>api-staging.revenuecat.com</string>
-                                <string>api.rc-backup.com</string>
-                            </array>
-                        </dict>
-                    </array>
-                </dict>
+                <!-- ============================================================== -->
+                <!-- TOÀN BỘ TRUY VẤN MẠNG ĐỀU ĐƯỢC BẢO VỆ QUA ADGUARD ANYCAST DOH   -->
+                <!-- Chặn 0.0.0.0/NXDOMAIN tại máy chủ DNS: Audio Ads Spotify,      -->
+                <!-- Google DoubleClick/Syndication YouTube, Ads Telemetry          -->
+                <!-- ============================================================== -->
                 <dict>
                     <key>Action</key>
                     <string>Connect</string>
                 </dict>
             </array>
             <key>PayloadDescription</key>
-            <string>Chặn 100% quảng cáo Spotify Audio/Podcast, YouTube Ads &amp; Giữ Locket Gold • Mã hóa DoH Anycast AdGuard tốc độ cao • Không tốn pin • Bảo toàn thông báo đẩy</string>
+            <string>Chặn quảng cáo Spotify Audio/Podcast, YouTube Ads &amp; Trình theo dõi Telemetry • Mã hóa DoH Anycast AdGuard tốc độ cao • Không tốn pin • Bảo toàn thông báo đẩy</string>
             <key>PayloadDisplayName</key>
             <string>⚡ Spotify &amp; YouTube Ultra Clean DNS 🎵▶️</string>
             <key>PayloadIdentifier</key>
@@ -82,7 +40,7 @@
             <key>PayloadType</key>
             <string>com.apple.dnsSettings.managed</string>
             <key>PayloadUUID</key>
-            <string>3C83F7A1-9666-4910-8F1C-A5002231100D</string>
+            <string>E716BE72-4C6C-49F1-8B35-2470A7DB9845</string>
             <key>PayloadVersion</key>
             <integer>1</integer>
             <key>ProhibitDisablement</key>
@@ -90,7 +48,7 @@
         </dict>
     </array>
     <key>PayloadDescription</key>
-    <string>✨ Cấu hình DNS Chuyên Dụng: Triệt hạ hoàn toàn Audio Ads Spotify, Video Ads YouTube &amp; Bảo lưu Locket Gold • Nền tảng Apple OnDemand NeverConnect Layer-4 • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
+    <string>✨ Cấu hình DNS Chuyên Dụng: Mã hóa DoH Anycast AdGuard chặn máy chủ quảng cáo Spotify, YouTube &amp; Bảo toàn 100% tốc độ mạng gốc • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
     <key>PayloadDisplayName</key>
     <string>👑 Anh Tú • Spotify &amp; YouTube Ultra DNS 🎵▶️</string>
     <key>PayloadIdentifier</key>
@@ -102,7 +60,7 @@
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>5C2AA034-CE22-4272-B799-7C3CDE117A05</string>
+    <string>8A16F082-D08F-42E1-9D27-E4912BFD642C</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
 </dict>
