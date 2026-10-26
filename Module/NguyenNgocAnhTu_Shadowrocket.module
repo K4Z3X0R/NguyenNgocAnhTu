@@ -21,6 +21,16 @@ DOMAIN,api.spotify.com,DIRECT
 DOMAIN-SUFFIX,scdn.co,DIRECT
 DOMAIN-SUFFIX,spotifycdn.net,DIRECT
 DOMAIN-SUFFIX,spotifycdn.com,DIRECT
+# === ZERO LOGIN FAILURE (SPOTIFY, GOOGLE, FIREBASE & APPLE ID) ===
+DOMAIN-SUFFIX,dealer.spotify.com,DIRECT
+DOMAIN-SUFFIX,login.spotify.com,DIRECT
+DOMAIN,accounts.google.com,DIRECT
+DOMAIN,accounts.youtube.com,DIRECT
+DOMAIN,oauth2.googleapis.com,DIRECT
+DOMAIN,passkeys.google.com,DIRECT
+DOMAIN,identitytoolkit.googleapis.com,DIRECT
+DOMAIN,securetoken.googleapis.com,DIRECT
+DOMAIN,appleid.apple.com,DIRECT
 
 # === BLOCK QUIC FOR YOUTUBE & SPOTIFY ===
 AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT

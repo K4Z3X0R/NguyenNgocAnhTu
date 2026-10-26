@@ -52,6 +52,20 @@ DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net,DIRECT
 DOMAIN-SUFFIX,audio-fa.scdn.co,REJECT
 DOMAIN,spclient.wg.spotify.com,DIRECT
 DOMAIN,api.spotify.com,DIRECT
+# === ZERO LOGIN FAILURE (SPOTIFY, GOOGLE, FIREBASE & APPLE ID) ===
+DOMAIN-SUFFIX,dealer.spotify.com,DIRECT
+DOMAIN-SUFFIX,login.spotify.com,DIRECT
+DOMAIN,accounts.spotify.com,DIRECT
+DOMAIN,auth.spotify.com,DIRECT
+DOMAIN,apresolve.spotify.com,DIRECT
+DOMAIN,login5.spotify.com,DIRECT
+DOMAIN,accounts.google.com,DIRECT
+DOMAIN,accounts.youtube.com,DIRECT
+DOMAIN,oauth2.googleapis.com,DIRECT
+DOMAIN,passkeys.google.com,DIRECT
+DOMAIN,identitytoolkit.googleapis.com,DIRECT
+DOMAIN,securetoken.googleapis.com,DIRECT
+DOMAIN,appleid.apple.com,DIRECT
 DOMAIN-KEYWORD,spotify-ads,REJECT
 DOMAIN-SUFFIX,ads-fa.spotify.com,REJECT
 DOMAIN-SUFFIX,analytics.spotify.com,REJECT

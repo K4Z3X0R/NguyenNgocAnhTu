@@ -87,6 +87,34 @@ rules:
   - domain:
       match: "api.spotify.com"
       policy: DIRECT
+  # === ZERO LOGIN FAILURE (SPOTIFY, GOOGLE, FIREBASE & APPLE ID) ===
+  - domain_suffix:
+      match: "dealer.spotify.com"
+      policy: DIRECT
+  - domain_suffix:
+      match: "login.spotify.com"
+      policy: DIRECT
+  - domain:
+      match: "accounts.google.com"
+      policy: DIRECT
+  - domain:
+      match: "accounts.youtube.com"
+      policy: DIRECT
+  - domain:
+      match: "oauth2.googleapis.com"
+      policy: DIRECT
+  - domain:
+      match: "passkeys.google.com"
+      policy: DIRECT
+  - domain:
+      match: "identitytoolkit.googleapis.com"
+      policy: DIRECT
+  - domain:
+      match: "securetoken.googleapis.com"
+      policy: DIRECT
+  - domain:
+      match: "appleid.apple.com"
+      policy: DIRECT
   - domain_keyword:
       match: "spotify-ads"
       policy: REJECT

@@ -53,4 +53,17 @@ DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net
 DOMAIN-SUFFIX,audio4-ak-spotify-com.akamaized.net
 DOMAIN-SUFFIX,heads-ak-spotify-com.akamaized.net
 DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net
-
+# --- Zero Login Failure (Spotify Dealer, Google OAuth, Firebase Auth, Apple ID) ---
+DOMAIN-SUFFIX,dealer.spotify.com
+DOMAIN-SUFFIX,login.spotify.com
+DOMAIN,accounts.spotify.com
+DOMAIN,auth.spotify.com
+DOMAIN,apresolve.spotify.com
+DOMAIN,login5.spotify.com
+DOMAIN,accounts.google.com
+DOMAIN,accounts.youtube.com
+DOMAIN,oauth2.googleapis.com
+DOMAIN,passkeys.google.com
+DOMAIN,identitytoolkit.googleapis.com
+DOMAIN,securetoken.googleapis.com
+DOMAIN,appleid.apple.com
