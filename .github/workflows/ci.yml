@@ -32,6 +32,12 @@ jobs:
       - name: Run RevenueCat Engine Tests
         run: node scripts/test_revenuecat.js
 
+      - name: Run Locket 45s Engine Tests
+        run: node scripts/test_locket_45s.js
+
+      - name: Run Locket Apex Verification Tests
+        run: node scripts/test_locket_apex_verification.js
+
       - name: Run Education Suite Engine Tests
         run: node scripts/test_education.js
 
