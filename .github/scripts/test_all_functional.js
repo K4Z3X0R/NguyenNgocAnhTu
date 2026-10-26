@@ -767,6 +767,97 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
   check('Snow (B612): activated=true & snowcamera.vip', b.result && b.result.activated === true && b.result.products[0].productId === 'com.campmobile.snowcamera.vip', out ? out.body : 'null');
 }
 
+// 61. Agenda (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://accounts.agenda.com/users/123/license' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('Agenda: isSubscribed=true & licenseStatus=1', b.isSubscribed === true && b.licenseStatus === 1, out ? out.body : 'null');
+}
+
+// 62. Craft Docs (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://api.craft.do/auth/v2/profile' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('Craft: subscription.tier=Pro & subscriptionActive=true', b.subscription && b.subscription.tier === 'Pro' && b.subscription.subscriptionActive === true, out ? out.body : 'null');
+}
+
+// 63. Drafts Pro (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://backend.getdrafts.com/api/v1/verification/verify_receipt' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('Drafts: is_subscription_active=true & premium', b.is_subscription_active === true && b.active_subscription_type === 'premium', out ? out.body : 'null');
+}
+
+// 64. Endel (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://api-production.endel.io/v4/call' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('Endel: subscription.type=ACTIVE', b.subscription && b.subscription.type === 'ACTIVE', out ? out.body : 'null');
+}
+
+// 65. Bending Spoons / Remini / Focos (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://remini.oracle.bendingspoonsapps.com/v1/users/me' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('BendingSpoons (Remini): active_bundle_subscriptions injected', b.me && Array.isArray(b.me.active_bundle_subscriptions) && b.me.active_bundle_subscriptions[0].product_id.includes('nwdn'), out ? out.body : 'null');
+}
+
+// 66. Lingvist (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://payment-api.lingvist.com/v1/user/services' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('Lingvist: unlimited service active', Array.isArray(b.services) && b.services[0].is_active === true, out ? out.body : 'null');
+}
+
+// 67. Memrise (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://api.memrise.com/v1.18/me/' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('Memrise: user.is_pro=true & is_premium=true', b.user && b.user.is_pro === true && b.user.is_premium === true, out ? out.body : 'null');
+}
+
+// 68. Sorted3 (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://api.sortedapp.com/receipts/verify' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('Sorted: isPro=true & isBundleEnabled=true', b.isPro === true && b.isBundleEnabled === true, out ? out.body : 'null');
+}
+
+// 69. Varlens (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://mid.zineapi.com/api/user/info' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('Varlens: membership.role_name=pro', b.data && b.data.membership && b.data.membership.role_name === 'pro', out ? out.body : 'null');
+}
+
+// 70. Day One Journal (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://dayone.app/api/v2/users/account-status' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('DayOne: subscriptionName=premium', b.subscriptionName === 'premium', out ? out.body : 'null');
+}
+
+// 71. flomo (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://flomoapp.com/api/v1/user/me' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('flomo: pro_expired_at=2099', b.data && b.data.pro_expired_at.startsWith('2099'), out ? out.body : 'null');
+}
+
+// 72. Keep Fitness (via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://api.gotokeep.com/account/v3/user/my' }, { body: '{}' });
+  const b = JSON.parse(out.body);
+  check('Keep: hasPaid=true & memberStatus=1', b.data && b.data.hasPaid === true && b.data.memberStatus === 1, out ? out.body : 'null');
+}
+
+// 73. Nicegram (HTTP-REQUEST synthetic response via revenuecat_multi.js)
+{
+  const out = runScript('revenuecat_multi.js', { url: 'https://restore-access.indream.app/restoreAccess?id=12345' }, null);
+  const b = JSON.parse(out.response.body);
+  check('Nicegram: premiumAccess=true synthetic response', b.data && b.data.premiumAccess === true, out ? JSON.stringify(out) : 'null');
+}
+
 console.log('\n== KẾT QUẢ: ' + pass + ' PASS / ' + fail + ' FAIL ==');
 
 process.exit(fail === 0 ? 0 : 1);
