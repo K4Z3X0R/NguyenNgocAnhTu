@@ -25,7 +25,7 @@
     return;
   }
 
-  if (!data || typeof data !== 'object') {
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
     data = {};
   }
 

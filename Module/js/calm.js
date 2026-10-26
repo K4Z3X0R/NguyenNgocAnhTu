@@ -5,11 +5,12 @@
  * @date: 2026-07-25
  */
 
+(function () {
 var rawBody = ($response && $response.body) || "";
 var obj;
 try { obj = JSON.parse(rawBody); } catch (e) {}
 
-if (!obj || typeof obj !== "object") {
+if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
     $done({});
 } else {
     obj.is_lifetime = true;
@@ -27,5 +28,19 @@ if (!obj || typeof obj !== "object") {
         obj.user.expires = "2099-12-31T23:59:59.000Z";
         obj.user.is_free = false;
     }
-    $done({ body: JSON.stringify(obj) });
+    var out = { body: JSON.stringify(obj) };
+    try {
+      if (typeof $response !== "undefined" && $response && $response.headers) {
+        var h = Object.assign({}, $response.headers);
+        h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+        h["Pragma"] = "no-cache";
+        delete h["ETag"];
+        delete h["etag"];
+        delete h["If-None-Match"];
+        delete h["if-none-match"];
+        out.headers = h;
+      }
+    } catch (e) {}
+    $done(out);
 }
+})();

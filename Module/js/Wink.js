@@ -5,12 +5,14 @@
  * @date: 2026-07-21
  *******************************/
 
+(function () {
 var body = ($response && $response.body) || null;
 if (!body) {
     $done({});
 } else {
     try {
         var obj = JSON.parse(body);
+        if (!obj || typeof obj !== "object" || Array.isArray(obj)) { $done({}); return; }
 
         // Code gốc giải mã từ script Hausd0rff (2023-05-30)
         obj.data = {
@@ -43,8 +45,22 @@ if (!body) {
         obj.is_vip = true;
         obj.use_vip = true;
 
-        $done({ body: JSON.stringify(obj) });
+        var out = { body: JSON.stringify(obj) };
+        try {
+          if (typeof $response !== "undefined" && $response && $response.headers) {
+            var h = Object.assign({}, $response.headers);
+            h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+            h["Pragma"] = "no-cache";
+            delete h["ETag"];
+            delete h["etag"];
+            delete h["If-None-Match"];
+            delete h["if-none-match"];
+            out.headers = h;
+          }
+        } catch (e) {}
+        $done(out);
     } catch (e) {
         $done({});
     }
 }
+})();

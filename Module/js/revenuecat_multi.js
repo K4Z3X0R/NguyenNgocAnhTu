@@ -16,6 +16,7 @@
 > - ADD: Locket Widget companion app support
 ***********************************************/
 
+(function () {
 // ========= App ID Mapping ========= //
 // [entitlement, productIdentifier]. Khóa để dạng UTF-8 thường (KHÔNG percent-encode)
 // vì User-Agent chứa chuỗi thật. App có trong mapping -> cấp ĐÚNG entitlement key riêng.
@@ -80,7 +81,20 @@ const mapping = {
   '1998 Cam': ['pro', 'com.canhtran.1998cam.yearly'],
   '1998cam': ['pro', 'com.canhtran.1998cam.yearly'],
   'LoFi Cam': ['pro', 'com.loficam.pro'],
-  'loficam': ['pro', 'com.loficam.pro']
+  'loficam': ['pro', 'com.loficam.pro'],
+  'CalculatorJ': ['pro', 'com.calculatorx.lifetime'],
+  'CalculatorX': ['pro', 'com.calculatorx.lifetime'],
+  'com.calculatorx': ['pro', 'com.calculatorx.lifetime'],
+  'Linger': ['Pro access', 'linger_lifetime_standard'],
+  'linger': ['Pro access', 'linger_lifetime_standard'],
+  'SaveLoop': ['Sloop Pro', 'com.sloopbrowser.www.plus.Lifetime'],
+  'sloop': ['Sloop Pro', 'com.sloopbrowser.www.plus.Lifetime'],
+  'FitCurve': ['pro', 'com.fitcurve.pro.lifetime'],
+  'fitcurve': ['pro', 'com.fitcurve.pro.lifetime'],
+  'StartSleep': ['vip', 'kaishui_vip_lifetime'],
+  'com.suxuanlv.startsleepapp': ['vip', 'kaishui_vip_lifetime'],
+  'me.xgmm.meallog': ['pro', '202602071529'],
+  'me.xgmm.note': ['one month', '20250203']
 };
 
 // ========= Fallback entitlement keys ========= //
@@ -127,7 +141,7 @@ var allHeadersStr = JSON.stringify(reqHeaders).toLowerCase();
 var rawBody = ($response && $response.body) || "";
 var obj;
 try { obj = JSON.parse(rawBody); } catch (e) {}
-if (!obj || typeof obj !== "object" || !obj.subscriber) {
+if (!obj || typeof obj !== "object" || Array.isArray(obj) || !obj.subscriber) {
   // Không parse được hoặc thiếu subscriber -> trả nguyên body, tránh làm hỏng app
   $done({});
 } else {
@@ -445,3 +459,4 @@ $done(out);
 }
 
 }
+})();

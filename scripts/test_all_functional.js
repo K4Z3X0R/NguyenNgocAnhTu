@@ -623,6 +623,22 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
   check('grammarly: isPremium=true & grammarlyEdu=true', ok, out ? out.body : 'null');
 }
 
+// 41. iTunes.js (Booka verifyReceipt - Oct 2026)
+{
+  const out = runScript('iTunes.js', { headers: { 'User-Agent': 'Booka/1.0', 'If-None-Match': 'W/"123"' } }, { body: JSON.stringify({ receipt: { bundle_id: 'com.jianili.Booka' } }), headers: { ETag: '"123"' } });
+  const b = JSON.parse(out.body);
+  const inApp = b.receipt && b.receipt.in_app;
+  check('iTunes: Booka lifetime IAP & cache-bust injected', inApp && inApp.length > 0 && inApp[0].product_id === 'com.jianili.Booka.pro.lifetime' && out.headers && out.headers['Cache-Control'].includes('no-store'), out ? out.body : 'null');
+}
+
+// 42. iTunes.js (Calligraphy Master verifyReceipt - Oct 2026)
+{
+  const out = runScript('iTunes.js', { headers: { 'User-Agent': 'PhimCiaj/1.0' } }, { body: JSON.stringify({ receipt: { bundle_id: 'com.jiancent.calligraphymaster' } }) });
+  const b = JSON.parse(out.body);
+  const inApp = b.receipt && b.receipt.in_app;
+  check('iTunes: Calligraphy Master lifetime IAP injected', inApp && inApp.length > 0 && inApp[0].product_id === 'com.jiancent.calligraphymaster.lifetime', out ? out.body : 'null');
+}
+
 console.log('\n== KẾT QUẢ: ' + pass + ' PASS / ' + fail + ' FAIL ==');
 
 process.exit(fail === 0 ? 0 : 1);

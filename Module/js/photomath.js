@@ -13,6 +13,7 @@
  *  - https://github.com/89996462/Quantumult-X  (thư mục ycdz - kiểm tra định kỳ)
  */
 
+(function () {
 let rawBody = ($response && $response.body) || "";
 let obj;
 try {
@@ -25,7 +26,7 @@ try {
 const FAR_FUTURE = "2099-12-31T23:59:59.000Z";
 const STARTED = "2021-01-01T00:00:00.000Z";
 
-if (obj && typeof obj === "object") {
+if (obj && typeof obj === "object" && !Array.isArray(obj)) {
   // content có thể nằm ở obj.content (v4/me) - giữ nguyên các field khác
   const c = obj.content && typeof obj.content === "object" ? obj.content : obj;
 
@@ -55,4 +56,22 @@ if (obj && typeof obj === "object") {
   }
 }
 
-$done(obj && typeof obj === "object" ? { body: JSON.stringify(obj) } : {});
+if (obj && typeof obj === "object" && !Array.isArray(obj)) {
+  var out = { body: JSON.stringify(obj) };
+  try {
+    if (typeof $response !== "undefined" && $response && $response.headers) {
+      var h = Object.assign({}, $response.headers);
+      h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+      h["Pragma"] = "no-cache";
+      delete h["ETag"];
+      delete h["etag"];
+      delete h["If-None-Match"];
+      delete h["if-none-match"];
+      out.headers = h;
+    }
+  } catch (e) {}
+  $done(out);
+} else {
+  $done({});
+}
+})();

@@ -26,7 +26,7 @@
     return;
   }
 
-  if (!data || typeof data !== 'object') {
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
     if (typeof $done !== 'undefined') $done({});
     return;
   }

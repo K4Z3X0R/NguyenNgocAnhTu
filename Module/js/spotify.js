@@ -117,7 +117,7 @@
     var bin = null;
     if (bodyBytes) {
       bin = new Uint8Array(bodyBytes);
-    } else if (rawBody && typeof rawBody === "object") {
+    } else if (rawBody && typeof rawBody === "object" && !Array.isArray(rawBody)) {
       if (rawBody instanceof Uint8Array) {
         bin = rawBody;
       } else if (typeof ArrayBuffer !== "undefined" && rawBody instanceof ArrayBuffer) {

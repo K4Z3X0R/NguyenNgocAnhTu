@@ -5,6 +5,7 @@
  * @date: 2026-04-21
  */
 
+(function () {
 function findUrl(_reg) {
     var u = ($request && $request.url) || "";
     if (_reg.test(u)) {
@@ -92,8 +93,22 @@ switch (($request && $request.url) || "") {
     break;
 }
 if (obj) {
-    $done({ body: JSON.stringify(obj) });
+    var out = { body: JSON.stringify(obj) };
+    try {
+      if (typeof $response !== "undefined" && $response && $response.headers) {
+        var h = Object.assign({}, $response.headers);
+        h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+        h["Pragma"] = "no-cache";
+        delete h["ETag"];
+        delete h["etag"];
+        delete h["If-None-Match"];
+        delete h["if-none-match"];
+        out.headers = h;
+      }
+    } catch (e) {}
+    $done(out);
 } else {
     // URL khớp MITM nhưng không khớp case nào -> để nguyên response (tránh trả "undefined")
     $done({});
 }
+})();

@@ -481,7 +481,8 @@
         }
 
         function copyDnsUrl() {
-            const url = VPS_HOST + '/DNS.mobileconfig';
+            const btn = document.getElementById('btnDownload');
+            const url = (btn && btn.href) ? btn.href : (VPS_HOST + '/DNS.mobileconfig');
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(url).then(() => {
                     showToast('Đã sao chép liên kết cấu hình!');

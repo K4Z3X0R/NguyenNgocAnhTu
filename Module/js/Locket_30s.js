@@ -5,6 +5,7 @@
 > Cập nhật: 2026-10-26 (v2.9.5 - Apex Locket Suite: Dual FeatureGates, Extended Captions & Cross-Platform Evasion)
 ***********************************************/
 
+(function () {
 // HTTP-REQUEST mode: Xóa If-None-Match & If-Modified-Since và bảo toàn trọn vẹn request body cho Firebase POST
 if (typeof $response === "undefined" || $response === null) {
   var reqHeaders = (typeof $request !== "undefined" && $request && $request.headers) ? Object.assign({}, $request.headers) : {};
@@ -4226,3 +4227,4 @@ if (typeof $response === "undefined" || $response === null) {
     } catch (e) {}
     $done(out);
 }
+})();

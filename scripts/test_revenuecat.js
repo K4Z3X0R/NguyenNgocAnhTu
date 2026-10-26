@@ -46,6 +46,11 @@ testApp('NOMO Point', 'NOMO Point/1.0', 'pro');
 testApp('KUNI Cam', 'KUNI/1.0', 'pro');
 testApp('1998 Cam', '1998 Cam/1.0', 'pro');
 testApp('LoFi Cam', 'LoFi Cam/1.0', 'pro');
+testApp('CalculatorX (Oct 2026)', 'CalculatorX/1.0', 'pro');
+testApp('Linger (Oct 2026)', 'Linger/1.0', 'Pro access');
+testApp('SaveLoop (Oct 2026)', 'SaveLoop/1.0', 'Sloop Pro');
+testApp('FitCurve (Oct 2026)', 'FitCurve/1.0', 'pro');
+testApp('StartSleep (Oct 2026)', 'StartSleep/1.0', 'vip');
 testApp('Generic Fallback', 'RandomApp/1.0', 'pro');
 
 // Test 22: Server existing entitlement sync to subscriptions

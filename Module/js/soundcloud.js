@@ -5,11 +5,12 @@
  * @date: 2026-07-25
  */
 
+(function () {
 var body = ($response && $response.body) || null; 
 var obj;
 try { obj = JSON.parse(body); } catch (e) {}
 
-if (obj) {
+if (obj && typeof obj === "object" && !Array.isArray(obj)) {
   obj.plan = {
     "vendor": "apple",
     "id": "high_tier",
@@ -27,7 +28,21 @@ if (obj) {
     { "name": "unlimited_tracks", "enabled": true }
   ];
 
-  $done({ body: JSON.stringify(obj) });
+  var out = { body: JSON.stringify(obj) };
+  try {
+    if (typeof $response !== "undefined" && $response && $response.headers) {
+      var h = Object.assign({}, $response.headers);
+      h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+      h["Pragma"] = "no-cache";
+      delete h["ETag"];
+      delete h["etag"];
+      delete h["If-None-Match"];
+      delete h["if-none-match"];
+      out.headers = h;
+    }
+  } catch (e) {}
+  $done(out);
 } else {
   $done({});
 }
+})();

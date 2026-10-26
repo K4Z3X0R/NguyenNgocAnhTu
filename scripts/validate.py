@@ -258,7 +258,22 @@ def check_all_local_js_parity() -> None:
         for mod, miss in missing_map.items():
             errors.append(f"[parity] {mod} thiếu tham chiếu local scripts ({len(miss)}): {', '.join(miss)}")
     else:
-        print(f"[parity] OK — 8/8 module wire đầy đủ cả {len(js_files)}/31 local scripts (calm, wps, darkroom, oldroll...)")
+        print(f"[parity] OK — 8/8 module wire đầy đủ cả {len(js_files)}/{len(js_files)} local scripts (calm, wps, darkroom, oldroll...)")
+
+    # Kiểm tra an toàn & chống cache-304 cho toàn bộ local scripts (trừ youtube protobuf bundle)
+    bad_js: list[str] = []
+    for j in js_files:
+        if j == "youtube.response.js":
+            continue
+        src = (js_dir / j).read_text(encoding="utf-8")
+        if "jsjiami" in src or "_0x19f4" in src:
+            bad_js.append(f"{j} (chứa mã rối/obfuscated)")
+        if "Cache-Control" not in src:
+            bad_js.append(f"{j} (thiếu Cache-Control anti-304)")
+    if bad_js:
+        errors.append("[js-quality] Phát hiện script chưa đạt chuẩn an toàn/cache-bust: " + "; ".join(bad_js))
+    else:
+        print(f"[js-quality] OK — {len(js_files) - 1}/{len(js_files) - 1} JSON scripts đạt chuẩn Clean Code & Cache-Bust 100%")
 
 
 def check_mitm_essential_parity() -> None:

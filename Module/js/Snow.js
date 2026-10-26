@@ -6,6 +6,7 @@
  * @date: 2026-05-09
  */
 
+(function () {
 var rawBody = ($response && $response.body) || "";
 var objc;
 try { objc = JSON.parse(rawBody); } catch (e) {}
@@ -18,7 +19,7 @@ const list = {
     "iphoneapp.snow": { id: "com.campmobile.snow.subscribe.oneyear" }       // SNOW-AI ảnh chụp
 };
 
-if (!objc || typeof objc !== "object") {
+if (!objc || typeof objc !== "object" || Array.isArray(objc)) {
     $done({});
 } else {
     let targetKey = "iphoneapp.snow";
@@ -51,5 +52,19 @@ if (!objc || typeof objc !== "object") {
         "activated": true
     });
     console.log("✅ Unlock thành công — z3rokaze (" + targetKey + ")");
-    $done({ body: JSON.stringify(objc) });
+    var out = { body: JSON.stringify(objc) };
+    try {
+      if (typeof $response !== "undefined" && $response && $response.headers) {
+        var h = Object.assign({}, $response.headers);
+        h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+        h["Pragma"] = "no-cache";
+        delete h["ETag"];
+        delete h["etag"];
+        delete h["If-None-Match"];
+        delete h["if-none-match"];
+        out.headers = h;
+      }
+    } catch (e) {}
+    $done(out);
 }
+})();

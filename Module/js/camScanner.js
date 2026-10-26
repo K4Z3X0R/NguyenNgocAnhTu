@@ -5,6 +5,7 @@
  * @date: 2026-07-25
  */
 
+(function () {
 var rawBody = ($response && $response.body) || "";
 var banhsbao;
 try { banhsbao = JSON.parse(rawBody); } catch (e) {}
@@ -48,7 +49,7 @@ const vip = {
 
 const reqUrl = ($request && $request.url) || "";
 
-if (banhsbao && typeof banhsbao === "object" && reqUrl.indexOf(vipa) != -1) {
+if (banhsbao && typeof banhsbao === "object" && !Array.isArray(banhsbao) && reqUrl.indexOf(vipa) != -1) {
     if (!banhsbao.data) banhsbao.data = {};
     banhsbao.data["psnl_vip_property"] = vip;
     banhsbao.data["fax_balance"] = "99999";
@@ -62,13 +63,13 @@ if (banhsbao && typeof banhsbao === "object" && reqUrl.indexOf(vipa) != -1) {
     banhsbao.data["CamScanner_RoadMap"] = 100000;
 }
 
-if (banhsbao && typeof banhsbao === "object" && reqUrl.indexOf(vipb) != -1) {
+if (banhsbao && typeof banhsbao === "object" && !Array.isArray(banhsbao) && reqUrl.indexOf(vipb) != -1) {
     if (!banhsbao.data) banhsbao.data = {};
     if (!banhsbao.data.ar_property) banhsbao.data.ar_property = {};
     banhsbao.data.ar_property["psnl_vip_property"] = vip;
 }
 
-if (banhsbao && typeof banhsbao === "object" && reqUrl.indexOf(tqzx) != -1) {
+if (banhsbao && typeof banhsbao === "object" && !Array.isArray(banhsbao) && reqUrl.indexOf(tqzx) != -1) {
     if (!banhsbao.data) banhsbao.data = {};
     banhsbao.data.data = {
         "document": [
@@ -110,8 +111,22 @@ if (banhsbao && typeof banhsbao === "object" && reqUrl.indexOf(tqzx) != -1) {
     };
 }
 
-if (banhsbao && typeof banhsbao === "object") {
-    $done({ body: JSON.stringify(banhsbao) });
+if (banhsbao && typeof banhsbao === "object" && !Array.isArray(banhsbao)) {
+    var out = { body: JSON.stringify(banhsbao) };
+    try {
+      if (typeof $response !== "undefined" && $response && $response.headers) {
+        var h = Object.assign({}, $response.headers);
+        h["Cache-Control"] = "no-store, no-cache, must-revalidate";
+        h["Pragma"] = "no-cache";
+        delete h["ETag"];
+        delete h["etag"];
+        delete h["If-None-Match"];
+        delete h["if-none-match"];
+        out.headers = h;
+      }
+    } catch (e) {}
+    $done(out);
 } else {
     $done({});
 }
+})();
