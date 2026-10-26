@@ -49,6 +49,8 @@
 <!-- HÀNG 1 — THÔNG TIN DỰ ÁN -->
 <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases"><img src="https://img.shields.io/badge/%E2%9A%A1_PHI%C3%8AN_B%E1%BA%A2N-v2.8.9--stable-00F0FF?style=for-the-badge&labelColor=0D1117" alt="version"/></a>
 &nbsp;
+<a href="https://k4z3x0r.github.io/NguyenNgocAnhTu/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_WEB_PORTAL-ONLINE_2099-FFD700?style=for-the-badge&logo=safari&logoColor=0D1117&labelColor=0D1117" alt="web-portal"/></a>
+&nbsp;
 <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/K4Z3X0R/NguyenNgocAnhTu/ci.yml?branch=master&style=for-the-badge&logo=githubactions&logoColor=00F0FF&label=%E2%9C%85+CI+TESTS&color=00FF88&labelColor=0D1117" alt="ci"/></a>
 &nbsp;
 <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/blob/master/LICENSE"><img src="https://img.shields.io/badge/%F0%9F%93%9C_GI%E1%BA%A4Y_PH%C3%89P-AGPL--3.0-FF007F?style=for-the-badge&labelColor=0D1117" alt="license"/></a>
@@ -1340,7 +1342,7 @@ https://github.com/K4Z3X0R/NguyenNgocAnhTu/tree/master/Module
 
 | Bước | Thao tác | Chi tiết | Kết quả |
 |:---:|:---|:---|:---:|
-| ① | Tải profile **👑 Anh Tú • Locket Gold 💛** | Tải trực tiếp file [DNS.mobileconfig](https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases/latest/download/DNS.mobileconfig) | 📥 |
+| ① | Tải profile **👑 Anh Tú • Locket Gold 💛** | Cài 1-Click tại [🌐 Web Portal DNS 2099](https://k4z3x0r.github.io/NguyenNgocAnhTu/) hoặc tải [DNS.mobileconfig](https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases/latest/download/DNS.mobileconfig) | 📥 |
 | ② | Cài vào iPhone | Cài đặt → Cài đặt chung → VPN & Quản lý thiết bị | ✅ |
 | ③ | **BẬT** proxy → Mở Locket | Đợi Gold hiện lên (lần đầu tiên) | 🟢 |
 | ④ | **TẮT** proxy → Mở lại Locket | Gold vẫn còn! | 🎉 |
