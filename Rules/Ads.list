@@ -290,8 +290,8 @@ DOMAIN,audio-sp-ash.pscdn.co
 DOMAIN,audio-sp-dca.pscdn.co
 DOMAIN,audio-sp-lon.pscdn.co
 DOMAIN,podcastads.spotify.com
-DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net
-DOMAIN-SUFFIX,heads-ak-spotify-com.akamaized.net
+DOMAIN-SUFFIX,audio-fa.scdn.co
+DOMAIN-SUFFIX,gads.current.spotify.com
 DOMAIN,adeventtracker.spotify.com
 
 # --- Meta / Facebook Ads bổ sung (08-2026) ---

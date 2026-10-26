@@ -15,7 +15,7 @@
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>1A28CAE7-B51A-4AEA-92BB-BA95624B3666</string>
+    <string>4A92DF0F-436C-499F-AC0D-F6D61A3799F7</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
     <key>PayloadContent</key>
@@ -29,7 +29,7 @@
             <key>PayloadIdentifier</key>
             <string>com.anhtu.rootca</string>
             <key>PayloadUUID</key>
-            <string>2EDAAA18-227F-4ECD-9BCA-16C29672D4B9</string>
+            <string>F37F7EBD-6FF1-433F-9922-2E878300337A</string>
             <key>PayloadDisplayName</key>
             <string>Anh Tú VIP Apex Root CA</string>
             <key>PayloadDescription</key>
@@ -47,7 +47,7 @@
             <key>PayloadIdentifier</key>
             <string>com.anhtu.dns.managed</string>
             <key>PayloadUUID</key>
-            <string>F141E3E9-6C1F-4DBD-9E26-F7F28D498CAC</string>
+            <string>135F441D-F44F-45A1-94FF-0FCA7E12D46A</string>
             <key>PayloadDisplayName</key>
             <string>⚡ Anh Tú Apex DoH (Singapore)</string>
             <key>PayloadDescription</key>
@@ -71,8 +71,6 @@
                     <string>ads-fa.spotify.com</string>
                     <string>gads.current.spotify.com</string>
                     <string>podcastads.spotify.com</string>
-                    <string>audio-ak-spotify-com.akamaized.net</string>
-                    <string>heads-ak-spotify-com.akamaized.net</string>
                     <string>audio-fa.scdn.co</string>
                     <string>crashdump.spotify.com</string>
                     <string>log.spotify.com</string>

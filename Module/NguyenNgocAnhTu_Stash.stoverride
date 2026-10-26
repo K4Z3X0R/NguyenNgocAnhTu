@@ -16,24 +16,28 @@ rules:
   - DOMAIN,searchads.apple.com,REJECT
   - DOMAIN,iad.apple.com,REJECT
   - DOMAIN,iadsdk.apple.com,REJECT
-  # === BLOCK QUIC FOR YOUTUBE MITM ===
-  # STASH NOT SUPPORT: AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
-  # STASH NOT SUPPORT: AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
-AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
+  # === BLOCK QUIC FOR YOUTUBE & SPOTIFY & LOCKET MITM ===
+  - AND,((DOMAIN-SUFFIX,googlevideo.com),(NETWORK,UDP)),REJECT
+  - AND,((DOMAIN,youtubei.googleapis.com),(NETWORK,UDP)),REJECT
+  - AND,((DOMAIN,www.youtube.com),(NETWORK,UDP)),REJECT
+  - AND,((DOMAIN,firebaseremoteconfig.googleapis.com),(NETWORK,UDP)),REJECT
+  - AND,((DOMAIN-KEYWORD,spotify),(NETWORK,UDP)),REJECT
 
   # === BLOCK WEBRTC LEAK (Specific servers) ===
-  # Note: Generic KEYWORD stun/turn removed â€” breaks VoIP (FaceTime, WhatsApp, Zoom)
+  # Note: Generic KEYWORD stun/turn removed — breaks VoIP (FaceTime, WhatsApp, Zoom)
   - DOMAIN-SUFFIX,stun.l.google.com,REJECT
   - DOMAIN-SUFFIX,stun1.l.google.com,REJECT
   - DOMAIN-SUFFIX,stun2.l.google.com,REJECT
   - DOMAIN-SUFFIX,stun3.l.google.com,REJECT
   - DOMAIN-SUFFIX,stun4.l.google.com,REJECT
 
-  # === SPOTIFY ADS ===
-  - DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net,REJECT
-  - DOMAIN-SUFFIX,audio4-ak-spotify-com.akamaized.net,REJECT
-  - DOMAIN-SUFFIX,heads-ak-spotify-com.akamaized.net,REJECT
-  - DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net,REJECT
+  # === BLOCK SPOTIFY ADS & TRACKERS 100% ===
+  # Note: audio-ak and heads-ak must be DIRECT to stream audio smoothly
+  - DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net,DIRECT
+  - DOMAIN-SUFFIX,audio4-ak-spotify-com.akamaized.net,DIRECT
+  - DOMAIN-SUFFIX,heads-ak-spotify-com.akamaized.net,DIRECT
+  - DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net,DIRECT
+  - DOMAIN-SUFFIX,audio-fa.scdn.co,REJECT
   - DOMAIN,spclient.wg.spotify.com,DIRECT
   - DOMAIN,api.spotify.com,DIRECT
   - DOMAIN-KEYWORD,spotify-ads,REJECT
@@ -42,6 +46,7 @@ AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
   - DOMAIN-SUFFIX,adeventtracker.spotify.com,REJECT
   - DOMAIN-SUFFIX,log.spotify.com,REJECT
   - DOMAIN-SUFFIX,creativeservice-production.scdn.co,REJECT
+  - DOMAIN-SUFFIX,gads.current.spotify.com,REJECT
   # === BLOCK SPOTIFY PODCAST ADS & CANVAS (v2.8.0) ===
   - DOMAIN,audio-sp-sto.pscdn.co,REJECT
   - DOMAIN,audio-sp-ash.pscdn.co,REJECT

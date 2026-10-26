@@ -6,8 +6,9 @@
   "license": "AGPL-3.0",
   "homepage": "https://github.com/K4Z3X0R/NguyenNgocAnhTu",
   "scripts": {
-    "test": "node scripts/test_spotify.js && node scripts/test_revenuecat.js && node scripts/test_locket_45s.js && node scripts/test_locket_apex_verification.js && node scripts/test_education.js && node scripts/test_all_scripts.js && node scripts/test_all_functional.js && python scripts/validate.py",
+    "test": "node scripts/test_spotify.js && node scripts/test_revenuecat.js && node scripts/test_locket_45s.js && node scripts/test_locket_apex_verification.js && node scripts/test_education.js && node scripts/test_all_scripts.js && node scripts/test_all_functional.js && node scripts/test_reality_proof.js && python scripts/validate.py",
     "test:locket": "node scripts/test_locket_45s.js && node scripts/test_locket_apex_verification.js",
+    "test:reality": "node scripts/test_reality_proof.js",
     "test:spotify": "node scripts/test_spotify.js",
     "test:revenuecat": "node scripts/test_revenuecat.js",
     "test:education": "node scripts/test_education.js",

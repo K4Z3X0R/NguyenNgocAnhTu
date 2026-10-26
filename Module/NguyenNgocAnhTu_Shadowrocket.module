@@ -25,14 +25,17 @@ DOMAIN-SUFFIX,spotifycdn.com,DIRECT
 # === BLOCK QUIC FOR YOUTUBE & SPOTIFY ===
 AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,www.youtube.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN-KEYWORD,spotify), (PROTOCOL,UDP)),REJECT
 
 # === BLOCK SPOTIFY ADS & TRACKERS 100% ===
-DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net,REJECT
-DOMAIN-SUFFIX,audio4-ak-spotify-com.akamaized.net,REJECT
-DOMAIN-SUFFIX,heads-ak-spotify-com.akamaized.net,REJECT
-DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net,REJECT
+# Note: audio-ak and heads-ak must be DIRECT to stream audio smoothly
+DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net,DIRECT
+DOMAIN-SUFFIX,audio4-ak-spotify-com.akamaized.net,DIRECT
+DOMAIN-SUFFIX,heads-ak-spotify-com.akamaized.net,DIRECT
+DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net,DIRECT
+DOMAIN-SUFFIX,audio-fa.scdn.co,REJECT
 DOMAIN-KEYWORD,spotify-ads,REJECT
 DOMAIN-SUFFIX,ads-fa.spotify.com,REJECT
 DOMAIN-SUFFIX,analytics.spotify.com,REJECT

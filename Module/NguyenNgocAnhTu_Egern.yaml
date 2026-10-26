@@ -14,23 +14,41 @@ dns:
 
 rules:
   # --- Block iOS OTA Updates (Triệt để) ---
-  - DOMAIN,mesu.apple.com,REJECT
-  - DOMAIN,gdmf.apple.com,REJECT
-  - DOMAIN,updates-http.apple.com,REJECT
-  - DOMAIN,appldnld.apple.com,REJECT
-  - DOMAIN,swcdn.apple.com,REJECT
-  - DOMAIN,xp.apple.com,REJECT
+  - domain:
+      match: "mesu.apple.com"
+      policy: REJECT
+  - domain:
+      match: "gdmf.apple.com"
+      policy: REJECT
+  - domain:
+      match: "updates-http.apple.com"
+      policy: REJECT
+  - domain:
+      match: "appldnld.apple.com"
+      policy: REJECT
+  - domain:
+      match: "swcdn.apple.com"
+      policy: REJECT
+  - domain:
+      match: "xp.apple.com"
+      policy: REJECT
   # --- Block App Store Search Ads ---
-  - DOMAIN,searchads.apple.com,REJECT
-  - DOMAIN,iad.apple.com,REJECT
-  - DOMAIN,iadsdk.apple.com,REJECT
+  - domain:
+      match: "searchads.apple.com"
+      policy: REJECT
+  - domain:
+      match: "iad.apple.com"
+      policy: REJECT
+  - domain:
+      match: "iadsdk.apple.com"
+      policy: REJECT
   # === BLOCK QUIC FOR YOUTUBE MITM ===
   # EGERN NOT SUPPORT: cú pháp AND,((...),(PROTOCOL,UDP)),REJECT (giống Stash) — giữ tham chiếu, KHÔNG bật.
   # AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
   # AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
-AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
+  # AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
   # === BLOCK WEBRTC LEAK (Specific servers) ===
-  # Note: Generic KEYWORD stun/turn removed â€” breaks VoIP (FaceTime, WhatsApp, Zoom)
+  # Note: Generic KEYWORD stun/turn removed — breaks VoIP (FaceTime, WhatsApp, Zoom)
   - domain_suffix:
       match: "stun.l.google.com"
       policy: REJECT
@@ -46,18 +64,22 @@ AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
   - domain_suffix:
       match: "stun4.l.google.com"
       policy: REJECT
-  # === SPOTIFY ADS ===
+  # === BLOCK SPOTIFY ADS & TRACKERS 100% ===
+  # Note: audio-ak and heads-ak must be DIRECT to stream audio smoothly
   - domain_suffix:
       match: "audio-ak-spotify-com.akamaized.net"
-      policy: REJECT
+      policy: DIRECT
   - domain_suffix:
       match: "audio4-ak-spotify-com.akamaized.net"
-      policy: REJECT
+      policy: DIRECT
   - domain_suffix:
       match: "heads-ak-spotify-com.akamaized.net"
-      policy: REJECT
+      policy: DIRECT
   - domain_suffix:
       match: "heads4-ak-spotify-com.akamaized.net"
+      policy: DIRECT
+  - domain_suffix:
+      match: "audio-fa.scdn.co"
       policy: REJECT
   - domain:
       match: "spclient.wg.spotify.com"
@@ -82,6 +104,9 @@ AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
       policy: REJECT
   - domain_suffix:
       match: "creativeservice-production.scdn.co"
+      policy: REJECT
+  - domain_suffix:
+      match: "gads.current.spotify.com"
       policy: REJECT
   # --- Spotify Podcast Ads & Canvas (v2.8.0) ---
   - domain:

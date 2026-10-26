@@ -366,11 +366,68 @@ def check_timeout_resilience() -> None:
         print("[timeout] OK — tất cả script trên mọi module đều có timeout >= 30s")
 
 
+def check_egern_syntax() -> None:
+    egern_file = MODULE_DIR / "NguyenNgocAnhTu_Egern.yaml"
+    if not egern_file.exists():
+        return
+    lines = egern_file.read_text(encoding="utf-8").splitlines()
+    in_rules = False
+    bad_lines = []
+    for i, line in enumerate(lines, 1):
+        s = line.strip()
+        if s == "rules:":
+            in_rules = True
+            continue
+        if in_rules:
+            if s.startswith("url_rewrites:") or s.startswith("header_rewrites:") or s.startswith("scriptings:") or s.startswith("mitm:"):
+                in_rules = False
+                continue
+            if s.startswith("- ") and not s.startswith("#"):
+                content = s[2:].strip()
+                if not content.endswith(":"):
+                    bad_lines.append(f"Line {i}: {s}")
+    if bad_lines:
+        errors.append(f"[egern-syntax] Phát hiện {len(bad_lines)} rule trong Egern không phải định dạng dictionary: {'; '.join(bad_lines[:5])}")
+    else:
+        print("[egern-syntax] OK — Cấu trúc rules trong Egern YAML chuẩn định dạng dictionary 100%")
+
+
+def check_quantumultx_syntax() -> None:
+    qx_file = MODULE_DIR / "NguyenNgocAnhTu_QuantumultX.snippet"
+    if not qx_file.exists():
+        return
+    lines = qx_file.read_text(encoding="utf-8").splitlines()
+    valid_qx_types = {
+        "host", "host-suffix", "host-keyword", "ip-cidr", "ip6-cidr",
+        "geoip", "user-agent", "final"
+    }
+    bad_lines = []
+    for i, line in enumerate(lines, 1):
+        s = line.strip()
+        if not s or s.startswith("#") or s.startswith(";"):
+            continue
+        if s.startswith("hostname"):
+            continue
+        if ("url script-" in s or "url reject" in s or "url echo-" in s or
+            "url request-" in s or "url response-" in s or " 302" in s or " 307" in s):
+            continue
+        parts = [p.strip() for p in s.split(",")]
+        rtype = parts[0].lower()
+        if rtype not in valid_qx_types:
+            bad_lines.append(f"Line {i}: {s}")
+    if bad_lines:
+        errors.append(f"[qx-syntax] Phát hiện {len(bad_lines)} dòng filter sai cú pháp trong Quantumult X snippet: {'; '.join(bad_lines[:5])}")
+    else:
+        print("[qx-syntax] OK — Tất cả filter rules trong Quantumult X snippet đều chuẩn xác 100%")
+
+
 def main() -> int:
     check_versions()
     check_json_arguments()
     check_rule_duplicates()
     check_rules_syntax()
+    check_egern_syntax()
+    check_quantumultx_syntax()
     check_sha_pinning()
     check_referenced_files()
     check_dns_profile()

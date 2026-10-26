@@ -24,6 +24,7 @@ dns-server = https://dns.adguard-dns.com/dns-query, https://freedns.controld.com
 # === BLOCK QUIC FOR YOUTUBE MITM ===
 AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,www.youtube.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
 
 # === BLOCK QUIC FOR SPOTIFY MITM ===
@@ -50,11 +51,13 @@ DOMAIN-SUFFIX,stun2.l.google.com,REJECT
 DOMAIN-SUFFIX,stun3.l.google.com,REJECT
 DOMAIN-SUFFIX,stun4.l.google.com,REJECT
 
-# === SPOTIFY ADS ===
-DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net,REJECT
-DOMAIN-SUFFIX,audio4-ak-spotify-com.akamaized.net,REJECT
-DOMAIN-SUFFIX,heads-ak-spotify-com.akamaized.net,REJECT
-DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net,REJECT
+# === BLOCK SPOTIFY ADS & TRACKERS 100% ===
+# Note: audio-ak and heads-ak must be DIRECT to stream audio smoothly
+DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net,DIRECT
+DOMAIN-SUFFIX,audio4-ak-spotify-com.akamaized.net,DIRECT
+DOMAIN-SUFFIX,heads-ak-spotify-com.akamaized.net,DIRECT
+DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net,DIRECT
+DOMAIN-SUFFIX,audio-fa.scdn.co,REJECT
 DOMAIN,spclient.wg.spotify.com,DIRECT
 DOMAIN,api.spotify.com,DIRECT
 DOMAIN-KEYWORD,spotify-ads,REJECT
@@ -63,6 +66,7 @@ DOMAIN-SUFFIX,analytics.spotify.com,REJECT
 DOMAIN-SUFFIX,adeventtracker.spotify.com,REJECT
 DOMAIN-SUFFIX,log.spotify.com,REJECT
 DOMAIN-SUFFIX,creativeservice-production.scdn.co,REJECT
+DOMAIN-SUFFIX,gads.current.spotify.com,REJECT
 
 # === BLOCK SPOTIFY PODCAST ADS & CANVAS ===
 DOMAIN,audio-sp-sto.pscdn.co,REJECT

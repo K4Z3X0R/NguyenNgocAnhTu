@@ -4,7 +4,14 @@
 
 hostname=*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*-spclient.spotify.com,gads.current.spotify.com,api.spotify.com,api.revenuecat.com,api.rc-backup.com,buy.itunes.apple.com,api.picsart.com,api.picsart.cn,api.meiease.com,api.meiease.cn,api-mobile.soundcloud.com,api-account.kinemasters.com,photos.adobe.io,lcs-mobile-cops.adobe.io,app.algoriddim.com,api.calm.com,api.busuu.com,api.prod.headspace.com,vsco.co,mb3admin.com,api.funimate.com,us-central1-alight-creative.cloudfunctions.net,api-sub.meitu.com,premium-*.truecaller.com,*.intsig.net,api.mr.pixocial.com,newbeee-api.beautyplus.com,user-snow-api.snow.me,user-kaji-api.b612kaji.com,h5.xiuxiu.meitu.com,api.xiuxiu.meitu.com,account.wps.cn,*.account.wps.com,www.xmind.cn,www.xmind.net,www.xmind.app,ars.alar.my,subscription.grammarly.com,notability.com,lapi.photomath.net,pro.smallpdf.com,billing.peakcloud.org,api.polaxiong.com,premium-api.myfitnesspal.com,apic.musixmatch.com,server.yoyiapp.com,mid.zineapi.com,apimboom2.globaldelight.net,api.flexibits.com,api.craft.do,dayone.app,restore-access.indream.app,service.ilovepdf.com,api.mondlylanguages.com,api.memrise.com,api.alohaprofile.com,pre.dailyyoga.com,app-subscription-proxy.accuweather.com,api-production.endel.io,flomoapp.com,backend.getdrafts.com,api.gotokeep.com,payments.invideo.io,ssl-api.itranslateapp.com,payment-api.lingvist.com,*.oracle.bendingspoonsapps.com,app.bilibili.com,accounts.agenda.com,license.pdfexpert.com,api.sortedapp.com,com.zijayrate.analogcam,v1.darkroom.co,api.elsaspeak.com,api.photoroom.com,api.remini.ai,api.bazaart.me,sub.store,api.duolingo.com,ios-api-cdn.duolingo.com,api.mycake.me,quizlet.com,firebaseremoteconfig.googleapis.com, pool.elsanow.io, mobile-api.adguard.org, *.grammarly.com
 
-# === BLOCK QUIC FOR YOUTUBE MITM ===
+# === BLOCK QUIC FOR YOUTUBE & SPOTIFY & LOCKET MITM ===
+# Lưu ý: Quantumult X snippet không hỗ trợ cú pháp AND/PROTOCOL (chỉ Surge/Loon/Stash hỗ trợ).
+# Để chặn QUIC trên Quantumult X, hãy thêm vào mục [general] trong QuantumultX.conf: udp_drop_list = 443
+# and, ((host-suffix, googlevideo.com), (protocol, udp)), reject
+# and, ((host, youtubei.googleapis.com), (protocol, udp)), reject
+# and, ((host, www.youtube.com), (protocol, udp)), reject
+# and, ((host, firebaseremoteconfig.googleapis.com), (protocol, udp)), reject
+# and, ((host-keyword, spotify), (protocol, udp)), reject
 
 # === BLOCK iOS OTA UPDATES (Triệt để) ===
 host, mesu.apple.com, reject
@@ -27,11 +34,13 @@ host-suffix, stun2.l.google.com, reject
 host-suffix, stun3.l.google.com, reject
 host-suffix, stun4.l.google.com, reject
 
-# === SPOTIFY ADS ===
-host-suffix, audio-ak-spotify-com.akamaized.net, reject
-host-suffix, audio4-ak-spotify-com.akamaized.net, reject
-host-suffix, heads-ak-spotify-com.akamaized.net, reject
-host-suffix, heads4-ak-spotify-com.akamaized.net, reject
+# === BLOCK SPOTIFY ADS & TRACKERS 100% ===
+# Note: audio-ak and heads-ak must be DIRECT to stream audio smoothly
+host-suffix, audio-ak-spotify-com.akamaized.net, direct
+host-suffix, audio4-ak-spotify-com.akamaized.net, direct
+host-suffix, heads-ak-spotify-com.akamaized.net, direct
+host-suffix, heads4-ak-spotify-com.akamaized.net, direct
+host-suffix, audio-fa.scdn.co, reject
 host, spclient.wg.spotify.com, direct
 host, api.spotify.com, direct
 host-keyword, spotify-ads, reject
@@ -40,6 +49,7 @@ host-suffix, analytics.spotify.com, reject
 host-suffix, adeventtracker.spotify.com, reject
 host-suffix, log.spotify.com, reject
 host-suffix, creativeservice-production.scdn.co, reject
+host-suffix, gads.current.spotify.com, reject
 
 # === BLOCK SPOTIFY PODCAST ADS & CANVAS (v2.8.0) ===
 host, audio-sp-sto.pscdn.co, reject

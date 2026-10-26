@@ -234,5 +234,35 @@ console.log("== spotify.js unit test ==");
   check("proto QuanX bodyBytes: replaced free with premium", outStr.indexOf("\x06client\x07premium") !== -1, outStr);
 }
 
+// 19. Kiểm tra định tuyến Spotify Audio CDN (audio-ak-spotify-com.akamaized.net) trên 8 module
+{
+  const moduleDir = path.join(__dirname, "..", "Module");
+  const moduleFiles = fs.readdirSync(moduleDir).filter(f => f.startsWith("NguyenNgocAnhTu_"));
+  let allDirect = true;
+  for (const mf of moduleFiles) {
+    const content = fs.readFileSync(path.join(moduleDir, mf), "utf-8");
+    if (content.includes("audio-ak-spotify-com.akamaized.net")) {
+      const isReject = /audio-ak-spotify-com\.akamaized\.net\s*,\s*(?:REJECT|reject)/i.test(content) ||
+                       /match:\s*"audio-ak-spotify-com\.akamaized\.net"\s*\n\s*policy:\s*REJECT/i.test(content);
+      const isDirect = /audio-ak-spotify-com\.akamaized\.net\s*,\s*(?:DIRECT|direct)/i.test(content) ||
+                       /match:\s*"audio-ak-spotify-com\.akamaized\.net"\s*\n\s*policy:\s*DIRECT/i.test(content);
+      if (isReject || !isDirect) {
+        allDirect = false;
+        console.log("    -> " + mf + " fails Spotify audio CDN direct routing");
+      }
+    }
+  }
+  check("routing: 8/8 modules route audio-ak Akamai CDN to DIRECT", allDirect && moduleFiles.length >= 7);
+}
+
+// 20. Kiểm tra Rules/Ads.list không chặn audio-ak và Rules/Direct.list chứa audio-ak
+{
+  const adsList = fs.readFileSync(path.join(__dirname, "..", "Rules", "Ads.list"), "utf-8");
+  const directList = fs.readFileSync(path.join(__dirname, "..", "Rules", "Direct.list"), "utf-8");
+  const adsNotBlocking = !adsList.includes("audio-ak-spotify-com.akamaized.net");
+  const directHasAkamai = directList.includes("audio-ak-spotify-com.akamaized.net");
+  check("rules: Ads.list unblocks and Direct.list includes audio-ak CDN", adsNotBlocking && directHasAkamai);
+}
+
 console.log("\n== KẾT QUẢ: " + pass + " PASS / " + fail + " FAIL ==");
 process.exit(fail === 0 ? 0 : 1);

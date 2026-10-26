@@ -57,8 +57,6 @@ MATCH_DOMAINS = [
     "ads-fa.spotify.com",
     "gads.current.spotify.com",
     "podcastads.spotify.com",
-    "audio-ak-spotify-com.akamaized.net",
-    "heads-ak-spotify-com.akamaized.net",
     "audio-fa.scdn.co",
     "crashdump.spotify.com",
     "log.spotify.com",
@@ -179,5 +177,3 @@ def generate_mobileconfig(output_path: Path) -> None:
 if __name__ == "__main__":
     out_file = ROOT / "DNS.mobileconfig"
     generate_mobileconfig(out_file)
-    module_out = ROOT / "Module" / "Spotify_YouTube_DNS.mobileconfig"
-    generate_mobileconfig(module_out)
