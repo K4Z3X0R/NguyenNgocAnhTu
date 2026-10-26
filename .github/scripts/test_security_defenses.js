@@ -85,7 +85,11 @@ console.log('  ✅ [PASS] Successfully decrypted runtime bytecode (size: ' + dec
 assert.ok(decryptedCode.includes('_0xRoasts'), 'FAIL: Roasts array missing from decrypted code');
 assert.ok(decryptedCode.includes('ĂN CẮP MÃ CC!'), 'FAIL: CC theft roast missing from decrypted code');
 assert.ok(decryptedCode.includes('NÉM LINK VÀO CHATBOT AI'), 'FAIL: AI chatbot roast missing from decrypted code');
-console.log('  ✅ [PASS] Random Brutal Roast Engine (16 roasts) verified in bytecode');
+assert.ok(decryptedCode.includes('KÝ SINH TRÙNG ĂN BÁM'), 'FAIL: Parasite roast missing from decrypted code');
+assert.ok(decryptedCode.includes('TAY LÀM HÀM NHAI'), 'FAIL: Work ethic roast missing from decrypted code');
+assert.ok(decryptedCode.includes('ĐỒ VÔ LIÊM SỈ'), 'FAIL: Shameless reseller roast missing from decrypted code');
+assert.ok(decryptedCode.includes('BỐ MẸ MÀY CÓ BIẾT MÀY LÀM NGHỀ ĂN CẮP KHÔNG'), 'FAIL: Family question roast missing from decrypted code');
+console.log('  ✅ [PASS] Ultra-Brutal Roast Engine (26 scathing roasts) verified in bytecode');
 
 assert.ok(decryptedCode.includes('_0xPlaySiren'), 'FAIL: Web Audio siren missing');
 console.log('  ✅ [PASS] Web Audio Alarm Siren synthesizer verified');
