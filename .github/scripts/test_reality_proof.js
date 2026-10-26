@@ -67,7 +67,7 @@ console.log('--- 1. LOCKET GOLD 45S VIDEO & REMOTE CONFIG ---');
     };
     const req = { url: "https://firebaseremoteconfig.googleapis.com/v1/projects/locket-4252a/namespaces/firebase:fetch" };
     const res = { status: 200, body: JSON.stringify(originalFirebaseConfig) };
-    const output = runScript(path.join(__dirname, '../Module/js/Locket_30s.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/Locket_30s.js'), req, res);
     
     assert(output && output.body, "Locket_30s returned a modified body");
     const parsed = JSON.parse(output.body);
@@ -87,7 +87,7 @@ console.log('--- 1. LOCKET GOLD 45S VIDEO & REMOTE CONFIG ---');
         headers: { "If-None-Match": "etag123", "If-Modified-Since": "date123", "User-Agent": "Locket/1.144.0" },
         body: JSON.stringify({ appId: "locket-app-id", appInstanceId: "test-instance" })
     };
-    const reqOutput = runScript(path.join(__dirname, '../Module/js/Locket_30s.js'), reqWithBody, null);
+    const reqOutput = runScript(path.join(__dirname, '../../Module/js/Locket_30s.js'), reqWithBody, null);
     assert(reqOutput && reqOutput.headers && !reqOutput.headers["If-None-Match"], "Locket_30s stripped If-None-Match from request");
     assert(reqOutput.body === reqWithBody.body, "Locket_30s preserved Firebase POST request body");
 }
@@ -114,14 +114,14 @@ console.log('\n--- 2. REVENUECAT REAL MULTI-APP INJECTION ---');
     };
 
     // Test Request phase (ETag Stripping)
-    const reqOut = runScript(path.join(__dirname, '../Module/js/revenuecat_multi.js'), req, null);
+    const reqOut = runScript(path.join(__dirname, '../../Module/js/revenuecat_multi.js'), req, null);
     assert(reqOut && reqOut.headers, "RevenueCat Request interceptor returned headers");
     assert(!reqOut.headers['x-revenuecat-etag'], "ETag header deleted from request");
     assert(!reqOut.headers['if-none-match'], "If-None-Match header deleted from request");
 
     // Test Response phase (Entitlement Injection)
     const res = { status: 200, body: JSON.stringify(originalSubscriber) };
-    const resOut = runScript(path.join(__dirname, '../Module/js/revenuecat_multi.js'), req, res);
+    const resOut = runScript(path.join(__dirname, '../../Module/js/revenuecat_multi.js'), req, res);
     assert(resOut && resOut.body, "RevenueCat Response interceptor returned body");
     const parsed = JSON.parse(resOut.body);
     assert(parsed.subscriber.entitlements.Gold !== undefined, "Locket 'Gold' entitlement injected");
@@ -141,7 +141,7 @@ console.log('\n--- 3. SPOTIFY PREMIUM ATTRIBUTES & LICENSING ---');
     const originalAttrs = { values: { type: "free", shuffle: "1" } };
     const req = { url: "https://spclient.wg.spotify.com/user-attributes/v1/attributes" };
     const res = { status: 200, body: JSON.stringify(originalAttrs) };
-    const output = runScript(path.join(__dirname, '../Module/js/spotify.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/spotify.js'), req, res);
     assert(output && output.body, "Spotify script returned modified body");
     const parsed = JSON.parse(output.body);
     assert(parsed.values.type === "premium", "Spotify account type changed from free to premium");
@@ -155,7 +155,7 @@ console.log('\n--- 4. DUOLINGO SUPER & MAX REAL UNLOCK ---');
     const originalUser = { id: 12345, hasPlus: false, hasSuper: false, health: { maxHearts: 5, currentHearts: 1 } };
     const req = { url: "https://api.duolingo.com/2017-06-30/users/12345" };
     const res = { status: 200, body: JSON.stringify(originalUser) };
-    const output = runScript(path.join(__dirname, '../Module/js/duolingo.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/duolingo.js'), req, res);
     assert(output && output.body, "Duolingo script returned body");
     const parsed = JSON.parse(output.body);
     assert(parsed.hasPlus === true, "Duolingo Plus enabled");
@@ -169,7 +169,7 @@ console.log('\n--- 5. CAKE ENGLISH PLUS REAL UNLOCK ---');
     const originalCake = { id: "cake_user", membership: null };
     const req = { url: "https://api.mycake.me/v1/users/me" };
     const res = { status: 200, body: JSON.stringify(originalCake) };
-    const output = runScript(path.join(__dirname, '../Module/js/cake.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/cake.js'), req, res);
     assert(output && output.body, "Cake script returned body");
     const parsed = JSON.parse(output.body);
     assert(parsed.membership.type === "PLUS", "Cake membership type = PLUS");
@@ -182,7 +182,7 @@ console.log('\n--- 6. QUIZLET PLUS REAL UNLOCK ---');
     const originalQuizlet = { responses: [{ models: { user: [{ is_plus: false, is_premium: false }] } }] };
     const req = { url: "https://quizlet.com/webapi/3.4/users/123" };
     const res = { status: 200, body: JSON.stringify(originalQuizlet) };
-    const output = runScript(path.join(__dirname, '../Module/js/quizlet.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/quizlet.js'), req, res);
     assert(output && output.body, "Quizlet script returned body");
     const parsed = JSON.parse(output.body);
     assert(parsed.responses[0].models.user[0].is_plus === true, "Quizlet is_plus = true");
@@ -193,14 +193,14 @@ console.log('\n--- 6. QUIZLET PLUS REAL UNLOCK ---');
 console.log('\n--- 7. PICSART GOLD & 100GB STORAGE REAL UNLOCK ---');
 {
     const reqPurchases = { url: "https://api.picsart.com/gw-v2/shop/subscription/apple/purchases" };
-    const outPurchases = runScript(path.join(__dirname, '../Module/js/PicsArt.js'), reqPurchases, { status: 200, body: "{}" });
+    const outPurchases = runScript(path.join(__dirname, '../../Module/js/PicsArt.js'), reqPurchases, { status: 200, body: "{}" });
     const parsedPurchases = JSON.parse(outPurchases.body);
     assert(parsedPurchases.status === "success", "PicsArt purchases status = success");
     assert(parsedPurchases.response[0].status === "SUBSCRIPTION_RENEWED", "PicsArt subscription renewed");
     assert(parsedPurchases.response[0].plan_meta.tier_id === "pro", "PicsArt tier = pro");
 
     const reqStorage = { url: "https://api.picsart.com/gw-v2/cloud-storage/v1/me/storages" };
-    const outStorage = runScript(path.join(__dirname, '../Module/js/PicsArt.js'), reqStorage, { status: 200, body: "{}" });
+    const outStorage = runScript(path.join(__dirname, '../../Module/js/PicsArt.js'), reqStorage, { status: 200, body: "{}" });
     const parsedStorage = JSON.parse(outStorage.body);
     assert(parsedStorage.response.storages[0].storage_limit_in_mb === 102400, "PicsArt 100GB cloud storage granted (102400 MB)");
 }
@@ -210,7 +210,7 @@ console.log('\n--- 8. CAMSCANNER HD OCR & VIP PROPERTY ---');
 {
     const req = { url: "https://api.intsig.net/purchase/cs/query_property" };
     const res = { status: 200, body: JSON.stringify({ data: { psnl_vip_property: null } }) };
-    const output = runScript(path.join(__dirname, '../Module/js/camScanner.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/camScanner.js'), req, res);
     assert(output && output.body, "CamScanner script returned body");
     const parsed = JSON.parse(output.body);
     assert(parsed.data.psnl_vip_property.expiry > 4000000000, "CamScanner VIP expiry set to 2099");
@@ -222,7 +222,7 @@ console.log('\n--- 9. WPS OFFICE SUPER VIP ---');
 {
     const req = { url: "https://account.wps.com/api/users/12345/overview" };
     const res = { status: 200, body: JSON.stringify({ total_buy: 0, privilege: [] }) };
-    const output = runScript(path.join(__dirname, '../Module/js/wps.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/wps.js'), req, res);
     assert(output && output.body, "WPS script returned body");
     const parsed = JSON.parse(output.body);
     assert(parsed.level === 88, "WPS Super VIP level = 88");
@@ -234,7 +234,7 @@ console.log('\n--- 10. ELSA SPEAK VIP & OXFORD / IELTS REAL UNLOCK ---');
 {
     const req = { url: "https://pool.elsanow.io/entitlement/api/v1/user/entitlements" };
     const res = { status: 200, body: JSON.stringify({ entitlements: { memberships: [], contents: [] } }) };
-    const output = runScript(path.join(__dirname, '../Module/js/elsa.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/elsa.js'), req, res);
     assert(output && output.body, "ELSA script returned body");
     const parsed = JSON.parse(output.body);
     assert(parsed.tier && parsed.tier.code === "premium", "ELSA tier = premium");
@@ -247,7 +247,7 @@ console.log('\n--- 11. ADGUARD SAFARI PRO LIFETIME REAL UNLOCK ---');
 {
     const req = { url: "https://mobile-api.adguard.org/api/v1/ios_validate_receipt/" };
     const res = { status: 200, body: JSON.stringify({}) };
-    const output = runScript(path.join(__dirname, '../Module/js/adguard.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/adguard.js'), req, res);
     assert(output && output.body, "AdGuard script returned body");
     const parsed = JSON.parse(output.body);
     assert(parsed.products[0].product_id === "com.adguard.lifetimePurchase", "AdGuard lifetimePurchase granted");
@@ -259,7 +259,7 @@ console.log('\n--- 12. GRAMMARLY KEYBOARD PREMIUM REAL UNLOCK ---');
 {
     const req = { url: "https://api.grammarly.com/api/v1/subscription" };
     const res = { status: 200, body: JSON.stringify({}) };
-    const output = runScript(path.join(__dirname, '../Module/js/grammarly.js'), req, res);
+    const output = runScript(path.join(__dirname, '../../Module/js/grammarly.js'), req, res);
     assert(output && output.body, "Grammarly script returned body");
     const parsed = JSON.parse(output.body);
     assert(parsed.isPremium === true, "Grammarly isPremium = true");

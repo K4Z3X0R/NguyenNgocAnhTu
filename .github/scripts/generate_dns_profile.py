@@ -19,7 +19,7 @@ import uuid
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 
 # Embedded Anh Tu VIP Apex Root CA DER Base64 (Valid 2026-2036)
 CA_DER_B64 = (

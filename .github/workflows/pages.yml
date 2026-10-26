@@ -5,7 +5,6 @@ on:
     branches: [ master ]
     paths:
       - 'index.html'
-      - '.nojekyll'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 

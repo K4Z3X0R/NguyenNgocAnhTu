@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const src = fs.readFileSync(
-  path.join(__dirname, "..", "Module", "js", "spotify.js"),
+  path.join(__dirname, "..", "..", "Module", "js", "spotify.js"),
   "utf-8"
 );
 
@@ -236,7 +236,7 @@ console.log("== spotify.js unit test ==");
 
 // 19. Kiểm tra định tuyến Spotify Audio CDN (audio-ak-spotify-com.akamaized.net) trên 8 module
 {
-  const moduleDir = path.join(__dirname, "..", "Module");
+  const moduleDir = path.join(__dirname, "..", "..", "Module");
   const moduleFiles = fs.readdirSync(moduleDir).filter(f => f.startsWith("NguyenNgocAnhTu_"));
   let allDirect = true;
   for (const mf of moduleFiles) {
@@ -257,8 +257,8 @@ console.log("== spotify.js unit test ==");
 
 // 20. Kiểm tra Rules/Ads.list không chặn audio-ak và Rules/Direct.list chứa audio-ak
 {
-  const adsList = fs.readFileSync(path.join(__dirname, "..", "Rules", "Ads.list"), "utf-8");
-  const directList = fs.readFileSync(path.join(__dirname, "..", "Rules", "Direct.list"), "utf-8");
+  const adsList = fs.readFileSync(path.join(__dirname, "..", "..", "Rules", "Ads.list"), "utf-8");
+  const directList = fs.readFileSync(path.join(__dirname, "..", "..", "Rules", "Direct.list"), "utf-8");
   const adsNotBlocking = !adsList.includes("audio-ak-spotify-com.akamaized.net");
   const directHasAkamai = directList.includes("audio-ak-spotify-com.akamaized.net");
   check("rules: Ads.list unblocks and Direct.list includes audio-ak CDN", adsNotBlocking && directHasAkamai);

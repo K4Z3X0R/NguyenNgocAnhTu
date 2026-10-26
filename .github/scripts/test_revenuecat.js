@@ -1,7 +1,7 @@
 // Unit test for revenuecat_multi.js
 const fs = require('fs');
 const path = require('path');
-const code = fs.readFileSync(path.join(__dirname, '..', 'Module', 'js', 'revenuecat_multi.js'), 'utf8');
+const code = fs.readFileSync(path.join(__dirname, '..', '..', 'Module', 'js', 'revenuecat_multi.js'), 'utf8');
 
 let pass = 0, fail = 0;
 function testApp(name, ua, expectedKey) {

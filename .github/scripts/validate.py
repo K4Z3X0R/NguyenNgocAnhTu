@@ -33,7 +33,7 @@ try:
 except Exception:  # noqa: BLE001
     pass
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 MODULE_DIR = ROOT / "Module"
 RULES_DIR = ROOT / "Rules"
 

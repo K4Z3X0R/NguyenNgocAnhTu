@@ -34,7 +34,7 @@ function runScript(filename, req, res) {
 
   let doneArg = null;
 
-  const code = fs.readFileSync(path.join(__dirname, '..', 'Module', 'js', filename), 'utf8');
+  const code = fs.readFileSync(path.join(__dirname, '..', '..', 'Module', 'js', filename), 'utf8');
 
   const fn = new Function('$request', '$response', '$done', 'console', code);
 

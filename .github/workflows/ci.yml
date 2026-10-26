@@ -27,28 +27,28 @@ jobs:
           node-version: '20'
 
       - name: Run Spotify Engine Tests
-        run: node scripts/test_spotify.js
+        run: node .github/scripts/test_spotify.js
 
       - name: Run RevenueCat Engine Tests
-        run: node scripts/test_revenuecat.js
+        run: node .github/scripts/test_revenuecat.js
 
       - name: Run Locket 45s Engine Tests
-        run: node scripts/test_locket_45s.js
+        run: node .github/scripts/test_locket_45s.js
 
       - name: Run Locket Apex Verification Tests
-        run: node scripts/test_locket_apex_verification.js
+        run: node .github/scripts/test_locket_apex_verification.js
 
       - name: Run Education Suite Engine Tests
-        run: node scripts/test_education.js
+        run: node .github/scripts/test_education.js
 
       - name: Run JS Script Resilience Tests
-        run: node scripts/test_all_scripts.js
+        run: node .github/scripts/test_all_scripts.js
 
       - name: Run Standalone Functional Positive Tests
-        run: node scripts/test_all_functional.js
+        run: node .github/scripts/test_all_functional.js
 
       - name: Run Reality Proof End-to-End Suite
-        run: node scripts/test_reality_proof.js
+        run: node .github/scripts/test_reality_proof.js
 
       - name: Run Full Module & Rules Validation
-        run: python scripts/validate.py
+        run: python .github/scripts/validate.py

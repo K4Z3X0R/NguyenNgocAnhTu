@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = path.join(__dirname, '..', 'Module', 'js');
+const dir = path.join(__dirname, '..', '..', 'Module', 'js');
 const files = fs.readdirSync(dir).filter(f => f.endsWith('.js'));
 
 console.log(`== Running Resilience Checks on ${files.length} scripts ==`);

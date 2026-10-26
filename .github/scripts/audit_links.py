@@ -20,7 +20,7 @@ try:
 except Exception:
     pass
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 MODULE_DIR = ROOT / "Module"
 
 def extract_urls() -> set[str]:
