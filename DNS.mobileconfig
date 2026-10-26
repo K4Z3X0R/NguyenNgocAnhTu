@@ -2,98 +2,100 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>PayloadContent</key>
-    <array>
-        <dict>
-            <key>DNSSettings</key>
-            <dict>
-                <key>DNSProtocol</key>
-                <string>HTTPS</string>
-                <key>ServerAddresses</key>
-                <array>
-                    <string>94.140.14.14</string>
-                    <string>94.140.15.15</string>
-                    <string>2a10:50c0::ad1:ff</string>
-                    <string>2a10:50c0::ad2:ff</string>
-                </array>
-                <key>ServerURL</key>
-                <string>https://dns.adguard-dns.com/dns-query</string>
-            </dict>
-            <key>OnDemandRules</key>
-            <array>
-                <!-- ========================================================================= -->
-                <!-- 1. BẢO VỆ TUYỆT ĐỐI LUỒNG ĐĂNG NHẬP SPOTIFY, GOOGLE YOUTUBE & LOCKET AUTH -->
-                <!-- Cho phép các domain xác thực tài khoản chạy trực tiếp, chống 100% lỗi login -->
-                <!-- ========================================================================= -->
-                <dict>
-                    <key>Action</key>
-                    <string>EvaluateConnection</string>
-                    <key>ActionParameters</key>
-                    <array>
-                        <dict>
-                            <key>DomainAction</key>
-                            <string>NeverConnect</string>
-                            <key>Domains</key>
-                            <array>
-                                <!-- === SPOTIFY LOGIN & AUTH DEALER === -->
-                                <string>login5.spotify.com</string>
-                                <string>accounts.spotify.com</string>
-                                <string>dealer.spotify.com</string>
-                                <string>gew-dealer.spotify.com</string>
-                                <string>ap-gew4.spotify.com</string>
-                                
-                                <!-- === GOOGLE / YOUTUBE ACCOUNT AUTH === -->
-                                <string>accounts.google.com</string>
-                                <string>oauth2.googleapis.com</string>
-                                
-                                <!-- === LOCKET / FIREBASE AUTHENTICATION === -->
-                                <string>identitytoolkit.googleapis.com</string>
-                                <string>securetoken.googleapis.com</string>
-                                <string>api.locketcamera.com</string>
-                            </array>
-                        </dict>
-                    </array>
-                </dict>
-                <!-- ========================================================================= -->
-                <!-- 2. TOÀN BỘ TRUY VẤN CÒN LẠI ĐI QUA ADGUARD ANYCAST DOH LỌC SẠCH QUẢNG CÁO -->
-                <!-- Chặn Audio/Podcast Ads Spotify, Video Ads YouTube Web & Telemetry         -->
-                <!-- ========================================================================= -->
-                <dict>
-                    <key>Action</key>
-                    <string>Connect</string>
-                </dict>
-            </array>
-            <key>PayloadDescription</key>
-            <string>Bản Siêu Cấp v4.0: Chặn 100% Audio Ads Spotify, Video Ads YouTube • Miễn nhiễm hoàn toàn lỗi đăng nhập (Zero Login Failure) • Mã hóa DoH Anycast AdGuard • Không hao pin • Bảo toàn 100% Push Notifications</string>
-            <key>PayloadDisplayName</key>
-            <string>👑 Anh Tú • Spotify &amp; YouTube Apex DNS 🎵▶️</string>
-            <key>PayloadIdentifier</key>
-            <string>com.apple.dnsSettings.managed.spotify.youtube.apex.v4</string>
-            <key>PayloadType</key>
-            <string>com.apple.dnsSettings.managed</string>
-            <key>PayloadUUID</key>
-            <string>E716BE72-4C6C-49F1-8B35-2470A7DB9845</string>
-            <key>PayloadVersion</key>
-            <integer>1</integer>
-            <key>ProhibitDisablement</key>
-            <false/>
-        </dict>
-    </array>
-    <key>PayloadDescription</key>
-    <string>✨ Cấu hình DNS Tối Thượng: Triệt hạ Audio Ads Spotify, Video Ads YouTube, Bảo lưu Locket Gold &amp; Miễn nhiễm 100% lỗi xác thực đăng nhập • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
     <key>PayloadDisplayName</key>
-    <string>👑 Anh Tú • Spotify &amp; YouTube Apex DNS 🎵▶️</string>
+    <string>👑 Anh Tú • DNS 3-in-1: Locket Gold + Spotify + YouTube</string>
+    <key>PayloadDescription</key>
+    <string>Mở khóa Locket Gold Vĩnh Viễn 2099 (Video 45s) + Chặn 100% Ads Spotify &amp; YouTube • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
     <key>PayloadIdentifier</key>
-    <string>com.z3rokaze.profile.spotify.youtube.dns.v4</string>
+    <string>com.anhtu.dns.3in1.v4</string>
     <key>PayloadOrganization</key>
-    <string>Nguyễn Ngọc Anh Tú (z3rokaze)</string>
+    <string>Nguyễn Ngọc Anh Tú (K4Z3X0R)</string>
     <key>PayloadRemovalDisallowed</key>
     <false/>
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>8A16F082-D08F-42E1-9D27-E4912BFD642C</string>
+    <string>D8D0B3E6-C01E-412A-B030-43B0D23B3A3D</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
+    <key>PayloadContent</key>
+    <array>
+        <!-- 1. ROOT CA CERTIFICATE (Cho phép giải mã kích hoạt Locket Gold 2099) -->
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.security.root</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadIdentifier</key>
+            <string>com.anhtu.rootca</string>
+            <key>PayloadUUID</key>
+            <string>9D85B9C7-25CE-41B3-8C0B-55B89153A5BA</string>
+            <key>PayloadDisplayName</key>
+            <string>Anh Tú VIP Apex Root CA</string>
+            <key>PayloadDescription</key>
+            <string>Chứng chỉ gốc bảo mật kích hoạt Locket Gold VIP 2099 - Nguyễn Ngọc Anh Tú</string>
+            <key>PayloadContent</key>
+            <data>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</data>
+        </dict>
+        
+        <!-- 2. DNS-OVER-HTTPS PROFILE CHUẨN APPLE VỚI SupplementalMatchDomains -->
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadIdentifier</key>
+            <string>com.anhtu.dns.managed</string>
+            <key>PayloadUUID</key>
+            <string>A785B64B-63CA-4B63-A312-0ABADD5394C6</string>
+            <key>PayloadDisplayName</key>
+            <string>⚡ Anh Tú Apex DoH (Singapore)</string>
+            <key>PayloadDescription</key>
+            <string>Mã hóa DNS-over-HTTPS tốc độ cao qua máy chủ VPS Singapore của Tú</string>
+            <key>DNSSettings</key>
+            <dict>
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+                <key>ServerURL</key>
+                <string>https://13.229.210.222.sslip.io/dns-query</string>
+                <key>ServerAddresses</key>
+                <array>
+                    <string>13.229.210.222</string>
+                </array>
+                <key>SupplementalMatchDomains</key>
+                <array>
+                    <string>api.revenuecat.com</string>
+                    <string>app.revenuecat.com</string>
+                    <string>firebaseremoteconfig.googleapis.com</string>
+                    <string>ads-fa.spotify.com</string>
+                    <string>gads.current.spotify.com</string>
+                    <string>podcastads.spotify.com</string>
+                    <string>audio-fa.scdn.co</string>
+                    <string>pagead2.googlesyndication.com</string>
+                    <string>pagead2.googleadservices.com</string>
+                    <string>adservice.google.com</string>
+                    <string>googleads.g.doubleclick.net</string>
+                    <string>pubads.g.doubleclick.net</string>
+                    <string>securepubads.g.doubleclick.net</string>
+                    <string>doubleclick.net</string>
+                    <string>ads.youtube.com</string>
+                    <string>s.youtube.com</string>
+                    <string>video-stats.l.google.com</string>
+                    <string>in.appcenter.ms</string>
+                    <string>app-measurement.com</string>
+                    <string>firebaselogging-pa.googleapis.com</string>
+                    <string>mixpanel.com</string>
+                    <string>api.mixpanel.com</string>
+                </array>
+            </dict>
+            <key>OnDemandRules</key>
+            <array>
+                <dict>
+                    <key>Action</key>
+                    <string>Connect</string>
+                </dict>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>
