@@ -15,7 +15,7 @@
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>F3024D87-F481-4F3D-8CD5-F86C93A6B14C</string>
+    <string>E986164D-F100-4C4C-BADB-FC99B085387D</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
     <key>PayloadContent</key>
@@ -29,7 +29,7 @@
             <key>PayloadIdentifier</key>
             <string>com.anhtu.rootca</string>
             <key>PayloadUUID</key>
-            <string>944B9CE8-CB20-4157-ADA0-496988620FE0</string>
+            <string>CE377355-4A92-4DF2-AA92-B034E237A57E</string>
             <key>PayloadDisplayName</key>
             <string>Anh Tú VIP Apex Root CA</string>
             <key>PayloadDescription</key>
@@ -47,7 +47,7 @@
             <key>PayloadIdentifier</key>
             <string>com.anhtu.dns.managed</string>
             <key>PayloadUUID</key>
-            <string>FB40B23E-4BF2-4E63-A834-C9126EDD8EBD</string>
+            <string>CB483F34-BBF1-4D85-9731-383C998BF614</string>
             <key>PayloadDisplayName</key>
             <string>⚡ Anh Tú Apex DoH (Singapore)</string>
             <key>PayloadDescription</key>
@@ -64,20 +64,27 @@
                 </array>
                 <key>SupplementalMatchDomains</key>
                 <array>
+                    <string>revenuecat.com</string>
                     <string>api.revenuecat.com</string>
                     <string>app.revenuecat.com</string>
                     <string>firebaseremoteconfig.googleapis.com</string>
                     <string>ads-fa.spotify.com</string>
                     <string>gads.current.spotify.com</string>
                     <string>podcastads.spotify.com</string>
+                    <string>audio-ak-spotify-com.akamaized.net</string>
+                    <string>heads-ak-spotify-com.akamaized.net</string>
                     <string>audio-fa.scdn.co</string>
+                    <string>crashdump.spotify.com</string>
+                    <string>log.spotify.com</string>
+                    <string>doubleclick.net</string>
+                    <string>googlesyndication.com</string>
+                    <string>googleadservices.com</string>
                     <string>pagead2.googlesyndication.com</string>
                     <string>pagead2.googleadservices.com</string>
                     <string>adservice.google.com</string>
                     <string>googleads.g.doubleclick.net</string>
                     <string>pubads.g.doubleclick.net</string>
                     <string>securepubads.g.doubleclick.net</string>
-                    <string>doubleclick.net</string>
                     <string>ads.youtube.com</string>
                     <string>s.youtube.com</string>
                     <string>video-stats.l.google.com</string>
