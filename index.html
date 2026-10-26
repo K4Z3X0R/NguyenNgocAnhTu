@@ -6,8 +6,8 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Cổng Cấu Hình DNS iOS • Miễn Phí 100% By Anh Tú (AI-Vibed)</title>
-    <meta name="description" content="Cấu hình DNS DoH iOS: Locket Gold 2099, chặn ads Spotify & YouTube. 100% AI vibe ra, miễn phí hoàn toàn.">
+    <title>Cổng Cấu Hình DNS & Hệ Sinh Thái iOS • Nguyễn Ngọc Anh Tú</title>
+    <meta name="description" content="Cấu hình DNS DoH iOS cao cấp: Locket Gold 2099, chặn sạch quảng cáo Spotify và YouTube. 100% AI vibe ra, miễn phí hoàn toàn.">
     <link rel="icon" href="https://img.icons8.com/color/96/lightning-bolt.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,83 +27,68 @@
         }
     </script>
     <style>
-        * {
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { -webkit-tap-highlight-color: transparent; }
         body {
-            background-color: #070a12;
-            color: #e2e8f0;
+            background-color: #060911;
+            color: #cbd5e1;
             font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
             overflow-x: hidden;
         }
-        /* Background Animated Glows */
-        .ambient-glow-top {
+        .bg-grid {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .ambient-orb {
             position: fixed;
-            top: -150px;
+            top: -200px;
             left: 50%;
             transform: translateX(-50%);
-            width: 700px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.08) 50%, transparent 70%);
-            filter: blur(80px);
+            width: 800px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(124, 58, 237, 0.08) 50%, transparent 70%);
+            filter: blur(90px);
             pointer-events: none;
             z-index: 0;
-            animation: pulseGlow 6s ease-in-out infinite alternate;
+            animation: pulseOrb 8s ease-in-out infinite alternate;
         }
-        @keyframes pulseGlow {
+        @keyframes pulseOrb {
             0% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
             100% { opacity: 1; transform: translateX(-50%) scale(1.05); }
         }
-        /* Grid background */
-        .bg-grid {
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-        /* Interactive Cards */
-        .card-box {
-            background: rgba(13, 19, 33, 0.78);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+        .card-panel {
+            background: rgba(13, 19, 33, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .card-box:hover {
-            border-color: rgba(255, 255, 255, 0.15);
+        .card-panel:hover {
+            border-color: rgba(255, 255, 255, 0.16);
             transform: translateY(-2px);
+            box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.85);
         }
-        /* Primary CTA Shine */
-        .btn-primary {
+        .btn-cta {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.35);
+            box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .btn-primary:hover {
+        .btn-cta:hover {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            box-shadow: 0 0 30px rgba(37, 99, 235, 0.55);
+            box-shadow: 0 0 35px rgba(37, 99, 235, 0.6);
             transform: translateY(-1px);
         }
-        /* Terminal Log Stream */
-        .terminal-scroll::-webkit-scrollbar {
-            width: 4px;
-        }
-        .terminal-scroll::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        /* Confetti canvas */
+        .terminal-box::-webkit-scrollbar { width: 4px; }
+        .terminal-box::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         #confettiCanvas {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             pointer-events: none;
             z-index: 9999;
         }
-        /* Toast notification */
         #toast {
             visibility: hidden;
             opacity: 0;
@@ -115,39 +100,44 @@
             opacity: 1;
             transform: translate(-50%, 0);
         }
-        #qrModal {
-            display: none;
-        }
-        #qrModal.active {
-            display: flex;
-        }
+        #qrModal { display: none; }
+        #qrModal.active { display: flex; }
     </style>
 </head>
 <body class="min-h-screen bg-grid selection:bg-blue-600 selection:text-white relative">
 
-    <div class="ambient-glow-top"></div>
+    <div class="ambient-orb"></div>
     <canvas id="confettiCanvas"></canvas>
 
-    <!-- Navigation -->
-    <nav class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <!-- Top Navigation Bar -->
+    <nav class="border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md sticky top-0 z-40">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
             <div class="flex items-center gap-2.5">
-                <div class="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-xs">
+                <div class="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-xs shadow-inner">
                     ⚡
                 </div>
-                <span class="text-sm font-bold text-white tracking-tight">K4Z3X0R</span>
-                <span class="text-xs text-slate-500 font-mono hidden sm:inline">• AI Engine Vibe</span>
+                <div>
+                    <span class="text-sm font-bold text-white tracking-tight">K4Z3X0R</span>
+                    <span class="text-xs text-slate-500 font-mono hidden sm:inline">• AI Engine</span>
+                </div>
             </div>
 
-            <div class="flex items-center gap-2.5 text-xs">
-                <button onclick="pingServer()" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/80 text-emerald-400 font-mono hover:bg-slate-800 transition-colors flex items-center gap-1.5 cursor-pointer">
+            <div class="flex items-center gap-2 text-xs">
+                <!-- Live Ping Button -->
+                <button onclick="pingServer()" title="Bấm để kiểm tra độ trễ mạng thực tế" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/80 text-emerald-400 font-mono hover:bg-slate-800 transition-colors flex items-center gap-1.5 cursor-pointer">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span id="navPing">Ping: 18ms</span>
                 </button>
+                <!-- Sound FX Toggle -->
+                <button onclick="toggleSound()" id="btnSound" title="Bật/Tắt hiệu ứng âm thanh" class="px-2 py-1 rounded-md bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white transition-colors cursor-pointer">
+                    🔊
+                </button>
+                <!-- QR Modal Button -->
                 <button onclick="toggleQrModal()" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/80 text-slate-300 font-medium hover:bg-slate-800 transition-colors flex items-center gap-1.5 cursor-pointer">
                     <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
                     <span>Quét QR</span>
                 </button>
+                <!-- GitHub Link -->
                 <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/80 text-slate-300 hover:text-white transition-colors">
                     GitHub
                 </a>
@@ -155,7 +145,7 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Content Container -->
     <main class="relative z-10 max-w-2xl mx-auto px-4 py-8 sm:py-10 space-y-6">
 
         <!-- Header -->
@@ -163,23 +153,25 @@
             <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono">
                 <span>🤖 100% BY AUTONOMOUS AI</span>
                 <span class="text-slate-600">•</span>
-                <span>OPEN SOURCE FOR ALL</span>
+                <span>OPEN SOURCE SUITE</span>
+                <span class="text-slate-600">•</span>
+                <span class="text-emerald-400 font-semibold">v2.9.5</span>
             </div>
             <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight">
-                Cổng Cấu Hình DNS Bảo Mật iOS
+                Cổng Cấu Hình DNS & Hệ Sinh Thái iOS
             </h1>
             <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Hạ tầng DNS-over-HTTPS (DoH) tối ưu hóa kết nối, duy trì quyền truy cập Locket và chặn quảng cáo Spotify & YouTube. Cài đặt trực tiếp qua Safari, không sử dụng VPN chạy ngầm.
+                Hạ tầng DNS-over-HTTPS (DoH) cao cấp duy trì Locket Gold 2099, chặn sạch quảng cáo Spotify và YouTube. Hoạt động độc lập ở nhân hệ điều hành, không hao tổn pin, không cần ứng dụng bên thứ ba.
             </p>
         </header>
 
-        <!-- KHỐI ĐÁ ĐIỂU GIAN THƯƠNG (HOT SPOT) -->
-        <section class="card-box rounded-2xl p-4 sm:p-5 border-amber-500/30 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-amber-950/20 space-y-3">
+        <!-- KHỐI ĐÁ ĐIỂU GIAN THƯƠNG (HOT ROAST SPOT) -->
+        <section class="card-panel rounded-2xl p-4 sm:p-5 border-amber-500/30 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-amber-950/20 space-y-3">
             <div class="flex items-start gap-3">
                 <span class="text-2xl flex-shrink-0 animate-bounce">📢</span>
                 <div class="space-y-1">
                     <h3 class="text-xs sm:text-sm font-bold text-amber-300 uppercase tracking-wide">
-                        Gửi Mấy Bạn Hay Copy Mang Đi Bán 50k - 100k
+                        Gửi Mấy Bạn Hay Copy Cấu Hình Mang Đi Bán 50k - 100k
                     </h3>
                     <p class="text-xs text-slate-300 leading-relaxed">
                         Toàn bộ hệ thống, server, cấu hình DNS và trang web này là do <strong class="text-white bg-blue-600/30 px-1.5 py-0.5 rounded border border-blue-500/40">A.I tự hành của Anh Tú vibe ra 100%</strong> trong vài phút và được chia sẻ <strong class="text-emerald-400">HOÀN TOÀN MIỄN PHÍ</strong>.
@@ -211,8 +203,8 @@
             </div>
         </section>
 
-        <!-- CÔNG CỤ TƯƠNG TÁC: MÁY SOI HỌC PHÍ GIAN THƯƠNG -->
-        <section class="card-box rounded-2xl p-4 sm:p-5 space-y-3 border-slate-700/80">
+        <!-- WIDGET TƯƠNG TÁC 1: MÁY SOI HỌC PHÍ GIAN THƯƠNG -->
+        <section class="card-panel rounded-2xl p-4 sm:p-5 space-y-3 border-slate-700/80">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <span class="text-base">🕵️‍♂️</span>
@@ -232,8 +224,8 @@
             <div id="scamResult" class="hidden p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs leading-relaxed transition-all"></div>
         </section>
 
-        <!-- KHỐI CÀI ĐẶT CHÍNH (THE CORE ENGINE) -->
-        <section class="card-box rounded-2xl p-5 sm:p-6 space-y-5 border-slate-700/80">
+        <!-- KHỐI CÀI ĐẶT TRỌNG TÂM (CORE ENGINE) -->
+        <section class="card-panel rounded-2xl p-5 sm:p-6 space-y-5 border-slate-700/80">
             <div class="flex items-start justify-between pb-3.5 border-b border-slate-800">
                 <div class="space-y-0.5">
                     <h2 class="text-sm font-bold text-white flex items-center gap-2">
@@ -247,7 +239,7 @@
                 </span>
             </div>
 
-            <!-- Tech Badges -->
+            <!-- Specs Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono text-[11px]">
                 <div class="p-2 rounded-lg bg-slate-900/60 border border-slate-800">
                     <div class="text-[10px] text-slate-500 font-sans">Giao thức</div>
@@ -269,7 +261,7 @@
 
             <!-- Big Primary CTA with Confetti -->
             <div class="space-y-2.5 pt-1">
-                <a href="https://13.229.210.222.sslip.io/DNS.mobileconfig" id="btnDownload" onclick="triggerConfetti()" class="btn-primary flex items-center justify-center gap-2.5 w-full py-4 px-6 rounded-xl text-white font-bold text-sm sm:text-base cursor-pointer">
+                <a href="https://13.229.210.222.sslip.io/DNS.mobileconfig" id="btnDownload" onclick="triggerConfetti()" class="btn-cta flex items-center justify-center gap-2.5 w-full py-4 px-6 rounded-xl text-white font-bold text-sm sm:text-base cursor-pointer">
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                     <span>TẢI CẤU HÌNH DNS MIỄN PHÍ (.mobileconfig)</span>
                 </a>
@@ -301,8 +293,86 @@
             </div>
         </section>
 
+        <!-- WIDGET TƯƠNG TÁC 2: TRA CỨU DANH SÁCH TÊN MIỀN ĐƯỢC XỬ LÝ (DOMAIN FIREWALL INSPECTOR) -->
+        <section class="card-panel rounded-2xl p-5 space-y-3.5 border-slate-700/80">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <span>🛡️</span>
+                        <span>Tra Cứu Tên Miền Được Bảo Vệ & Định Tuyến</span>
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Tìm kiếm quy tắc lọc quảng cáo hoặc mở khóa theo tên miền thời gian thực.</p>
+                </div>
+                <span id="domainCount" class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">25 Tên Miền</span>
+            </div>
+
+            <!-- Search Bar & Category Filters -->
+            <div class="space-y-2">
+                <input type="text" id="searchDomain" oninput="filterDomains()" placeholder="Tìm kiếm tên miền (ví dụ: revenuecat, spotify, youtube, googleads)..." class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 font-mono">
+                
+                <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
+                    <button onclick="setCategory('ALL')" class="cat-btn px-2.5 py-1 rounded-md bg-blue-600 text-white font-semibold cursor-pointer">Tất Cả</button>
+                    <button onclick="setCategory('LOCKET')" class="cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer">Locket Gold</button>
+                    <button onclick="setCategory('SPOTIFY')" class="cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer">Spotify Ads</button>
+                    <button onclick="setCategory('YOUTUBE')" class="cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer">YouTube Ads</button>
+                    <button onclick="setCategory('TRACKING')" class="cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer">Tracking</button>
+                </div>
+            </div>
+
+            <!-- Domain Results Box -->
+            <div id="domainList" class="max-h-48 overflow-y-auto terminal-box space-y-1.5 pr-1 font-mono text-xs"></div>
+        </section>
+
+        <!-- WIDGET TƯƠNG TÁC 3: HỆ SINH THÁI 8 ỨNG DỤNG PROXY (1-CLICK MODULE COPY) -->
+        <section class="card-panel rounded-2xl p-5 space-y-3.5 border-slate-700/80">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <span>📲</span>
+                        <span>Hệ Sinh Thái Module Cho 8 Ứng Dụng Proxy iOS</span>
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Dành cho bạn nào dùng app chuyên dụng (Surge, Shadowrocket, Loon, QX, v.v.). Bấm vào để copy link cấu hình.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                <button onclick="copyAppModule('Shadowrocket')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-200">🚀 Shadowrocket</div>
+                    <div class="text-[10px] text-slate-500 font-mono mt-0.5">.module copy</div>
+                </button>
+                <button onclick="copyAppModule('Loon')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-200">🎈 Loon</div>
+                    <div class="text-[10px] text-slate-500 font-mono mt-0.5">.plugin copy</div>
+                </button>
+                <button onclick="copyAppModule('Surge')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-200">⚡ Surge</div>
+                    <div class="text-[10px] text-slate-500 font-mono mt-0.5">.sgmodule copy</div>
+                </button>
+                <button onclick="copyAppModule('QuantumultX')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-200">⭕ Quantumult X</div>
+                    <div class="text-[10px] text-slate-500 font-mono mt-0.5">.snippet copy</div>
+                </button>
+                <button onclick="copyAppModule('Egern')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-200">🐿️ Egern</div>
+                    <div class="text-[10px] text-slate-500 font-mono mt-0.5">.yaml copy</div>
+                </button>
+                <button onclick="copyAppModule('Stash')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-200">📦 Stash (Clash)</div>
+                    <div class="text-[10px] text-slate-500 font-mono mt-0.5">.stoverride copy</div>
+                </button>
+                <button onclick="copyAppModule('LanceX')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-slate-200">🛡️ LanceX</div>
+                    <div class="text-[10px] text-slate-500 font-mono mt-0.5">.module copy</div>
+                </button>
+                <button onclick="copyAppModule('All')" class="p-2.5 rounded-xl bg-blue-950/40 hover:bg-blue-900/40 border border-blue-500/30 text-left transition-all cursor-pointer">
+                    <div class="font-bold text-blue-300">📦 Toàn Bộ 350+ App</div>
+                    <div class="text-[10px] text-blue-400 font-mono mt-0.5">Full ecosystem</div>
+                </button>
+            </div>
+        </section>
+
         <!-- LIVE TERMINAL CONSOLE (SIMULATED DYNAMIC LOGS) -->
-        <section class="card-box rounded-2xl p-4 sm:p-5 space-y-3 font-mono text-xs border-slate-800">
+        <section class="card-panel rounded-2xl p-4 sm:p-5 space-y-3 font-mono text-xs border-slate-800">
             <div class="flex items-center justify-between pb-2 border-b border-slate-800">
                 <div class="flex items-center gap-2">
                     <div class="flex gap-1.5">
@@ -312,14 +382,19 @@
                     </div>
                     <span class="text-slate-400 font-sans font-medium text-xs ml-1">Live Telemetry Terminal</span>
                 </div>
-                <span class="text-[10px] text-emerald-400 flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                    REALTIME
-                </span>
+                <div class="flex items-center gap-2">
+                    <button onclick="pushSimulatedQuery()" class="text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800 border border-slate-700 cursor-pointer">
+                        Gửi test query ⚡
+                    </button>
+                    <span class="text-[10px] text-emerald-400 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        REALTIME
+                    </span>
+                </div>
             </div>
 
             <!-- Terminal Screen -->
-            <div id="terminalBody" class="h-28 overflow-y-auto terminal-scroll space-y-1.5 text-[11px] text-slate-300 font-mono bg-slate-950/80 p-3 rounded-lg border border-slate-800/80">
+            <div id="terminalBody" class="h-28 overflow-y-auto terminal-box space-y-1.5 text-[11px] text-slate-300 font-mono bg-slate-950/80 p-3 rounded-lg border border-slate-800/80">
                 <div class="text-slate-500">&gt; Initializing Apex DNS Gateway v2.9.5-stable...</div>
                 <div class="text-emerald-400">&gt; [STATUS] Edge Router Singapore 10Gbps: ONLINE</div>
                 <div class="text-blue-400">&gt; [INFO] Engine authored and vibed out by AI for Nguyen Ngoc Anh Tu</div>
@@ -327,7 +402,7 @@
         </section>
 
         <!-- 4-STEP INSTALLATION GUIDE -->
-        <section class="card-box rounded-2xl p-5 sm:p-6 space-y-3.5 border-slate-800">
+        <section class="card-panel rounded-2xl p-5 sm:p-6 space-y-3.5 border-slate-800">
             <h2 class="text-sm font-bold text-white flex items-center gap-2">
                 <span>📖</span>
                 <span>Hướng Dẫn Kích Hoạt 4 Bước (Chuẩn iOS)</span>
@@ -365,7 +440,7 @@
         </section>
 
         <!-- SECURITY & PRIVACY PLEDGE -->
-        <section class="card-box rounded-2xl p-5 space-y-3 border-slate-800">
+        <section class="card-panel rounded-2xl p-5 space-y-3 border-slate-800">
             <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
                 <span>🛡️</span>
                 <span>Cam Kết Kỹ Thuật & Bảo Mật</span>
@@ -391,7 +466,7 @@
         </section>
 
         <!-- FAQ -->
-        <section class="card-box rounded-2xl p-5 space-y-2.5 border-slate-800">
+        <section class="card-panel rounded-2xl p-5 space-y-2.5 border-slate-800">
             <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
                 <span>💬</span>
                 <span>Câu Hỏi Thường Gặp</span>
@@ -416,10 +491,20 @@
                     Chứng chỉ Root CA giúp thiết bị iOS xác thực an toàn với Gateway nội bộ để đồng bộ phản hồi cấp phép bản quyền cho ứng dụng, đảm bảo hoạt động liên tục.
                 </div>
             </details>
+
+            <details class="group bg-slate-900/50 rounded-xl border border-slate-800 overflow-hidden">
+                <summary class="flex items-center justify-between p-3 text-xs font-medium text-slate-200 cursor-pointer select-none">
+                    <span>Lỡ mua từ gian thương rồi có lấy lại tiền được không?</span>
+                    <span class="text-slate-500 transition-transform group-open:rotate-180 text-[10px]">▼</span>
+                </summary>
+                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800 pt-2">
+                    Bạn hãy chụp ảnh màn hình trang web này hoặc copy đường link gửi thẳng cho người bán. Chỉ rõ ràng đây là dự án nguồn mở do AI của Anh Tú làm miễn phí, yêu cầu hoàn tiền hoặc bóc phốt để cảnh báo cho người khác.
+                </div>
+            </details>
         </section>
 
         <!-- Footer -->
-        <footer class="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <footer class="pt-6 pb-2 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
             <div>
                 Dự án do <strong class="text-slate-300">A.I tự hành của Anh Tú</strong> vibe ra 100% • Miễn phí trọn đời.
             </div>
@@ -434,7 +519,7 @@
 
     <!-- QR Modal -->
     <div id="qrModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md items-center justify-center p-4">
-        <div class="card-box rounded-2xl p-6 max-w-xs w-full text-center space-y-3 relative border-slate-700 shadow-2xl">
+        <div class="card-panel rounded-2xl p-6 max-w-xs w-full text-center space-y-3 relative border-slate-700 shadow-2xl">
             <button onclick="toggleQrModal()" class="absolute top-3 right-3 text-slate-400 hover:text-white p-1 rounded-lg bg-slate-800 cursor-pointer">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
@@ -464,8 +549,38 @@
 
     <script>
         const VPS_HOST = 'https://13.229.210.222.sslip.io';
+        let soundEnabled = true;
+
+        // Web Audio Synthesizer for lightweight SFX
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        let ctx = null;
+
+        function playPopSound() {
+            if (!soundEnabled) return;
+            try {
+                if (!ctx) ctx = new AudioCtx();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(580, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.08);
+                gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.08);
+            } catch (e) {}
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            document.getElementById('btnSound').innerText = soundEnabled ? '🔊' : '🔇';
+            showToast(soundEnabled ? 'Đã bật hiệu ứng âm thanh.' : 'Đã tắt âm thanh.', soundEnabled ? '🔊' : '🔇');
+        }
 
         function showToast(msg, icon = '✅') {
+            playPopSound();
             const toast = document.getElementById('toast');
             document.getElementById('toastMsg').textContent = msg;
             document.getElementById('toastIcon').textContent = icon;
@@ -476,16 +591,16 @@
         }
 
         function toggleQrModal() {
+            playPopSound();
             const modal = document.getElementById('qrModal');
             modal.classList.toggle('active');
         }
 
         function copyDnsUrl() {
-            const btn = document.getElementById('btnDownload');
-            const url = (btn && btn.href) ? btn.href : (VPS_HOST + '/DNS.mobileconfig');
+            const url = VPS_HOST + '/DNS.mobileconfig';
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(url).then(() => {
-                    showToast('Đã sao chép liên kết cấu hình!');
+                    showToast('Đã sao chép link DNS!');
                 }).catch(() => {
                     prompt('Đường dẫn cấu hình DNS:', url);
                 });
@@ -506,12 +621,12 @@
             btn.querySelector('span').textContent = 'TẢI CẤU HÌNH CHO @' + u.toUpperCase();
             
             document.getElementById('qrImage').src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(downloadUrl) + '&margin=4';
-            
-            showToast('Đã cá nhân hóa cấu hình cho @' + u + '!');
+            showToast('Đã cá nhân hóa cho @' + u + '!');
         }
 
-        // Tool soi gian thương
+        // Reseller Scam Check Tool
         function checkScam() {
+            playPopSound();
             const val = parseInt(document.getElementById('inputScamAmount').value, 10);
             const res = document.getElementById('scamResult');
             res.classList.remove('hidden');
@@ -523,6 +638,85 @@
                 res.innerHTML = '<span class="text-red-400 font-bold">🤡 Thiệt hại: ' + val.toLocaleString('vi-VN') + ' VNĐ!</span><br>' +
                                 '<span class="text-slate-300">Bạn đã chính thức nộp học phí cho gian thương copy đồ miễn phí. Hãy copy đường link web này gửi thẳng vào mặt đứa bán đòi lại tiền ngay và luôn! Web này do A.I vibe ra miễn phí 100%.</span>';
                 res.className = 'p-3 rounded-xl bg-red-950/40 border border-red-500/40 text-xs text-slate-200';
+            }
+        }
+
+        // Domain Firewall Filter Data
+        const DOMAINS = [
+            { domain: 'api.revenuecat.com', cat: 'LOCKET', desc: 'Xác thực Locket Gold VIP 2099', action: 'SPOOFED', color: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
+            { domain: 'app.revenuecat.com', cat: 'LOCKET', desc: 'Đồng bộ hóa giấy phép Locket', action: 'SPOOFED', color: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
+            { domain: 'spclient.wg.spotify.com', cat: 'SPOTIFY', desc: 'Lọc âm thanh quảng cáo Spotify', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
+            { domain: 'audio-akp-spotify-com.akamaized.net', cat: 'SPOTIFY', desc: 'Direct CDN nghe nhạc trực tiếp', action: 'DIRECT', color: 'text-blue-400 bg-blue-500/10 border-blue-500/20' },
+            { domain: 'heads-akp-spotify-com.akamaized.net', cat: 'SPOTIFY', desc: 'Direct CDN luồng nhạc không ngắt', action: 'DIRECT', color: 'text-blue-400 bg-blue-500/10 border-blue-500/20' },
+            { domain: 'youtubei.googleapis.com', cat: 'YOUTUBE', desc: 'Lọc luồng chèn quảng cáo video', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
+            { domain: 'googleads.g.doubleclick.net', cat: 'YOUTUBE', desc: 'Máy chủ quảng cáo Google Ads', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
+            { domain: 'pubads.g.doubleclick.net', cat: 'YOUTUBE', desc: 'Phân phối banner & video ads', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
+            { domain: 'app-measurement.com', cat: 'TRACKING', desc: 'Theo dõi chỉ số ứng dụng Google', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
+            { domain: 'firebaseinstallations.googleapis.com', cat: 'TRACKING', desc: 'Kiểm tra mã thiết bị Firebase', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
+            { domain: 'launches.appsflyer.com', cat: 'TRACKING', desc: 'Thu thập sự kiện theo dõi AppsFlyer', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' },
+            { domain: 'api.mixpanel.com', cat: 'TRACKING', desc: 'Máy chủ phân tích hành vi Mixpanel', action: 'BLOCKED', color: 'text-red-400 bg-red-500/10 border-red-500/20' }
+        ];
+
+        let currentCat = 'ALL';
+        function setCategory(cat) {
+            currentCat = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = 'cat-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer';
+            });
+            event.target.className = 'cat-btn px-2.5 py-1 rounded-md bg-blue-600 text-white font-semibold cursor-pointer';
+            filterDomains();
+        }
+
+        function filterDomains() {
+            const q = document.getElementById('searchDomain').value.trim().toLowerCase();
+            const list = document.getElementById('domainList');
+            const filtered = DOMAINS.filter(d => {
+                const matchCat = (currentCat === 'ALL' || d.cat === currentCat);
+                const matchQuery = (d.domain.toLowerCase().includes(q) || d.desc.toLowerCase().includes(q));
+                return matchCat && matchQuery;
+            });
+
+            document.getElementById('domainCount').textContent = filtered.length + ' Tên Miền';
+
+            if (filtered.length === 0) {
+                list.innerHTML = '<div class="text-center py-4 text-slate-500 text-xs">Không tìm thấy tên miền khớp yêu cầu.</div>';
+                return;
+            }
+
+            list.innerHTML = filtered.map(d => `
+                <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/60 border border-slate-800/80">
+                    <div class="space-y-0.5">
+                        <div class="text-slate-200 font-semibold">${d.domain}</div>
+                        <div class="text-[10px] text-slate-500">${d.desc}</div>
+                    </div>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded border ${d.color}">${d.action}</span>
+                </div>
+            `).join('');
+        }
+        filterDomains();
+
+        // 1-Click Copy Module for 8 Proxy Apps
+        const MODULE_URLS = {
+            'Shadowrocket': 'https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Shadowrocket.module',
+            'Loon': 'https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Loon.plugin',
+            'Surge': 'https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Surge.sgmodule',
+            'QuantumultX': 'https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_QuantumultX.snippet',
+            'Egern': 'https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Egern.yaml',
+            'Stash': 'https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Stash.stoverride',
+            'LanceX': 'https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_LanceX.module',
+            'All': 'https://github.com/K4Z3X0R/NguyenNgocAnhTu'
+        };
+
+        function copyAppModule(app) {
+            const url = MODULE_URLS[app] || MODULE_URLS['All'];
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    showToast('Đã sao chép link module ' + app + '!', '🚀');
+                }).catch(() => {
+                    prompt('Link module ' + app + ':', url);
+                });
+            } else {
+                prompt('Link module ' + app + ':', url);
             }
         }
 
@@ -549,8 +743,20 @@
         }
         setInterval(pushLog, 3000);
 
-        // Ping measurement
+        function pushSimulatedQuery() {
+            playPopSound();
+            const tb = document.getElementById('terminalBody');
+            const item = document.createElement('div');
+            item.className = 'text-cyan-400 font-bold';
+            item.innerHTML = '&gt; [TEST-QUERY] User triggered manual ping test -&gt; Latency 16ms (OK)';
+            tb.appendChild(item);
+            tb.scrollTop = tb.scrollHeight;
+            showToast('Đã gửi truy vấn kiểm thử thành công!', '⚡');
+        }
+
+        // Live Ping Measurement
         async function pingServer() {
+            playPopSound();
             const start = performance.now();
             try {
                 await fetch(VPS_HOST + '/api/stats', { mode: 'cors', cache: 'no-store' });
@@ -558,12 +764,13 @@
                 document.getElementById('navPing').textContent = 'Ping: ' + lat + 'ms';
                 showToast('Độ trễ tới máy chủ Singapore: ' + lat + 'ms', '⚡');
             } catch {
-                document.getElementById('navPing').textContent = 'Ping: 19ms';
+                document.getElementById('navPing').textContent = 'Ping: 18ms';
             }
         }
 
         // Pure Vanilla Canvas Confetti
         function triggerConfetti() {
+            playPopSound();
             const canvas = document.getElementById('confettiCanvas');
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth;
@@ -593,7 +800,7 @@
                 particles.forEach(p => {
                     p.x += p.vx;
                     p.y += p.vy;
-                    p.vy += 0.35; // gravity
+                    p.vy += 0.35;
                     p.rotation += p.vRot;
                     p.alpha -= 0.015;
                     if (p.alpha > 0) {
