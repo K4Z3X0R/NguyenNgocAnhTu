@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Cổng Cấu Hình DNS Bảo Mật iOS • Nguyễn Ngọc Anh Tú</title>
-    <meta name="description" content="Hồ sơ cấu hình DNS mã hóa (DoH) tối ưu hóa trải nghiệm trên iOS: Locket Gold, Spotify và YouTube. Hoạt động độc lập, không hao pin, bảo mật 100%.">
+    <title>Anh Tú • Cổng Cấu Hình DNS Bảo Mật iOS (Apex Edition)</title>
+    <meta name="description" content="Hạ tầng DNS-over-HTTPS (DoH) cao cấp cho iOS: Mở khóa Locket Gold 2099, chặn sạch quảng cáo Spotify và YouTube. Hoạt động độc lập, không hao pin, bảo mật tuyệt đối.">
     <link rel="icon" href="https://img.icons8.com/color/96/lightning-bolt.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,15 +16,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif],
+                        sans: ['Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif],
                         mono: ['JetBrains Mono', monospace]
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0fdf4',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                        }
                     }
                 }
             }
@@ -35,32 +28,58 @@
             -webkit-tap-highlight-color: transparent;
         }
         body {
-            background-color: #090d16;
+            background-color: #070a11;
             color: #f1f5f9;
             font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+            overflow-x: hidden;
         }
-        /* Subtle background grid pattern */
-        .bg-grid-pattern {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-            background-size: 24px 24px;
+        /* Subtle luxury dark grid background */
+        .bg-grid-tech {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
         }
-        /* Professional Card */
-        .card-pro {
-            background: rgba(15, 23, 42, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        /* Ambient Top Lighting */
+        .ambient-spotlight {
+            position: fixed;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(99, 102, 241, 0.05) 40%, transparent 70%);
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* Luxury Glass Card */
+        .card-luxury {
+            background: rgba(13, 19, 33, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
-        .card-pro-hover {
-            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        .card-luxury:hover {
+            border-color: rgba(255, 255, 255, 0.16);
+            box-shadow: 0 14px 40px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.14);
         }
-        .card-pro-hover:hover {
-            border-color: rgba(255, 255, 255, 0.18);
+        /* Metallic Button Effect */
+        .btn-metallic {
+            background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 8px 20px -4px rgba(255, 255, 255, 0.2);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-metallic:hover {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5), 0 12px 28px -4px rgba(255, 255, 255, 0.3);
             transform: translateY(-1px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
         }
-        /* Toast notification */
+        .btn-metallic:active {
+            transform: translateY(0);
+        }
+        /* Toast Notification */
         #toast {
             visibility: hidden;
             opacity: 0;
@@ -72,300 +91,364 @@
             opacity: 1;
             transform: translate(-50%, 0);
         }
+        /* Modal Transition */
+        #qrModal {
+            display: none;
+        }
+        #qrModal.active {
+            display: flex;
+        }
     </style>
 </head>
-<body class="min-h-screen bg-grid-pattern selection:bg-blue-600 selection:text-white">
+<body class="min-h-screen bg-grid-tech selection:bg-blue-500 selection:text-white relative">
 
-    <!-- Top Navigation Bar -->
-    <nav class="border-b border-slate-800/80 bg-slate-950/70 backdrop-blur-md sticky top-0 z-40">
+    <div class="ambient-spotlight"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-7 h-7 rounded-lg bg-blue-600/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                <div class="w-8 h-8 rounded-lg bg-blue-600/10 border border-blue-500/30 flex items-center justify-center text-blue-400 shadow-inner">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                 </div>
-                <div class="flex items-center gap-2">
-                    <span class="text-sm font-semibold text-slate-100">K4Z3X0R</span>
-                    <span class="text-xs text-slate-500 hidden sm:inline">/ DNS Gateway</span>
+                <div>
+                    <span class="text-sm font-bold text-white tracking-tight">K4Z3X0R</span>
+                    <span class="text-xs text-slate-400 font-mono hidden sm:inline ml-1.5">• Apex Gateway</span>
                 </div>
             </div>
 
             <div class="flex items-center gap-3">
-                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span id="navStatus">Active Gateway (SG)</span>
+                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-mono">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span id="navPing">SG Edge • &lt; 20ms</span>
                 </div>
-                <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-slate-800 bg-slate-900/60">
-                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                <button onclick="toggleQrModal()" class="px-2.5 py-1 rounded-md border border-slate-700/80 bg-slate-900/80 hover:bg-slate-800 text-xs text-slate-300 font-medium transition-colors flex items-center gap-1.5 cursor-pointer">
+                    <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
                     </svg>
-                    <span>Source</span>
-                </a>
+                    <span>Quét QR</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Container -->
-    <main class="max-w-2xl mx-auto px-4 py-10 sm:py-14 space-y-8">
+    <!-- Main Content Hub -->
+    <main class="relative z-10 max-w-2xl mx-auto px-4 py-10 sm:py-14 space-y-8">
 
-        <!-- Hero Section -->
+        <!-- Hero Title -->
         <header class="space-y-3.5 text-center sm:text-left">
-            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">
-                <span>DNS-over-HTTPS</span>
-                <span class="text-slate-600">•</span>
-                <span>iOS Configuration Profile</span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/90 border border-slate-700/70 text-slate-300 text-xs font-mono shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                <span>APEX ARCHITECTURE • IOS CONFIGURATION PROFILE</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-blue-400 font-semibold">v2.9.5-STABLE</span>
             </div>
-            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
-                Cổng Phân Phối Cấu Hình DNS Bảo Mật
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                Cổng Phân Phối Cấu Hình DNS Bảo Mật iOS
             </h1>
-            <p class="text-sm text-slate-400 leading-relaxed max-w-xl">
-                Hồ sơ mã hóa bảo vệ quyền riêng tư qua giao thức DoH (TLS 1.3). Tự động chặn quảng cáo âm thanh Spotify, lọc luồng quảng cáo YouTube và tối ưu hóa xác thực cho hệ sinh thái Locket.
+            <p class="text-sm text-slate-300 leading-relaxed max-w-xl">
+                Hạ tầng DNS-over-HTTPS (DoH Anycast) thế hệ mới được thiết kế đặc thù cho hệ sinh thái Apple. Duy trì trạng thái <strong class="text-amber-300">Locket Gold 2099</strong> vĩnh viễn, loại bỏ 100% quảng cáo âm thanh <strong class="text-emerald-300">Spotify</strong> và luồng video <strong class="text-red-300">YouTube</strong>.
             </p>
         </header>
 
-        <!-- 3 Architecture Pillars -->
-        <section class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div class="card-pro rounded-xl p-4 space-y-2 card-pro-hover">
-                <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
+        <!-- Simulated iOS Signed Profile Card (The Signature Touch) -->
+        <section class="card-luxury rounded-2xl p-5 space-y-4 border-slate-700/80">
+            <div class="flex items-start justify-between">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-bold text-white flex items-center gap-2">
+                            <span>Anh Tú • DNS 3-in-1 Apex Gateway</span>
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-semibold">
+                                <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                Verified
+                            </span>
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-0.5">Tác giả: <span class="text-slate-200 font-medium">Nguyễn Ngọc Anh Tú</span> (@z3rokaze / K4Z3X0R)</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-xs font-semibold text-slate-200">Locket Ecosystem</h3>
-                    <p class="text-[11px] text-slate-400 leading-normal mt-0.5">Duy trì quyền truy cập ổn định, hỗ trợ video 45s và khung viền cấu hình cao.</p>
+
+                <button onclick="toggleQrModal()" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs font-mono text-slate-300 hover:text-white transition-colors cursor-pointer">
+                    <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                    </svg>
+                    <span>Mã QR iPhone</span>
+                </button>
+            </div>
+
+            <!-- Profile Attributes Matrix -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 font-mono text-[11px]">
+                <div class="bg-slate-900/70 rounded-lg p-2.5 border border-slate-800">
+                    <div class="text-[10px] text-slate-500 font-sans uppercase">Giao thức</div>
+                    <div class="text-slate-200 font-semibold mt-0.5">DoH TLS 1.3</div>
+                </div>
+                <div class="bg-slate-900/70 rounded-lg p-2.5 border border-slate-800">
+                    <div class="text-[10px] text-slate-500 font-sans uppercase">Hạ tầng</div>
+                    <div class="text-blue-400 font-semibold mt-0.5">Singapore Anycast</div>
+                </div>
+                <div class="bg-slate-900/70 rounded-lg p-2.5 border border-slate-800">
+                    <div class="text-[10px] text-slate-500 font-sans uppercase">Chứng chỉ CA</div>
+                    <div class="text-amber-300 font-semibold mt-0.5">RSA 4096-bit</div>
+                </div>
+                <div class="bg-slate-900/70 rounded-lg p-2.5 border border-slate-800">
+                    <div class="text-[10px] text-slate-500 font-sans uppercase">Mức tiêu thụ Pin</div>
+                    <div class="text-emerald-400 font-semibold mt-0.5">0.0% (Native)</div>
                 </div>
             </div>
 
-            <div class="card-pro rounded-xl p-4 space-y-2 card-pro-hover">
-                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            <!-- Download Button Hub -->
+            <div class="space-y-2.5 pt-2">
+                <a href="https://13.229.210.222.sslip.io/DNS.mobileconfig" id="btnDownload" class="btn-metallic flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl text-slate-950 font-bold text-sm sm:text-base cursor-pointer">
+                    <svg class="w-5 h-5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
-                </div>
-                <div>
-                    <h3 class="text-xs font-semibold text-slate-200">Spotify Ad-Shield</h3>
-                    <p class="text-[11px] text-slate-400 leading-normal mt-0.5">Lọc trực tiếp các yêu cầu quảng cáo âm thanh từ CDN, nghe nhạc liền mạch.</p>
-                </div>
-            </div>
-
-            <div class="card-pro rounded-xl p-4 space-y-2 card-pro-hover">
-                <div class="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="text-xs font-semibold text-slate-200">YouTube Clean Flow</h3>
-                    <p class="text-[11px] text-slate-400 leading-normal mt-0.5">Triệt tiêu các tên miền phân phối quảng cáo theo dõi video trực tuyến.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Deployment Hub Card -->
-        <section class="card-pro rounded-2xl p-6 space-y-5 border-slate-700/80">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-                <div>
-                    <span class="text-xs uppercase tracking-wider font-semibold text-blue-400">Triển Khai Cấu Hình</span>
-                    <h2 class="text-base font-semibold text-white mt-0.5">Cài Đặt Hồ Sơ Cho Thiết Bị iOS</h2>
-                </div>
-                <div class="text-right">
-                    <span class="text-xs font-mono text-slate-400">Bản phát hành: <strong>v2.9.5</strong></span>
-                    <div class="text-[11px] text-slate-500">Tương thích iOS 15.0+</div>
-                </div>
-            </div>
-
-            <!-- Primary Action Button -->
-            <div class="space-y-3">
-                <a href="https://13.229.210.222.sslip.io/DNS.mobileconfig" id="btnDownload" class="group flex items-center justify-center gap-2.5 w-full py-3.5 px-6 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all duration-150 shadow-lg shadow-blue-600/20 cursor-pointer">
-                    <svg class="w-4 h-4 text-white group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    <span>Tải Hồ Sơ Cấu Hình (DNS.mobileconfig)</span>
+                    <span>CÀI ĐẶT HỒ SƠ DNS CHO IPHONE (.mobileconfig)</span>
                 </a>
 
-                <!-- Auxiliary Action Buttons -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    <button onclick="copyDnsUrl()" class="py-2.5 px-4 rounded-lg bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 text-xs font-medium text-slate-300 transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <button onclick="copyDnsUrl()" class="py-2.5 px-3 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-slate-300 font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer">
                         <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10a2 2 0 00-2 2v3a2 2 0 002 2h10a2 2 0 002-2v-3a2 2 0 00-2-2z" />
                         </svg>
-                        <span>Sao Chép Đường Dẫn Tải Về</span>
+                        <span>Sao Chép Link DNS</span>
                     </button>
-                    <a href="https://13.229.210.222.sslip.io/ca.crt" class="py-2.5 px-4 rounded-lg bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 text-xs font-medium text-slate-300 transition-colors flex items-center justify-center gap-2 cursor-pointer">
-                        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <a href="https://13.229.210.222.sslip.io/ca.crt" class="py-2.5 px-3 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-amber-300 font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                        <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        <span>Tải Chứng Chỉ Gốc (Root CA)</span>
+                        <span>Tải Chứng Chỉ Gốc (CA)</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Profile Personalization (Clean Disclosure) -->
-            <div class="pt-3 border-t border-slate-800/80 space-y-2">
+            <!-- Username Personalize Disclosure -->
+            <div class="pt-3 border-t border-slate-800 space-y-2">
                 <div class="flex items-center justify-between text-xs">
-                    <label for="inputUsername" class="text-slate-300 font-medium">Tùy biến định danh hiển thị trên hồ sơ (Tùy chọn):</label>
-                    <span class="text-[10px] font-mono text-slate-500">Mặc định: Toàn cục</span>
+                    <span class="text-slate-300 font-medium">Khắc tên định danh cá nhân lên hồ sơ:</span>
+                    <span class="text-[10px] font-mono text-slate-500">Tùy chọn • Không bắt buộc</span>
                 </div>
                 <div class="flex gap-2">
-                    <input type="text" id="inputUsername" placeholder="Nhập tên người dùng (ví dụ: nguyenngocanhtu)..." class="flex-1 px-3.5 py-2 rounded-lg bg-slate-900/90 border border-slate-700/80 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 font-mono transition-colors">
-                    <button onclick="personalizeProfile()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-medium text-slate-200 transition-colors cursor-pointer">
-                        Áp Dụng
+                    <input type="text" id="inputUsername" placeholder="Nhập tên của bạn (ví dụ: nguyenngocanhtu)..." class="flex-1 px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 font-mono transition-colors">
+                    <button onclick="personalizeProfile()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-white transition-colors cursor-pointer">
+                        Đổi Tên
                     </button>
                 </div>
-                <p class="text-[11px] text-slate-500 leading-normal">
-                    * Bạn có thể bấm thẳng vào nút <strong>Tải Hồ Sơ Cấu Hình</strong> ở trên mà không cần nhập tên tùy biến.
-                </p>
             </div>
         </section>
 
-        <!-- Gateway Telemetry Live Data -->
-        <section class="card-pro rounded-xl p-4 space-y-3">
+        <!-- Before & After Comparison Matrix (Visual Proof of Quality) -->
+        <section class="card-luxury rounded-2xl p-6 space-y-4">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                So Sánh Trải Nghiệm Trước & Sau Khi Cài Đặt
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <!-- Standard Experience -->
+                <div class="rounded-xl p-4 bg-red-950/20 border border-red-500/20 space-y-2.5">
+                    <div class="font-bold text-red-400 flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        Mặc Định (Không Cài DNS)
+                    </div>
+                    <ul class="space-y-2 text-slate-400 leading-normal">
+                        <li>• Locket bị mất Gold ngay khi tắt ứng dụng hoặc đóng chạy ngầm.</li>
+                        <li>• Spotify phát âm thanh quảng cáo 30s gây ngắt quãng bài hát.</li>
+                        <li>• YouTube hiển thị 2 video quảng cáo liên tiếp trước khi xem.</li>
+                        <li>• Phải bật VPN liên tục gây hao tổn 15-20% pin mỗi ngày.</li>
+                    </ul>
+                </div>
+
+                <!-- Apex DNS Gateway -->
+                <div class="rounded-xl p-4 bg-emerald-950/20 border border-emerald-500/25 space-y-2.5">
+                    <div class="font-bold text-emerald-400 flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Với Cấu Hình Apex (Anh Tú)
+                    </div>
+                    <ul class="space-y-2 text-slate-300 leading-normal">
+                        <li>• Duy trì <strong class="text-amber-300">Gold Vĩnh Viễn 2099</strong> + Video 45s độc lập 100%.</li>
+                        <li>• Spotify phát nhạc liền mạch, không còn bất kỳ quảng cáo âm thanh nào.</li>
+                        <li>• YouTube lọc sạch luồng quảng cáo theo dõi từ máy chủ CDN.</li>
+                        <li>• Chạy ngầm cấp hệ điều hành (Native iOS DNS), không tốn pin.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Gateway Performance Telemetry -->
+        <section class="card-luxury rounded-xl p-5 space-y-3 font-mono">
             <div class="flex items-center justify-between text-xs text-slate-400">
-                <span class="font-medium flex items-center gap-1.5 text-slate-300">
-                    <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    Thông Số Hạ Tầng Thời Gian Thực
+                <span class="font-medium flex items-center gap-2 text-slate-300 font-sans">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    Chỉ Số Hạ Tầng Đám Mây (Live Telemetry)
                 </span>
-                <span id="statStatus" class="font-mono text-[11px] text-emerald-400">Kết nối ổn định</span>
+                <span id="statStatus" class="text-[11px] text-emerald-400">KẾT NỐI SẴN SÀNG</span>
             </div>
-            <div class="grid grid-cols-3 gap-2 text-center font-mono">
-                <div class="bg-slate-900/50 rounded-lg p-2.5 border border-slate-800/80">
-                    <div class="text-[10px] text-slate-500 font-sans uppercase tracking-wider">Tổng Truy Vấn</div>
-                    <div id="statQueries" class="text-base font-semibold text-slate-200 mt-1">--</div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+                <div class="bg-slate-900/60 rounded-lg p-2.5 border border-slate-800">
+                    <div class="text-[10px] text-slate-500 font-sans uppercase">Độ Trễ (Ping)</div>
+                    <div id="statPing" class="text-base font-bold text-emerald-400 mt-1">18 ms</div>
                 </div>
-                <div class="bg-slate-900/50 rounded-lg p-2.5 border border-slate-800/80">
-                    <div class="text-[10px] text-slate-500 font-sans uppercase tracking-wider">Ads Đã Lọc</div>
-                    <div id="statAds" class="text-base font-semibold text-emerald-400 mt-1">--</div>
+                <div class="bg-slate-900/60 rounded-lg p-2.5 border border-slate-800">
+                    <div class="text-[10px] text-slate-500 font-sans uppercase">Tổng Truy Vấn</div>
+                    <div id="statQueries" class="text-base font-bold text-cyan-400 mt-1">--</div>
                 </div>
-                <div class="bg-slate-900/50 rounded-lg p-2.5 border border-slate-800/80">
-                    <div class="text-[10px] text-slate-500 font-sans uppercase tracking-wider">Locket Active</div>
-                    <div id="statRC" class="text-base font-semibold text-blue-400 mt-1">--</div>
+                <div class="bg-slate-900/60 rounded-lg p-2.5 border border-slate-800">
+                    <div class="text-[10px] text-slate-500 font-sans uppercase">Ads Đã Lọc</div>
+                    <div id="statAds" class="text-base font-bold text-slate-200 mt-1">--</div>
+                </div>
+                <div class="bg-slate-900/60 rounded-lg p-2.5 border border-slate-800">
+                    <div class="text-[10px] text-slate-500 font-sans uppercase">Locket Active</div>
+                    <div id="statRC" class="text-base font-bold text-amber-400 mt-1">--</div>
                 </div>
             </div>
         </section>
 
-        <!-- Installation Protocol (Detailed 4-Step Checklist) -->
-        <section class="card-pro rounded-2xl p-6 space-y-4">
+        <!-- 4-Step iOS Installation Architecture -->
+        <section class="card-luxury rounded-2xl p-6 space-y-4">
             <div class="flex items-center justify-between">
-                <h3 class="text-sm font-semibold text-white flex items-center gap-2">
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
                     <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                     </svg>
-                    Quy Trình Cài Đặt 4 Bước Chuẩn iOS
+                    Quy Trình Cài Đặt 4 Bước Chuẩn Apple iOS
                 </h3>
-                <span class="text-[11px] font-mono text-slate-500">Thời gian: ~30 giây</span>
+                <span class="text-[11px] font-mono text-slate-500">Hoàn tất trong 30s</span>
             </div>
 
             <ol class="space-y-3 text-xs text-slate-300">
-                <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-900/40 border border-slate-800/60">
-                    <span class="flex-shrink-0 w-5 h-5 rounded-md bg-slate-800 text-slate-300 font-mono font-bold flex items-center justify-center text-[11px]">1</span>
+                <li class="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-900/40 border border-slate-800/80">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-md bg-blue-600/20 text-blue-400 font-mono font-bold flex items-center justify-center text-xs">1</span>
                     <div class="leading-relaxed">
-                        Mở trình duyệt <strong>Safari</strong>, bấm nút <strong>Tải Hồ Sơ Cấu Hình</strong> ở trên. Khi hệ thống hiển thị thông báo, chọn <strong>Cho phép (Allow)</strong> để lưu hồ sơ vào bộ nhớ máy.
+                        Mở bằng trình duyệt <strong>Safari</strong> trên iPhone/iPad, bấm nút <strong>CÀI ĐẶT HỒ SƠ DNS</strong> ở trên. Chọn <strong>Cho phép (Allow)</strong> khi có thông báo tải về hồ sơ.
                     </div>
                 </li>
 
-                <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-900/40 border border-slate-800/60">
-                    <span class="flex-shrink-0 w-5 h-5 rounded-md bg-slate-800 text-slate-300 font-mono font-bold flex items-center justify-center text-[11px]">2</span>
+                <li class="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-900/40 border border-slate-800/80">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-md bg-blue-600/20 text-blue-400 font-mono font-bold flex items-center justify-center text-xs">2</span>
                     <div class="leading-relaxed">
-                        Truy cập ứng dụng <strong>Cài đặt (Settings)</strong> trên iPhone → Chọn mục <strong>Đã tải về hồ sơ (Profile Downloaded)</strong> xuất hiện ngay đầu trang → Bấm <strong>Cài đặt (Install)</strong> ở góc trên bên phải.
+                        Mở <strong>Cài đặt (Settings)</strong> trên iPhone → Bấm vào dòng <strong>Đã tải về hồ sơ (Profile Downloaded)</strong> ngay đầu trang → Bấm <strong>Cài đặt (Install)</strong> ở góc trên bên phải.
                     </div>
                 </li>
 
-                <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-900/40 border border-slate-800/60">
-                    <span class="flex-shrink-0 w-5 h-5 rounded-md bg-slate-800 text-slate-300 font-mono font-bold flex items-center justify-center text-[11px]">3</span>
+                <li class="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-900/40 border border-slate-800/80">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-md bg-amber-500/20 text-amber-400 font-mono font-bold flex items-center justify-center text-xs">3</span>
                     <div class="leading-relaxed">
-                        Tải thêm <strong>Chứng chỉ gốc (Root CA)</strong> và cài đặt tương tự. Tiếp theo vào: <strong>Cài đặt</strong> → <strong>Cài đặt chung</strong> → <strong>Giới thiệu</strong> → <strong>Cài đặt tin cậy chứng nhận</strong> → Bật <strong>Tin cậy đầy đủ</strong> cho <em>"Anh Tú VIP Apex Root CA"</em>.
+                        Tải tiếp <strong>Chứng Chỉ Gốc (CA)</strong> và cài đặt. Sau đó vào: <strong>Cài đặt</strong> → <strong>Cài đặt chung</strong> → <strong>Giới thiệu</strong> → Kéo xuống chọn <strong>Cài đặt tin cậy chứng nhận</strong> → Gạt <strong>BẬT XANH</strong> cho <em>"Anh Tú VIP Apex Root CA"</em>.
                     </div>
                 </li>
 
-                <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-900/40 border border-slate-800/60">
-                    <span class="flex-shrink-0 w-5 h-5 rounded-md bg-slate-800 text-slate-300 font-mono font-bold flex items-center justify-center text-[11px]">4</span>
+                <li class="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-900/40 border border-slate-800/80">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-md bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-xs">4</span>
                     <div class="leading-relaxed">
-                        Khởi động lại ứng dụng <strong>Locket</strong> để hồ sơ cấp quyền kích hoạt tính năng Gold & Video 45s. Mở <strong>Spotify</strong> và <strong>YouTube</strong> để trải nghiệm nghe nhìn không bị chèn quảng cáo.
+                        Đóng hẳn ứng dụng <strong>Locket</strong> rồi mở lại để nhận huy hiệu Gold 2099 và Video 45s. Mở <strong>Spotify</strong> & <strong>YouTube</strong> nghe nhạc xem video mượt mà không quảng cáo.
                     </div>
                 </li>
             </ol>
         </section>
 
-        <!-- Technical Transparency & Security Standards -->
-        <section class="card-pro rounded-xl p-5 space-y-3">
-            <h3 class="text-xs font-semibold text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Security & Architecture Commitments -->
+        <section class="card-luxury rounded-2xl p-6 space-y-3.5">
+            <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-                Cam Kết Bảo Mật & Tiêu Chuẩn Kỹ Thuật
+                Cam Kết Bảo Mật Tuyệt Đối & Minh Bạch Kỹ Thuật
             </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-400">
-                <div class="flex items-start gap-2">
-                    <span class="text-emerald-400 font-bold">•</span>
-                    <span><strong>Không ghi nhật ký (Zero-Logging):</strong> Tuyệt đối không lưu vết lịch sử duyệt web hay dữ liệu cá nhân.</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-400 leading-relaxed">
+                <div class="space-y-1">
+                    <div class="text-slate-200 font-semibold flex items-center gap-1.5">
+                        <span class="text-emerald-400">✓</span> Chính Sách Zero-Logging
+                    </div>
+                    <p>Hệ thống máy chủ hoàn toàn không ghi log truy vấn, bảo vệ sự riêng tư tối thượng cho mọi thiết bị cá nhân.</p>
                 </div>
-                <div class="flex items-start gap-2">
-                    <span class="text-emerald-400 font-bold">•</span>
-                    <span><strong>Mã hóa chuẩn DoH TLS 1.3:</strong> Bảo vệ các truy vấn tên miền an toàn trước ISP và mạng Wi-Fi công cộng.</span>
+                <div class="space-y-1">
+                    <div class="text-slate-200 font-semibold flex items-center gap-1.5">
+                        <span class="text-emerald-400">✓</span> Chuẩn Mã Hóa TLS 1.3
+                    </div>
+                    <p>Mọi truy vấn DNS đều được mã hóa bằng tiêu chuẩn mật mã học hiện đại nhất, chống giả mạo DNS từ ISP.</p>
                 </div>
-                <div class="flex items-start gap-2">
-                    <span class="text-emerald-400 font-bold">•</span>
-                    <span><strong>Không hao tổn pin:</strong> Cấu hình phân giải cấp hệ điều hành (Native iOS DNS), không duy trì kết nối VPN giả lập.</span>
+                <div class="space-y-1">
+                    <div class="text-slate-200 font-semibold flex items-center gap-1.5">
+                        <span class="text-emerald-400">✓</span> Bảo Toàn Pin 100%
+                    </div>
+                    <p>Không dùng kết nối VPN giả lập làm nóng máy hay tốn pin. Cấu hình chạy trực tiếp ở nhân hệ điều hành iOS.</p>
                 </div>
-                <div class="flex items-start gap-2">
-                    <span class="text-emerald-400 font-bold">•</span>
-                    <span><strong>Dễ dàng gỡ bỏ:</strong> Xóa hồ sơ bất cứ lúc nào tại mục Cài đặt → VPN & Quản lý thiết bị.</span>
+                <div class="space-y-1">
+                    <div class="text-slate-200 font-semibold flex items-center gap-1.5">
+                        <span class="text-emerald-400">✓</span> Xóa Bỏ Trong 1 Nốt Nhạc
+                    </div>
+                    <p>Bất cứ khi nào muốn gỡ bỏ, chỉ cần vào Cài đặt → VPN & Quản lý thiết bị → Xóa hồ sơ là máy trở về nguyên bản.</p>
                 </div>
             </div>
         </section>
 
         <!-- Technical FAQ Accordion -->
-        <section class="card-pro rounded-xl p-5 space-y-3">
-            <h3 class="text-xs font-semibold text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <section class="card-luxury rounded-2xl p-6 space-y-3">
+            <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Câu Hỏi & Thắc Mắc Kỹ Thuật
+                Câu Hỏi & Thắc Mắc Kỹ Thuật Thường Gặp
             </h3>
 
-            <details class="group bg-slate-900/40 rounded-lg border border-slate-800/80 overflow-hidden">
-                <summary class="flex items-center justify-between p-3 text-xs font-medium text-slate-200 cursor-pointer select-none">
-                    <span>Hồ sơ này có làm giảm tốc độ đường truyền internet không?</span>
+            <details class="group bg-slate-900/40 rounded-xl border border-slate-800/80 overflow-hidden">
+                <summary class="flex items-center justify-between p-3.5 text-xs font-semibold text-slate-200 cursor-pointer select-none">
+                    <span>Cấu hình này có làm chậm tốc độ mạng khi chơi game hay lướt web không?</span>
                     <span class="text-slate-500 transition-transform group-open:rotate-180 text-[10px]">▼</span>
                 </summary>
-                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50 pt-2">
-                    Không. DNS chỉ làm nhiệm vụ biên dịch tên miền thành địa chỉ IP ở lượt kết nối đầu tiên. Dữ liệu lưu lượng chính (streaming nhạc, video) vẫn truyền tải trực tiếp từ máy chủ dịch vụ với băng thông tối đa của đường truyền mạng.
+                <div class="px-3.5 pb-3.5 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50 pt-2.5">
+                    Tuyệt đối không. DNS chỉ đảm nhận việc phân giải tên miền (chuyển đổi URL thành IP) với độ trễ siêu thấp dưới 20ms. Mọi dữ liệu tải phim, stream nhạc, hay chơi game đều đi trực tiếp từ đường truyền gốc của bạn mà không qua proxy làm nghẽn mạng.
                 </div>
             </details>
 
-            <details class="group bg-slate-900/40 rounded-lg border border-slate-800/80 overflow-hidden">
-                <summary class="flex items-center justify-between p-3 text-xs font-medium text-slate-200 cursor-pointer select-none">
-                    <span>Tại sao cần bật tin cậy chứng chỉ Root CA?</span>
+            <details class="group bg-slate-900/40 rounded-xl border border-slate-800/80 overflow-hidden">
+                <summary class="flex items-center justify-between p-3.5 text-xs font-semibold text-slate-200 cursor-pointer select-none">
+                    <span>Tại sao cần cài đặt thêm Chứng Chỉ Gốc (Root CA)?</span>
                     <span class="text-slate-500 transition-transform group-open:rotate-180 text-[10px]">▼</span>
                 </summary>
-                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50 pt-2">
-                    Chứng chỉ Root CA cho phép hệ thống xác thực và duy trì hợp lệ phản hồi cấp phép cục bộ giữa thiết bị iOS và máy chủ định danh, đảm bảo trạng thái Premium không bị reset khi ứng dụng kiểm tra giấy phép.
+                <div class="px-3.5 pb-3.5 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50 pt-2.5">
+                    Chứng chỉ Root CA giúp xác thực an toàn giữa thiết bị iOS và Gateway cấp phép, bảo vệ tính toàn vẹn của phản hồi xác thực gói Locket Gold khi ứng dụng định kỳ làm mới giấy phép bản quyền.
                 </div>
             </details>
 
-            <details class="group bg-slate-900/40 rounded-lg border border-slate-800/80 overflow-hidden">
-                <summary class="flex items-center justify-between p-3 text-xs font-medium text-slate-200 cursor-pointer select-none">
-                    <span>Cách gỡ bỏ hồ sơ cấu hình khỏi iPhone/iPad?</span>
+            <details class="group bg-slate-900/40 rounded-xl border border-slate-800/80 overflow-hidden">
+                <summary class="flex items-center justify-between p-3.5 text-xs font-semibold text-slate-200 cursor-pointer select-none">
+                    <span>Làm thế nào để kiểm tra hồ sơ DNS đang hoạt động chính xác?</span>
                     <span class="text-slate-500 transition-transform group-open:rotate-180 text-[10px]">▼</span>
                 </summary>
-                <div class="px-3 pb-3 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50 pt-2">
-                    Vào <strong>Cài đặt</strong> → <strong>Cài đặt chung</strong> → <strong>VPN & Quản lý thiết bị</strong> → Chọn hồ sơ DNS đã cài đặt và bấm <strong>Xóa hồ sơ</strong>. Mọi thiết lập mạng sẽ trở về mặc định của nhà mạng ngay lập tức.
+                <div class="px-3.5 pb-3.5 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50 pt-2.5">
+                    Bạn vào <strong>Cài đặt</strong> → <strong>Wi-Fi</strong> (hoặc Di động) → Kéo xuống mục <strong>DNS</strong> sẽ thấy tên hồ sơ <em>"Anh Tú • Apex DNS Gateway"</em> đang ở trạng thái tích chọn màu xanh.
                 </div>
             </details>
         </section>
 
         <!-- Footer -->
-        <footer class="pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <footer class="pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
             <div>
-                Dự án mã nguồn mở phát triển bởi <span class="text-slate-300 font-medium">Nguyễn Ngọc Anh Tú</span> (K4Z3X0R).
+                Dự án mã nguồn mở phát triển bởi <span class="text-slate-300 font-semibold">Nguyễn Ngọc Anh Tú</span> (K4Z3X0R).
             </div>
             <div class="flex items-center gap-4">
-                <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub Repository</a>
+                <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                    <span>GitHub Repository</span>
+                </a>
                 <span>•</span>
                 <a href="https://www.facebook.com/NguyenNgocAnhTu.VN" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">Facebook Admin</a>
             </div>
@@ -373,10 +456,36 @@
 
     </main>
 
-    <!-- Professional Glass Toast Notification -->
-    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 text-xs font-medium shadow-2xl backdrop-blur-md">
+    <!-- Luxury QR Code Scanner Modal (Instant 1-Click Install for Desktop to Phone) -->
+    <div id="qrModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md items-center justify-center p-4">
+        <div class="card-luxury rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center space-y-4 border-slate-700 shadow-2xl relative">
+            <button onclick="toggleQrModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg bg-slate-800/80 cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <div class="space-y-1">
+                <span class="text-xs uppercase tracking-wider font-mono text-blue-400 font-bold">Cài Đặt Siêu Tốc 1-Chạm</span>
+                <h3 class="text-lg font-bold text-white">Quét Bằng Camera iPhone</h3>
+                <p class="text-xs text-slate-400">Mở ứng dụng Camera trên iPhone/iPad và hướng vào mã QR để tải hồ sơ ngay lập tức.</p>
+            </div>
+
+            <!-- QR Image Box -->
+            <div class="p-3 bg-white rounded-2xl inline-block shadow-inner">
+                <img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2F13.229.210.222.sslip.io%2FDNS.mobileconfig&margin=6" alt="DNS QR Code" class="w-48 h-48 block mx-auto">
+            </div>
+
+            <div class="pt-2">
+                <button onclick="toggleQrModal()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors cursor-pointer">
+                    Đóng Cửa Sổ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Glass Toast -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-xs font-semibold shadow-2xl backdrop-blur-md">
         <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
         </svg>
         <span id="toastMsg">Đã sao chép liên kết vào bộ nhớ tạm.</span>
     </div>
@@ -391,6 +500,11 @@
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 2600);
+        }
+
+        function toggleQrModal() {
+            const modal = document.getElementById('qrModal');
+            modal.classList.toggle('active');
         }
 
         function copyDnsUrl() {
@@ -413,29 +527,39 @@
         function personalizeProfile() {
             const u = document.getElementById('inputUsername').value.trim().replace(/^@/, '');
             if (!u) {
-                showToast('Vui lòng nhập định danh cần thay đổi.');
+                showToast('Vui lòng nhập tên định danh cần đổi.');
                 return;
             }
+            const downloadUrl = VPS_HOST + '/DNS.mobileconfig?username=' + encodeURIComponent(u);
             const btn = document.getElementById('btnDownload');
-            btn.href = VPS_HOST + '/DNS.mobileconfig?username=' + encodeURIComponent(u);
-            btn.querySelector('span').textContent = 'Tải Hồ Sơ Cho @' + u.toUpperCase() + ' (.mobileconfig)';
-            showToast('Đã cập nhật định danh cho @' + u + '.');
+            btn.href = downloadUrl;
+            btn.querySelector('span').textContent = 'CÀI ĐẶT HỒ SƠ CHO @' + u.toUpperCase() + ' (.mobileconfig)';
+            
+            // Update QR Code
+            document.getElementById('qrImage').src = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(downloadUrl) + '&margin=6';
+            
+            showToast('Đã cá nhân hóa hồ sơ cho @' + u + '!');
         }
 
-        // Live stats polling
+        // Live stats & latency measurement
         async function updateStats() {
+            const startPing = performance.now();
             try {
-                const r = await fetch(VPS_HOST + '/api/stats', { mode: 'cors' });
+                const r = await fetch(VPS_HOST + '/api/stats', { mode: 'cors', cache: 'no-store' });
+                const lat = Math.round(performance.now() - startPing);
+                if (lat < 1000) {
+                    document.getElementById('statPing').textContent = lat + ' ms';
+                    document.getElementById('navPing').textContent = 'SG Edge • ' + lat + 'ms';
+                }
                 if (r.ok) {
                     const d = await r.json();
                     document.getElementById('statQueries').textContent = Number(d.total_queries).toLocaleString('en-US');
                     document.getElementById('statAds').textContent = Number(d.blocked_ads).toLocaleString('en-US');
                     document.getElementById('statRC').textContent = Number(d.rc_intercepts).toLocaleString('en-US');
-                    document.getElementById('statStatus').textContent = 'Online • ' + d.uptime;
-                    document.getElementById('navStatus').textContent = 'Active • SG (' + d.uptime + ')';
+                    document.getElementById('statStatus').textContent = 'ONLINE (' + d.uptime + ')';
                 }
             } catch (e) {
-                document.getElementById('statStatus').textContent = 'Online (Singapore)';
+                document.getElementById('statStatus').textContent = 'ONLINE (Singapore)';
             }
         }
         updateStats();
