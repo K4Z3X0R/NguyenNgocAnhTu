@@ -56,6 +56,10 @@ assert.ok(/User-agent:\s*GPTBot\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: GPTBot
 assert.ok(/User-agent:\s*ClaudeBot\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: ClaudeBot not blocked in robots.txt');
 assert.ok(/User-agent:\s*PerplexityBot\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: PerplexityBot not blocked in robots.txt');
 assert.ok(/User-agent:\s*Bytespider\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: Bytespider not blocked in robots.txt');
+assert.ok(/User-agent:\s*Amazonbot\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: Amazonbot not blocked in robots.txt');
+assert.ok(/User-agent:\s*Applebot-Extended\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: Applebot-Extended not blocked in robots.txt');
+assert.ok(/User-agent:\s*Meta-ExternalAgent\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: Meta-ExternalAgent not blocked in robots.txt');
+assert.ok(/User-agent:\s*Cohere-training\s+Disallow:\s*\//.test(robotsTxt), 'FAIL: Cohere-training not blocked in robots.txt');
 console.log('  ✅ [PASS] robots.txt successfully blocks all major commercial AI crawlers');
 
 // 6. TEST: Invisible LLM Prompt Poisoning & Canary Trap

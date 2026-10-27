@@ -326,3 +326,26 @@ DOMAIN-SUFFIX,mon.zijieapi.com
 DOMAIN-SUFFIX,log.byteoversea.com
 DOMAIN-SUFFIX,log.ibytedtos.com
 
+# --- Redirect / Popunder / Junk Ad Networks (Cloudflare-DNS-AutoSync) ---
+DOMAIN-SUFFIX,monetag.com
+DOMAIN-SUFFIX,deloton.com
+DOMAIN-SUFFIX,onclickperformance.com
+DOMAIN-SUFFIX,onclickalgo.com
+DOMAIN-SUFFIX,propeller-tracking.com
+DOMAIN-SUFFIX,adtrue.com
+DOMAIN-SUFFIX,taboola.com
+DOMAIN-SUFFIX,outbrain.com
+DOMAIN-SUFFIX,yeumoney.com
+DOMAIN-SUFFIX,yeumoney.net
+DOMAIN-SUFFIX,traffic1s.com
+DOMAIN-SUFFIX,laymanganh.com
+DOMAIN-SUFFIX,trafficuser.vn
+DOMAIN-SUFFIX,trafficuser.net
+DOMAIN-SUFFIX,link1s.com
+DOMAIN-SUFFIX,browser.sentry-cdn.com
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,clarity.ms
+DOMAIN-SUFFIX,hotjar.com
+DOMAIN-SUFFIX,mixpanel.com
+DOMAIN-SUFFIX,push-sdk.com
+

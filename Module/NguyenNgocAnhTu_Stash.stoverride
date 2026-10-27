@@ -1,5 +1,5 @@
 name: ⚡ Anh Tú Premium - Stash
-desc: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.9.5-stable (2026-10-25)"
+desc: "🚀 Mở khóa 350+ App VIP (Locket Gold 45s Video, Spotify, YouTube, Captions AI, iScreen, MD Vinyl, Moises, Structured, Remini, PhotoRoom, ELSA, OldRoll, iTunes 250+). 🛡️ Chặn Ads & Tracking. 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking, GeoIP VN & Privacy. | v2.9.6-stable (2026-10-27)"
 author: Nguyễn Ngọc Anh Tú
 homepage: https://github.com/K4Z3X0R/NguyenNgocAnhTu
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -1034,6 +1034,8 @@ mitm:
   - "api.remini.ai"
   - "api.bazaart.me"
   - "firebaseremoteconfig.googleapis.com"
+  - "api.rophim1.vip"
+  - "rophimapi.net"
 
 force-http-engine:
   - "api.revenuecat.com:443"
@@ -1089,6 +1091,12 @@ script-providers:
     interval: 86400
   emby-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/emby.js
+    interval: 86400
+  rophim-res:
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/rophim.js
+    interval: 86400
+  webfilm-res:
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/webfilm_inject.js
     interval: 86400
   km-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Kinemaster.js
@@ -1374,6 +1382,18 @@ scriptings:
       name: emby-res
       match: ^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice
       script-provider: emby-res
+      require-body: true
+      timeout: 30
+  - http-response:
+      name: rophim-res
+      match: ^https?:\/\/.*rophim.*?\/(baseapi\/api\/v1\/(tcoin\/me|user|vip)|api\/auth\/session)
+      script-provider: rophim-res
+      require-body: true
+      timeout: 30
+  - http-response:
+      name: webfilm-res
+      match: ^https?:\/\/.*(rophim|phimmoi|xoiphim|subnhanh|dongphim|motphim).*?\/.*
+      script-provider: webfilm-res
       require-body: true
       timeout: 30
   - http-response:

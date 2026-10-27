@@ -879,6 +879,42 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
   check('PDFExpert: subscriptionState=active & 2099', b.subscriptionState === 'active' && b.isPDFExpert6User === true, out ? out.body : 'null');
 }
 
+// 77. Rophim TCoin Balance Unlock
+{
+  const out = runScript('rophim.js', { url: 'https://api.rophim1.vip/baseapi/api/v1/tcoin/me' }, { body: JSON.stringify({ balance: 0, thungBalance: 0 }) });
+  const b = JSON.parse(out.body);
+  check('rophim: thungBalance & balance unlocked (999999999)', b && b.thungBalance === 999999999 && b.balance === 999999999, out ? out.body : 'null');
+}
+
+// 78. Rophim Auth Session VIP 2099
+{
+  const out = runScript('rophim.js', { url: 'https://api.rophim1.vip/api/auth/session' }, { body: JSON.stringify({ user: { email: 'user@example.com' } }) });
+  const b = JSON.parse(out.body);
+  check('rophim: user.is_vip=true & role=VIP & 2099 expiry', b && b.user && b.user.is_vip === true && b.user.role === 'VIP' && b.user.vip_expires_at === 4087113600, out ? out.body : 'null');
+}
+
+// 79. Rophim User Profile Nested VIP
+{
+  const out = runScript('rophim.js', { url: 'https://api.rophim1.vip/baseapi/api/v1/user/profile' }, { body: JSON.stringify({ data: { is_vip: false, vip_expires_at: 0 } }) });
+  const b = JSON.parse(out.body);
+  check('rophim: nested data.is_vip=true & 2099 expiry', b && b.data && b.data.is_vip === true && b.data.vip_expires_at === 4087113600, out ? out.body : 'null');
+}
+
+// 80. Webfilm Cinema Bypass & HTML Injection
+{
+  const htmlIn = '<html><head><title>Phim Hay</title></head><body><div id="player"></div></body></html>';
+  const out = runScript('webfilm_inject.js', { url: 'https://rophim1.vip/phim-hay' }, { body: htmlIn, headers: {} });
+  check('webfilm_inject: HTML injection & anti-streamguard present', out && out.body && out.body.includes('origPause') && out.body.includes('stream-guard'), out ? out.body : 'null');
+  check('webfilm_inject: Cache-Control anti-304 injected', out && out.headers && out.headers['Cache-Control'] && out.headers['Cache-Control'].includes('no-cache'), JSON.stringify(out ? out.headers : {}));
+}
+
+// 81. Webfilm Non-HTML Bypass
+{
+  const jsonIn = '{"status":"ok"}';
+  const out = runScript('webfilm_inject.js', { url: 'https://rophim1.vip/api/status' }, { body: jsonIn, headers: {} });
+  check('webfilm_inject: Non-HTML passthrough untouched', out && out.body === jsonIn, out ? out.body : 'null');
+}
+
 console.log('\n== KẾT QUẢ: ' + pass + ' PASS / ' + fail + ' FAIL ==');
 
 process.exit(fail === 0 ? 0 : 1);

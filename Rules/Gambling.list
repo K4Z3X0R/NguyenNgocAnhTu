@@ -160,6 +160,47 @@ DOMAIN-SUFFIX,77win.club
 DOMAIN-SUFFIX,99ok.com
 DOMAIN-SUFFIX,good88.com
 
+# --- Tập đoàn Cờ bạc & Casino trực tuyến mới (OKVIP, Thabet, KuCasino) ---
+DOMAIN-SUFFIX,okvip.com
+DOMAIN-SUFFIX,okvip.vip
+DOMAIN-SUFFIX,okvip.group
+DOMAIN-SUFFIX,okvip.link
+DOMAIN-SUFFIX,thabet.com
+DOMAIN-SUFFIX,thabet.vip
+DOMAIN-SUFFIX,thabet.net
+DOMAIN-SUFFIX,thabet516.com
+DOMAIN-SUFFIX,kucasino.net
+DOMAIN-SUFFIX,kucasino.vn
+DOMAIN-SUFFIX,kucasino.com
+DOMAIN-SUFFIX,kucasino.vip
+DOMAIN-SUFFIX,choikubet.com
+DOMAIN-SUFFIX,kubet77.com
+DOMAIN-SUFFIX,kubet11.com
+DOMAIN-SUFFIX,dangkykubet.net
+
+# --- Game bài & Cổng game đổi thưởng đuôi .vin ---
+DOMAIN-SUFFIX,b52.vin
+DOMAIN-SUFFIX,sunwin.vin
+DOMAIN-SUFFIX,go88.vin
+DOMAIN-SUFFIX,taigo88.vin
+DOMAIN-SUFFIX,rikvip.vin
+DOMAIN-SUFFIX,hitclub.vin
+DOMAIN-SUFFIX,iwin.vin
+DOMAIN-SUFFIX,manclub.vin
+DOMAIN-SUFFIX,789club.vin
+
+# --- Biến thể nhà cái lớn (SHBET, Hi88, F8BET, MB66 từ Cloudflare Gateway) ---
+DOMAIN-SUFFIX,shbet0.com
+DOMAIN-SUFFIX,shbet88.com
+DOMAIN-SUFFIX,shbet1.com
+DOMAIN-SUFFIX,shbet2.com
+DOMAIN-SUFFIX,shbet3.com
+DOMAIN-SUFFIX,hi88.vip
+DOMAIN-SUFFIX,hi880.com
+DOMAIN-SUFFIX,f8bet.vip
+DOMAIN-SUFFIX,f8bet.top
+DOMAIN-SUFFIX,mb66.vip
+
 # --- Keyword chặn cá độ phổ biến ---
 DOMAIN-KEYWORD,1xbet
 DOMAIN-KEYWORD,fun88
@@ -169,3 +210,9 @@ DOMAIN-KEYWORD,jun88
 DOMAIN-KEYWORD,789bet
 DOMAIN-KEYWORD,kubet
 DOMAIN-KEYWORD,new88
+DOMAIN-KEYWORD,okvip
+DOMAIN-KEYWORD,thabet
+DOMAIN-KEYWORD,kucasino
+DOMAIN-KEYWORD,shbet
+DOMAIN-KEYWORD,f8bet
+DOMAIN-KEYWORD,mb66
