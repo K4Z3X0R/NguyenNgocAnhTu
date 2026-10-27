@@ -2,77 +2,115 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>PayloadDisplayName</key>
+    <string>👑 Anh Tú • DNS 3-in-1: Locket Gold + Spotify + YouTube (VIP (2099))</string>
+    <key>PayloadDescription</key>
+    <string>Cấu hình DNS 3-in-1 Tối Thượng: Mở khóa Locket Gold Vĩnh Viễn 2099 (Video 45s) + Chặn 100% Ads Spotify &amp; Ads YouTube • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
+    <key>PayloadIdentifier</key>
+    <string>com.anhtu.dns.3in1.v4</string>
+    <key>PayloadOrganization</key>
+    <string>Nguyễn Ngọc Anh Tú (K4Z3X0R)</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>a1b2c3d4-e5f6-4789-abcd-0123456789ab</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
     <key>PayloadContent</key>
     <array>
+        <!-- 1. ROOT CA CERTIFICATE (For RevenueCat HTTPS Interception) -->
         <dict>
-            <key>PayloadCertificateFileName</key>
-            <string>LocketGold Root CA</string>
-            <key>PayloadContent</key>
-            <data>MIIDNTCCAh2gAwIBAgIUOQqYkU7yWPiIWMNdvcQ5vM1NKgQwDQYJKoZIhvcNAQELBQAwKjETMBEGA1UECgwKTG9ja2V0R29sZDETMBEGA1UEAwwKTG9ja2V0R29sZDAeFw0yNjA5MzAxNDI5MDhaFw0zNjA5MjcxNDI5MDhaMCoxEzARBgNVBAoMCkxvY2tldEdvbGQxEzARBgNVBAMMCkxvY2tldEdvbGQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSgDJzEKZDUijfA1HYVGAIc9e2LVUsDk82iubefLGBXp6Ia5/FzGCn7RI4kkM6B4Gzdqcj52nZ2mQkh2hlftsE4SyKGlqnL/+50GnNRV8FkrIWb0UUI8SK22evSa/SW70CXTtTsezAXT5wodUcOzDZvhI6pxKzySEujg7WxRzYsfq1vr8t2yGJoV5NP0tqZShWq4RxZ7Tj4HyISHFE9+Upvy/8N2KQMKvMkSEphhxpk645dl+tF0Q37VV6bqZGVNEO/MdGaPzqMld8V3qbrv5eebIrOZBfZU5hRiTHiqK19FPuvvGxAjPsKGx27tx6+UoAGRlbQAyNBj7vKNMT6n0tAgMBAAGjUzBRMB0GA1UdDgQWBBT5dQfm6Eu5mNz5Od9cch7UlizH+jAfBgNVHSMEGDAWgBT5dQfm6Eu5mNz5Od9cch7UlizH+jAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAXwYJMRJ9nPpRmS7IVWF0PcuLB9z5q3qanc/x+xOQOH4urgm8NAvHGkHNg7rE64wsMkA1O7GTUT+NP2pdEDu2/zfocfflvsN1l3Gu3Z193bWhcpvr8q8YgLJ4rP6relyFLIxEQ5FkDXsXqZFf5QOn6+KgdwdIwqos7knp5quBAKqHZbXXVWWxZgOILe4+8uRBAkG2ppZrZE9hocAQ8HlcQOX+FsDQZ74vKCPx+mS9szHJJigHNnJRXHD8Ys1oIOjvDUT2nfMGMKk5v1hO2IlF1wsGtaWn3ulMsmth4MVHtEtf5wJq48yc7UBXjaq/h9jnO81d9yyI2RAYZ52CqMLYR</data>
-            <key>PayloadDescription</key>
-            <string>Adds a CA root certificate</string>
-            <key>PayloadDisplayName</key>
-            <string>LocketGold CA</string>
-            <key>PayloadIdentifier</key>
-            <string>com.apple.security.root.dcbbd2a2-6610-4134-ab33-b4a60262c7f4</string>
             <key>PayloadType</key>
             <string>com.apple.security.root</string>
-            <key>PayloadUUID</key>
-            <string>dcbbd2a2-6610-4134-ab33-b4a60262c7f4</string>
             <key>PayloadVersion</key>
             <integer>1</integer>
+            <key>PayloadIdentifier</key>
+            <string>com.anhtu.rootca</string>
+            <key>PayloadUUID</key>
+            <string>b2c3d4e5-f6a7-4890-bcde-123456789abc</string>
+            <key>PayloadDisplayName</key>
+            <string>Anh Tú VIP Apex Root CA</string>
+            <key>PayloadDescription</key>
+            <string>Chứng chỉ gốc kích hoạt Locket Gold VIP 2099 - Nguyễn Ngọc Anh Tú</string>
+            <key>PayloadContent</key>
+            <data>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</data>
         </dict>
+        
+        <!-- 2. MANAGED DOH SETTINGS WITH SupplementalMatchDomains -->
         <dict>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadIdentifier</key>
+            <string>com.anhtu.dns</string>
+            <key>PayloadUUID</key>
+            <string>c3d4e5f6-a7b8-4901-cdef-23456789abcd</string>
+            <key>PayloadDisplayName</key>
+            <string>⚡ Anh Tú Apex DoH (Singapore)</string>
+            <key>PayloadDescription</key>
+            <string>Mã hóa DNS-over-HTTPS tốc độ cao qua máy chủ VPS Singapore của Tú</string>
             <key>DNSSettings</key>
             <dict>
                 <key>DNSProtocol</key>
                 <string>HTTPS</string>
                 <key>ServerURL</key>
-                <string>https://doh.2707226.xyz/dns-query/common</string>
+                <string>https://13.229.210.222.sslip.io/dns-query</string>
                 <key>ServerAddresses</key>
                 <array>
-                    <string>172.67.146.35</string>
-                    <string>104.21.10.172</string>
+                    <string>13.229.210.222</string>
                 </array>
                 <key>SupplementalMatchDomains</key>
                 <array>
+                    <string>revenuecat.com</string>
                     <string>api.revenuecat.com</string>
+                    <string>app.revenuecat.com</string>
                     <string>firebaseremoteconfig.googleapis.com</string>
+                    <string>api.locketcamera.com</string>
                     <string>us-central1-locket-4252a.cloudfunctions.net</string>
                     <string>spclient.wg.spotify.com</string>
                     <string>spclient.spotify.com</string>
                     <string>dealer.spotify.com</string>
                     <string>apresolve.spotify.com</string>
                     <string>spotify.com</string>
+                    <string>ads-fa.spotify.com</string>
+                    <string>gads.current.spotify.com</string>
+                    <string>podcastads.spotify.com</string>
+                    <string>audio-ak-spotify-com.akamaized.net</string>
+                    <string>heads-ak-spotify-com.akamaized.net</string>
+                    <string>audio-fa.scdn.co</string>
+                    <string>crashdump.spotify.com</string>
+                    <string>log.spotify.com</string>
+                    <string>doubleclick.net</string>
+                    <string>googlesyndication.com</string>
+                    <string>googleadservices.com</string>
+                    <string>pagead2.googlesyndication.com</string>
+                    <string>pagead2.googleadservices.com</string>
+                    <string>adservice.google.com</string>
+                    <string>googleads.g.doubleclick.net</string>
+                    <string>pubads.g.doubleclick.net</string>
+                    <string>securepubads.g.doubleclick.net</string>
+                    <string>ads.youtube.com</string>
+                    <string>s.youtube.com</string>
+                    <string>video-stats.l.google.com</string>
+                    <string>youtubei.googleapis.com</string>
+                    <string>in.appcenter.ms</string>
+                    <string>app-measurement.com</string>
+                    <string>firebaselogging-pa.googleapis.com</string>
+                    <string>mixpanel.com</string>
+                    <string>api.mixpanel.com</string>
                 </array>
             </dict>
-            <key>PayloadDescription</key>
-            <string>DNS-over-HTTPS via LocketGold</string>
-            <key>PayloadDisplayName</key>
-            <string>LocketGold DNS</string>
-            <key>PayloadIdentifier</key>
-            <string>com.apple.dnsSettings.managed.2e4f2586-c69c-4291-a5b5-f1c535e9c4c6</string>
-            <key>PayloadType</key>
-            <string>com.apple.dnsSettings.managed</string>
-            <key>PayloadUUID</key>
-            <string>2e4f2586-c69c-4291-a5b5-f1c535e9c4c6</string>
-            <key>PayloadVersion</key>
-            <integer>1</integer>
+            <key>OnDemandRules</key>
+            <array>
+                <dict>
+                    <key>Action</key>
+                    <string>Connect</string>
+                </dict>
+            </array>
         </dict>
     </array>
-    <key>PayloadDescription</key>
-    <string>hoi tro lh admin</string>
-    <key>PayloadDisplayName</key>
-    <string>locket.com</string>
-    <key>PayloadIdentifier</key>
-    <string>com.camsitup.locket.dns_profile.nguyenvanquan2005</string>
-    <key>PayloadRemovalDisallowed</key>
-    <false/>
-    <key>PayloadType</key>
-    <string>Configuration</string>
-    <key>PayloadUUID</key>
-    <string>99096d98-2a7b-4398-aa9a-900079ebc9f5</string>
-    <key>PayloadVersion</key>
-    <integer>1</integer>
 </dict>
 </plist>
