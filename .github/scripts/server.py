@@ -382,7 +382,8 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
             return
 
         # 2. Firebase Remote Config Fetch
-        if "remoteconfig" in self.path or "firebase" in self.path or "googleapis.com" in self.headers.get("Host", ""):
+        host_header = self.headers.get("Host", "").lower()
+        if ("remoteconfig" in self.path or "firebaseremoteconfig" in host_header) and "youtube" not in host_header:
             payload = get_firebase_config_json()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
