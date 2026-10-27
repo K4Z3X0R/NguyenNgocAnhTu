@@ -368,15 +368,17 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(landing)
 
     def do_POST(self):
+        length = int(self.headers.get("Content-Length", 0))
+        post_data = self.rfile.read(length) if length > 0 else b""
+
         # 1. RFC 8484 DoH POST
         if "/dns-query" in self.path:
-            length = int(self.headers.get("Content-Length", 0))
-            query_bytes = self.rfile.read(length)
-            resp = process_dns_query(query_bytes)
+            resp = process_dns_query(post_data)
             self.send_response(200)
             self.send_header("Content-Type", "application/dns-message")
             self.send_header("Content-Length", str(len(resp)))
             self.send_header("Cache-Control", "max-age=60")
+            self.send_header("Connection", "close")
             self.end_headers()
             self.wfile.write(resp)
             return
@@ -388,6 +390,7 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Connection", "close")
             self.end_headers()
             self.wfile.write(payload)
             return
