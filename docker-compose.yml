@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  doh-apex:
+    build: .
+    container_name: anhtu_apex_doh
+    restart: always
+    environment:
+      - SPOOF_IP=13.229.210.222
+      - UPSTREAM_DNS=1.1.1.1
+      - UPSTREAM_PORT=53
+      - PORT=8053
+    ports:
+      - "8053:8053"
