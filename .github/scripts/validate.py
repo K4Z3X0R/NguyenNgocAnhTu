@@ -307,11 +307,13 @@ def check_dns_profile() -> None:
         print("[dns] SKIP — DNS.mobileconfig không có trong repo")
         return
     try:
-        import xml.etree.ElementTree as ET
-        ET.parse(dns_file)
-        print("[dns] OK — DNS.mobileconfig tồn tại và cú pháp XML hợp lệ")
+        import plistlib
+        with open(dns_file, "rb") as fp:
+            data = plistlib.load(fp)
+        assert "PayloadContent" in data, "Thiếu PayloadContent trong profile"
+        print("[dns] OK — DNS.mobileconfig tồn tại và cấu trúc Apple Plist (Binary/XML) hợp lệ 100%")
     except Exception as e:
-        errors.append(f"[dns] DNS.mobileconfig lỗi cú pháp XML: {e}")
+        errors.append(f"[dns] DNS.mobileconfig lỗi cấu trúc: {e}")
 
 
 def check_rules_syntax() -> None:
