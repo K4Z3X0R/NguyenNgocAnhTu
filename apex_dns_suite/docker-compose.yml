@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  apex-dns:
+    build: .
+    container_name: apex-dns-server
+    restart: always
+    network_mode: "host"
+    environment:
+      - SERVER_IP=13.229.210.222
+      - UPSTREAM_DNS=1.1.1.1
+      - UPSTREAM_PORT=53
+      - HTTPS_PORT=443
+      - HTTP_PORT=80
+    volumes:
+      - ./certs:/app/certs
+      - ./AnhTu_VIP.mobileconfig:/app/AnhTu_VIP.mobileconfig

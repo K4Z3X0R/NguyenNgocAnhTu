@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadCertificateFileName</key>
+            <string>Anh Tu VIP Root CA</string>
+            <key>PayloadContent</key>
+            <data>MIIDWDCCAkCgAwIBAgIURkgTiEtKkhCceMPFcBCXwcrSHYwwDQYJKoZIhvcNAQELBQAwRDELMAkGA1UEBhMCVk4xGDAWBgNVBAoMD05ndXllbk5nb2NBbmhUdTEbMBkGA1UEAwwSQW5oIFR1IFZJUCBSb290IENBMB4XDTI2MTAyNjE1NTcwMloXDTM2MTAyNDE1NTcwMlowRDELMAkGA1UEBhMCVk4xGDAWBgNVBAoMD05ndXllbk5nb2NBbmhUdTEbMBkGA1UEAwwSQW5oIFR1IFZJUCBSb290IENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo1b2x+aNH1OyU3y3IJvGu9L1o4WID1P1KXV8FlIO6nYRMJQ4e6+uLMbnGbPdD6da/8OC/kYSAgdqtpN/HLG9+w7kyeoUknaqddNrVdU+MaYCZxQYPcSFHvcMFuI3/5utI19Ox7MgVY/NTR+9SUdw9CE4C8bAIV/ymNLOsqd5UfuxunwHeVvMuzcRPurlzEz9c6M+MCPSPGDRu7u+XX3rD+JOiSqR3tGwR73p825krOBZKAFZGBTUIIQML5AzPqGZhUF6O7pcpbaqs7zagG7ZyHzkzu6T0YqeF3eN83d6XFl1HQeHP0dJ22OD+bRprD+VOuzzAoX7G/2lZL3Zg/HUxQIDAQABo0IwQDAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNVHQ4EFgQUUzQcaI2CybAl1Em6YYGaX6nv6DkwDQYJKoZIhvcNAQELBQADggEBAB/we/zcZ2zc01pFyK0Q5hYLMftFG714mu8/sTsDRLbUAa7BsvlrvlufxpbcYrWbcsGwihvjqbL89S+s99KZwYjxjJJZRjpc/4M18iEfTBX6P4Dg/SPNDKtYOzlE9U5cF8KAuLZoArxlga7Z0TG+5nMDegyVc5S46ykbDinpYiBHoJ4kYvbLxemS9xchKibRmWWiDz5fpMiYoHr7++YkyL2KhtU/I3bpl+dcniEZ4RahOzP61JNu+j+ogO3B2CZRTtLe8ecSNm9tnIF1RFLkW2ocuaN5upiw1jt7BRkSQo/ZAf3ZZquFzQpinG4hz3Zvc6Igd8ApWrwF2lbjyEwBSJc=</data>
+            <key>PayloadDescription</key>
+            <string>Adds a CA root certificate</string>
+            <key>PayloadDisplayName</key>
+            <string>Anh Tu VIP CA</string>
+            <key>PayloadIdentifier</key>
+            <string>com.apple.security.root.bd8ce1d5-448e-490b-9350-13456246843f</string>
+            <key>PayloadType</key>
+            <string>com.apple.security.root</string>
+            <key>PayloadUUID</key>
+            <string>bd8ce1d5-448e-490b-9350-13456246843f</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+        <dict>
+            <key>DNSSettings</key>
+            <dict>
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+                <key>ServerURL</key>
+                <string>https://13.229.210.222.sslip.io/dns-query/common</string>
+                <key>ServerAddresses</key>
+                <array>
+                    <string>13.229.210.222</string>
+                </array>
+                <key>SupplementalMatchDomains</key>
+                <array>
+                    <string>api.revenuecat.com</string>
+                    <string>firebaseremoteconfig.googleapis.com</string>
+                    <string>us-central1-locket-4252a.cloudfunctions.net</string>
+                    <string>spclient.wg.spotify.com</string>
+                    <string>spclient.spotify.com</string>
+                    <string>dealer.spotify.com</string>
+                    <string>apresolve.spotify.com</string>
+                    <string>spotify.com</string>
+                </array>
+            </dict>
+            <key>PayloadDescription</key>
+            <string>DNS-over-HTTPS via Anh Tu VIP Apex</string>
+            <key>PayloadDisplayName</key>
+            <string>Anh Tu VIP DNS</string>
+            <key>PayloadIdentifier</key>
+            <string>com.apple.dnsSettings.managed.10b18b20-1750-4678-91fe-cd6b8ba94d5d</string>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadUUID</key>
+            <string>10b18b20-1750-4678-91fe-cd6b8ba94d5d</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Anh Tu VIP Apex • Locket Gold 2099 &amp; Spotify Premium</string>
+    <key>PayloadDisplayName</key>
+    <string>anhtu.vip</string>
+    <key>PayloadIdentifier</key>
+    <string>com.camsitup.locket.dns_profile.k4z3x0r</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>37f06a3e-aead-465c-b838-87cec5dbe513</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
