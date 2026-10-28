@@ -1,0 +1,39 @@
+name: Publish GitHub Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create or Update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "👑 Anh Tú • DNS Locket Gold VIP 2099 (v3.0.5 - Sovereign Apex Edition)"
+          body: |
+            ## 👑 Anh Tú • DNS Locket Gold 2099 VIP Apex Edition (v3.0.5)
+            Tác giả: **Nguyễn Ngọc Anh Tú** (@z3rokaze / K4Z3X0R)
+
+            ### ✨ Các Cải Tiến Cốt Lõi:
+            - 💛 **Locket Gold Vĩnh Viễn 2099**: Mở khóa toàn bộ tính năng Gold (gói `locket_1600_1y` & `locket_gold_yearly`).
+            - 🎨 **Full 35 Bộ Lọc Máy Ảnh (Camera Filters)**: Hello Kitty 🎀, Shin Cậu Bé Bút Chì 🖍️, Khung & Ốp Lưng 📱, Goofy, Looks, Celebrate, Cute...
+            - ⛅ **28 Danh Mục Nhãn Dán & Thời Tiết VIP**: Thời tiết, nhiệt độ, vị trí check-in, nhãn lễ hội.
+            - 🎙️ **Kích Hoạt Micrô & Ghi Âm**: Hỗ trợ đầy đủ Voice & Audio Captions.
+            - 🎬 **Video 45s HD 60FPS**: Không giới hạn thời lượng chuẩn.
+            - ⚡ **Khắc Phục 100% Delay Zalo & Mất Mạng Spotify**:
+              - Tinh giản `SupplementalMatchDomains` về đúng 6 tên miền chủ quyền của Locket.
+              - 100% ứng dụng khác (Zalo, Spotify, Facebook, YouTube) dùng DNS gốc của nhà mạng với độ trễ 0ms.
+              - Tuyệt đối không can thiệp Spotify -> Miễn nhiễm 100% lỗi "Hiện tại bạn không có kết nối mạng".
+            - 🔒 **Đồng Bộ Cặp Chứng Chỉ SHA256**: Root CA `Anh Tu VIP Apex Root CA` ký trực tiếp cho Server Certificate, giải quyết triệt để lỗi từ chối chứng chỉ TLS trên iOS.
+          files: |
+            DNS.mobileconfig
