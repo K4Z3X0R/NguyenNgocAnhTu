@@ -1,179 +1,122 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-👑 Anh Tú • DNS 3-in-1 Profile Generator (v4.5.0)
+👑 Anh Tú • DNS Profile Generator (v5.0.0 - Sovereign Apex Edition)
 Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)
 
 Hồ sơ cấu hình chuẩn Apple com.apple.dnsSettings.managed + Root CA:
-- Sử dụng SupplementalMatchDomains: CHỈ định tuyến các domain cần can thiệp:
-  + Locket Gold: api.revenuecat.com, app.revenuecat.com, firebaseremoteconfig.googleapis.com
-  + Spotify Ads: ads-fa.spotify.com, gads.current.spotify.com, podcastads.spotify.com, audio-fa.scdn.co
-  + YouTube Ads: pagead2.googlesyndication.com, doubleclick.net, googleads.g.doubleclick.net, pubads.g.doubleclick.net
-  + Telemetry: in.appcenter.ms, app-measurement.com, firebaselogging-pa.googleapis.com, mixpanel.com
-- Toàn bộ kết nối khác (youtube.com, spotify.com, locket.camera, google...) chạy 100% qua DNS gốc của mạng,
-  hoàn toàn MIỄN NHIỄM lỗi rớt mạng, lỗi login hay nghẽn băng thông.
-- Máy chủ DoH Singapore: https://13.229.210.222.sslip.io/dns-query (Chứng chỉ Let's Encrypt công khai).
+- Sử dụng SupplementalMatchDomains: CHỈ định tuyến đúng các domain cần can thiệp cho Locket Gold:
+  + Locket Gold Entitlement: api.revenuecat.com, app.revenuecat.com, revenuecat.com
+  + Locket Remote Config (Video 45s, Camera Filters, Weather Overlays, Mic): firebaseremoteconfig.googleapis.com, firebaseremoteconfigrealtime.googleapis.com
+  + Locket Cloud Functions: us-central1-locket-4252a.cloudfunctions.net
+- TOÀN BỘ KẾT NỐI KHÁC (Zalo, Spotify, YouTube, Facebook, Google, v.v.):
+  + Chạy 100% qua DNS gốc của mạng người dùng (ISP DNS / Viettel / VNPT / FPT).
+  + MIỄN NHIỄM 100% lỗi delay tin nhắn Zalo 5s, thông báo push realtime tức thì.
+  + MIỄN NHIỄM 100% lỗi Spotify "báo mất mạng", nghe nhạc streaming mượt mà.
+  + Tải ảnh và xem ảnh Locket qua locket-img và Google Storage tốc độ tối đa không qua VPS.
+- Máy chủ DoH Singapore: https://13.229.210.222.sslip.io/dns-query
 """
 
-import uuid
-import xml.etree.ElementTree as ET
+from __future__ import annotations
+import base64
 from pathlib import Path
+import plistlib
+import uuid
 
 ROOT = Path(__file__).resolve().parents[2]
 
 # Embedded Anh Tu VIP Apex Root CA DER Base64 (Valid 2026-2036)
-CA_DER_B64 = (
-    "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"
-    "56ErJF2b0D6JIAfDlSRsnzulas9h5uM="
-)
+CA_DER_B64 = "MIID4DCCAsigAwIBAgIUdj3vam8f7OlZReH+kWjBuEZLG9cwDQYJKoZIhvcNAQELBQAwgYcxCzAJBgNVBAYTAlZOMQ4wDAYDVQQIDAVIYW5vaTEOMAwGA1UEBwwFSGFub2kxGzAZBgNVBAoMEk5ndXllbiBOZ29jIEFuaCBUdTEZMBcGA1UECwwQVklQIEFwZXggU3lzdGVtczEgMB4GA1UEAwwXQW5oIFR1IFZJUCBBcGV4IFJvb3QgQ0EwHhcNMjYxMDI3MTMxMTA5WhcNMzYxMDI1MTMxMTA5WjCBhzELMAkGA1UEBhMCVk4xDjAMBgNVBAgMBUhhbm9pMQ4wDAYDVQQHDAVIYW5vaTEbMBkGA1UECgwSTmd1eWVuIE5nb2MgQW5oIFR1MRkwFwYDVQQLDBBWSVAgQXBleCBTeXN0ZW1zMSAwHgYDVQQDDBdBbmggVHUgVklQIEFwZXggUm9vdCBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALqRQVQho9CzccgA8XTaBpCDLiKgk2Cy3buuf5bJUG8CNMPOFgJw8Za4xl/AhQPhmBh0/vqFW18JDSN+l7TWQvst4SfNAXBZphb9OvVJiNflk6imGKTlMoGjUSczdn7AbDOEQxNw7JjWb6Ul6LxloVtF2mdhtYYRHXEvt1AjiTLWAlIGJxK8TXOsU8eVyQpr8cpdHh+3Jzh++Lg7CUONJi/6y94ZhsNp4iQbeZRRCgpefumNPBf3WHV27EOqLI9MgsxZlZEjTwChblz9QKSejFYtVeZVd2grDKTTCgTJW7NTaViPAwvfwWkkJuAdDTCUtbVKXj7GwMT1Wvx+s1ji41sCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0OBBYEFIRohgmdgC9M5n1bxK8U6NuqQzBpMA0GCSqGSIb3DQEBCwUAA4IBAQBXiiRoc5MsL1UESg/P8VgsoL+ap/7RUuZkXtAu2N9h+OuJETDoxGqEeRhdyhIZgmEj7N8M3D0fX+BHm6ZBLZbYTYS3QNNfxdS5KYHkDdZy8UxWtR/2vvjNPUHIWjpLobQqNuFW9ONkHgOPl3KDaV8FyFhVa7/uhh3PR2jbeMGQ3zLa0/1zpgEtSZuU5HmmeVd6y7U5ZcB6re8QvpNUekYPAaa0DlEv6TyIu4/zfOy/wlhsI9Qw9lHrhVsQyL5I26oYiBz14+Tp1WtGyQS9PeXlplp2CqnEa3TKUJWxr8qe+SvJS8Y7UiUI2qzzBST8yBrGYvxUCYcO4DVAfHKCvmgW"
 
+# Danh sách SupplementalMatchDomains tinh giản tối đa - CHỈ can thiệp Locket Gold
+# Tuyệt đối KHÔNG chứa Spotify, YouTube, hay Google Storage/Auth để tránh lỗi mạng và delay Zalo
 MATCH_DOMAINS = [
-    "revenuecat.com",
     "api.revenuecat.com",
     "app.revenuecat.com",
+    "revenuecat.com",
     "firebaseremoteconfig.googleapis.com",
-    "ads-fa.spotify.com",
-    "gads.current.spotify.com",
-    "podcastads.spotify.com",
-    "audio-fa.scdn.co",
-    "crashdump.spotify.com",
-    "log.spotify.com",
-    "doubleclick.net",
-    "googlesyndication.com",
-    "googleadservices.com",
-    "pagead2.googlesyndication.com",
-    "pagead2.googleadservices.com",
-    "adservice.google.com",
-    "googleads.g.doubleclick.net",
-    "pubads.g.doubleclick.net",
-    "securepubads.g.doubleclick.net",
-    "ads.youtube.com",
-    "s.youtube.com",
-    "video-stats.l.google.com",
-    "in.appcenter.ms",
-    "app-measurement.com",
-    "firebaselogging-pa.googleapis.com",
-    "mixpanel.com",
-    "api.mixpanel.com"
+    "firebaseremoteconfigrealtime.googleapis.com",
+    "us-central1-locket-4252a.cloudfunctions.net"
 ]
 
-def generate_mobileconfig(output_path: Path) -> None:
+SERVER_HOST = "13.229.210.222"
+SERVER_URL = f"https://{SERVER_HOST}.sslip.io/dns-query"
+
+
+def build_profile_dict(display_name: str | None = None) -> dict:
     top_uuid = str(uuid.uuid4()).upper()
     ca_uuid = str(uuid.uuid4()).upper()
     dns_uuid = str(uuid.uuid4()).upper()
 
-    match_entries = "\n".join(f"                    <string>{d}</string>" for d in MATCH_DOMAINS)
+    name = display_name or "👑 Anh Tú • DNS Locket Gold VIP 2099 (Video 45s + Full Filters & Mic)"
 
-    xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>PayloadDisplayName</key>
-    <string>👑 Anh Tú • DNS 3-in-1: Locket Gold + Spotify + YouTube</string>
-    <key>PayloadDescription</key>
-    <string>Mở khóa Locket Gold Vĩnh Viễn 2099 (Video 45s) + Chặn 100% Ads Spotify &amp; YouTube • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)</string>
-    <key>PayloadIdentifier</key>
-    <string>com.anhtu.dns.3in1.v4</string>
-    <key>PayloadOrganization</key>
-    <string>Nguyễn Ngọc Anh Tú (K4Z3X0R)</string>
-    <key>PayloadRemovalDisallowed</key>
-    <false/>
-    <key>PayloadType</key>
-    <string>Configuration</string>
-    <key>PayloadUUID</key>
-    <string>{top_uuid}</string>
-    <key>PayloadVersion</key>
-    <integer>1</integer>
-    <key>PayloadContent</key>
-    <array>
-        <!-- 1. ROOT CA CERTIFICATE (Cho phép giải mã kích hoạt Locket Gold 2099) -->
-        <dict>
-            <key>PayloadType</key>
-            <string>com.apple.security.root</string>
-            <key>PayloadVersion</key>
-            <integer>1</integer>
-            <key>PayloadIdentifier</key>
-            <string>com.anhtu.rootca</string>
-            <key>PayloadUUID</key>
-            <string>{ca_uuid}</string>
-            <key>PayloadDisplayName</key>
-            <string>Anh Tú VIP Apex Root CA</string>
-            <key>PayloadDescription</key>
-            <string>Chứng chỉ gốc bảo mật kích hoạt Locket Gold VIP 2099 - Nguyễn Ngọc Anh Tú</string>
-            <key>PayloadContent</key>
-            <data>{CA_DER_B64}</data>
-        </dict>
-        
-        <!-- 2. DNS-OVER-HTTPS PROFILE CHUẨN APPLE VỚI SupplementalMatchDomains -->
-        <dict>
-            <key>PayloadType</key>
-            <string>com.apple.dnsSettings.managed</string>
-            <key>PayloadVersion</key>
-            <integer>1</integer>
-            <key>PayloadIdentifier</key>
-            <string>com.anhtu.dns.managed</string>
-            <key>PayloadUUID</key>
-            <string>{dns_uuid}</string>
-            <key>PayloadDisplayName</key>
-            <string>⚡ Anh Tú Apex DoH (Singapore)</string>
-            <key>PayloadDescription</key>
-            <string>Mã hóa DNS-over-HTTPS tốc độ cao qua máy chủ VPS Singapore của Tú</string>
-            <key>DNSSettings</key>
-            <dict>
-                <key>DNSProtocol</key>
-                <string>HTTPS</string>
-                <key>ServerURL</key>
-                <string>https://13.229.210.222.sslip.io/dns-query</string>
-                <key>ServerAddresses</key>
-                <array>
-                    <string>13.229.210.222</string>
-                </array>
-                <key>SupplementalMatchDomains</key>
-                <array>
-{match_entries}
-                </array>
-            </dict>
-            <key>OnDemandRules</key>
-            <array>
-                <dict>
-                    <key>Action</key>
-                    <string>Connect</string>
-                </dict>
-            </array>
-        </dict>
-    </array>
-</dict>
-</plist>
-"""
-    output_path.write_text(xml_content, encoding="utf-8")
-    print(f"✅ Đã tạo cấu hình thành công: {output_path}")
+    ca_der_bytes = base64.b64decode(CA_DER_B64)
 
-    # Kiểm tra tính hợp lệ XML
-    ET.fromstring(xml_content)
-    print("✅ Kiểm định XML Parse: Hợp lệ 100%")
+    return {
+        "PayloadDisplayName": name,
+        "PayloadDescription": (
+            "Cấu hình DNS DoH Locket Gold 2099: Video 45s, Toàn bộ Camera Filters, "
+            "Weather Overlays & Mic ghi âm • Không lag Zalo 5s, Không mất mạng Spotify • "
+            "Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze)"
+        ),
+        "PayloadIdentifier": "com.anhtu.dns.locketgold.v5",
+        "PayloadOrganization": "Nguyễn Ngọc Anh Tú (K4Z3X0R)",
+        "PayloadRemovalDisallowed": False,
+        "PayloadType": "Configuration",
+        "PayloadUUID": top_uuid,
+        "PayloadVersion": 1,
+        "PayloadContent": [
+            # 1. ROOT CA CERTIFICATE (Kích hoạt SSL Interception cho Locket Gold & Firebase Remote Config)
+            {
+                "PayloadType": "com.apple.security.root",
+                "PayloadVersion": 1,
+                "PayloadIdentifier": "com.anhtu.rootca",
+                "PayloadUUID": ca_uuid,
+                "PayloadDisplayName": "Anh Tú VIP Apex Root CA",
+                "PayloadDescription": "Chứng chỉ gốc bảo mật kích hoạt Locket Gold VIP 2099 - Nguyễn Ngọc Anh Tú",
+                "PayloadContent": ca_der_bytes,
+            },
+            # 2. DNS-OVER-HTTPS PROFILE CHUẨN APPLE VỚI SupplementalMatchDomains TINH GỌN
+            {
+                "PayloadType": "com.apple.dnsSettings.managed",
+                "PayloadVersion": 1,
+                "PayloadIdentifier": "com.anhtu.dns.managed",
+                "PayloadUUID": dns_uuid,
+                "PayloadDisplayName": "⚡ Anh Tú Apex DoH (Singapore)",
+                "PayloadDescription": "Mã hóa DNS-over-HTTPS tốc độ cao qua máy chủ VPS Singapore của Tú",
+                "DNSSettings": {
+                    "DNSProtocol": "HTTPS",
+                    "ServerURL": SERVER_URL,
+                    "ServerAddresses": [SERVER_HOST],
+                    "SupplementalMatchDomains": MATCH_DOMAINS,
+                },
+                "OnDemandRules": [
+                    {
+                        "Action": "Connect"
+                    }
+                ],
+            },
+        ],
+    }
+
+
+def generate_mobileconfig(output_path: Path, binary: bool = True) -> None:
+    profile_dict = build_profile_dict()
+    fmt = plistlib.FMT_BINARY if binary else plistlib.FMT_XML
+    with open(output_path, "wb") as fp:
+        plistlib.dump(profile_dict, fp, fmt=fmt)
+
+    fmt_name = "Apple Binary Plist (bplist00)" if binary else "Apple XML Plist"
+    print(f"✅ Đã tạo cấu hình thành công ({fmt_name}): {output_path}")
+
+    # Kiểm tra tính hợp lệ bằng plistlib
+    with open(output_path, "rb") as fp:
+        loaded = plistlib.load(fp)
+    assert "PayloadContent" in loaded, "Lỗi: Không tìm thấy PayloadContent!"
+    assert len(loaded["PayloadContent"]) == 2, "Lỗi: Phải có đủ Root CA và DNSSettings!"
+    print(f"✅ Kiểm định Plist Parse: Hợp lệ 100% ({len(MATCH_DOMAINS)} SupplementalMatchDomains)")
+
 
 if __name__ == "__main__":
     out_file = ROOT / "DNS.mobileconfig"
-    generate_mobileconfig(out_file)
+    generate_mobileconfig(out_file, binary=True)

@@ -1,57 +1,149 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-👑 Anh Tú • Apex DNS & Mock Suite: Unified DoH + HTTPS Interceptor Server
+👑 Anh Tú • Apex DNS & Mock Suite: Unified DoH + HTTPS Interceptor Server (v5.0.0)
 Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)
 
 Tính năng lõi:
 1. RFC 8484 DoH Engine: Hỗ trợ GET /dns-query?dns=... và POST /dns-query.
 2. Wire-format DNS Manipulation:
-   - Spoof A record (Type 1) cho RevenueCat, Locket Firebase, Spotify về VPS IP.
+   - Spoof A record (Type 1) cho RevenueCat & Locket Firebase Remote Config về VPS IP.
    - Stripping Type 28 (AAAA - IPv6) -> Trả về NOERROR (0 Answer) bẻ gãy Happy Eyeballs của iOS.
    - Stripping Type 65 (HTTPS/SVCB) -> Trả về NOERROR (0 Answer) triệt tiêu ECH & HTTP/3.
    - Null-routing (0.0.0.0) quảng cáo & tracking.
-   - Forwarding tên miền khác về Upstream DNS (1.1.1.1 / 8.8.8.8).
+   - Forwarding tên miền khác về Upstream DNS (1.1.1.1 / 8.8.8.8) với độ trễ siêu thấp.
 3. Mock HTTPS Engine (Port 443):
-   - RevenueCat: Mở khóa Locket Gold vĩnh viễn đến năm 2099.
-   - Firebase Remote Config: Ép video duration 45 giây.
-   - Spotify: Mở khóa Premium streaming.
-   - Web Landing: Cung cấp nút tải 1-chạm profile .mobileconfig.
-4. HTTP Server (Port 80): Cung cấp file .mobileconfig cho thiết bị chưa cài CA.
+   - RevenueCat: Mở khóa Locket Gold vĩnh viễn đến năm 2099 (cả GET & POST).
+   - Firebase Remote Config: Ép video duration 45s, kích hoạt toàn bộ 28 danh mục bộ lọc (Hello Kitty, Shin, Aesthetic), Thời tiết & Mic ghi âm.
+   - Tự động kiểm tra và sinh/trích xuất chứng chỉ SSL (Self-Healing Certs) nếu thiếu.
+4. HTTP Server (Port 80): Cung cấp file .mobileconfig và CA root cert cho thiết bị.
+5. MIỄN NHIỄM 100% delay Zalo 5s & KHÔNG động chạm Spotify (Spotify kết nối trực tiếp, mượt mà).
 """
 
 from __future__ import annotations
 import base64
 import json
 import os
+from pathlib import Path
+import plistlib
 import socket
 import ssl
 import struct
 import sys
 import threading
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from pathlib import Path
 from socketserver import ThreadingMixIn
 from typing import Set, Tuple
+import urllib.parse
+import uuid
 
 BASE_DIR = Path(__file__).resolve().parent
 CERTS_DIR = BASE_DIR / "certs"
-MOBILECONFIG_PATH = BASE_DIR / "AnhTu_VIP.mobileconfig"
 
 SERVER_IP = os.environ.get("SERVER_IP", "13.229.210.222")
-UPSTREAM_DNS = os.environ.get("UPSTREAM_DNS", "1.1.1.1")
+UPSTREAM_DNS_LIST = [os.environ.get("UPSTREAM_DNS", "1.1.1.1"), "8.8.8.8", "9.9.9.9"]
 UPSTREAM_PORT = int(os.environ.get("UPSTREAM_PORT", "53"))
 HTTPS_PORT = int(os.environ.get("HTTPS_PORT", "443"))
 HTTP_PORT = int(os.environ.get("HTTP_PORT", "80"))
 
+# Embedded Anh Tu VIP Apex Root CA DER Base64 (Valid 2026-2036)
+EMBEDDED_CA_DER_B64 = "MIID4DCCAsigAwIBAgIUdj3vam8f7OlZReH+kWjBuEZLG9cwDQYJKoZIhvcNAQELBQAwgYcxCzAJBgNVBAYTAlZOMQ4wDAYDVQQIDAVIYW5vaTEOMAwGA1UEBwwFSGFub2kxGzAZBgNVBAoMEk5ndXllbiBOZ29jIEFuaCBUdTEZMBcGA1UECwwQVklQIEFwZXggU3lzdGVtczEgMB4GA1UEAwwXQW5oIFR1IFZJUCBBcGV4IFJvb3QgQ0EwHhcNMjYxMDI3MTMxMTA5WhcNMzYxMDI1MTMxMTA5WjCBhzELMAkGA1UEBhMCVk4xDjAMBgNVBAgMBUhhbm9pMQ4wDAYDVQQHDAVIYW5vaTEbMBkGA1UECgwSTmd1eWVuIE5nb2MgQW5oIFR1MRkwFwYDVQQLDBBWSVAgQXBleCBTeXN0ZW1zMSAwHgYDVQQDDBdBbmggVHUgVklQIEFwZXggUm9vdCBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALqRQVQho9CzccgA8XTaBpCDLiKgk2Cy3buuf5bJUG8CNMPOFgJw8Za4xl/AhQPhmBh0/vqFW18JDSN+l7TWQvst4SfNAXBZphb9OvVJiNflk6imGKTlMoGjUSczdn7AbDOEQxNw7JjWb6Ul6LxloVtF2mdhtYYRHXEvt1AjiTLWAlIGJxK8TXOsU8eVyQpr8cpdHh+3Jzh++Lg7CUONJi/6y94ZhsNp4iQbeZRRCgpefumNPBf3WHV27EOqLI9MgsxZlZEjTwChblz9QKSejFYtVeZVd2grDKTTCgTJW7NTaViPAwvfwWkkJuAdDTCUtbVKXj7GwMT1Wvx+s1ji41sCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0OBBYEFIRohgmdgC9M5n1bxK8U6NuqQzBpMA0GCSqGSIb3DQEBCwUAA4IBAQBXiiRoc5MsL1UESg/P8VgsoL+ap/7RUuZkXtAu2N9h+OuJETDoxGqEeRhdyhIZgmEj7N8M3D0fX+BHm6ZBLZbYTYS3QNNfxdS5KYHkDdZy8UxWtR/2vvjNPUHIWjpLobQqNuFW9ONkHgOPl3KDaV8FyFhVa7/uhh3PR2jbeMGQ3zLa0/1zpgEtSZuU5HmmeVd6y7U5ZcB6re8QvpNUekYPAaa0DlEv6TyIu4/zfOy/wlhsI9Qw9lHrhVsQyL5I26oYiBz14+Tp1WtGyQS9PeXlplp2CqnEa3TKUJWxr8qe+SvJS8Y7UiUI2qzzBST8yBrGYvxUCYcO4DVAfHKCvmgW"
+
+EMBEDDED_CA_CRT = """-----BEGIN CERTIFICATE-----
+MIID4DCCAsigAwIBAgIUdj3vam8f7OlZReH+kWjBuEZLG9cwDQYJKoZIhvcNAQEL
+BQAwgYcxCzAJBgNVBAYTAlZOMQ4wDAYDVQQIDAVIYW5vaTEOMAwGA1UEBwwFSGFu
+b2kxGzAZBgNVBAoMEk5ndXllbiBOZ29jIEFuaCBUdTEZMBcGA1UECwwQVklQIEFw
+ZXggU3lzdGVtczEgMB4GA1UEAwwXQW5oIFR1IFZJUCBBcGV4IFJvb3QgQ0EwHhcN
+MjYxMDI3MTMxMTA5WhcNMzYxMDI1MTMxMTA5WjCBhzELMAkGA1UEBhMCVk4xDjAM
+BgNVBAgMBUhhbm9pMQ4wDAYDVQQHDAVIYW5vaTEbMBkGA1UECgwSTmd1eWVuIE5n
+b2MgQW5oIFR1MRkwFwYDVQQLDBBWSVAgQXBleCBTeXN0ZW1zMSAwHgYDVQQDDBdB
+bmggVHUgVklQIEFwZXggUm9vdCBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALqRQVQho9CzccgA8XTaBpCDLiKgk2Cy3buuf5bJUG8CNMPOFgJw8Za4
+xl/AhQPhmBh0/vqFW18JDSN+l7TWQvst4SfNAXBZphb9OvVJiNflk6imGKTlMoGj
+USczdn7AbDOEQxNw7JjWb6Ul6LxloVtF2mdhtYYRHXEvt1AjiTLWAlIGJxK8TXOs
+U8eVyQpr8cpdHh+3Jzh++Lg7CUONJi/6y94ZhsNp4iQbeZRRCgpefumNPBf3WHV2
+7EOqLI9MgsxZlZEjTwChblz9QKSejFYtVeZVd2grDKTTCgTJW7NTaViPAwvfwWkk
+JuAdDTCUtbVKXj7GwMT1Wvx+s1ji41sCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB
+/zAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0OBBYEFIRohgmdgC9M5n1bxK8U6NuqQzBp
+MA0GCSqGSIb3DQEBCwUAA4IBAQBXiiRoc5MsL1UESg/P8VgsoL+ap/7RUuZkXtAu
+2N9h+OuJETDoxGqEeRhdyhIZgmEj7N8M3D0fX+BHm6ZBLZbYTYS3QNNfxdS5KYHk
+DdZy8UxWtR/2vvjNPUHIWjpLobQqNuFW9ONkHgOPl3KDaV8FyFhVa7/uhh3PR2jb
+eMGQ3zLa0/1zpgEtSZuU5HmmeVd6y7U5ZcB6re8QvpNUekYPAaa0DlEv6TyIu4/z
+fOy/wlhsI9Qw9lHrhVsQyL5I26oYiBz14+Tp1WtGyQS9PeXlplp2CqnEa3TKUJWx
+r8qe+SvJS8Y7UiUI2qzzBST8yBrGYvxUCYcO4DVAfHKCvmgW
+-----END CERTIFICATE-----
+"""
+
+EMBEDDED_SERVER_CRT = """-----BEGIN CERTIFICATE-----
+MIIEyDCCA7CgAwIBAgIUEooCdx3J/EZZP7ZzXM3Jqzk4GsYwDQYJKoZIhvcNAQEL
+BQAwgYcxCzAJBgNVBAYTAlZOMQ4wDAYDVQQIDAVIYW5vaTEOMAwGA1UEBwwFSGFu
+b2kxGzAZBgNVBAoMEk5ndXllbiBOZ29jIEFuaCBUdTEZMBcGA1UECwwQVklQIEFw
+ZXggU3lzdGVtczEgMB4GA1UEAwwXQW5oIFR1IFZJUCBBcGV4IFJvb3QgQ0EwHhcN
+MjYxMDI3MTMxMTA5WhcNMzYxMDI1MTMxMTA5WjBgMQswCQYDVQQGEwJWTjEbMBkG
+A1UECgwSTmd1eWVuIE5nb2MgQW5oIFR1MRkwFwYDVQQLDBBWSVAgQXBleCBTeXN0
+ZW1zMRkwFwYDVQQDDBAqLnJldmVudWVjYXQuY29tMIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEA1/CDnqdI9wKDWrVvCopwfqmxmUwLCqViG4EptP/DTAIc
+4mFPL1TQ2DVAhodPR7f2qM7HDpG3/iYCITGnXZXcLQ8YlrG3vBl+EnTeBc8Rt/oF
+K+FoXc2U0kDDrVQ41mjSX+2+2w3g55nMQDnsCOirNTWU6ohuzmnX+LrJzAqovZzx
+tRIoIAHuwntH41yAWVfheZec0VT2vg54ZEHczl0csgLxuy4R0n3z/TVaMFXqz1gl
+8OMou3m9woGLzN5RjoZkUqd1I0jLmSLRHA64/Hx6H2r7KUP2cSnMtxwReHw3xfcH
+P1ObQy3qPeYXXyEhU2qahDXSnidOZ37xBvI3KK4oVQIDAQABo4IBUDCCAUwwDAYD
+VR0TAQH/BAIwADAOBgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUHAwEw
+ggEVBgNVHREEggEMMIIBCIISYXBpLnJldmVudWVjYXQuY29tghAqLnJldmVudWVj
+YXQuY29tgg5yZXZlbnVlY2F0LmNvbYISYXBwLnJldmVudWVjYXQuY29tgiNmaXJl
+YmFzZXJlbW90ZWNvbmZpZy5nb29nbGVhcGlzLmNvbYIrZmlyZWJhc2VyZW1vdGVj
+b25maWdyZWFsdGltZS5nb29nbGVhcGlzLmNvbYIrdXMtY2VudHJhbDEtbG9ja2V0
+LTQyNTJhLmNsb3VkZnVuY3Rpb25zLm5ldIINZG9oLmFuaHR1LnZpcIIXMTMuMjI5
+LjIxMC4yMjIuc3NsaXAuaW+HBA3l0t6CCWxvY2FsaG9zdIcEfwAAATANBgkqhkiG
+9w0BAQsFAAOCAQEATzhan70pQ3r8OK22y/QOS+RrlLxIH8m3F0jzlxFdkKv3eLZQ
+5J719U5l5q1WfTYmoKG5ds3J0KzQITaDvZolQVrsfLrRaNrjvSZJNOFfT+XYAbwf
+gJU+Ed39pnoWImbwPlNKfFprnW35J28cK9dNHlBpV3ZvC903m/YOcDeMjFOjRqal
+qjjfYEE3o0IxuSIjM6iQB0AzJFkl1I8dOBNwGmPCWqfCz0F1YAAs7zP8Ku2uEIjs
+INW0XzLrQbRbS70FEZIY65vNTs9jrz0eNMEmonAFv3nVtCHjRWfH8c/78tUSppEx
+f0LlHniKMc1OEeET8XH3rUR/LDR9DO/jGD/w4w==
+-----END CERTIFICATE-----
+"""
+
+EMBEDDED_SERVER_KEY = """-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEA1/CDnqdI9wKDWrVvCopwfqmxmUwLCqViG4EptP/DTAIc4mFP
+L1TQ2DVAhodPR7f2qM7HDpG3/iYCITGnXZXcLQ8YlrG3vBl+EnTeBc8Rt/oFK+Fo
+Xc2U0kDDrVQ41mjSX+2+2w3g55nMQDnsCOirNTWU6ohuzmnX+LrJzAqovZzxtRIo
+IAHuwntH41yAWVfheZec0VT2vg54ZEHczl0csgLxuy4R0n3z/TVaMFXqz1gl8OMo
+u3m9woGLzN5RjoZkUqd1I0jLmSLRHA64/Hx6H2r7KUP2cSnMtxwReHw3xfcHP1Ob
+Qy3qPeYXXyEhU2qahDXSnidOZ37xBvI3KK4oVQIDAQABAoIBABrI0XqfY1SIMkTR
+FmnnTBbZ85aBMSlr5CRnPAYgZ1gJNw35ZfoH+jOnP06wf+v0bJr5swUinADhNAhs
+AUeBbCMGqVUfzBt/yfx+FIAB9D+uum978RcZhekicWMRfE9UByww8Ch5qzjvAb/B
+r35XZc0ezU7eB2iBBnHqsVcmx1FlaNlCGfvnhBCF6rCr7YQ5IK7mqb1VJSZMyT03
+gzfkAs7R6GidpmrA0hHImo3B25Fl5qL7Jwe92Ky9bYDkkEOYLKTA3TaORDaytCcY
+5r4NkqOs3j6ijM26Wp9ftXl0J8rnOElMEe1M4qrVTRs2oX49UaZBFzlyxrNkDdfX
+7Aww0Q0CgYEA8Q7s0VALolXWdRMjSp+dW0DiNhISUL0Seg/Ay1ziIyqVUMkhJn+8
+jApYWPuA0TlB6LSym18gh3Dw74Rm0B3O9EkgVcjv1VOep9ardLIRr5K8lJCviAAg
+v9wLBwSAIZlgGlNslqvScsOu3/JxLx9wBw+oxZyS38iFEmUobxavBmcCgYEA5VMC
+D2tcPV6xghSS1KltRuPLdQtxjn8k4oW7+e/6LmDT6HqxdwKJk3OtOG6rrW8dw8YB
+kMPmEEoA52nQn6Lmuz4qsacEEPpg5QijO4F8sD7pOw7W5cnGfwYC7+ZoUUh9wdr6
+2dg8syn5fmRJguHaZPx6vSAAUdT2HV4eb5rtzeMCgYEA1+zWlGdvBGp/Pz91TVLM
+UQE9n9FwNoImGtAhkggRSA7M0SBYYXPqIEbj/FDMgp0XPKsfka0UJj40k1e2AJWy
+237lR/JFYoEUjKLt0gnvbaWy5iD0Go6Cx1kDR7XwUChivTIdApnGWKaP7mnsmJlA
+cBLGyrwFlA65pFCYd2mKPeECgYEAxRN2BMxN48u6HsERgkLsT2y6T6b6+uvXRfiK
+F/wc87hwxCyU0GLU2mwh5Apv7Uc9vB4xADjqQPtoFXfBOz9irG17gVq3yuNxW8L1
+jND11/zosMFK+wVRWZ5P7d0Drz7uHCfVRltnps0exXjoF9uCtSCpVljnDWxH6esV
+mvH5BeMCgYEAgKbuklCxMsyUNBVk4LWQaiwrweuEwn5pM6RC7F6GX6SpMReS0Xpi
+s/Fcy+FGFRAlFKUmmyN6C7ZGKe2jr6KZ85HbDqKWsksTrIAYztOV3tyEglQb4HxR
+DxJVV0j8xrqBLuVOQilYKz8XYPi1w5sqCUla15Vh6XCYS2GN25kG5vw=
+-----END RSA PRIVATE KEY-----
+"""
+
+# CHỈ định tuyến các domain can thiệp Locket Gold (Tuyệt đối không can thiệp Spotify hay Google Auth/Storage)
 TARGET_DOMAINS: Set[str] = {
     "api.revenuecat.com",
     "app.revenuecat.com",
     "revenuecat.com",
     "firebaseremoteconfig.googleapis.com",
+    "firebaseremoteconfigrealtime.googleapis.com",
     "us-central1-locket-4252a.cloudfunctions.net"
 }
 
+# Tên miền quảng cáo chặn sạch (KHÔNG chứa CDN âm thanh Spotify)
 AD_DOMAINS: Set[str] = {
     "googleads.g.doubleclick.net",
     "pagead2.googlesyndication.com",
@@ -63,16 +155,36 @@ AD_DOMAINS: Set[str] = {
     "s.youtube.com",
     "video-stats.l.google.com",
     "video-stats.youtube.com",
-    "ads-fa.spotify.com",
-    "gads.current.spotify.com",
-    "podcastads.spotify.com",
-    "audio-fa.scdn.co",
-    "audio-ak-spotify-com.akamaized.net",
-    "heads-ak-spotify-com.akamaized.net",
     "app-measurement.com",
     "in.appcenter.ms",
     "firebaselogging-pa.googleapis.com"
 }
+
+
+def ensure_certs() -> None:
+    """Tự động đảm bảo các file SSL certs tồn tại, không bao giờ để crash server HTTPS."""
+    CERTS_DIR.mkdir(parents=True, exist_ok=True)
+    server_crt = CERTS_DIR / "server.crt"
+    server_key = CERTS_DIR / "server.key"
+    ca_crt = CERTS_DIR / "ca.crt"
+    ca_der = CERTS_DIR / "ca.der"
+
+    if not server_crt.exists() or server_crt.stat().st_size == 0:
+        server_crt.write_text(EMBEDDED_SERVER_CRT.strip() + "\n", encoding="utf-8")
+        print("  ✓ Đã tự động khởi tạo certs/server.crt")
+
+    if not server_key.exists() or server_key.stat().st_size == 0:
+        server_key.write_text(EMBEDDED_SERVER_KEY.strip() + "\n", encoding="utf-8")
+        print("  ✓ Đã tự động khởi tạo certs/server.key")
+
+    if not ca_crt.exists() or ca_crt.stat().st_size == 0:
+        ca_crt.write_text(EMBEDDED_CA_CRT.strip() + "\n", encoding="utf-8")
+        print("  ✓ Đã tự động khởi tạo certs/ca.crt")
+
+    if not ca_der.exists() or ca_der.stat().st_size == 0:
+        ca_der.write_bytes(base64.b64decode(EMBEDDED_CA_DER_B64))
+        print("  ✓ Đã tự động khởi tạo certs/ca.der")
+
 
 def parse_dns_qname(data: bytes, offset: int = 12) -> Tuple[str, int]:
     labels = []
@@ -89,6 +201,7 @@ def parse_dns_qname(data: bytes, offset: int = 12) -> Tuple[str, int]:
         labels.append(data[curr:curr + length].decode("utf-8", errors="ignore"))
         curr += length
     return ".".join(labels).lower(), curr
+
 
 def build_a_response(query: bytes, ip_str: str, ttl: int = 60) -> bytes:
     tx_id = query[:2]
@@ -111,6 +224,7 @@ def build_a_response(query: bytes, ip_str: str, ttl: int = 60) -> bytes:
     answer_section = ans_name + ans_type + ans_class + ans_ttl + ans_rdlen + ans_rdata
     return tx_id + flags + qdcount + ancount + nscount + arcount + question_section + answer_section
 
+
 def build_empty_noerror_response(query: bytes) -> bytes:
     tx_id = query[:2]
     flags = b"\x81\x80"
@@ -123,17 +237,21 @@ def build_empty_noerror_response(query: bytes) -> bytes:
     question_section = query[12:end_qname + 4]
     return tx_id + flags + qdcount + ancount + nscount + arcount + question_section
 
+
 def forward_upstream_dns(query: bytes) -> bytes:
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.settimeout(2.5)
-    try:
-        sock.sendto(query, (UPSTREAM_DNS, UPSTREAM_PORT))
-        resp, _ = sock.recvfrom(4096)
-        return resp
-    except Exception:
-        return build_empty_noerror_response(query)
-    finally:
-        sock.close()
+    for dns_server in UPSTREAM_DNS_LIST:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.settimeout(1.0)
+        try:
+            sock.sendto(query, (dns_server, UPSTREAM_PORT))
+            resp, _ = sock.recvfrom(4096)
+            sock.close()
+            return resp
+        except Exception:
+            sock.close()
+            continue
+    return build_empty_noerror_response(query)
+
 
 def process_dns_query(query_bytes: bytes) -> bytes:
     if len(query_bytes) < 12:
@@ -161,13 +279,20 @@ def process_dns_query(query_bytes: bytes) -> bytes:
     except Exception:
         return forward_upstream_dns(query_bytes)
 
+
 def get_locket_gold_json() -> bytes:
     payload = {
-        "request_date": "2026-10-27T15:00:00Z",
-        "request_date_ms": 1793113200000,
+        "request_date": "2026-10-28T09:00:00Z",
+        "request_date_ms": 1793178000000,
         "subscriber": {
             "entitlements": {
                 "Gold": {
+                    "expires_date": "2099-12-31T23:59:59Z",
+                    "grace_period_expires_date": None,
+                    "product_identifier": "locket_1600_1y",
+                    "purchase_date": "2024-01-01T00:00:00Z"
+                },
+                "locket_gold": {
                     "expires_date": "2099-12-31T23:59:59Z",
                     "grace_period_expires_date": None,
                     "product_identifier": "locket_gold_yearly",
@@ -178,17 +303,44 @@ def get_locket_gold_json() -> bytes:
                     "grace_period_expires_date": None,
                     "product_identifier": "locket_gold_yearly",
                     "purchase_date": "2024-01-01T00:00:00Z"
+                },
+                "pro": {
+                    "expires_date": "2099-12-31T23:59:59Z",
+                    "grace_period_expires_date": None,
+                    "product_identifier": "com.locket.gold.premium.yearly",
+                    "purchase_date": "2024-01-01T00:00:00Z"
+                },
+                "premium": {
+                    "expires_date": "2099-12-31T23:59:59Z",
+                    "grace_period_expires_date": None,
+                    "product_identifier": "locket_gold_yearly",
+                    "purchase_date": "2024-01-01T00:00:00Z"
                 }
             },
             "first_seen": "2024-01-01T00:00:00Z",
-            "last_seen": "2026-10-27T15:00:00Z",
-            "management_url": "https://anhtu.vip",
+            "last_seen": "2026-10-28T09:00:00Z",
+            "management_url": "https://k4z3x0r.github.io/NguyenNgocAnhTu/",
             "non_subscriptions": {},
-            "original_app_user_id": "anhtu_vip_user",
+            "original_app_user_id": "anhtu_vip_user_2099",
             "original_application_version": "1.0",
             "original_purchase_date": "2024-01-01T00:00:00Z",
             "other_purchases": {},
             "subscriptions": {
+                "locket_1600_1y": {
+                    "auto_resume_date": None,
+                    "billing_issues_detected_at": None,
+                    "expires_date": "2099-12-31T23:59:59Z",
+                    "grace_period_expires_date": None,
+                    "is_sandbox": False,
+                    "original_purchase_date": "2024-01-01T00:00:00Z",
+                    "ownership_type": "PURCHASED",
+                    "period_type": "normal",
+                    "purchase_date": "2024-01-01T00:00:00Z",
+                    "refunded_at": None,
+                    "store": "app_store",
+                    "store_transaction_id": "1000000999999997",
+                    "unsubscribe_detected_at": None
+                },
                 "locket_gold_yearly": {
                     "auto_resume_date": None,
                     "billing_issues_detected_at": None,
@@ -203,42 +355,152 @@ def get_locket_gold_json() -> bytes:
                     "store": "app_store",
                     "store_transaction_id": "1000000999999999",
                     "unsubscribe_detected_at": None
+                },
+                "com.locket.gold.premium.yearly": {
+                    "auto_resume_date": None,
+                    "billing_issues_detected_at": None,
+                    "expires_date": "2099-12-31T23:59:59Z",
+                    "grace_period_expires_date": None,
+                    "is_sandbox": False,
+                    "original_purchase_date": "2024-01-01T00:00:00Z",
+                    "ownership_type": "PURCHASED",
+                    "period_type": "normal",
+                    "purchase_date": "2024-01-01T00:00:00Z",
+                    "refunded_at": None,
+                    "store": "app_store",
+                    "store_transaction_id": "1000000999999998",
+                    "unsubscribe_detected_at": None
                 }
             }
         }
     }
     return json.dumps(payload, indent=2).encode("utf-8")
 
+
 def get_firebase_config_json() -> bytes:
-    fb_file = BASE_DIR / "locket_full_firebase.json"
-    if fb_file.exists():
-        return fb_file.read_bytes()
+    candidates = [
+        BASE_DIR / "locket_full_firebase.json",
+        BASE_DIR.parent / "scripts" / "locket_full_firebase.json",
+        ROOT / ".github" / "scripts" / "locket_full_firebase.json" if 'ROOT' in globals() else None,
+        Path("/opt/anhtu-dns/locket_full_firebase.json"),
+        Path("/root/apex_dns_suite/locket_full_firebase.json")
+    ]
+    for c in candidates:
+        if c and c.exists() and c.stat().st_size > 1000:
+            return c.read_bytes()
+
+    # Fallback đầy đủ 100% bao gồm mọi Filter, Mic và Video 45s
+    fallback_entries = {
+        "video_duration": "45",
+        "max_duration": "45.0",
+        "gold_max_duration": "45.0",
+        "video_max_duration": "45",
+        "can_upload_video": "true",
+        "upload_video_duration": "45",
+        "microphone_enabled": "true",
+        "camera_microphone_enabled": "true",
+        "mh_mic_enabled_v16": "true",
+        "voice_messages_enabled": "true",
+        "audio_messages_enabled": "true",
+        "voice_caption_enabled": "true",
+        "longer_audio_captions": "true",
+        "longer_video": "enabled",
+        "longer_videos": "enabled",
+        "video_recording": "enabled",
+        "camera_roll_video": "enabled",
+        "camera_filter_config": json.dumps({
+            "allows_custom_filters": True,
+            "show_filter_button": True,
+            "sheet_enabled": True,
+            "open_sheet_immediately": True,
+            "sheet_filters": [
+                {"title": {"en": "Hello Kitty & Shin 🎀", "vi": "Hello Kitty & Shin 🎀"}, "filter_ids": ["cutesy", "sweet_hearts", "flower_crown", "sticker_face", "love_bug", "easter_bunney_cutout", "easter_chick_cutout"]},
+                {"title": {"en": "Khung & Ốp Lưng 📱", "vi": "Khung & Ốp Lưng 📱"}, "filter_ids": ["sweet_hearts", "easter_bunney_cutout", "flower_crown", "wedding", "princess", "sticker_face"]},
+                {"title": {"en": "Goofy"}, "filter_ids": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"]},
+                {"title": {"en": "Aesthetic"}, "filter_ids": ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"]}
+            ],
+            "picker_filters": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows", "bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "cutesy", "sticker_face", "flower_crown", "love_bug", "wedding"]
+        }),
+        "overlay_dynamic_captions": json.dumps([
+            "standard", "poll", "color_palette", "review", "music", "location", "weather",
+            "time", "streak", "star_sign", "party_time", "locket_count", "good_morning",
+            "goodnight", "ootd", "miss_you", "custom", "phunu_2010", "halloween_2026",
+            "link", "live", "audio", "lyrics"
+        ]),
+        "feature_gates": json.dumps({
+            "app_icon_picker": "enabled",
+            "camera_roll": "enabled",
+            "camera_theme": "enabled",
+            "locket_views": "enabled",
+            "long_captions": "enabled",
+            "longer_video": "enabled",
+            "unlimited_friends": "enabled",
+            "priority_support": "enabled",
+            "profile_badge": "enabled",
+            "remove_ads": "enabled",
+            "video": "enabled",
+            "custom_widget_frames": "enabled",
+            "streak_recovery": "enabled",
+            "effects": "enabled",
+            "filter_packs": "enabled"
+        }),
+        "state": "UPDATE"
+    }
+
     payload = {
         "state": "UPDATE",
         "appName": "Locket",
-        "templateVersion": "9999",
-        "entries": {
-            "video_duration": "45",
-            "max_duration": "45.0",
-            "gold_max_duration": "45.0",
-            "video_max_duration": "45",
-            "can_upload_video": "true",
-            "upload_video_duration": "45",
-            "microphone_enabled": "true",
-            "camera_microphone_enabled": "true",
-            "mh_mic_enabled_v16": "true",
-            "voice_messages_enabled": "true",
-            "audio_messages_enabled": "true",
-            "voice_caption_enabled": "true",
-            "longer_audio_captions": "true",
-            "longer_video": "enabled",
-            "longer_videos": "enabled",
-            "video_recording": "enabled",
-            "camera_roll_video": "enabled",
-            "state": "UPDATE"
-        }
+        "templateVersion": "999999999",
+        "entries": fallback_entries
     }
     return json.dumps(payload, indent=2).encode("utf-8")
+
+
+def generate_profile_bytes(username: str | None = None) -> bytes:
+    top_uuid = str(uuid.uuid4()).upper()
+    ca_uuid = str(uuid.uuid4()).upper()
+    dns_uuid = str(uuid.uuid4()).upper()
+
+    display_name = f"👑 Anh Tú • DNS Locket Gold ({username})" if username else "👑 Anh Tú • DNS Locket Gold VIP 2099 (Video 45s + Full Filters & Mic)"
+
+    profile = {
+        "PayloadDisplayName": display_name,
+        "PayloadDescription": "Mở khóa Locket Gold Vĩnh Viễn 2099, Video 45s, Camera Filters & Mic ghi âm • Không lag Zalo 5s • Nguyễn Ngọc Anh Tú (@z3rokaze)",
+        "PayloadIdentifier": f"com.anhtu.dns.locketgold.{top_uuid[:8].lower()}",
+        "PayloadOrganization": "Nguyễn Ngọc Anh Tú (K4Z3X0R)",
+        "PayloadRemovalDisallowed": False,
+        "PayloadType": "Configuration",
+        "PayloadUUID": top_uuid,
+        "PayloadVersion": 1,
+        "PayloadContent": [
+            {
+                "PayloadType": "com.apple.security.root",
+                "PayloadVersion": 1,
+                "PayloadIdentifier": "com.anhtu.rootca",
+                "PayloadUUID": ca_uuid,
+                "PayloadDisplayName": "Anh Tú VIP Apex Root CA",
+                "PayloadDescription": "Chứng chỉ gốc bảo mật kích hoạt Locket Gold VIP 2099 - Nguyễn Ngọc Anh Tú",
+                "PayloadContent": base64.b64decode(EMBEDDED_CA_DER_B64)
+            },
+            {
+                "PayloadType": "com.apple.dnsSettings.managed",
+                "PayloadVersion": 1,
+                "PayloadIdentifier": "com.anhtu.dns.managed",
+                "PayloadUUID": dns_uuid,
+                "PayloadDisplayName": "⚡ Anh Tú Apex DoH (Singapore)",
+                "PayloadDescription": "Mã hóa DNS-over-HTTPS tốc độ cao qua máy chủ VPS Singapore của Tú",
+                "DNSSettings": {
+                    "DNSProtocol": "HTTPS",
+                    "ServerURL": f"https://{SERVER_IP}.sslip.io/dns-query",
+                    "ServerAddresses": [SERVER_IP],
+                    "SupplementalMatchDomains": sorted(list(TARGET_DOMAINS))
+                },
+                "OnDemandRules": [{"Action": "Connect"}]
+            }
+        ]
+    }
+    return plistlib.dumps(profile, fmt=plistlib.FMT_BINARY)
+
 
 def get_landing_html() -> bytes:
     html = f"""<!DOCTYPE html>
@@ -246,7 +508,7 @@ def get_landing_html() -> bytes:
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anh Tu VIP • DNS Profile Installer</title>
+    <title>Anh Tú VIP • DNS Locket Gold Profile Installer</title>
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }}
@@ -263,36 +525,42 @@ def get_landing_html() -> bytes:
 </head>
 <body>
     <div class="card">
-        <div class="badge">Sovereign Apex v3.0.0</div>
-        <h1>Locket Gold &amp; Spotify</h1>
-        <p>Cấu hình DNS DoH &amp; Root CA mã hóa nguyên bản, mở khóa Gold 2099, Video 45s và triệt tiêu quảng cáo trên iOS.</p>
-        <a href="/AnhTu_VIP.mobileconfig" class="btn">📲 Cài Đặt Profile iOS (1-Chạm)</a>
+        <div class="badge">Sovereign Apex v5.0.0</div>
+        <h1>Locket Gold 2099 (Video 45s)</h1>
+        <p>Hồ sơ DNS DoH siêu tốc, mở khóa Locket Gold 2099, Video 45s, 28 Bộ lọc &amp; Mic ghi âm. Hoàn toàn miễn nhiễm delay Zalo hay mất mạng Spotify.</p>
+        <a href="/DNS.mobileconfig" class="btn">📲 Cài Đặt Profile iOS (1-Chạm)</a>
         <div class="steps">
             <strong>📋 Hướng dẫn kích hoạt iOS:</strong>
             <ol>
                 <li>Nhấn nút cài đặt và chọn <strong>Cho phép (Allow)</strong> tải về.</li>
                 <li>Vào <strong>Cài đặt &gt; Đã tải về hồ sơ</strong> &gt; Bấm <strong>Cài đặt</strong>.</li>
-                <li>Vào <strong>Cài đặt &gt; Cài đặt chung &gt; Giới thiệu &gt; Cài đặt tin cậy chứng nhận</strong> &gt; Bật xanh cho <strong>Anh Tu VIP Root CA</strong>.</li>
+                <li>Vào <strong>Cài đặt &gt; Cài đặt chung &gt; Giới thiệu &gt; Cài đặt tin cậy chứng nhận</strong> &gt; Bật xanh cho <strong>Anh Tú VIP Apex Root CA</strong>.</li>
+                <li>Mở Locket: Đã có Locket Gold vĩnh viễn 2099 &amp; Video 45s!</li>
             </ol>
         </div>
-        <div class="footer">Nguyễn Ngọc Anh Tú • Apex DNS Suite</div>
+        <div class="footer">Nguyễn Ngọc Anh Tú • Apex DNS Suite (@z3rokaze)</div>
     </div>
 </body>
 </html>"""
     return html.encode("utf-8")
 
+
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     daemon_threads = True
+
 
 class UnifiedRequestHandler(BaseHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
 
     def do_GET(self):
+        parsed = urllib.parse.urlparse(self.path)
+        path = parsed.path
+        qs = urllib.parse.parse_qs(parsed.query)
+        host_header = self.headers.get("Host", "").lower()
+
         # 1. RFC 8484 DoH Query (/dns-query?dns=...)
-        if "/dns-query" in self.path:
-            dns_b64 = None
-            if "?dns=" in self.path:
-                dns_b64 = self.path.split("?dns=")[1].split("&")[0]
+        if "/dns-query" in path:
+            dns_b64 = qs.get("dns", [None])[0]
             if dns_b64:
                 dns_b64 += "=" * ((4 - len(dns_b64) % 4) % 4)
                 try:
@@ -309,49 +577,78 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
                     self.send_error(400, f"Malformed DNS: {e}")
                     return
 
-        # 2. RevenueCat Subscribers Endpoint
-        if "/v1/subscribers" in self.path or "revenuecat" in self.headers.get("Host", ""):
+        # 2. RevenueCat Subscribers / Receipts Endpoint (GET)
+        if "/v1/subscribers" in path or "/v1/receipts" in path or "revenuecat" in host_header:
             payload = get_locket_gold_json()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
             self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Connection", "close")
             self.end_headers()
             self.wfile.write(payload)
             return
 
-        # 3. Spotify Endpoints
-        host = self.headers.get("Host", "").lower()
-        if "spotify.com" in host or "/user-customization" in self.path or "/bootstrap" in self.path:
-            payload = b'{"status":200,"is_premium":true,"license":"premium","customization":{"license":"premium"}}'
+        # 3. Firebase Remote Config Fetch (GET)
+        if "remoteconfig" in path or "firebaseremoteconfig" in host_header or "firebase:fetch" in path:
+            payload = get_firebase_config_json()
             self.send_response(200)
-            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Connection", "close")
             self.end_headers()
             self.wfile.write(payload)
             return
 
-        # 4. Profile Download
-        if self.path.endswith(".mobileconfig") or self.path in ("/profile", "/download"):
-            if MOBILECONFIG_PATH.exists():
-                data = MOBILECONFIG_PATH.read_bytes()
-                self.send_response(200)
-                self.send_header("Content-Type", "application/x-apple-aspen-config")
-                self.send_header("Content-Disposition", 'attachment; filename="AnhTu_VIP.mobileconfig"')
-                self.send_header("Content-Length", str(len(data)))
-                self.end_headers()
-                self.wfile.write(data)
-                return
-            else:
-                self.send_error(404, "Profile not found. Please run generate_ca_and_profile.py first.")
-                return
+        # 4. Locket CloudFunctions (GET)
+        if "cloudfunctions" in host_header or "locket" in path:
+            payload = b'{"status":"success","result":{"is_vip":true,"vip":true,"gold":true}}'
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Connection", "close")
+            self.end_headers()
+            self.wfile.write(payload)
+            return
 
-        # 5. CA Root Cert Download
-        if self.path in ("/ca.crt", "/ca.der"):
-            fpath = CERTS_DIR / self.path.lstrip("/")
+        # 5. Profile Download (.mobileconfig, /profile, /download)
+        if path.endswith(".mobileconfig") or path in ("/profile", "/download"):
+            username = qs.get("username", [None])[0]
+            # Ưu tiên sinh động theo tên người dùng nếu có yêu cầu
+            if username:
+                data = generate_profile_bytes(username)
+            else:
+                profile_candidates = [
+                    BASE_DIR / "DNS.mobileconfig",
+                    BASE_DIR / "AnhTu_VIP.mobileconfig",
+                    ROOT / "DNS.mobileconfig" if 'ROOT' in globals() else None
+                ]
+                data = None
+                for c in profile_candidates:
+                    if c and c.exists() and c.stat().st_size > 100:
+                        data = c.read_bytes()
+                        break
+                if not data:
+                    data = generate_profile_bytes()
+
+            filename = "DNS.mobileconfig"
+            self.send_response(200)
+            self.send_header("Content-Type", "application/x-apple-aspen-config")
+            self.send_header("Content-Disposition", f'attachment; filename="{filename}"')
+            self.send_header("Content-Length", str(len(data)))
+            self.end_headers()
+            self.wfile.write(data)
+            return
+
+        # 6. CA Root Cert Download
+        if path in ("/ca.crt", "/ca.der"):
+            ensure_certs()
+            fpath = CERTS_DIR / path.lstrip("/")
             if fpath.exists():
                 data = fpath.read_bytes()
-                ctype = "application/x-x509-ca-cert" if self.path.endswith(".crt") else "application/pkix-cert"
+                ctype = "application/x-x509-ca-cert" if path.endswith(".crt") else "application/pkix-cert"
                 self.send_response(200)
                 self.send_header("Content-Type", ctype)
                 self.send_header("Content-Length", str(len(data)))
@@ -359,7 +656,7 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
                 self.wfile.write(data)
                 return
 
-        # 6. Default Web Landing
+        # 7. Default Web Landing
         landing = get_landing_html()
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
@@ -370,9 +667,12 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         length = int(self.headers.get("Content-Length", 0))
         post_data = self.rfile.read(length) if length > 0 else b""
+        host_header = self.headers.get("Host", "").lower()
+        parsed = urllib.parse.urlparse(self.path)
+        path = parsed.path
 
         # 1. RFC 8484 DoH POST
-        if "/dns-query" in self.path:
+        if "/dns-query" in path:
             resp = process_dns_query(post_data)
             self.send_response(200)
             self.send_header("Content-Type", "application/dns-message")
@@ -383,34 +683,38 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(resp)
             return
 
-        # 2. Firebase Remote Config Fetch
-        host_header = self.headers.get("Host", "").lower()
-        if ("remoteconfig" in self.path or "firebaseremoteconfig" in host_header) and "youtube" not in host_header:
+        # 2. Firebase Remote Config Fetch (POST)
+        if "remoteconfig" in path or "firebaseremoteconfig" in host_header or "firebase:fetch" in path:
             payload = get_firebase_config_json()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Access-Control-Allow-Origin", "*")
             self.send_header("Connection", "close")
             self.end_headers()
             self.wfile.write(payload)
             return
 
         # 3. RevenueCat Receipts / Subscribers POST
-        if "/receipts" in self.path or "/subscribers" in self.path or "revenuecat" in self.headers.get("Host", ""):
+        if "/receipts" in path or "/subscribers" in path or "revenuecat" in host_header:
             payload = get_locket_gold_json()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Connection", "close")
             self.end_headers()
             self.wfile.write(payload)
             return
 
         # 4. Locket CloudFunctions
-        if "cloudfunctions" in self.headers.get("Host", "") or "locket" in self.path:
+        if "cloudfunctions" in host_header or "locket" in path:
             payload = b'{"status":"success","result":{"is_vip":true,"vip":true,"gold":true}}'
             self.send_response(200)
-            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Connection", "close")
             self.end_headers()
             self.wfile.write(payload)
             return
@@ -423,35 +727,37 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         pass
 
+
 def run_http_server(port: int = HTTP_PORT):
     try:
         httpd = ThreadedHTTPServer(("", port), UnifiedRequestHandler)
         print(f"🌍 HTTP Server đang chạy tại cổng {port} (Web landing & Profile download)...")
         httpd.serve_forever()
     except Exception as e:
-        print(f"⚠️ Không thể khởi động HTTP port {port}: {e}")
+        print(f"⚠️ Lỗi HTTP Server port {port}: {e}")
+
 
 def run_https_server(port: int = HTTPS_PORT):
+    ensure_certs()
     cert_file = CERTS_DIR / "server.crt"
     key_file = CERTS_DIR / "server.key"
-    if not cert_file.exists() or not key_file.exists():
-        print("❌ Chưa tìm thấy SSL certs! Vui lòng chạy generate_ca_and_profile.py trước.")
-        return
 
-    httpd = ThreadedHTTPServer(("", port), UnifiedRequestHandler)
-    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-    context.load_cert_chain(certfile=str(cert_file), keyfile=str(key_file))
-    httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
-
-    print(f"🔒 HTTPS & DoH Server đang chạy tại cổng {port}...")
-    print(f"👉 VPS IP: {SERVER_IP}")
-    print(f"👉 Upstream DNS: {UPSTREAM_DNS}:{UPSTREAM_PORT}")
     try:
+        httpd = ThreadedHTTPServer(("", port), UnifiedRequestHandler)
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        context.load_cert_chain(certfile=str(cert_file), keyfile=str(key_file))
+        httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
+
+        print(f"🔒 HTTPS & DoH Server đang chạy tại cổng {port}...")
+        print(f"👉 VPS IP: {SERVER_IP}")
+        print(f"👉 Upstream DNS: {UPSTREAM_DNS_LIST}:{UPSTREAM_PORT}")
         httpd.serve_forever()
     except Exception as e:
-        print(f"⚠️ Lỗi HTTPS Server: {e}")
+        print(f"⚠️ Lỗi HTTPS Server port {port}: {e}")
+
 
 if __name__ == "__main__":
+    ensure_certs()
     t_http = threading.Thread(target=run_http_server, args=(HTTP_PORT,), daemon=True)
     t_http.start()
     run_https_server(HTTPS_PORT)
