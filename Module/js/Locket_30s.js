@@ -2,7 +2,7 @@
 > Locket Gold 45s Video & Remote Config Unlocker
 > Cho phép quay video 45s, tải lên video 45s từ thư viện, cắt ghép 45s & mở khóa tính năng Gold, Custom Captions & Frames
 > Tác giả: Nguyễn Ngọc Anh Tú (z3rokaze)
-> Cập nhật: 2026-10-26 (v2.9.5 - Apex Locket Suite: Dual FeatureGates, Extended Captions & Cross-Platform Evasion)
+> Cập nhật: 2026-10-30 (v3.2.3 - Apex Locket Gold 60s Video, 35 Camera Filters & Ultra HD Upload)
 ***********************************************/
 
 (function () {
