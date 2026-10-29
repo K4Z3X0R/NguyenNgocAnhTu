@@ -342,6 +342,11 @@ if (typeof $response === "undefined" || $response === null) {
         hdr_video: true,
         stabilization: true,
         fps_60: true,
+        filters: true,
+        effects: true,
+        microphone: true,
+        microphone_enabled: true,
+        sound_enabled: true,
         quality_mbps: 0.6,
         qualityMbps: 0.6
     };
@@ -4212,7 +4217,7 @@ if (typeof $response === "undefined" || $response === null) {
 
     });
 
-    var out = { body: JSON.stringify(obj), status: 200 };
+        var out = { body: JSON.stringify(obj), status: 200 };
     try {
       var res = (typeof $response !== "undefined" && $response) ? $response : null;
       var h = (res && res.headers) ? Object.assign({}, res.headers) : {};
@@ -4224,6 +4229,8 @@ if (typeof $response === "undefined" || $response === null) {
       delete h["if-none-match"];
       delete h["Last-Modified"];
       delete h["last-modified"];
+      // Bắt buộc trả về ETag mới để RCNConfigSettings.m cập nhật lastETagUpdateTime -> FIRRemoteConfig.m kích hoạt (activate) ngay lập tức!
+      h["etag"] = '"anhtu-v315-' + out.body.length.toString(16) + '"';
       out.headers = h;
     } catch (e) {}
     $done(out);

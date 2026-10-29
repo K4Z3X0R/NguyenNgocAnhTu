@@ -2363,12 +2363,12 @@ scriptings:
   - http_request:
       name: "Locket 45s Video Request"
       match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/.*"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.1.4-filters"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.1.5-etag"
       timeout: 60
   - http_response:
       name: "Locket 45s Video"
       match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/.*"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.1.4-filters"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.1.5-etag"
       body_required: true
       timeout: 30
 

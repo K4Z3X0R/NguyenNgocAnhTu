@@ -267,7 +267,7 @@
     "zoom_enabled": "true",
     "music_caption_song_preview_enabled": "true",
     "legacy_captions_enabled": "true",
-    "camera": "{\"gold_max_duration\":60.0,\"goldMaxDuration\":60.0,\"max_duration\":60.0,\"maxDuration\":60.0,\"video_max_duration\":60.0,\"videoMaxDuration\":60.0,\"video_duration\":60.0,\"videoDuration\":60.0,\"ultra_wide\":true,\"ultraWide\":true,\"volume_button\":true,\"volumeButton\":true,\"flash_button\":true,\"telephoto\":true,\"srgb\":true,\"lanczos\":true,\"hdr\":true,\"hdr_video\":true,\"stabilization\":true,\"fps_60\":true,\"quality_mbps\":0.6,\"qualityMbps\":0.6}",
+    "camera": "{\"gold_max_duration\":60.0,\"goldMaxDuration\":60.0,\"max_duration\":60.0,\"maxDuration\":60.0,\"video_max_duration\":60.0,\"videoMaxDuration\":60.0,\"video_duration\":60.0,\"videoDuration\":60.0,\"ultra_wide\":true,\"ultraWide\":true,\"volume_button\":true,\"volumeButton\":true,\"flash_button\":true,\"telephoto\":true,\"srgb\":true,\"lanczos\":true,\"hdr\":true,\"hdr_video\":true,\"stabilization\":true,\"fps_60\":true,\"quality_mbps\":0.6,\"qualityMbps\":0.6,\"filters\":true,\"effects\":true,\"microphone\":true,\"microphone_enabled\":true,\"sound_enabled\":true}",
     "camera_roll": "{\"gold_max_duration\":60.0,\"goldMaxDuration\":60.0,\"video_max_duration\":60.0,\"videoMaxDuration\":60.0,\"max_duration\":60.0,\"maxDuration\":60.0,\"trim_max_duration\":60.0,\"trimMaxDuration\":60.0,\"camera_roll_max_duration\":60.0,\"camera_roll_video_max_duration\":60.0,\"maximum_duration\":60.0,\"maximumDuration\":60.0,\"max_file_size\":104857600,\"max_upload_bytes\":104857600,\"max_size_bytes\":104857600,\"quality_mbps\":0.6,\"qualityMbps\":0.6,\"flash_button\":true}",
     "longer_video": "true",
     "longerVideo": "true",
