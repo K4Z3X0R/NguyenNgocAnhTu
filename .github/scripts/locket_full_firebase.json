@@ -288,7 +288,7 @@
     "ios_overlay_items_enabled": "[\"standard\",\"poll\",\"color_palette\",\"review\",\"music\",\"location\",\"weather\",\"time\",\"streak\",\"star_sign\",\"party_time\",\"locket_count\",\"good_morning\",\"goodnight\",\"ootd\",\"miss_you\",\"custom\",\"phunu_2010\",\"halloween_2026\"]",
     "overlay_items_enabled": "[\"standard\",\"poll\",\"color_palette\",\"review\",\"music\",\"location\",\"weather\",\"time\",\"streak\",\"star_sign\",\"party_time\",\"locket_count\",\"good_morning\",\"goodnight\",\"ootd\",\"miss_you\",\"custom\",\"phunu_2010\",\"halloween_2026\"]",
     "groups_enabled": "true",
-    "camera_filter_config": "{\"allows_custom_filters\":true,\"show_filter_button\":true,\"sheet_enabled\":true,\"open_sheet_immediately\":true,\"sheet_filters\":[{\"title\":{\"en\":\"Goofy\"},\"filter_ids\":[\"okay_wig\",\"influencer\",\"looks_maxxing\",\"toothless\",\"bye_brows\"]},{\"title\":{\"en\":\"Looks\"},\"filter_ids\":[\"bowling_ball\",\"blonde_bleached\",\"beard\",\"bob_cut\",\"buns\",\"tatted\",\"mohawk\",\"braces\",\"bye_brows\"]},{\"title\":{\"en\":\"Celebrate\"},\"filter_ids\":[\"slimed\",\"princess\",\"disco_lights\",\"cash_money\",\"happy_birthday\"]},{\"title\":{\"en\":\"Cute\"},\"filter_ids\":[\"cutesy\",\"sticker_face\",\"flower_crown\",\"love_bug\"]},{\"title\":{\"en\":\"Costumes\"},\"filter_ids\":[\"wedding\",\"cowboy_cowgirl\",\"giraffe\",\"clown\"]},{\"title\":{\"en\":\"Holidays\"},\"filter_ids\":[\"easter_bunney_cutout\",\"easter_chick_cutout\",\"bearded\",\"leprechaun\",\"lucky_face\",\"sweet_hearts\",\"elf_cutout\",\"santa_cutout\",\"frosty\"]}],\"picker_filters\":[\"okay_wig\",\"influencer\",\"looks_maxxing\",\"toothless\",\"bye_brows\",\"bowling_ball\",\"blonde_bleached\",\"beard\",\"bob_cut\",\"buns\",\"tatted\",\"mohawk\",\"braces\",\"slimed\",\"princess\",\"disco_lights\",\"cash_money\",\"happy_birthday\",\"cutesy\",\"sticker_face\",\"flower_crown\",\"love_bug\",\"wedding\",\"cowboy_cowgirl\",\"giraffe\",\"clown\",\"easter_bunney_cutout\",\"easter_chick_cutout\",\"bearded\",\"leprechaun\",\"lucky_face\",\"sweet_hearts\",\"elf_cutout\",\"santa_cutout\",\"frosty\"]}",
+    "camera_filter_config": "{\"allows_custom_filters\": true, \"show_filter_button\": true, \"sheet_enabled\": true, \"open_sheet_immediately\": true, \"sheet_filters\": [{\"title\": {\"en\": \"Goofy\"}, \"filter_ids\": [\"okay_wig\", \"influencer\", \"looks_maxxing\", \"toothless\", \"bye_brows\"]}, {\"title\": {\"en\": \"Looks\"}, \"filter_ids\": [\"bowling_ball\", \"blonde_bleached\", \"beard\", \"bob_cut\", \"buns\", \"tatted\", \"mohawk\", \"braces\", \"bye_brows\"]}, {\"title\": {\"en\": \"Celebrate\"}, \"filter_ids\": [\"slimed\", \"princess\", \"disco_lights\", \"cash_money\", \"happy_birthday\"]}, {\"title\": {\"en\": \"Cute\"}, \"filter_ids\": [\"cutesy\", \"sticker_face\", \"flower_crown\", \"love_bug\"]}, {\"title\": {\"en\": \"Costumes\"}, \"filter_ids\": [\"wedding\", \"cowboy_cowgirl\", \"giraffe\", \"clown\"]}, {\"title\": {\"en\": \"Holidays\"}, \"filter_ids\": [\"easter_bunney_cutout\", \"easter_chick_cutout\", \"bearded\", \"leprechaun\", \"lucky_face\", \"sweet_hearts\", \"elf_cutout\", \"santa_cutout\", \"frosty\"]}], \"picker_filters\": [\"okay_wig\", \"influencer\", \"looks_maxxing\", \"toothless\", \"bye_brows\", \"bowling_ball\", \"blonde_bleached\", \"beard\", \"bob_cut\", \"buns\", \"tatted\", \"mohawk\", \"braces\", \"slimed\", \"princess\", \"disco_lights\", \"cash_money\", \"happy_birthday\", \"cutesy\", \"sticker_face\", \"flower_crown\", \"love_bug\", \"wedding\", \"cowboy_cowgirl\", \"giraffe\", \"clown\", \"easter_bunney_cutout\", \"easter_chick_cutout\", \"bearded\", \"leprechaun\", \"lucky_face\", \"sweet_hearts\", \"elf_cutout\", \"santa_cutout\", \"frosty\"], \"custom_filters_enabled\": true, \"custom_filters_unlocked\": true, \"custom_filter_generation_enabled\": true, \"allows_custom_prompts\": true, \"unlimited_custom_filters\": true, \"max_custom_filters\": 9999, \"custom_filter_quota\": 9999, \"ai_looks_enabled\": true, \"ai_filters_enabled\": true, \"generative_filters_enabled\": true, \"is_gold_required\": false, \"gold_required\": false, \"requires_gold\": false, \"is_free\": true}",
     "refresh_interval": "30",
     "can_record_video": "true",
     "max_video_record_duration": "60.0",
@@ -441,6 +441,18 @@
     "camera_filters_enabled": "true",
     "camera_filter_sheet_enabled": "true",
     "allows_custom_filters": "true",
-    "show_filter_button": "true"
+    "show_filter_button": "true",
+    "custom_filters_enabled": "true",
+    "custom_filters_unlocked": "true",
+    "custom_filter_quota": "9999",
+    "custom_filters_max_per_day": "9999",
+    "unlimited_custom_filters": "true",
+    "ai_filters_enabled": "true",
+    "ai_looks_enabled": "true",
+    "create_look_enabled": "true",
+    "create_looks_enabled": "true",
+    "generative_filters_enabled": "true",
+    "makeover_enabled": "true",
+    "custom_appearance_enabled": "true"
   }
 }

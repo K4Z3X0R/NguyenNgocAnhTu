@@ -452,6 +452,12 @@ def get_locket_gold_json(app_user_id: str | None = None) -> bytes:
     entitlements = {}
     for ekey in (
         "Gold", "gold", "locket_gold", "pro", "premium", "all_access",
+        "custom_filters", "custom_filter", "allows_custom_filters",
+        "create_look", "create_looks", "ai_looks", "ai_look", "ai_filters", "ai_filter",
+        "looks", "look", "makeover", "appearance", "custom_appearance",
+        "generative_filters", "generative_ai", "ai", "gen_ai", "ai_generation",
+        "prompts", "prompt_filters", "avatar_generation", "ai_credits", "credits",
+        "camera_filters", "camera_filter_custom", "camera_custom_filters", "custom_camera_filters",
         "holiday_effects", "holiday_filters", "holiday_moments", "view_holiday_moments",
         "can_view_holiday_effects", "camera_filter_holidays", "seasonal_effects",
         "seasonal_frames", "custom_frames", "frames", "widget_frames", "view_all_history",
@@ -510,6 +516,12 @@ def get_locket_gold_json(app_user_id: str | None = None) -> bytes:
 def get_product_entitlement_mapping_json() -> bytes:
     all_ents = [
         "Gold", "gold", "locket_gold", "pro", "premium", "all_access",
+        "custom_filters", "custom_filter", "allows_custom_filters",
+        "create_look", "create_looks", "ai_looks", "ai_look", "ai_filters", "ai_filter",
+        "looks", "look", "makeover", "appearance", "custom_appearance",
+        "generative_filters", "generative_ai", "ai", "gen_ai", "ai_generation",
+        "prompts", "prompt_filters", "avatar_generation", "ai_credits", "credits",
+        "camera_filters", "camera_filter_custom", "camera_custom_filters", "custom_camera_filters",
         "holiday_effects", "holiday_filters", "holiday_moments", "view_holiday_moments",
         "can_view_holiday_effects", "camera_filter_holidays", "seasonal_effects",
         "seasonal_frames", "custom_frames", "frames", "widget_frames", "view_all_history",

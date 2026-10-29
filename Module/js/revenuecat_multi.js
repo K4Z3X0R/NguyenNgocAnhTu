@@ -632,6 +632,8 @@ if (isLocket) {
 
   // Unlock Filter Packs, Holiday Effects & Seasonal Frames (Photo Effects, AR Filters & Frames)
   var filterProds = [
+    "com.locket.Locket.CustomFilters",
+    "com.locket.Locket.AILooks",
     "com.locket.Locket.FilterPack_10Photos_400",
     "com.locket.Locket.FilterPack_20Photos_500",
     "com.locket.Locket.FilterPack_10Photo",
@@ -646,6 +648,13 @@ if (isLocket) {
     });
   }
   var filterEnts = [
+    "custom_filters", "custom_filter", "allows_custom_filters",
+    "create_look", "create_looks", "ai_looks", "ai_look", "ai_filters", "ai_filter",
+    "looks", "look", "makeover", "appearance", "custom_appearance",
+    "generative_filters", "generative_ai", "ai", "gen_ai", "ai_generation",
+    "prompts", "prompt_filters", "avatar_generation", "ai_credits", "credits",
+    "camera_filters", "camera_filter_custom", "camera_custom_filters", "custom_camera_filters",
+    "custom_filter_pack", "filter_generation",
     "effect_pack_10", "effect_pack_20", "filter_pack_10", "filter_pack_20",
     "filters", "filter_pack", "effects", "holiday_effects", "holiday_filters",
     "holiday_moments", "view_holiday_moments", "seasonal_effects", "seasonal_frames",
