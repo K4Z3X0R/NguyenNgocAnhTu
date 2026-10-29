@@ -100,11 +100,11 @@ console.log(`  locket_gold_since:      ${rcObj.subscriber.subscriber_attributes?
 // Assertions
 const hasBadges = rcObj.subscriber.subscriber_attributes?.locket_gold_badge?.value === 'true' &&
                   rcObj.subscriber.subscriber_attributes?.locket_gold_since?.value !== undefined;
-const is45s = cam.gold_max_duration === 45.0 &&
-              cam.max_duration === 45.0 &&
-              camRoll.max_duration === 45.0 &&
-              locketObj.entries.video_duration === '45' &&
-              locketObj.entries.video_max_duration === '45' &&
+const is45s = cam.gold_max_duration === 60.0 &&
+              cam.max_duration === 60.0 &&
+              camRoll.max_duration === 60.0 &&
+              locketObj.entries.video_duration === '60.0' &&
+              locketObj.entries.video_max_duration === '60.0' &&
               fg.longer_video === 'enabled' &&
               goldEnt.ownership_type === 'PURCHASED' &&
               goldSub.is_sandbox === false &&

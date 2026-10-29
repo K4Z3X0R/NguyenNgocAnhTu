@@ -28,7 +28,7 @@ jobs:
             - 🎵 **Chặn 100% Quảng Cáo Spotify & Miễn Nhiễm Mất Mạng (Surgical Split-Horizon)**:
               - Tích hợp 7 cụm `*-spclient.spotify.com` (MITM TLS hợp lệ) + 17 cụm Audio Ads & Podcast Ads (`ads-fa`, `gads`, `podcastads`, `audio-sp-*.pscdn.co` chặn `NXDOMAIN` trực tiếp).
               - Tuyệt đối để `apresolve.spotify.com` và `dealer.spotify.com` kết nối trực tiếp (DIRECT) -> Giữ trạng thái Online 100%, xóa sổ vĩnh viễn lỗi *"Hiện tại bạn không có kết nối mạng"*.
-            - ♾️ **Video Vô Cực (Infinity Flex)**: Mở toang thanh cắt video Album và camera vô hạn để tha hồ flex giao diện; quay 10s - 15s gửi siêu tốc không bao giờ nghẽn server.
+            - 🎬 **Khắc Phục Triệt Để Lỗi Video Về 5s (Chuẩn 60.0s Max Kịch Trần)**: Đồng bộ chuẩn định dạng số thực `60.0` / `"60.0"` vượt qua bộ kiểm tra biên `0 < duration <= 60.0` của Locket iOS, chấm dứt 100% hiện tượng tràn số `9999s` bị phạt lùi về `5s`.
             - 📄 **Định Dạng XML Chuẩn Apple (Không Mã Hóa Nhị Phân)**: Xuất file XML Plist thuần túy (`<!DOCTYPE plist...`), hủy bỏ hoàn toàn binary plist `bplist00` bảo đảm tương thích 100% mọi iOS.
             - ⚡ **Khắc Phục 100% Lag DNS & Delay Tin Nhắn Zalo**: Kết nối qua Anycast Cloudflare tốc độ cao (độ trễ < 10ms tại VN), không delay tin nhắn Zalo.
             - 📺 **Khắc Phục 100% Lỗi YouTube**: Không can thiệp luồng phát video, xem video mượt mà full tốc độ 4K.

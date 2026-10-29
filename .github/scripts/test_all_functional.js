@@ -563,11 +563,11 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
 
   const cameraRoll = b.entries && JSON.parse(b.entries.camera_roll || '{}');
 
-  const has45s = camera.max_duration === 45 && (b.entries.video_max_duration === '45.0' || b.entries.video_max_duration === '45');
+  const has45s = camera.max_duration === 60.0 && (b.entries.video_max_duration === '60.0' || b.entries.video_max_duration === '60');
 
   const has100MB = cameraRoll.max_file_size === 104857600 && b.entries.max_file_size === '104857600';
 
-  check('Locket_30s: 45s video recording & camera limits injected', has45s && has100MB, out ? out.body : 'null');
+  check('Locket_30s: 60.0s video recording & camera limits injected', has45s && has100MB, out ? out.body : 'null');
 
 }
 
@@ -595,8 +595,8 @@ console.log('== Standalone Scripts Comprehensive Functional Suite ==');
 {
   const out = runScript('Locket_30s.js', { headers: { 'User-Agent': 'Locket/1.144.0' } }, { body: JSON.stringify({ state: 'NO_CHANGE', templateVersion: '123' }) });
   const b = JSON.parse(out.body);
-  const ok = b && b.state === 'UPDATE' && b.entries && JSON.parse(b.entries.camera).gold_max_duration === 45;
-  check('Locket_30s: Force state UPDATE from NO_CHANGE & 45s verified', ok, out ? out.body : 'null');
+  const ok = b && b.state === 'UPDATE' && b.entries && JSON.parse(b.entries.camera).gold_max_duration === 60.0;
+  check('Locket_30s: Force state UPDATE from NO_CHANGE & 60.0s verified', ok, out ? out.body : 'null');
 }
 
 // 38. elsa.js (ELSA Speak VIP & Oxford / IELTS Master)

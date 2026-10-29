@@ -57,20 +57,20 @@ test('Locket: Force state UPDATE khi server trả về NO_CHANGE', () => {
   assert.strictEqual(obj.state, 'UPDATE');
 });
 
-test('Locket: Video 45s chuẩn tuyệt đối (toàn bộ 15 cờ thời lượng)', () => {
+test('Locket: Video 60.0s chuẩn tuyệt đối (toàn bộ 15 cờ thời lượng)', () => {
   const obj = JSON.parse(locketRes.body);
   const cam = JSON.parse(obj.entries.camera);
   const camRoll = JSON.parse(obj.entries.camera_roll);
   const vidConfig = JSON.parse(obj.entries.video_config);
 
-  assert.strictEqual(cam.gold_max_duration, 45.0);
-  assert.strictEqual(cam.max_duration, 45.0);
-  assert.strictEqual(camRoll.max_duration, 45.0);
-  assert.strictEqual(camRoll.gold_max_duration, 45.0);
-  assert.strictEqual(vidConfig.max_duration, 45);
-  assert.strictEqual(obj.entries.video_duration, '45');
-  assert.strictEqual(obj.entries.video_max_duration, '45');
-  assert.strictEqual(obj.entries.gold_max_duration, '45');
+  assert.strictEqual(cam.gold_max_duration, 60.0);
+  assert.strictEqual(cam.max_duration, 60.0);
+  assert.strictEqual(camRoll.max_duration, 60.0);
+  assert.strictEqual(camRoll.gold_max_duration, 60.0);
+  assert.strictEqual(vidConfig.max_duration, 60.0);
+  assert.strictEqual(obj.entries.video_duration, '60.0');
+  assert.strictEqual(obj.entries.video_max_duration, '60.0');
+  assert.strictEqual(obj.entries.gold_max_duration, '60.0');
 });
 
 test('Locket: 4K Ultra HD Upload & 0.9 Mbps Quality Boost', () => {
@@ -153,7 +153,7 @@ test('Locket: Android Cross-Platform Compatibility (LSPosed / Android Shadowrock
   assert.strictEqual(obj.entries.android_gold_subscription_override, 'true');
   assert.strictEqual(obj.entries.android_subscribe_gold_button_enabled, 'true');
   const androidVid = JSON.parse(obj.entries.android_camera_video_recording);
-  assert.strictEqual(androidVid.gold.maximum_duration, 45000);
+  assert.strictEqual(androidVid.gold.maximum_duration, 60000);
   assert.strictEqual(androidVid.gold.size, 1080);
 });
 

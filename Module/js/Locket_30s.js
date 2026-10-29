@@ -205,15 +205,15 @@ if (typeof $response === "undefined" || $response === null) {
 
             tag_style: "gold_gradient",
 
-            title: "LOCKET GOLD INFINITY VIP",
+            title: "LOCKET GOLD 60S MAX VIP",
 
             feature_set: [
 
                 {
 
-                    title: "👑 Locket Gold Vô Cực (Infinity)",
+                    title: "👑 Locket Gold 60s Max VIP",
 
-                    body: "Đã kích hoạt Video Vô Cực (9999s), Custom Captions & Khung viền VIP | by Nguyễn Ngọc Anh Tú",
+                    body: "Đã kích hoạt Video 60s Kịch Trần, Custom Captions & Khung viền VIP | by Nguyễn Ngọc Anh Tú",
 
                     imageURL: "https://i.ibb.co/tPkjxLkt/1792636721373-274634644232052516-3575467034759724149-468456e99a1faab6b5ee65a7a369b8bb.jpg"
 
@@ -309,10 +309,10 @@ if (typeof $response === "undefined" || $response === null) {
     });
 
     // ============================================================
-    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY (VÔ CỰC 9999s CHO PHÉP FLEX TỐI THƯỢNG)
+    // 3. CAMERA, VIDEO, FILTERS & UPLOAD QUALITY (60.0s KỊCH TRẦN HỢP LỆ - CHỐNG FALLBACK VỀ 5S)
     // ============================================================
-    var MY_VIDEO_DURATION = 9999.0;
-    var durationStr = "9999";
+    var MY_VIDEO_DURATION = 60.0;
+    var durationStr = "60.0";
 
     var cameraConfig = {
         gold_max_duration: MY_VIDEO_DURATION,
@@ -364,15 +364,15 @@ if (typeof $response === "undefined" || $response === null) {
     obj.entries.camera_roll = JSON.stringify(cameraRollConfig);
     obj.entries.video_config = JSON.stringify({
         enabled: true,
-        max_duration: 9999,
-        recording_duration: 9999,
-        longer_videos_duration: 9999,
+        max_duration: 60.0,
+        recording_duration: 60.0,
+        longer_videos_duration: 60.0,
         camera_roll_enabled: true,
-        max_length: 9999
+        max_length: 60.0
     });
     obj.entries.android_camera_video_recording = JSON.stringify({
-        free: { maximum_duration: 9999000, size: 720, file_type: "mp4", video_codec: "h265" },
-        gold: { maximum_duration: 9999000, size: 1080, file_type: "mp4", video_codec: "h265" }
+        free: { maximum_duration: 60000, size: 720, file_type: "mp4", video_codec: "h265" },
+        gold: { maximum_duration: 60000, size: 1080, file_type: "mp4", video_codec: "h265" }
     });
 
     Object.assign(obj.entries, {

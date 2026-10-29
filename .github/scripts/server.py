@@ -391,12 +391,12 @@ def get_firebase_config_json() -> bytes:
 
     # Fallback đầy đủ 100% bao gồm mọi Filter, Mic và Video 45s
     fallback_entries = {
-        "video_duration": "9999",
-        "max_duration": "9999.0",
-        "gold_max_duration": "9999.0",
-        "video_max_duration": "9999",
+        "video_duration": "60.0",
+        "max_duration": "60.0",
+        "gold_max_duration": "60.0",
+        "video_max_duration": "60.0",
         "can_upload_video": "true",
-        "upload_video_duration": "9999",
+        "upload_video_duration": "60.0",
         "microphone_enabled": "true",
         "camera_microphone_enabled": "true",
         "mh_mic_enabled_v16": "true",

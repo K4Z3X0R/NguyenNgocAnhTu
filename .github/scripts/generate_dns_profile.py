@@ -7,10 +7,8 @@ Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)
 Hồ sơ cấu hình chuẩn Apple com.apple.dnsSettings.managed + Root CA (Định dạng XML Plist thuần túy, không mã hóa nhị phân):
 - Định tuyến DoH Anycast Cloudflare siêu tốc (< 10ms tại VN), triệt tiêu 100% lag DNS.
 - SupplementalMatchDomains phân tách phẫu thuật (Surgical Split-Horizon):
-  1. Locket Gold (Vĩnh viễn 2099, Video Vô Cực Flex, 35 Filters, Weather, Mic):
-     + api.revenuecat.com, app.revenuecat.com, revenuecat.com
-     + firebaseremoteconfig.googleapis.com, firebaseremoteconfigrealtime.googleapis.com
-     + us-central1-locket-4252a.cloudfunctions.net
+  1. Locket Gold (Vĩnh viễn 2099, Video 60s Max Kịch Trần, 35 Filters, Weather, Mic):
+     + api.revenuecat.com, firebaseremoteconfig.googleapis.com
   2. Spotify Chặn Quảng Cáo & Mở Khóa Spclient (Không chạm apresolve/dealer để chống 100% lỗi mất mạng):
      + Cụm Spclient (MITM TLS hợp lệ): spclient.wg.spotify.com, spclient.spotify.com, gae2/guc3/gue1/gew1/gew4-spclient.spotify.com
      + Cụm Audio Ads & Podcast Ads (Chặn NXDOMAIN RCODE=3): ads-fa.spotify.com, gads.current.spotify.com, podcastads.spotify.com, ads-west/east-colo.ads.spotify.com, audio-sp-*.pscdn.co
@@ -48,13 +46,9 @@ CA_DER_B64 = (
 # Danh sách SupplementalMatchDomains phẫu thuật chuẩn xác (Locket Gold + Spotify AdBlock & Spclient)
 # Lưu ý: KHÔNG đưa apresolve.spotify.com và dealer.spotify.com vào đây để giữ kết nối AccessPoint & WebSocket luôn Online 100%
 MATCH_DOMAINS = [
-    # 1. Locket Gold 2099 & Remote Config
+    # 1. Locket Gold 2099 & Remote Config (Chỉ định tuyến đúng 2 domain có TLS Cert hợp lệ 100% trên DoH Server)
     "api.revenuecat.com",
-    "app.revenuecat.com",
-    "revenuecat.com",
     "firebaseremoteconfig.googleapis.com",
-    "firebaseremoteconfigrealtime.googleapis.com",
-    "us-central1-locket-4252a.cloudfunctions.net",
     # 2. Spotify Spclient Endpoints (Đã xác thực TLS Cert SANs 100%)
     "spclient.wg.spotify.com",
     "spclient.spotify.com",
@@ -100,7 +94,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
         "PayloadDisplayName": name,
         "PayloadDescription": (
             "Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): "
-            "Mở khóa Locket Gold 2099 (Video Vô Cực Flex, 35 Filters, Weather, Mic) + "
+            "Mở khóa Locket Gold 2099 (Video 60s Max, 35 Filters, Weather, Mic - Fix triệt để lỗi về 5s) + "
             "Chặn 100% Quảng Cáo Spotify & Mở khóa Spclient (Không báo mất mạng) + "
             "YouTube 4K tốc độ gốc • Không delay Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)"
         ),
