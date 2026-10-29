@@ -37,11 +37,11 @@
 			<key>PayloadDisplayName</key>
 			<string>Anh Tú VIP Apex Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.20ffb7f8-1d57-4e1e-b698-3575c12fd367</string>
+			<string>com.apple.security.root.d218a851-ad01-461b-a5a0-7246662c8141</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>20FFB7F8-1D57-4E1E-B698-3575C12FD367</string>
+			<string>D218A851-AD01-461B-A5A0-7246662C8141</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -61,21 +61,68 @@
 				<array>
 					<string>api.revenuecat.com</string>
 					<string>firebaseremoteconfig.googleapis.com</string>
+					<string>e.revenuecat.com</string>
+					<string>config.app-measurement.com</string>
 					<string>locket.adsbynimbus.com</string>
+					<string>api.adsbynimbus.com</string>
+					<string>adsbynimbus.com</string>
 					<string>e.crashlytics.com</string>
 					<string>settings.crashlytics.com</string>
+					<string>firebase-settings.crashlytics.com</string>
 					<string>spclient.wg.spotify.com</string>
+					<string>spclient-wg.spotify.com</string>
 					<string>spclient.spotify.com</string>
+					<string>gae-spclient.spotify.com</string>
 					<string>gae2-spclient.spotify.com</string>
+					<string>guc-spclient.spotify.com</string>
 					<string>guc3-spclient.spotify.com</string>
+					<string>gue-spclient.spotify.com</string>
 					<string>gue1-spclient.spotify.com</string>
+					<string>gew-spclient.spotify.com</string>
 					<string>gew1-spclient.spotify.com</string>
 					<string>gew4-spclient.spotify.com</string>
+					<string>partner-spclient.spotify.com</string>
+					<string>testing-spclient.spotify.com</string>
+					<string>spclient.scdn.co</string>
+					<string>spclient.pscdn.co</string>
+					<string>spclient.spotifycdn.com</string>
 					<string>ads-fa.spotify.com</string>
+					<string>ads-fa.scdn.co</string>
+					<string>ads-east-colo.spotify.com</string>
+					<string>ads-west-colo.spotify.com</string>
+					<string>ads-east-colo.ads.spotify.com</string>
+					<string>ads-west-colo.ads.spotify.com</string>
+					<string>gads.spotify.com</string>
 					<string>gads.current.spotify.com</string>
 					<string>podcastads.spotify.com</string>
-					<string>ads-west-colo.ads.spotify.com</string>
-					<string>ads-east-colo.ads.spotify.com</string>
+					<string>audio-ak.spotify.com</string>
+					<string>audio4-ak.spotify.com</string>
+					<string>audio-akp.spotify.com</string>
+					<string>audio4-akp.spotify.com</string>
+					<string>audio-fa.spotify.com</string>
+					<string>audio4-fa.spotify.com</string>
+					<string>audio-sp.spotify.com</string>
+					<string>audio4-sp.spotify.com</string>
+					<string>audio-ec.spotify.com</string>
+					<string>audio4-ec.spotify.com</string>
+					<string>audio-cf.spotify.com</string>
+					<string>audio4-cf.spotify.com</string>
+					<string>heads-ak.spotify.com</string>
+					<string>heads4-ak.spotify.com</string>
+					<string>heads-akp.spotify.com</string>
+					<string>heads4-akp.spotify.com</string>
+					<string>heads4-fa.spotify.com</string>
+					<string>heads-cf.spotify.com</string>
+					<string>heads4-cf.spotify.com</string>
+					<string>heads-ec.spotify.com</string>
+					<string>heads4-ec.spotify.com</string>
+					<string>prod.spotify-heads.map.fastly.net</string>
+					<string>weblb-wg.gslb.spotify.com</string>
+					<string>bs.serving-sys.com</string>
+					<string>ds.serving-sys.com</string>
+					<string>v.jwpcdn.com</string>
+					<string>z.moatads.com</string>
+					<string>px.moatads.com</string>
 					<string>audio-sp-sto.pscdn.co</string>
 					<string>audio-sp-ash.pscdn.co</string>
 					<string>audio-sp-dca.pscdn.co</string>
@@ -113,11 +160,11 @@
 			<key>PayloadDisplayName</key>
 			<string>⚡ Anh Tú Cloudflare Anycast DoH (Siêu Tốc 0ms)</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.3a90209e-dd50-49c6-914b-cb2970f84e14</string>
+			<string>com.apple.dnsSettings.managed.775f76f8-8ab1-428d-ae67-7268505dc2f0</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>3A90209E-DD50-49C6-914B-CB2970F84E14</string>
+			<string>775F76F8-8AB1-428D-AE67-7268505DC2F0</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -135,7 +182,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>574B5A88-8EF7-4CCD-B302-8C60E075BF96</string>
+	<string>5F4615D4-A557-4288-8A8B-A9DF8CBFD736</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>

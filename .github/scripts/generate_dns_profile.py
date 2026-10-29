@@ -43,30 +43,78 @@ CA_DER_B64 = (
     "aWn3ulMsmth4MVHtEtf5wJq48yc7UBXjaq/h9jnO81d9yyI2RAYZ52CqMLYR"
 )
 
-# Danh sách SupplementalMatchDomains phẫu thuật chuẩn xác (Locket Gold + Spotify AdBlock & Spclient)
+# Danh sách SupplementalMatchDomains phẫu thuật chuẩn xác (Locket Gold + 35 Filters + Full Spotify AdBlock & Spclient Matrix)
 # Lưu ý: KHÔNG đưa apresolve.spotify.com và dealer.spotify.com vào đây để giữ kết nối AccessPoint & WebSocket luôn Online 100%
 MATCH_DOMAINS = [
-    # 1. Locket Gold 2099 & Remote Config (Chỉ định tuyến đúng 2 domain có TLS Cert hợp lệ 100% trên DoH Server)
+    # 1. Locket Gold 2099 & 35 Camera Filters (MITM TLS Cert hợp lệ 100% trên 103.211.207.247)
     "api.revenuecat.com",
     "firebaseremoteconfig.googleapis.com",
-    # 2. Locket Ads & Telemetry Block (Chặn NXDOMAIN RCODE=3 cho AdsByNimbus & Crashlytics)
+    # 2. Locket Telemetry, Config Cache Invalidation & AdsByNimbus Block (NXDOMAIN RCODE=3)
+    "e.revenuecat.com",
+    "config.app-measurement.com",
     "locket.adsbynimbus.com",
+    "api.adsbynimbus.com",
+    "adsbynimbus.com",
     "e.crashlytics.com",
     "settings.crashlytics.com",
-    # 3. Spotify Spclient Endpoints (Đã xác thực TLS Cert SANs 100%)
+    "firebase-settings.crashlytics.com",
+    # 3. Spotify Spclient Cluster (Full Global & Regional Endpoints -> MITM 103.211.207.247:443)
     "spclient.wg.spotify.com",
+    "spclient-wg.spotify.com",
     "spclient.spotify.com",
+    "gae-spclient.spotify.com",
     "gae2-spclient.spotify.com",
+    "guc-spclient.spotify.com",
     "guc3-spclient.spotify.com",
+    "gue-spclient.spotify.com",
     "gue1-spclient.spotify.com",
+    "gew-spclient.spotify.com",
     "gew1-spclient.spotify.com",
     "gew4-spclient.spotify.com",
-    # 4. Spotify Audio Ads, Banner Ads & Podcast Ads (28 Global POPs - Chặn NXDOMAIN RCODE=3)
+    "partner-spclient.spotify.com",
+    "testing-spclient.spotify.com",
+    "spclient.scdn.co",
+    "spclient.pscdn.co",
+    "spclient.spotifycdn.com",
+    # 4. Spotify Audio Ads, Fastly/Akamai Ad Heads, GAds & Podcast Ads (NXDOMAIN RCODE=3)
     "ads-fa.spotify.com",
+    "ads-fa.scdn.co",
+    "ads-east-colo.spotify.com",
+    "ads-west-colo.spotify.com",
+    "ads-east-colo.ads.spotify.com",
+    "ads-west-colo.ads.spotify.com",
+    "gads.spotify.com",
     "gads.current.spotify.com",
     "podcastads.spotify.com",
-    "ads-west-colo.ads.spotify.com",
-    "ads-east-colo.ads.spotify.com",
+    "audio-ak.spotify.com",
+    "audio4-ak.spotify.com",
+    "audio-akp.spotify.com",
+    "audio4-akp.spotify.com",
+    "audio-fa.spotify.com",
+    "audio4-fa.spotify.com",
+    "audio-sp.spotify.com",
+    "audio4-sp.spotify.com",
+    "audio-ec.spotify.com",
+    "audio4-ec.spotify.com",
+    "audio-cf.spotify.com",
+    "audio4-cf.spotify.com",
+    "heads-ak.spotify.com",
+    "heads4-ak.spotify.com",
+    "heads-akp.spotify.com",
+    "heads4-akp.spotify.com",
+    "heads4-fa.spotify.com",
+    "heads-cf.spotify.com",
+    "heads4-cf.spotify.com",
+    "heads-ec.spotify.com",
+    "heads4-ec.spotify.com",
+    "prod.spotify-heads.map.fastly.net",
+    "weblb-wg.gslb.spotify.com",
+    "bs.serving-sys.com",
+    "ds.serving-sys.com",
+    "v.jwpcdn.com",
+    "z.moatads.com",
+    "px.moatads.com",
+    # 5. Spotify Global Audio-SP Ad POPs (23 POPs -> NXDOMAIN RCODE=3)
     "audio-sp-sto.pscdn.co",
     "audio-sp-ash.pscdn.co",
     "audio-sp-dca.pscdn.co",

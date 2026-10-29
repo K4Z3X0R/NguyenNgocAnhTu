@@ -16,6 +16,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Cleanup older Anh Tu v3.* releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CURRENT_TAG="${{ github.ref_name }}"
+          for tag in $(gh release list --limit 50 --json tagName --jq '.[].tagName'); do
+            if [[ "$tag" == v3.* && "$tag" != "$CURRENT_TAG" && "$tag" != "v3.0.4" ]]; then
+              echo "Deleting old release: $tag"
+              gh release delete "$tag" --yes --cleanup-tag || true
+            fi
+          done
+
       - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -24,14 +36,13 @@ jobs:
             ## 👑 Anh Tú • DNS Locket Gold 2099 VIP + Chặn QC Spotify (${{ github.ref_name }})
             Tác giả: **Nguyễn Ngọc Anh Tú** (@z3rokaze / K4Z3X0R)
 
-            ### ✨ Các Cải Tiến Cốt Lõi:
-            - 🎵 **Chặn 100% Quảng Cáo Spotify & Miễn Nhiễm Mất Mạng (Surgical Split-Horizon)**:
-              - Tích hợp 7 cụm `*-spclient.spotify.com` (MITM TLS hợp lệ) + 17 cụm Audio Ads & Podcast Ads (`ads-fa`, `gads`, `podcastads`, `audio-sp-*.pscdn.co` chặn `NXDOMAIN` trực tiếp).
+            ### ✨ Các Cải Tiến Cốt Lõi (87 Surgical Domains):
+            - 💛 **Mở Khóa Full 35 Bộ Lọc Máy Ảnh Locket Gold 2099 (`camera_filter_config`)**:
+              - Tích hợp khóa `config.app-measurement.com` + `e.revenuecat.com` + `locket.adsbynimbus.com` + `api.adsbynimbus.com` ép Locket làm mới cấu hình `firebaseremoteconfig.googleapis.com` trực tiếp từ máy chủ MITM `103.211.207.247` (Bật đầy đủ 6 danh mục `Goofy`, `Looks`, `Celebrate`, `Cute`, `Costumes`, `Holidays` & 35 bộ lọc gốc + `camera_filter_sheet: enabled`).
+            - 🎵 **Chặn Triệt Để Quảng Cáo Spotify & Miễn Nhiễm Mất Mạng (87 Surgical Domains)**:
+              - Tích hợp toàn bộ 16 cụm `*-spclient.spotify.com` / `spclient-wg` (chặn `/ad-logic/*`, `/ads/v1/*`, `/ads/v2/*` ngay tại tầng MITM) + 61 cụm Audio Ads, Akamai/Fastly Ad Heads (`audio-ak.spotify.com`, `audio4-ak.spotify.com`, `audio-fa.spotify.com`, `audio-sp.spotify.com`, `heads-ak.spotify.com`, `ads-fa.spotify.com`, `gads.spotify.com`, `podcastads.spotify.com`, `prod.spotify-heads.map.fastly.net`, 23 POPs `audio-sp-*.pscdn.co`, `bs.serving-sys.com`, `v.jwpcdn.com`, `z.moatads.com`).
               - Tuyệt đối để `apresolve.spotify.com` và `dealer.spotify.com` kết nối trực tiếp (DIRECT) -> Giữ trạng thái Online 100%, xóa sổ vĩnh viễn lỗi *"Hiện tại bạn không có kết nối mạng"*.
-            - 🎬 **Khắc Phục Triệt Để Lỗi Video Về 5s (Chuẩn 60.0s Max Kịch Trần)**: Đồng bộ chuẩn định dạng số thực `60.0` / `"60.0"` vượt qua bộ kiểm tra biên `0 < duration <= 60.0` của Locket iOS, chấm dứt 100% hiện tượng tràn số `9999s` bị phạt lùi về `5s`.
             - 📄 **Định Dạng XML Chuẩn Apple (Không Mã Hóa Nhị Phân)**: Xuất file XML Plist thuần túy (`<!DOCTYPE plist...`), hủy bỏ hoàn toàn binary plist `bplist00` bảo đảm tương thích 100% mọi iOS.
-            - ⚡ **Khắc Phục 100% Lag DNS & Delay Tin Nhắn Zalo**: Kết nối qua Anycast Cloudflare tốc độ cao (độ trễ < 10ms tại VN), không delay tin nhắn Zalo.
-            - 📺 **Khắc Phục 100% Lỗi YouTube**: Không can thiệp luồng phát video, xem video mượt mà full tốc độ 4K.
-            - 💛 **Mở Khóa Full Locket Gold 2099**: Full 35 bộ lọc máy ảnh (Hello Kitty, Shin, Aesthetic), Nhãn dán thời tiết & Micrô ghi âm.
+            - ⚡ **Khắc Phục 100% Lag DNS, YouTube 4K & Không Delay Tin Nhắn Zalo**: Kết nối qua Anycast Cloudflare tốc độ cao (< 10ms tại VN).
           files: |
             DNS.mobileconfig
