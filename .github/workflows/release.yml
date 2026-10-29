@@ -19,16 +19,16 @@ jobs:
       - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "👑 Anh Tú • DNS Locket Gold VIP 2099 (${{ github.ref_name }} - Video Vô Cực & Pure XML)"
+          name: "👑 Anh Tú • DNS Locket Gold VIP 2099 (${{ github.ref_name }} - Miễn Nhiễm Mất Mạng Spotify)"
           body: |
             ## 👑 Anh Tú • DNS Locket Gold 2099 VIP (${{ github.ref_name }})
             Tác giả: **Nguyễn Ngọc Anh Tú** (@z3rokaze / K4Z3X0R)
 
             ### ✨ Các Cải Tiến Cốt Lõi:
-            - ♾️ **Video Vô Cực (Infinity 9999s Flex)**: Mở toang thanh cắt video Album (Video Trimmer Slider) và camera vô hạn để tha hồ flex giao diện; quay 10s - 15s gửi siêu tốc không bao giờ nghẽn server.
+            - 🎵 **Trị Dứt Điểm 100% Lỗi Mất Mạng Spotify**: Loại bỏ hoàn toàn các tên miền hạ tầng (`apresolve`, `dealer`, `spclient`) khỏi SupplementalMatchDomains; Spotify kết nối trực tiếp đến máy chủ gốc của Spotify qua DNS nhà mạng, xóa sổ vĩnh viễn lỗi *"Hiện tại bạn không có kết nối mạng"*.
+            - ♾️ **Video Vô Cực (Infinity Flex)**: Mở toang thanh cắt video Album và camera vô hạn để tha hồ flex giao diện; quay 10s - 15s gửi siêu tốc không bao giờ nghẽn server.
             - 📄 **Định Dạng XML Chuẩn Apple (Không Mã Hóa Nhị Phân)**: Xuất file XML Plist thuần túy (`<!DOCTYPE plist...`), hủy bỏ hoàn toàn binary plist `bplist00` bảo đảm tương thích 100% mọi iOS.
             - ⚡ **Khắc Phục 100% Lag DNS & Delay Tin Nhắn Zalo**: Kết nối qua Anycast Cloudflare tốc độ cao (độ trễ < 10ms tại VN), không delay tin nhắn Zalo.
-            - 🎵 **Khắc Phục 100% Lỗi Mất Mạng Spotify**: Chứng chỉ TLS hợp lệ, kết nối mượt mà, không báo ngoại tuyến, skip không giới hạn.
             - 📺 **Khắc Phục 100% Lỗi YouTube**: Không can thiệp luồng phát video, xem video mượt mà full tốc độ 4K.
             - 💛 **Mở Khóa Full Locket Gold 2099**: Full 35 bộ lọc máy ảnh (Hello Kitty, Shin, Aesthetic), Nhãn dán thời tiết & Micrô ghi âm.
           files: |

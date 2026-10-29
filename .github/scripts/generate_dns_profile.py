@@ -41,16 +41,15 @@ CA_DER_B64 = (
     "aWn3ulMsmth4MVHtEtf5wJq48yc7UBXjaq/h9jnO81d9yyI2RAYZ52CqMLYR"
 )
 
-# Danh sách SupplementalMatchDomains tinh gọn chuẩn mực
+# Danh sách SupplementalMatchDomains tinh chuẩn tối đa - CHỈ can thiệp Locket Gold
+# TUYỆT ĐỐI KHÔNG can thiệp Spotify, YouTube, hay Zalo để tránh lỗi 'báo mất mạng' và lag mạng
 MATCH_DOMAINS = [
     "api.revenuecat.com",
+    "app.revenuecat.com",
+    "revenuecat.com",
     "firebaseremoteconfig.googleapis.com",
-    "us-central1-locket-4252a.cloudfunctions.net",
-    "spclient.wg.spotify.com",
-    "spclient.spotify.com",
-    "dealer.spotify.com",
-    "apresolve.spotify.com",
-    "spotify.com"
+    "firebaseremoteconfigrealtime.googleapis.com",
+    "us-central1-locket-4252a.cloudfunctions.net"
 ]
 
 SERVER_URL = "https://doh.2707226.xyz/dns-query/common"
@@ -62,7 +61,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
     ca_uuid = str(uuid.uuid4()).upper()
     dns_uuid = str(uuid.uuid4()).upper()
 
-    name = display_name or "👑 Anh Tú • DNS Locket Gold VIP 2099 (Video Vô Cực & Spotify Fix)"
+    name = display_name or "👑 Anh Tú • DNS Locket Gold VIP 2099 (Miễn Nhiễm Mất Mạng Spotify)"
 
     ca_der_bytes = base64.b64decode(CA_DER_B64)
 
@@ -70,9 +69,9 @@ def build_profile_dict(display_name: str | None = None) -> dict:
         "PayloadDisplayName": name,
         "PayloadDescription": (
             "Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): "
-            "Mở khóa Locket Gold 2099 (Video Vô Cực 9999s Flex, 35 Filters, Weather, Mic) + "
-            "Spotify mượt mà (không lỗi mất mạng) + YouTube phát video gốc tốc độ cao • "
-            "Không delay tin nhắn Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)"
+            "Mở khóa Locket Gold 2099 (Video Vô Cực Flex, 35 Filters, Weather, Mic) • "
+            "MIỄN NHIỄM 100% lỗi mất mạng Spotify (Spotify kết nối trực tiếp mượt mà 320kbps) • "
+            "YouTube phát video gốc 4K • Không delay tin nhắn Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)"
         ),
         "PayloadIdentifier": "com.anhtu.dns.locketgold.v6",
         "PayloadOrganization": "Nguyễn Ngọc Anh Tú (K4Z3X0R)",

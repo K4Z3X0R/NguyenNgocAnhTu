@@ -37,11 +37,11 @@
 			<key>PayloadDisplayName</key>
 			<string>Anh Tú VIP Apex Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.14749a87-bc09-4d25-932b-2c49cf50ee8c</string>
+			<string>com.apple.security.root.e95b7597-0a52-4902-bd0f-0c4ad24e7d8d</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>14749A87-BC09-4D25-932B-2C49CF50EE8C</string>
+			<string>E95B7597-0A52-4902-BD0F-0C4AD24E7D8D</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -60,13 +60,11 @@
 				<key>SupplementalMatchDomains</key>
 				<array>
 					<string>api.revenuecat.com</string>
+					<string>app.revenuecat.com</string>
+					<string>revenuecat.com</string>
 					<string>firebaseremoteconfig.googleapis.com</string>
+					<string>firebaseremoteconfigrealtime.googleapis.com</string>
 					<string>us-central1-locket-4252a.cloudfunctions.net</string>
-					<string>spclient.wg.spotify.com</string>
-					<string>spclient.spotify.com</string>
-					<string>dealer.spotify.com</string>
-					<string>apresolve.spotify.com</string>
-					<string>spotify.com</string>
 				</array>
 			</dict>
 			<key>OnDemandRules</key>
@@ -81,19 +79,19 @@
 			<key>PayloadDisplayName</key>
 			<string>⚡ Anh Tú Cloudflare Anycast DoH (Siêu Tốc 0ms)</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.10811f52-2e78-4421-8f3f-4c4dbbd8c88a</string>
+			<string>com.apple.dnsSettings.managed.848d2756-4b25-409c-86fb-96cd64ac70fa</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>10811F52-2E78-4421-8F3F-4C4DBBD8C88A</string>
+			<string>848D2756-4B25-409C-86FB-96CD64AC70FA</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
 	</array>
 	<key>PayloadDescription</key>
-	<string>Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): Mở khóa Locket Gold 2099 (Video Vô Cực 9999s Flex, 35 Filters, Weather, Mic) + Spotify mượt mà (không lỗi mất mạng) + YouTube phát video gốc tốc độ cao • Không delay tin nhắn Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)</string>
+	<string>Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): Mở khóa Locket Gold 2099 (Video Vô Cực Flex, 35 Filters, Weather, Mic) • MIỄN NHIỄM 100% lỗi mất mạng Spotify (Spotify kết nối trực tiếp mượt mà 320kbps) • YouTube phát video gốc 4K • Không delay tin nhắn Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)</string>
 	<key>PayloadDisplayName</key>
-	<string>👑 Anh Tú • DNS Locket Gold VIP 2099 (Video Vô Cực &amp; Spotify Fix)</string>
+	<string>👑 Anh Tú • DNS Locket Gold VIP 2099 (Miễn Nhiễm Mất Mạng Spotify)</string>
 	<key>PayloadIdentifier</key>
 	<string>com.anhtu.dns.locketgold.v6</string>
 	<key>PayloadOrganization</key>
@@ -103,7 +101,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>7059E5E9-8866-410A-91D9-E9BB5E4497C6</string>
+	<string>56858917-AA41-49E0-9745-C4A2BCEFB0DB</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
