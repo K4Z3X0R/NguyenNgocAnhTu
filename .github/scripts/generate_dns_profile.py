@@ -82,7 +82,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
 
     return {
         "PayloadDisplayName": name,
-        "PayloadDescription": "Mở khóa Locket Gold 2099 & Video 45s",
+        "PayloadDescription": "Mở khóa Locket Gold 2099 & Video 45s • FB: fb.com/NguyenNgocAnhTu.VN • Zalo: 0332413262",
         "PayloadIdentifier": "com.anhtu.dns.locketgold.v6",
         "PayloadOrganization": "Nguyễn Ngọc Anh Tú",
         "PayloadRemovalDisallowed": False,
@@ -108,7 +108,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
                 "PayloadIdentifier": f"com.apple.dnsSettings.managed.{dns_uuid.lower()}",
                 "PayloadUUID": dns_uuid,
                 "PayloadDisplayName": "DNS Locket Gold",
-                "PayloadDescription": "DNS DoH Singapore",
+                "PayloadDescription": "DNS DoH Singapore • Zalo: 0332413262",
                 "DNSSettings": {
                     "DNSProtocol": "HTTPS",
                     "ServerURL": SERVER_URL,

@@ -572,7 +572,7 @@ def generate_profile_bytes(username: str | None = None) -> bytes:
 
     profile = {
         "PayloadDisplayName": display_name,
-        "PayloadDescription": "Mở khóa Locket Gold 2099 & Video 45s",
+        "PayloadDescription": "Mở khóa Locket Gold 2099 & Video 45s • FB: fb.com/NguyenNgocAnhTu.VN • Zalo: 0332413262",
         "PayloadIdentifier": f"com.anhtu.dns.locketgold.{top_uuid[:8].lower()}",
         "PayloadOrganization": "Nguyễn Ngọc Anh Tú",
         "PayloadRemovalDisallowed": False,
@@ -595,7 +595,7 @@ def generate_profile_bytes(username: str | None = None) -> bytes:
                 "PayloadIdentifier": "com.anhtu.dns.managed",
                 "PayloadUUID": dns_uuid,
                 "PayloadDisplayName": "DNS Locket Gold",
-                "PayloadDescription": "DNS DoH Singapore",
+                "PayloadDescription": "DNS DoH Singapore • Zalo: 0332413262",
                 "DNSSettings": {
                     "DNSProtocol": "HTTPS",
                     "ServerURL": f"https://{SERVER_IP}.sslip.io/dns-query",
@@ -645,7 +645,11 @@ def get_landing_html() -> bytes:
                 <li>Mở Locket: Đã có Locket Gold vĩnh viễn 2099 &amp; Video 45s!</li>
             </ol>
         </div>
-        <div class="footer">Nguyễn Ngọc Anh Tú • Apex DNS Suite (@z3rokaze)</div>
+        <div class="footer">
+            Nguyễn Ngọc Anh Tú • Apex DNS Suite<br>
+            <a href="https://www.facebook.com/NguyenNgocAnhTu.VN" target="_blank" style="color:#38bdf8;text-decoration:none;">Facebook</a> • 
+            <a href="https://zalo.me/0332413262" target="_blank" style="color:#38bdf8;text-decoration:none;">Zalo: 0332413262</a>
+        </div>
     </div>
 </body>
 </html>"""

@@ -41,11 +41,11 @@
 			<key>PayloadDisplayName</key>
 			<string>Anh Tú Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.cd0dd984-bba2-4b34-9416-0797efa9e357</string>
+			<string>com.apple.security.root.fc27ea04-b345-4b9d-999c-2f3c1832782f</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>CD0DD984-BBA2-4B34-9416-0797EFA9E357</string>
+			<string>FC27EA04-B345-4B9D-999C-2F3C1832782F</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -84,21 +84,21 @@
 				</dict>
 			</array>
 			<key>PayloadDescription</key>
-			<string>DNS DoH Singapore</string>
+			<string>DNS DoH Singapore • Zalo: 0332413262</string>
 			<key>PayloadDisplayName</key>
 			<string>DNS Locket Gold</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.c1867466-5e1e-4d8c-8f5b-0733caf95c8f</string>
+			<string>com.apple.dnsSettings.managed.bbf594f3-daf1-4f1e-a2f7-efa911227018</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>C1867466-5E1E-4D8C-8F5B-0733CAF95C8F</string>
+			<string>BBF594F3-DAF1-4F1E-A2F7-EFA911227018</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
 	</array>
 	<key>PayloadDescription</key>
-	<string>Mở khóa Locket Gold 2099 &amp; Video 45s</string>
+	<string>Mở khóa Locket Gold 2099 &amp; Video 45s • FB: fb.com/NguyenNgocAnhTu.VN • Zalo: 0332413262</string>
 	<key>PayloadDisplayName</key>
 	<string>👑 Anh Tú • DNS Locket Gold 2099</string>
 	<key>PayloadIdentifier</key>
@@ -110,7 +110,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>03C7439C-C2C0-434E-AA29-BF8C2D8D618C</string>
+	<string>F9A0C97D-FA48-4C82-8A08-0848E2325756</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
