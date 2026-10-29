@@ -1055,7 +1055,14 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(b'{"status":"ok"}')
 
     def log_message(self, format, *args):
-        pass
+        import sys
+        sys.stderr.write("[%s] %s - - [%s] %s\n" % (
+            self.headers.get("Host", "no-host"),
+            self.client_address[0],
+            self.log_date_time_string(),
+            format % args
+        ))
+        sys.stderr.flush()
 
 
 def run_http_server(port: int = HTTP_PORT):

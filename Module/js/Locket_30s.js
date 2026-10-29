@@ -293,37 +293,12 @@ if (typeof $response === "undefined" || $response === null) {
         }),
 
         paywall_presentation_config: JSON.stringify({
-
             uid: "paywall_testflight",
-
             onboarding: false,
-
             after_sent_moment: false,
-
             on_foreground: false,
-
             interval: 259200000,
-
-            profile_banner: false,
-
-            holiday_effects: false,
-
-            holiday_filters: false,
-
-            holiday_effect_gate: false,
-
-            view_moment_gate: false,
-
-            moment_gate: false,
-
-            view_history: false,
-
-            seasonal_frames: false,
-
-            camera_filters: false,
-
-            filters: false
-
+            profile_banner: false
         }),
 
         history_gold_upsell_slot_config: JSON.stringify({
