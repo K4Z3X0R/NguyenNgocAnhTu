@@ -19,21 +19,16 @@ jobs:
       - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "👑 Anh Tú • DNS Locket Gold VIP 2099 (v3.0.5 - Sovereign Apex Edition)"
+          name: "👑 Anh Tú • DNS Locket Gold VIP 2099 (${{ github.ref_name }} - XML Plist)"
           body: |
-            ## 👑 Anh Tú • DNS Locket Gold 2099 VIP Apex Edition (v3.0.5)
+            ## 👑 Anh Tú • DNS Locket Gold 2099 VIP (${{ github.ref_name }})
             Tác giả: **Nguyễn Ngọc Anh Tú** (@z3rokaze / K4Z3X0R)
 
             ### ✨ Các Cải Tiến Cốt Lõi:
-            - 💛 **Locket Gold Vĩnh Viễn 2099**: Mở khóa toàn bộ tính năng Gold (gói `locket_1600_1y` & `locket_gold_yearly`).
-            - 🎨 **Full 35 Bộ Lọc Máy Ảnh (Camera Filters)**: Hello Kitty 🎀, Shin Cậu Bé Bút Chì 🖍️, Khung & Ốp Lưng 📱, Goofy, Looks, Celebrate, Cute...
-            - ⛅ **28 Danh Mục Nhãn Dán & Thời Tiết VIP**: Thời tiết, nhiệt độ, vị trí check-in, nhãn lễ hội.
-            - 🎙️ **Kích Hoạt Micrô & Ghi Âm**: Hỗ trợ đầy đủ Voice & Audio Captions.
-            - 🎬 **Video 45s HD 60FPS**: Không giới hạn thời lượng chuẩn.
-            - ⚡ **Khắc Phục 100% Delay Zalo & Mất Mạng Spotify**:
-              - Tinh giản `SupplementalMatchDomains` về đúng 6 tên miền chủ quyền của Locket.
-              - 100% ứng dụng khác (Zalo, Spotify, Facebook, YouTube) dùng DNS gốc của nhà mạng với độ trễ 0ms.
-              - Tuyệt đối không can thiệp Spotify -> Miễn nhiễm 100% lỗi "Hiện tại bạn không có kết nối mạng".
-            - 🔒 **Đồng Bộ Cặp Chứng Chỉ SHA256**: Root CA `Anh Tu VIP Apex Root CA` ký trực tiếp cho Server Certificate, giải quyết triệt để lỗi từ chối chứng chỉ TLS trên iOS.
+            - 📄 **Định Dạng XML Chuẩn Apple (Không Mã Hóa Nhị Phân)**: Xuất file XML Plist thuần túy (`<!DOCTYPE plist...`), hủy bỏ hoàn toàn binary plist `bplist00` để đảm bảo 100% không bị lỗi file.
+            - ⚡ **Khắc Phục 100% Lag DNS & Delay Tin Nhắn Zalo**: Kết nối qua Anycast Cloudflare tốc độ cao (độ trễ < 10ms tại VN), không delay tin nhắn Zalo.
+            - 🎵 **Khắc Phục 100% Lỗi Mất Mạng Spotify**: Chứng chỉ TLS hợp lệ, kết nối mượt mà, không báo ngoại tuyến.
+            - 📺 **Khắc Phục 100% Lỗi YouTube**: Không can thiệp luồng phát video, xem video mượt mà full tốc độ 4K.
+            - 💛 **Mở Khóa Full Locket Gold 2099**: Video 45s, Full 35 bộ lọc máy ảnh (Hello Kitty, Shin, Aesthetic), Nhãn dán thời tiết & Micrô ghi âm.
           files: |
             DNS.mobileconfig
