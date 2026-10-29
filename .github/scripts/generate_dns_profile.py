@@ -49,7 +49,11 @@ MATCH_DOMAINS = [
     # 1. Locket Gold 2099 & Remote Config (Chỉ định tuyến đúng 2 domain có TLS Cert hợp lệ 100% trên DoH Server)
     "api.revenuecat.com",
     "firebaseremoteconfig.googleapis.com",
-    # 2. Spotify Spclient Endpoints (Đã xác thực TLS Cert SANs 100%)
+    # 2. Locket Ads & Telemetry Block (Chặn NXDOMAIN RCODE=3 cho AdsByNimbus & Crashlytics)
+    "locket.adsbynimbus.com",
+    "e.crashlytics.com",
+    "settings.crashlytics.com",
+    # 3. Spotify Spclient Endpoints (Đã xác thực TLS Cert SANs 100%)
     "spclient.wg.spotify.com",
     "spclient.spotify.com",
     "gae2-spclient.spotify.com",
@@ -57,7 +61,7 @@ MATCH_DOMAINS = [
     "gue1-spclient.spotify.com",
     "gew1-spclient.spotify.com",
     "gew4-spclient.spotify.com",
-    # 3. Spotify Audio Ads, Banner Ads & Podcast Ads (Chặn NXDOMAIN RCODE=3)
+    # 4. Spotify Audio Ads, Banner Ads & Podcast Ads (28 Global POPs - Chặn NXDOMAIN RCODE=3)
     "ads-fa.spotify.com",
     "gads.current.spotify.com",
     "podcastads.spotify.com",
@@ -75,6 +79,17 @@ MATCH_DOMAINS = [
     "audio-sp-dfw.pscdn.co",
     "audio-sp-ams.pscdn.co",
     "audio-sp-fra.pscdn.co",
+    "audio-sp-bom.pscdn.co",
+    "audio-sp-syd.pscdn.co",
+    "audio-sp-gru.pscdn.co",
+    "audio-sp-iad.pscdn.co",
+    "audio-sp-sea.pscdn.co",
+    "audio-sp-lax.pscdn.co",
+    "audio-sp-mad.pscdn.co",
+    "audio-sp-mil.pscdn.co",
+    "audio-sp-cdg.pscdn.co",
+    "audio-sp-waw.pscdn.co",
+    "audio-sp-arn.pscdn.co",
 ]
 
 SERVER_URL = "https://doh.2707226.xyz/dns-query/common"

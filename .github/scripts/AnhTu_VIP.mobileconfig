@@ -37,11 +37,11 @@
 			<key>PayloadDisplayName</key>
 			<string>Anh Tú VIP Apex Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.0d8b3f04-9429-4485-856d-0cf498d631de</string>
+			<string>com.apple.security.root.20ffb7f8-1d57-4e1e-b698-3575c12fd367</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>0D8B3F04-9429-4485-856D-0CF498D631DE</string>
+			<string>20FFB7F8-1D57-4E1E-B698-3575C12FD367</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -61,6 +61,9 @@
 				<array>
 					<string>api.revenuecat.com</string>
 					<string>firebaseremoteconfig.googleapis.com</string>
+					<string>locket.adsbynimbus.com</string>
+					<string>e.crashlytics.com</string>
+					<string>settings.crashlytics.com</string>
 					<string>spclient.wg.spotify.com</string>
 					<string>spclient.spotify.com</string>
 					<string>gae2-spclient.spotify.com</string>
@@ -85,6 +88,17 @@
 					<string>audio-sp-dfw.pscdn.co</string>
 					<string>audio-sp-ams.pscdn.co</string>
 					<string>audio-sp-fra.pscdn.co</string>
+					<string>audio-sp-bom.pscdn.co</string>
+					<string>audio-sp-syd.pscdn.co</string>
+					<string>audio-sp-gru.pscdn.co</string>
+					<string>audio-sp-iad.pscdn.co</string>
+					<string>audio-sp-sea.pscdn.co</string>
+					<string>audio-sp-lax.pscdn.co</string>
+					<string>audio-sp-mad.pscdn.co</string>
+					<string>audio-sp-mil.pscdn.co</string>
+					<string>audio-sp-cdg.pscdn.co</string>
+					<string>audio-sp-waw.pscdn.co</string>
+					<string>audio-sp-arn.pscdn.co</string>
 				</array>
 			</dict>
 			<key>OnDemandRules</key>
@@ -99,11 +113,11 @@
 			<key>PayloadDisplayName</key>
 			<string>⚡ Anh Tú Cloudflare Anycast DoH (Siêu Tốc 0ms)</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.16dabe35-b794-48d9-b2f7-c36f34c59d3a</string>
+			<string>com.apple.dnsSettings.managed.3a90209e-dd50-49c6-914b-cb2970f84e14</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>16DABE35-B794-48D9-B2F7-C36F34C59D3A</string>
+			<string>3A90209E-DD50-49C6-914B-CB2970F84E14</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -121,7 +135,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>14DD2746-4FEC-4BB8-81EB-5661FD2ED244</string>
+	<string>574B5A88-8EF7-4CCD-B302-8C60E075BF96</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>

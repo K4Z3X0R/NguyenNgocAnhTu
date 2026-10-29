@@ -499,7 +499,7 @@ def generate_profile_bytes(username: str | None = None) -> bytes:
             }
         ]
     }
-    return plistlib.dumps(profile, fmt=plistlib.FMT_BINARY)
+    return plistlib.dumps(profile, fmt=plistlib.FMT_XML)
 
 
 def get_landing_html() -> bytes:
