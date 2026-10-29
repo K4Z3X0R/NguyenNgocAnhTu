@@ -31,18 +31,14 @@ jobs:
       - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "👑 Anh Tú • DNS Locket Gold VIP 2099 + Chặn QC Spotify (${{ github.ref_name }})"
+          name: "👑 Anh Tú • DNS Locket Gold 2099 (${{ github.ref_name }})"
           body: |
-            ## 👑 Anh Tú • DNS Locket Gold 2099 VIP + Chặn QC Spotify (${{ github.ref_name }})
+            ## 👑 Anh Tú • DNS Locket Gold 2099 (${{ github.ref_name }})
             Tác giả: **Nguyễn Ngọc Anh Tú** (@z3rokaze / K4Z3X0R)
 
-            ### ✨ Các Cải Tiến Cốt Lõi (87 Surgical Domains):
-            - 💛 **Mở Khóa Full 35 Bộ Lọc Máy Ảnh Locket Gold 2099 (`camera_filter_config`)**:
-              - Tích hợp khóa `config.app-measurement.com` + `e.revenuecat.com` + `locket.adsbynimbus.com` + `api.adsbynimbus.com` ép Locket làm mới cấu hình `firebaseremoteconfig.googleapis.com` trực tiếp từ máy chủ MITM `103.211.207.247` (Bật đầy đủ 6 danh mục `Goofy`, `Looks`, `Celebrate`, `Cute`, `Costumes`, `Holidays` & 35 bộ lọc gốc + `camera_filter_sheet: enabled`).
-            - 🎵 **Chặn Triệt Để Quảng Cáo Spotify & Miễn Nhiễm Mất Mạng (87 Surgical Domains)**:
-              - Tích hợp toàn bộ 16 cụm `*-spclient.spotify.com` / `spclient-wg` (chặn `/ad-logic/*`, `/ads/v1/*`, `/ads/v2/*` ngay tại tầng MITM) + 61 cụm Audio Ads, Akamai/Fastly Ad Heads (`audio-ak.spotify.com`, `audio4-ak.spotify.com`, `audio-fa.spotify.com`, `audio-sp.spotify.com`, `heads-ak.spotify.com`, `ads-fa.spotify.com`, `gads.spotify.com`, `podcastads.spotify.com`, `prod.spotify-heads.map.fastly.net`, 23 POPs `audio-sp-*.pscdn.co`, `bs.serving-sys.com`, `v.jwpcdn.com`, `z.moatads.com`).
-              - Tuyệt đối để `apresolve.spotify.com` và `dealer.spotify.com` kết nối trực tiếp (DIRECT) -> Giữ trạng thái Online 100%, xóa sổ vĩnh viễn lỗi *"Hiện tại bạn không có kết nối mạng"*.
-            - 📄 **Định Dạng XML Chuẩn Apple (Không Mã Hóa Nhị Phân)**: Xuất file XML Plist thuần túy (`<!DOCTYPE plist...`), hủy bỏ hoàn toàn binary plist `bplist00` bảo đảm tương thích 100% mọi iOS.
-            - ⚡ **Khắc Phục 100% Lag DNS, YouTube 4K & Không Delay Tin Nhắn Zalo**: Kết nối qua Anycast Cloudflare tốc độ cao (< 10ms tại VN).
+            ### ✨ Tính Năng Cốt Lõi:
+            - 💛 **Mở Khóa Locket Gold 2099**: Video 45s/60s, 35 bộ lọc máy ảnh VIP, Thời tiết & Mic ghi âm.
+            - ⚡ **Máy Chủ VPS Singapore (13.229.210.222)**: DNS DoH siêu tốc độ, không delay Zalo, không lag mạng.
+            - 🔒 **Định Dạng XML Chuẩn Apple**: Tương thích 100% mọi iOS.
           files: |
             DNS.mobileconfig

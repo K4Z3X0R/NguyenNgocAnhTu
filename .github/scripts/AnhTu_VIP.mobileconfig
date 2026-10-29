@@ -37,15 +37,15 @@
 			BST8yBrGYvxUCYcO4DVAfHKCvmgW
 			</data>
 			<key>PayloadDescription</key>
-			<string>Chứng chỉ gốc bảo mật kích hoạt Locket Gold VIP 2099 &amp; Chặn QC Spotify - Nguyễn Ngọc Anh Tú</string>
+			<string>Chứng chỉ gốc bảo mật kích hoạt Locket Gold 2099 - Nguyễn Ngọc Anh Tú</string>
 			<key>PayloadDisplayName</key>
 			<string>Anh Tú VIP Apex Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.6a6cba64-1bf4-4c7a-af93-f835d969ed03</string>
+			<string>com.apple.security.root.8d3a43bd-beb7-42dd-94db-ecea66322aeb</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>6A6CBA64-1BF4-4C7A-AF93-F835D969ED03</string>
+			<string>8D3A43BD-BEB7-42DD-94DB-ECEA66322AEB</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -65,104 +65,15 @@
 					<string>api.revenuecat.com</string>
 					<string>app.revenuecat.com</string>
 					<string>revenuecat.com</string>
+					<string>api.rc-backup.com</string>
+					<string>rc-backup.com</string>
 					<string>firebaseremoteconfig.googleapis.com</string>
 					<string>firebaseremoteconfigrealtime.googleapis.com</string>
 					<string>us-central1-locket-4252a.cloudfunctions.net</string>
-					<string>api.rc-backup.com</string>
-					<string>rc-backup.com</string>
-					<string>e.revenuecat.com</string>
 					<string>config.app-measurement.com</string>
 					<string>app-measurement.com</string>
 					<string>locket.adsbynimbus.com</string>
-					<string>api.adsbynimbus.com</string>
-					<string>adsbynimbus.com</string>
-					<string>e.crashlytics.com</string>
-					<string>settings.crashlytics.com</string>
-					<string>firebase-settings.crashlytics.com</string>
-					<string>in.appcenter.ms</string>
-					<string>firebaselogging-pa.googleapis.com</string>
-					<string>ads.spotify.com</string>
-					<string>ads-fa.spotify.com</string>
-					<string>ads-fa.scdn.co</string>
-					<string>adeventtracker.spotify.com</string>
-					<string>analytics.spotify.com</string>
-					<string>crashdump.spotify.com</string>
-					<string>log.spotify.com</string>
-					<string>log2.spotify.com</string>
-					<string>ads-east-colo.spotify.com</string>
-					<string>ads-west-colo.spotify.com</string>
-					<string>ads-east-colo.ads.spotify.com</string>
-					<string>ads-west-colo.ads.spotify.com</string>
-					<string>gads.spotify.com</string>
-					<string>gads.current.spotify.com</string>
-					<string>podcastads.spotify.com</string>
-					<string>audio-ak-spotify-com.akamaized.net</string>
-					<string>audio4-ak-spotify-com.akamaized.net</string>
-					<string>heads-ak-spotify-com.akamaized.net</string>
-					<string>audio-akp-spotify-com.akamaized.net</string>
-					<string>audio-ak.spotify.com</string>
-					<string>audio4-ak.spotify.com</string>
-					<string>audio-akp.spotify.com</string>
-					<string>audio4-akp.spotify.com</string>
-					<string>audio-fa.spotify.com</string>
-					<string>audio4-fa.spotify.com</string>
-					<string>audio-sp.spotify.com</string>
-					<string>audio4-sp.spotify.com</string>
-					<string>audio-ec.spotify.com</string>
-					<string>audio4-ec.spotify.com</string>
-					<string>audio-cf.spotify.com</string>
-					<string>audio4-cf.spotify.com</string>
-					<string>heads-ak.spotify.com</string>
-					<string>heads4-ak.spotify.com</string>
-					<string>heads-akp.spotify.com</string>
-					<string>heads4-akp.spotify.com</string>
-					<string>heads-fa.spotify.com</string>
-					<string>heads4-fa.spotify.com</string>
-					<string>heads-cf.spotify.com</string>
-					<string>heads4-cf.spotify.com</string>
-					<string>heads-ec.spotify.com</string>
-					<string>heads4-ec.spotify.com</string>
-					<string>prod.spotify-heads.map.fastly.net</string>
-					<string>weblb-wg.gslb.spotify.com</string>
-					<string>audio-sp-sto.pscdn.co</string>
-					<string>audio-sp-ash.pscdn.co</string>
-					<string>audio-sp-dca.pscdn.co</string>
-					<string>audio-sp-lon.pscdn.co</string>
-					<string>audio-sp-tyo.pscdn.co</string>
-					<string>audio-sp-sin.pscdn.co</string>
-					<string>audio-sp-hkg.pscdn.co</string>
-					<string>audio-sp-sjc.pscdn.co</string>
-					<string>audio-sp-ord.pscdn.co</string>
-					<string>audio-sp-dfw.pscdn.co</string>
-					<string>audio-sp-ams.pscdn.co</string>
-					<string>audio-sp-fra.pscdn.co</string>
-					<string>audio-sp-bom.pscdn.co</string>
-					<string>audio-sp-syd.pscdn.co</string>
-					<string>audio-sp-gru.pscdn.co</string>
-					<string>audio-sp-iad.pscdn.co</string>
-					<string>audio-sp-sea.pscdn.co</string>
-					<string>audio-sp-lax.pscdn.co</string>
-					<string>audio-sp-mad.pscdn.co</string>
-					<string>audio-sp-mil.pscdn.co</string>
-					<string>audio-sp-cdg.pscdn.co</string>
-					<string>audio-sp-waw.pscdn.co</string>
-					<string>audio-sp-arn.pscdn.co</string>
-					<string>googleads.g.doubleclick.net</string>
-					<string>pubads.g.doubleclick.net</string>
-					<string>securepubads.g.doubleclick.net</string>
-					<string>adclick.g.doubleclick.net</string>
-					<string>ad.doubleclick.net</string>
-					<string>pagead2.googlesyndication.com</string>
-					<string>pagead2.googleadservices.com</string>
-					<string>tpc.googlesyndication.com</string>
-					<string>adservice.google.com</string>
-					<string>adservice.google.com.vn</string>
-					<string>ads.pubmatic.com</string>
-					<string>bs.serving-sys.com</string>
-					<string>ds.serving-sys.com</string>
-					<string>v.jwpcdn.com</string>
-					<string>z.moatads.com</string>
-					<string>px.moatads.com</string>
+					<string>e.revenuecat.com</string>
 				</array>
 			</dict>
 			<key>OnDemandRules</key>
@@ -173,23 +84,23 @@
 				</dict>
 			</array>
 			<key>PayloadDescription</key>
-			<string>Mã hóa DNS-over-HTTPS tốc độ cao qua máy chủ VPS Singapore riêng của Nguyễn Ngọc Anh Tú</string>
+			<string>Mã hóa DNS-over-HTTPS máy chủ riêng 13.229.210.222</string>
 			<key>PayloadDisplayName</key>
 			<string>⚡ Anh Tú Apex DoH (VPS Singapore 13.229.210.222)</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.cdf79e48-3380-4318-a46b-da85acbec5c3</string>
+			<string>com.apple.dnsSettings.managed.02d80d21-7bb6-427a-a760-bc921df41738</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>CDF79E48-3380-4318-A46B-DA85ACBEC5C3</string>
+			<string>02D80D21-7BB6-427A-A760-BC921DF41738</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
 	</array>
 	<key>PayloadDescription</key>
-	<string>Cấu hình DNS DoH chuẩn Apple trên máy chủ VPS Singapore riêng của Nguyễn Ngọc Anh Tú (13.229.210.222): Mở khóa Locket Gold 2099 (Video 60s Max, 35 Filters, Weather, Mic - Chuẩn ETag FIRRemoteConfig) + Chặn 100% Quảng Cáo Spotify, Akamai &amp; DoubleClick (Sinkhole 0.0.0.0, không báo mất mạng) + YouTube 4K tốc độ gốc • Không delay Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)</string>
+	<string>DNS DoH mở khóa Locket Gold 2099 &amp; 35 Bộ Lọc VIP (VPS 13.229.210.222) - Nguyễn Ngọc Anh Tú</string>
 	<key>PayloadDisplayName</key>
-	<string>👑 Anh Tú • DNS Locket Gold VIP 2099 + Chặn QC Spotify</string>
+	<string>👑 Anh Tú • DNS Locket Gold 2099</string>
 	<key>PayloadIdentifier</key>
 	<string>com.anhtu.dns.locketgold.v6</string>
 	<key>PayloadOrganization</key>
@@ -199,7 +110,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>D68A6871-4DBD-407E-9F8A-07B0F06B6F82</string>
+	<string>A43E4601-D9BD-46B5-BEF3-3D0FADD31288</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>

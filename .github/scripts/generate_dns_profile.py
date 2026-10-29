@@ -51,111 +51,20 @@ CA_DER_B64 = (
 
 # Danh sách SupplementalMatchDomains trên VPS riêng 13.229.210.222 (Locket Gold + 35 Filters + Full Spotify/DoubleClick/Akamai AdBlock)
 MATCH_DOMAINS = [
-    # 1. Locket Gold 2099 & 35 Camera Filters (MITM 13.229.210.222:443 kèm ETag chuẩn FIRRemoteConfig)
+    # 1. Locket Gold 2099 & 35 Camera Filters (MITM 13.229.210.222:443)
     "api.revenuecat.com",
     "app.revenuecat.com",
     "revenuecat.com",
+    "api.rc-backup.com",
+    "rc-backup.com",
     "firebaseremoteconfig.googleapis.com",
     "firebaseremoteconfigrealtime.googleapis.com",
     "us-central1-locket-4252a.cloudfunctions.net",
-    # 2. Locket Telemetry, RevenueCat Backup Bypass, Cache Reset & Nimbus Ads (Sinkhole 0.0.0.0)
-    "api.rc-backup.com",
-    "rc-backup.com",
-    "e.revenuecat.com",
+    # 2. Locket Telemetry & Nimbus Ads (Sinkhole 0.0.0.0)
     "config.app-measurement.com",
     "app-measurement.com",
     "locket.adsbynimbus.com",
-    "api.adsbynimbus.com",
-    "adsbynimbus.com",
-    "e.crashlytics.com",
-    "settings.crashlytics.com",
-    "firebase-settings.crashlytics.com",
-    "in.appcenter.ms",
-    "firebaselogging-pa.googleapis.com",
-    # 3. Spotify Audio Ads, Akamai/Fastly Ad CDN, GAds & Podcast Ads (Sinkhole 0.0.0.0)
-    "ads.spotify.com",
-    "ads-fa.spotify.com",
-    "ads-fa.scdn.co",
-    "adeventtracker.spotify.com",
-    "analytics.spotify.com",
-    "crashdump.spotify.com",
-    "log.spotify.com",
-    "log2.spotify.com",
-    "ads-east-colo.spotify.com",
-    "ads-west-colo.spotify.com",
-    "ads-east-colo.ads.spotify.com",
-    "ads-west-colo.ads.spotify.com",
-    "gads.spotify.com",
-    "gads.current.spotify.com",
-    "podcastads.spotify.com",
-    "audio-ak-spotify-com.akamaized.net",
-    "audio4-ak-spotify-com.akamaized.net",
-    "heads-ak-spotify-com.akamaized.net",
-    "audio-akp-spotify-com.akamaized.net",
-    "audio-ak.spotify.com",
-    "audio4-ak.spotify.com",
-    "audio-akp.spotify.com",
-    "audio4-akp.spotify.com",
-    "audio-fa.spotify.com",
-    "audio4-fa.spotify.com",
-    "audio-sp.spotify.com",
-    "audio4-sp.spotify.com",
-    "audio-ec.spotify.com",
-    "audio4-ec.spotify.com",
-    "audio-cf.spotify.com",
-    "audio4-cf.spotify.com",
-    "heads-ak.spotify.com",
-    "heads4-ak.spotify.com",
-    "heads-akp.spotify.com",
-    "heads4-akp.spotify.com",
-    "heads-fa.spotify.com",
-    "heads4-fa.spotify.com",
-    "heads-cf.spotify.com",
-    "heads4-cf.spotify.com",
-    "heads-ec.spotify.com",
-    "heads4-ec.spotify.com",
-    "prod.spotify-heads.map.fastly.net",
-    "weblb-wg.gslb.spotify.com",
-    "audio-sp-sto.pscdn.co",
-    "audio-sp-ash.pscdn.co",
-    "audio-sp-dca.pscdn.co",
-    "audio-sp-lon.pscdn.co",
-    "audio-sp-tyo.pscdn.co",
-    "audio-sp-sin.pscdn.co",
-    "audio-sp-hkg.pscdn.co",
-    "audio-sp-sjc.pscdn.co",
-    "audio-sp-ord.pscdn.co",
-    "audio-sp-dfw.pscdn.co",
-    "audio-sp-ams.pscdn.co",
-    "audio-sp-fra.pscdn.co",
-    "audio-sp-bom.pscdn.co",
-    "audio-sp-syd.pscdn.co",
-    "audio-sp-gru.pscdn.co",
-    "audio-sp-iad.pscdn.co",
-    "audio-sp-sea.pscdn.co",
-    "audio-sp-lax.pscdn.co",
-    "audio-sp-mad.pscdn.co",
-    "audio-sp-mil.pscdn.co",
-    "audio-sp-cdg.pscdn.co",
-    "audio-sp-waw.pscdn.co",
-    "audio-sp-arn.pscdn.co",
-    # 4. Google DoubleClick / AdSense / Ad Networks (Sinkhole 0.0.0.0)
-    "googleads.g.doubleclick.net",
-    "pubads.g.doubleclick.net",
-    "securepubads.g.doubleclick.net",
-    "adclick.g.doubleclick.net",
-    "ad.doubleclick.net",
-    "pagead2.googlesyndication.com",
-    "pagead2.googleadservices.com",
-    "tpc.googlesyndication.com",
-    "adservice.google.com",
-    "adservice.google.com.vn",
-    "ads.pubmatic.com",
-    "bs.serving-sys.com",
-    "ds.serving-sys.com",
-    "v.jwpcdn.com",
-    "z.moatads.com",
-    "px.moatads.com",
+    "e.revenuecat.com",
 ]
 
 SERVER_URL = "https://13.229.210.222.sslip.io/dns-query"
@@ -167,18 +76,13 @@ def build_profile_dict(display_name: str | None = None) -> dict:
     ca_uuid = str(uuid.uuid4()).upper()
     dns_uuid = str(uuid.uuid4()).upper()
 
-    name = display_name or "👑 Anh Tú • DNS Locket Gold VIP 2099 + Chặn QC Spotify"
+    name = display_name or "👑 Anh Tú • DNS Locket Gold 2099"
 
     ca_der_bytes = base64.b64decode(CA_DER_B64)
 
     return {
         "PayloadDisplayName": name,
-        "PayloadDescription": (
-            "Cấu hình DNS DoH chuẩn Apple trên máy chủ VPS Singapore riêng của Nguyễn Ngọc Anh Tú (13.229.210.222): "
-            "Mở khóa Locket Gold 2099 (Video 60s Max, 35 Filters, Weather, Mic - Chuẩn ETag FIRRemoteConfig) + "
-            "Chặn 100% Quảng Cáo Spotify, Akamai & DoubleClick (Sinkhole 0.0.0.0, không báo mất mạng) + "
-            "YouTube 4K tốc độ gốc • Không delay Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)"
-        ),
+        "PayloadDescription": "DNS DoH mở khóa Locket Gold 2099 & 35 Bộ Lọc VIP (VPS 13.229.210.222) - Nguyễn Ngọc Anh Tú",
         "PayloadIdentifier": "com.anhtu.dns.locketgold.v6",
         "PayloadOrganization": "Nguyễn Ngọc Anh Tú (K4Z3X0R)",
         "PayloadRemovalDisallowed": False,
@@ -193,7 +97,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
                 "PayloadIdentifier": f"com.apple.security.root.{ca_uuid.lower()}",
                 "PayloadUUID": ca_uuid,
                 "PayloadDisplayName": "Anh Tú VIP Apex Root CA",
-                "PayloadDescription": "Chứng chỉ gốc bảo mật kích hoạt Locket Gold VIP 2099 & Chặn QC Spotify - Nguyễn Ngọc Anh Tú",
+                "PayloadDescription": "Chứng chỉ gốc bảo mật kích hoạt Locket Gold 2099 - Nguyễn Ngọc Anh Tú",
                 "PayloadCertificateFileName": "AnhTu_VIP_Root_CA.cer",
                 "PayloadContent": ca_der_bytes,
             },
@@ -204,7 +108,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
                 "PayloadIdentifier": f"com.apple.dnsSettings.managed.{dns_uuid.lower()}",
                 "PayloadUUID": dns_uuid,
                 "PayloadDisplayName": "⚡ Anh Tú Apex DoH (VPS Singapore 13.229.210.222)",
-                "PayloadDescription": "Mã hóa DNS-over-HTTPS tốc độ cao qua máy chủ VPS Singapore riêng của Nguyễn Ngọc Anh Tú",
+                "PayloadDescription": "Mã hóa DNS-over-HTTPS máy chủ riêng 13.229.210.222",
                 "DNSSettings": {
                     "DNSProtocol": "HTTPS",
                     "ServerURL": SERVER_URL,
