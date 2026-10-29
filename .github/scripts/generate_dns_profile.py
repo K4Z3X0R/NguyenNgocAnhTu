@@ -82,9 +82,9 @@ def build_profile_dict(display_name: str | None = None) -> dict:
 
     return {
         "PayloadDisplayName": name,
-        "PayloadDescription": "DNS DoH mở khóa Locket Gold 2099 & 35 Bộ Lọc VIP (VPS 13.229.210.222) - Nguyễn Ngọc Anh Tú",
+        "PayloadDescription": "Mở khóa Locket Gold 2099 & Video 45s",
         "PayloadIdentifier": "com.anhtu.dns.locketgold.v6",
-        "PayloadOrganization": "Nguyễn Ngọc Anh Tú (K4Z3X0R)",
+        "PayloadOrganization": "Nguyễn Ngọc Anh Tú",
         "PayloadRemovalDisallowed": False,
         "PayloadType": "Configuration",
         "PayloadUUID": top_uuid,
@@ -96,8 +96,8 @@ def build_profile_dict(display_name: str | None = None) -> dict:
                 "PayloadVersion": 1,
                 "PayloadIdentifier": f"com.apple.security.root.{ca_uuid.lower()}",
                 "PayloadUUID": ca_uuid,
-                "PayloadDisplayName": "Anh Tú VIP Apex Root CA",
-                "PayloadDescription": "Chứng chỉ gốc bảo mật kích hoạt Locket Gold 2099 - Nguyễn Ngọc Anh Tú",
+                "PayloadDisplayName": "Anh Tú Root CA",
+                "PayloadDescription": "Kích hoạt Locket Gold 2099",
                 "PayloadCertificateFileName": "AnhTu_VIP_Root_CA.cer",
                 "PayloadContent": ca_der_bytes,
             },
@@ -107,8 +107,8 @@ def build_profile_dict(display_name: str | None = None) -> dict:
                 "PayloadVersion": 1,
                 "PayloadIdentifier": f"com.apple.dnsSettings.managed.{dns_uuid.lower()}",
                 "PayloadUUID": dns_uuid,
-                "PayloadDisplayName": "⚡ Anh Tú Apex DoH (VPS Singapore 13.229.210.222)",
-                "PayloadDescription": "Mã hóa DNS-over-HTTPS máy chủ riêng 13.229.210.222",
+                "PayloadDisplayName": "DNS Locket Gold",
+                "PayloadDescription": "DNS DoH Singapore",
                 "DNSSettings": {
                     "DNSProtocol": "HTTPS",
                     "ServerURL": SERVER_URL,

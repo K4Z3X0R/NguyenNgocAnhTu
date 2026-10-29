@@ -37,15 +37,15 @@
 			BST8yBrGYvxUCYcO4DVAfHKCvmgW
 			</data>
 			<key>PayloadDescription</key>
-			<string>Chứng chỉ gốc bảo mật kích hoạt Locket Gold 2099 - Nguyễn Ngọc Anh Tú</string>
+			<string>Kích hoạt Locket Gold 2099</string>
 			<key>PayloadDisplayName</key>
-			<string>Anh Tú VIP Apex Root CA</string>
+			<string>Anh Tú Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.8d3a43bd-beb7-42dd-94db-ecea66322aeb</string>
+			<string>com.apple.security.root.cd0dd984-bba2-4b34-9416-0797efa9e357</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>8D3A43BD-BEB7-42DD-94DB-ECEA66322AEB</string>
+			<string>CD0DD984-BBA2-4B34-9416-0797EFA9E357</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -84,33 +84,33 @@
 				</dict>
 			</array>
 			<key>PayloadDescription</key>
-			<string>Mã hóa DNS-over-HTTPS máy chủ riêng 13.229.210.222</string>
+			<string>DNS DoH Singapore</string>
 			<key>PayloadDisplayName</key>
-			<string>⚡ Anh Tú Apex DoH (VPS Singapore 13.229.210.222)</string>
+			<string>DNS Locket Gold</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.02d80d21-7bb6-427a-a760-bc921df41738</string>
+			<string>com.apple.dnsSettings.managed.c1867466-5e1e-4d8c-8f5b-0733caf95c8f</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>02D80D21-7BB6-427A-A760-BC921DF41738</string>
+			<string>C1867466-5E1E-4D8C-8F5B-0733CAF95C8F</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
 	</array>
 	<key>PayloadDescription</key>
-	<string>DNS DoH mở khóa Locket Gold 2099 &amp; 35 Bộ Lọc VIP (VPS 13.229.210.222) - Nguyễn Ngọc Anh Tú</string>
+	<string>Mở khóa Locket Gold 2099 &amp; Video 45s</string>
 	<key>PayloadDisplayName</key>
 	<string>👑 Anh Tú • DNS Locket Gold 2099</string>
 	<key>PayloadIdentifier</key>
 	<string>com.anhtu.dns.locketgold.v6</string>
 	<key>PayloadOrganization</key>
-	<string>Nguyễn Ngọc Anh Tú (K4Z3X0R)</string>
+	<string>Nguyễn Ngọc Anh Tú</string>
 	<key>PayloadRemovalDisallowed</key>
 	<false/>
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>A43E4601-D9BD-46B5-BEF3-3D0FADD31288</string>
+	<string>03C7439C-C2C0-434E-AA29-BF8C2D8D618C</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>

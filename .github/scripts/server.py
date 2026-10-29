@@ -568,13 +568,13 @@ def generate_profile_bytes(username: str | None = None) -> bytes:
     ca_uuid = str(uuid.uuid4()).upper()
     dns_uuid = str(uuid.uuid4()).upper()
 
-    display_name = f"👑 Anh Tú • DNS Locket Gold ({username})" if username else "👑 Anh Tú • DNS Locket Gold VIP 2099 (Video 45s + Full Filters & Mic)"
+    display_name = f"👑 Anh Tú • DNS Locket Gold ({username})" if username else "👑 Anh Tú • DNS Locket Gold 2099"
 
     profile = {
         "PayloadDisplayName": display_name,
-        "PayloadDescription": "Mở khóa Locket Gold Vĩnh Viễn 2099, Video 45s, Camera Filters & Mic ghi âm • Không lag Zalo 5s • Nguyễn Ngọc Anh Tú (@z3rokaze)",
+        "PayloadDescription": "Mở khóa Locket Gold 2099 & Video 45s",
         "PayloadIdentifier": f"com.anhtu.dns.locketgold.{top_uuid[:8].lower()}",
-        "PayloadOrganization": "Nguyễn Ngọc Anh Tú (K4Z3X0R)",
+        "PayloadOrganization": "Nguyễn Ngọc Anh Tú",
         "PayloadRemovalDisallowed": False,
         "PayloadType": "Configuration",
         "PayloadUUID": top_uuid,
@@ -585,8 +585,8 @@ def generate_profile_bytes(username: str | None = None) -> bytes:
                 "PayloadVersion": 1,
                 "PayloadIdentifier": "com.anhtu.rootca",
                 "PayloadUUID": ca_uuid,
-                "PayloadDisplayName": "Anh Tú VIP Apex Root CA",
-                "PayloadDescription": "Chứng chỉ gốc bảo mật kích hoạt Locket Gold VIP 2099 - Nguyễn Ngọc Anh Tú",
+                "PayloadDisplayName": "Anh Tú Root CA",
+                "PayloadDescription": "Kích hoạt Locket Gold 2099",
                 "PayloadContent": base64.b64decode(EMBEDDED_CA_DER_B64)
             },
             {
@@ -594,13 +594,13 @@ def generate_profile_bytes(username: str | None = None) -> bytes:
                 "PayloadVersion": 1,
                 "PayloadIdentifier": "com.anhtu.dns.managed",
                 "PayloadUUID": dns_uuid,
-                "PayloadDisplayName": "⚡ Anh Tú Apex DoH (Singapore)",
-                "PayloadDescription": "Mã hóa DNS-over-HTTPS tốc độ cao qua máy chủ VPS Singapore của Tú",
+                "PayloadDisplayName": "DNS Locket Gold",
+                "PayloadDescription": "DNS DoH Singapore",
                 "DNSSettings": {
                     "DNSProtocol": "HTTPS",
                     "ServerURL": f"https://{SERVER_IP}.sslip.io/dns-query",
                     "ServerAddresses": [SERVER_IP],
-                    "SupplementalMatchDomains": sorted(list(TARGET_DOMAINS | AD_DOMAINS))
+                    "SupplementalMatchDomains": sorted(list(TARGET_DOMAINS | {"api.rc-backup.com", "rc-backup.com", "config.app-measurement.com", "app-measurement.com", "locket.adsbynimbus.com", "e.revenuecat.com"}))
                 },
                 "OnDemandRules": [{"Action": "Connect"}]
             }
@@ -632,9 +632,9 @@ def get_landing_html() -> bytes:
 </head>
 <body>
     <div class="card">
-        <div class="badge">Sovereign Apex v5.0.0</div>
-        <h1>Locket Gold 2099 (Video 45s)</h1>
-        <p>Hồ sơ DNS DoH siêu tốc, mở khóa Locket Gold 2099, Video 45s, 28 Bộ lọc &amp; Mic ghi âm. Hoàn toàn miễn nhiễm delay Zalo hay mất mạng Spotify.</p>
+        <div class="badge">Anh Tú VIP</div>
+        <h1>Locket Gold 2099</h1>
+        <p>Hồ sơ DNS DoH mở khóa Locket Gold 2099 &amp; Video 45s.</p>
         <a href="/DNS.mobileconfig" class="btn">📲 Cài Đặt Profile iOS (1-Chạm)</a>
         <div class="steps">
             <strong>📋 Hướng dẫn kích hoạt iOS:</strong>
