@@ -62,7 +62,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
     ca_uuid = str(uuid.uuid4()).upper()
     dns_uuid = str(uuid.uuid4()).upper()
 
-    name = display_name or "👑 Anh Tú • DNS Locket Gold VIP 2099 & Spotify Fix"
+    name = display_name or "👑 Anh Tú • DNS Locket Gold VIP 2099 (Video Vô Cực & Spotify Fix)"
 
     ca_der_bytes = base64.b64decode(CA_DER_B64)
 
@@ -70,7 +70,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
         "PayloadDisplayName": name,
         "PayloadDescription": (
             "Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): "
-            "Mở khóa Locket Gold 2099 (Video 45s, 35 Filters, Weather, Mic) + "
+            "Mở khóa Locket Gold 2099 (Video Vô Cực 9999s Flex, 35 Filters, Weather, Mic) + "
             "Spotify mượt mà (không lỗi mất mạng) + YouTube phát video gốc tốc độ cao • "
             "Không delay tin nhắn Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)"
         ),

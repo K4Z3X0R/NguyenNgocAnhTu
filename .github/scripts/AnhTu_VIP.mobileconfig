@@ -37,11 +37,11 @@
 			<key>PayloadDisplayName</key>
 			<string>Anh Tú VIP Apex Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.83c1ffc0-f079-4410-8bc5-8c5433ddf646</string>
+			<string>com.apple.security.root.d1c1a43c-7984-4bc6-9d85-405e41d137e1</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>83C1FFC0-F079-4410-8BC5-8C5433DDF646</string>
+			<string>D1C1A43C-7984-4BC6-9D85-405E41D137E1</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -81,19 +81,19 @@
 			<key>PayloadDisplayName</key>
 			<string>⚡ Anh Tú Cloudflare Anycast DoH (Siêu Tốc 0ms)</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.431341f0-8fec-4b44-8bd1-f0a82a26c602</string>
+			<string>com.apple.dnsSettings.managed.b9ffe973-437b-4dc6-a7ef-6b515f5e98d4</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>431341F0-8FEC-4B44-8BD1-F0A82A26C602</string>
+			<string>B9FFE973-437B-4DC6-A7EF-6B515F5E98D4</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
 	</array>
 	<key>PayloadDescription</key>
-	<string>Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): Mở khóa Locket Gold 2099 (Video 45s, 35 Filters, Weather, Mic) + Spotify mượt mà (không lỗi mất mạng) + YouTube phát video gốc tốc độ cao • Không delay tin nhắn Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)</string>
+	<string>Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): Mở khóa Locket Gold 2099 (Video Vô Cực 9999s Flex, 35 Filters, Weather, Mic) + Spotify mượt mà (không lỗi mất mạng) + YouTube phát video gốc tốc độ cao • Không delay tin nhắn Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)</string>
 	<key>PayloadDisplayName</key>
-	<string>👑 Anh Tú • DNS Locket Gold VIP 2099 &amp; Spotify Fix</string>
+	<string>👑 Anh Tú • DNS Locket Gold VIP 2099 (Video Vô Cực &amp; Spotify Fix)</string>
 	<key>PayloadIdentifier</key>
 	<string>com.anhtu.dns.locketgold.v6</string>
 	<key>PayloadOrganization</key>
@@ -103,7 +103,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>134A5DF6-5890-4DDB-B6FC-DDC641768726</string>
+	<string>8D7F8BF0-1CB5-47BE-AD9F-6C9E7355A34B</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
