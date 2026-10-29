@@ -160,7 +160,7 @@ test('Locket: Android Cross-Platform Compatibility (LSPosed / Android Shadowrock
 test('Locket: Toàn bộ JSON con trong obj.entries parse hợp lệ 100%', () => {
   const obj = JSON.parse(locketRes.body);
   const jsonKeys = [
-    'feature_gates', 'camera', 'camera_roll', 'video_config', 'live_photos',
+    'feature_gates', 'upsell_features', 'camera', 'camera_roll', 'video_config', 'live_photos',
     'camera_filter_config', 'streak_config', 'journal_settings', 'qr_code_config',
     'widget_frame_event', 'widget_frames_config', 'widget_frame_styles',
     'seasonal_frames_config', 'overlay_dynamic_captions', 'overlay_items',
@@ -172,6 +172,21 @@ test('Locket: Toàn bộ JSON con trong obj.entries parse hợp lệ 100%', () =
       JSON.parse(obj.entries[k]); // Sẽ throw nếu có lỗi cú pháp JSON
     }
   }
+});
+
+test('Locket: Camera Filter Config chuẩn Swift Enum (6 nhóm & 35 native CameraFilterID, không chứa ID ảo gây crash JSONDecoder)', () => {
+  const obj = JSON.parse(locketRes.body);
+  const cfc = JSON.parse(obj.entries.camera_filter_config);
+  assert.strictEqual(cfc.sheet_filters.length, 6, 'sheet_filters phải có đúng 6 nhóm native');
+  assert.strictEqual(cfc.picker_filters.length, 35, 'picker_filters phải có đúng 35 native CameraFilterID');
+  assert(!cfc.picker_filters.includes('vintage_90s'), 'Không được chứa ID ảo vintage_90s');
+  const uf = JSON.parse(obj.entries.upsell_features);
+  assert.strictEqual(uf.app_icon_picker, true);
+  assert.strictEqual(uf.camera_roll, true);
+  assert.strictEqual(uf.camera_theme, true);
+  assert.strictEqual(uf.locket_views, true);
+  assert.strictEqual(uf.remove_ads, true);
+  assert.strictEqual(uf.custom_widget_frames, true);
 });
 
 test('Locket: Check-in Vị Trí VIP & Thời Tiết VIP có mặt trong overlay_items', () => {
@@ -233,16 +248,14 @@ test('Locket: Extended Remote Config Keys (Celebrity inbox, drafts, QR redemptio
   assert.strictEqual(obj.entries.mh_mic_enabled_v16, 'true');
 });
 
-test('Locket: Link & Live Captions + Bộ sưu tập Caption Chứng Nhận VIP & Check-in Việt Nam', () => {
+test('Locket: Native General Captions (11 loại chuẩn Swift Enum) + Bộ sưu tập Caption Chứng Nhận VIP & Check-in Việt Nam', () => {
   const obj = JSON.parse(locketRes.body);
   const dyn = JSON.parse(obj.entries.overlay_dynamic_captions);
-  assert(dyn.includes('link'), 'Thiếu link caption');
-  assert(dyn.includes('live'), 'Thiếu live caption');
+  assert.strictEqual(dyn.length, 19, 'overlay_dynamic_captions phải có đúng 19 native IDs');
 
   const overlayItems = JSON.parse(obj.entries.overlay_items);
   const genSec = overlayItems.find(s => s.section === '🎨 General');
-  assert(genSec.items.some(it => it.overlay_id === 'caption:link'), 'Thiếu caption:link trong General');
-  assert(genSec.items.some(it => it.overlay_id === 'caption:live'), 'Thiếu caption:live trong General');
+  assert.strictEqual(genSec.items.length, 11, 'General section phải có đúng 11 native local captions');
 
   const sections = overlayItems.map(s => s.section);
   assert(sections.includes('🎨 Chứng Nhận Locket VIP'), 'Thiếu Chứng Nhận Locket VIP');

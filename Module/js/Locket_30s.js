@@ -165,7 +165,14 @@ if (typeof $response === "undefined" || $response === null) {
             usernameSuggestions: "enabled"
         }),
 
-        upsell_features: JSON.stringify({}),
+        upsell_features: JSON.stringify({
+            app_icon_picker: true,
+            camera_roll: true,
+            camera_theme: true,
+            locket_views: true,
+            remove_ads: true,
+            custom_widget_frames: true
+        }),
 
         paywall_presentation_config: JSON.stringify({
 
@@ -393,9 +400,7 @@ if (typeof $response === "undefined" || $response === null) {
                 { title: { en: "Celebrate" }, filter_ids: ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"] },
                 { title: { en: "Cute" }, filter_ids: ["cutesy", "sticker_face", "flower_crown", "love_bug"] },
                 { title: { en: "Costumes" }, filter_ids: ["wedding", "cowboy_cowgirl", "giraffe", "clown"] },
-                { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] },
-                { title: { en: "Aesthetic" }, filter_ids: ["vintage_90s", "kodak_gold", "cyber_glow", "film_grain", "soft_dream"] },
-                { title: { en: "Halloween" }, filter_ids: ["pumpkin_head", "vampire_fangs", "spooky_ghost", "witch_hat", "bat_wings"] }
+                { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] }
             ],
             picker_filters: [
                 "okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows",
@@ -404,7 +409,7 @@ if (typeof $response === "undefined" || $response === null) {
                 "disco_lights", "cash_money", "happy_birthday", "cutesy", "sticker_face",
                 "flower_crown", "love_bug", "wedding", "cowboy_cowgirl", "giraffe",
                 "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
-                "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty", "vintage_90s", "kodak_gold", "cyber_glow", "film_grain", "soft_dream", "pumpkin_head", "vampire_fangs", "spooky_ghost", "witch_hat", "bat_wings"
+                "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"
             ]
         }),
         camera_roll_preview_enabled: "true",
@@ -907,7 +912,7 @@ if (typeof $response === "undefined" || $response === null) {
 
             "weather", "time", "streak", "star_sign", "party_time", "locket_count",
 
-            "good_morning", "goodnight", "ootd", "miss_you", "custom", "phunu_2010", "halloween_2026", "link", "live", "audio", "lyrics"
+            "good_morning", "goodnight", "ootd", "miss_you", "custom", "phunu_2010", "halloween_2026"
 
         ]),
 
@@ -939,11 +944,7 @@ if (typeof $response === "undefined" || $response === null) {
 
                     { overlay_id: "caption:color_palette", source: "local", caption: { type: "color_palette" } },
 
-                    { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } },
-
-                    { overlay_id: "caption:link", source: "local", caption: { type: "link" } },
-
-                    { overlay_id: "caption:live", source: "local", caption: { type: "live" } }
+                    { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } }
 
                 ]
 
