@@ -143,21 +143,105 @@ TARGET_DOMAINS: Set[str] = {
     "us-central1-locket-4252a.cloudfunctions.net"
 }
 
-# Tên miền quảng cáo chặn sạch (KHÔNG chứa CDN âm thanh Spotify)
+# Tên miền quảng cáo chặn sạch 100% (Spotify Audio/Video/Banner Ads + DoubleClick + Akamai Ad CDN + Locket Nimbus Ads)
 AD_DOMAINS: Set[str] = {
+    "e.revenuecat.com",
+    "config.app-measurement.com",
+    "app-measurement.com",
+    "locket.adsbynimbus.com",
+    "api.adsbynimbus.com",
+    "adsbynimbus.com",
+    "e.crashlytics.com",
+    "settings.crashlytics.com",
+    "firebase-settings.crashlytics.com",
+    "in.appcenter.ms",
+    "firebaselogging-pa.googleapis.com",
+    "ads.spotify.com",
+    "ads-fa.spotify.com",
+    "ads-fa.scdn.co",
+    "adeventtracker.spotify.com",
+    "analytics.spotify.com",
+    "crashdump.spotify.com",
+    "log.spotify.com",
+    "log2.spotify.com",
+    "ads-east-colo.spotify.com",
+    "ads-west-colo.spotify.com",
+    "ads-east-colo.ads.spotify.com",
+    "ads-west-colo.ads.spotify.com",
+    "gads.spotify.com",
+    "gads.current.spotify.com",
+    "podcastads.spotify.com",
+    "audio-ak-spotify-com.akamaized.net",
+    "audio4-ak-spotify-com.akamaized.net",
+    "heads-ak-spotify-com.akamaized.net",
+    "audio-akp-spotify-com.akamaized.net",
+    "audio-ak.spotify.com",
+    "audio4-ak.spotify.com",
+    "audio-akp.spotify.com",
+    "audio4-akp.spotify.com",
+    "audio-fa.spotify.com",
+    "audio4-fa.spotify.com",
+    "audio-sp.spotify.com",
+    "audio4-sp.spotify.com",
+    "audio-ec.spotify.com",
+    "audio4-ec.spotify.com",
+    "audio-cf.spotify.com",
+    "audio4-cf.spotify.com",
+    "heads-ak.spotify.com",
+    "heads4-ak.spotify.com",
+    "heads-akp.spotify.com",
+    "heads4-akp.spotify.com",
+    "heads-fa.spotify.com",
+    "heads4-fa.spotify.com",
+    "heads-cf.spotify.com",
+    "heads4-cf.spotify.com",
+    "heads-ec.spotify.com",
+    "heads4-ec.spotify.com",
+    "prod.spotify-heads.map.fastly.net",
+    "weblb-wg.gslb.spotify.com",
+    "audio-sp-sto.pscdn.co",
+    "audio-sp-ash.pscdn.co",
+    "audio-sp-dca.pscdn.co",
+    "audio-sp-lon.pscdn.co",
+    "audio-sp-tyo.pscdn.co",
+    "audio-sp-sin.pscdn.co",
+    "audio-sp-hkg.pscdn.co",
+    "audio-sp-sjc.pscdn.co",
+    "audio-sp-ord.pscdn.co",
+    "audio-sp-dfw.pscdn.co",
+    "audio-sp-ams.pscdn.co",
+    "audio-sp-fra.pscdn.co",
+    "audio-sp-bom.pscdn.co",
+    "audio-sp-syd.pscdn.co",
+    "audio-sp-gru.pscdn.co",
+    "audio-sp-iad.pscdn.co",
+    "audio-sp-sea.pscdn.co",
+    "audio-sp-lax.pscdn.co",
+    "audio-sp-mad.pscdn.co",
+    "audio-sp-mil.pscdn.co",
+    "audio-sp-cdg.pscdn.co",
+    "audio-sp-waw.pscdn.co",
+    "audio-sp-arn.pscdn.co",
     "googleads.g.doubleclick.net",
-    "pagead2.googlesyndication.com",
-    "pagead2.googleadservices.com",
     "pubads.g.doubleclick.net",
     "securepubads.g.doubleclick.net",
+    "adclick.g.doubleclick.net",
+    "ad.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "pagead2.googleadservices.com",
+    "tpc.googlesyndication.com",
     "adservice.google.com",
+    "adservice.google.com.vn",
+    "ads.pubmatic.com",
+    "bs.serving-sys.com",
+    "ds.serving-sys.com",
+    "v.jwpcdn.com",
+    "z.moatads.com",
+    "px.moatads.com",
     "ads.youtube.com",
     "s.youtube.com",
     "video-stats.l.google.com",
-    "video-stats.youtube.com",
-    "app-measurement.com",
-    "in.appcenter.ms",
-    "firebaselogging-pa.googleapis.com"
+    "video-stats.youtube.com"
 }
 
 
@@ -493,7 +577,7 @@ def generate_profile_bytes(username: str | None = None) -> bytes:
                     "DNSProtocol": "HTTPS",
                     "ServerURL": f"https://{SERVER_IP}.sslip.io/dns-query",
                     "ServerAddresses": [SERVER_IP],
-                    "SupplementalMatchDomains": sorted(list(TARGET_DOMAINS))
+                    "SupplementalMatchDomains": sorted(list(TARGET_DOMAINS | AD_DOMAINS))
                 },
                 "OnDemandRules": [{"Action": "Connect"}]
             }
@@ -595,6 +679,8 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
+            self.send_header("ETag", f'"anhtu-v315-{len(payload)}"')
+            self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
             self.send_header("Access-Control-Allow-Origin", "*")
             self.send_header("Connection", "close")
             self.end_headers()
@@ -689,6 +775,8 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
+            self.send_header("ETag", f'"anhtu-v315-{len(payload)}"')
+            self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
             self.send_header("Access-Control-Allow-Origin", "*")
             self.send_header("Connection", "close")
             self.end_headers()

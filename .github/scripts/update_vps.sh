@@ -48,6 +48,7 @@ for D in "${DIRS[@]}"; do
         FOUND_DIR="$D"
         echo "📂 Cập nhật thư mục hiện có: $D"
         mkdir -p "$D/certs"
+        rm -f "$D/certs/server.crt" "$D/certs/server.key" "$D/certs/ca.crt" "$D/certs/ca.der" 2>/dev/null || true
         curl -sSL -o "$D/server.py" "${BASE_URL}/server.py"
         curl -sSL -o "$D/locket_full_firebase.json" "${BASE_URL}/locket_full_firebase.json"
         curl -sSL -o "$D/DNS.mobileconfig" "${RAW_REPO}/DNS.mobileconfig" 2>/dev/null || true
