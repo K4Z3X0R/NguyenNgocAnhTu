@@ -384,10 +384,12 @@ def extract_rc_user_id(path: str, post_data: bytes = b"") -> str:
 def get_locket_gold_json(app_user_id: str | None = None) -> bytes:
     # ponytail: Single static RC v5.2+ template for Locket Gold + FilterPack; upgrade to per-app UA routing if non-Locket RC apps are added to DoH.
     uid = app_user_id or "anhtu_vip_user_2099"
+    import datetime
+    now = datetime.datetime.now(datetime.timezone.utc)
+    req_date = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+    req_ms = int(now.timestamp() * 1000)
     purchased = "2005-07-18T10:10:14Z"
-    expires = "2099-12-31T10:10:14Z"
-    req_date = "2026-10-29T14:00:00Z"
-    req_ms = 1793282400000
+    expires = "2099-12-31T23:59:59Z"
     tx_id = "2000001108724193"
 
     base_sub = {
@@ -426,6 +428,7 @@ def get_locket_gold_json(app_user_id: str | None = None) -> bytes:
         "locket_3600_1y",
         "locket_gold_yearly",
         "locket_gold_monthly",
+        "locket_199_1m",
         "com.locket.gold.premium.yearly",
     ]
     filter_prods = [
@@ -445,22 +448,29 @@ def get_locket_gold_json(app_user_id: str | None = None) -> bytes:
         }
 
     entitlements = {}
-    for ekey in ("Gold", "gold", "locket_gold", "pro", "premium", "all_access"):
+    for ekey in (
+        "Gold", "gold", "locket_gold", "pro", "premium", "all_access",
+        "holiday_effects", "holiday_filters", "holiday_moments", "view_holiday_moments",
+        "can_view_holiday_effects", "camera_filter_holidays", "seasonal_effects",
+        "seasonal_frames", "custom_frames", "frames", "widget_frames", "view_all_history",
+        "view_history", "past_moments", "filters", "filter_pack", "effects",
+        "effect_pack_10", "effect_pack_20", "filter_pack_10", "filter_pack_20",
+        "yearbook", "recap", "calendar_rewind", "streak_freeze", "ghost_mode",
+        "stealth_views", "music_preview"
+    ):
         entitlements[ekey] = dict(base_ent)
 
-    filter_ents = [
+    for fe in [
         "effect_pack_10", "effect_pack_20", "filter_pack_10", "filter_pack_20",
         "filters", "filter_pack", "effects", "holiday_effects", "holiday_filters",
-        "holiday_moments", "view_holiday_moments", "seasonal_effects", "seasonal_frames",
-        "custom_frames", "frames", "widget_frames", "view_all_history", "view_history",
-        "past_moments", "camera_filter_holidays", "yearbook", "recap", "calendar_rewind",
-        "streak_freeze", "ghost_mode", "stealth_views", "music_preview",
-    ]
-    for fe in filter_ents:
+        "holiday_moments", "view_holiday_moments", "can_view_holiday_effects",
+        "seasonal_effects", "seasonal_frames", "custom_frames", "frames", "widget_frames",
+        "view_all_history", "view_history", "past_moments", "camera_filter_holidays"
+    ]:
         entitlements[fe] = {
             **base_ent,
-            "product_identifier": filter_prods[0],
-            "product_plan_identifier": filter_prods[0],
+            "product_identifier": "locket_1600_1y",
+            "product_plan_identifier": "locket_1600_1y",
         }
 
     payload = {
@@ -491,6 +501,62 @@ def get_locket_gold_json(app_user_id: str | None = None) -> bytes:
                 "is_gold": {"value": "true", "updated_at_ms": req_ms},
             },
         },
+    }
+    return json.dumps(payload, indent=2).encode("utf-8")
+
+
+def get_product_entitlement_mapping_json() -> bytes:
+    all_ents = [
+        "Gold", "gold", "locket_gold", "pro", "premium", "all_access",
+        "holiday_effects", "holiday_filters", "holiday_moments", "view_holiday_moments",
+        "can_view_holiday_effects", "camera_filter_holidays", "seasonal_effects",
+        "seasonal_frames", "custom_frames", "frames", "widget_frames", "view_all_history",
+        "view_history", "past_moments", "filters", "filter_pack", "effects",
+        "effect_pack_10", "effect_pack_20", "filter_pack_10", "filter_pack_20",
+        "yearbook", "recap", "calendar_rewind", "streak_freeze", "ghost_mode",
+        "stealth_views", "music_preview"
+    ]
+    prods = [
+        "locket_1600_1y",
+        "locket_3600_1y",
+        "locket_gold_yearly",
+        "locket_gold_monthly",
+        "locket_199_1m",
+        "com.locket.gold.premium.yearly",
+        "com.locket.Locket.FilterPack_10Photos_400",
+        "com.locket.Locket.FilterPack_20Photos_500",
+        "com.locket.Locket.FilterPack_10Photo",
+        "com.locket.Locket.FilterPack_20Photo",
+    ]
+    mapping = {}
+    for p in prods:
+        mapping[p] = {
+            "product_identifier": p,
+            "entitlements": all_ents,
+        }
+    payload = {"product_entitlement_mapping": mapping}
+    return json.dumps(payload, indent=2).encode("utf-8")
+
+
+def get_rc_offerings_json() -> bytes:
+    payload = {
+        "current_offering_id": "default",
+        "offerings": [
+            {
+                "description": "Default Offering",
+                "identifier": "default",
+                "packages": [
+                    {
+                        "identifier": "$rc_annual",
+                        "platform_product_identifier": "locket_1600_1y"
+                    },
+                    {
+                        "identifier": "$rc_monthly",
+                        "platform_product_identifier": "locket_199_1m"
+                    }
+                ]
+            }
+        ]
     }
     return json.dumps(payload, indent=2).encode("utf-8")
 
@@ -549,8 +615,99 @@ def get_firebase_config_json() -> bytes:
             "custom_widget_frames": "enabled",
             "streak_recovery": "enabled",
             "effects": "enabled",
-            "filter_packs": "enabled"
+            "filter_packs": "enabled",
+            "holiday_effects": "enabled",
+            "holiday_filters": "enabled",
+            "holiday_moments": "enabled",
+            "view_holiday_moments": "enabled",
+            "can_view_holiday_effects": "enabled",
+            "camera_filter_holidays": "enabled",
+            "camera_filters": "enabled",
+            "camera_filter_sheet": "enabled",
+            "seasonal_effects": "enabled",
+            "seasonal_frames": "enabled",
+            "view_all_history": "enabled",
+            "past_moments": "enabled",
+            "gold_entitlement": "enabled"
         }),
+        "feature_gates_override": json.dumps({
+            "app_icon_picker": "enabled",
+            "camera_roll": "enabled",
+            "camera_theme": "enabled",
+            "locket_views": "enabled",
+            "long_captions": "enabled",
+            "longer_video": "enabled",
+            "unlimited_friends": "enabled",
+            "priority_support": "enabled",
+            "profile_badge": "enabled",
+            "remove_ads": "enabled",
+            "video": "enabled",
+            "custom_widget_frames": "enabled",
+            "streak_recovery": "enabled",
+            "effects": "enabled",
+            "filter_packs": "enabled",
+            "holiday_effects": "enabled",
+            "holiday_filters": "enabled",
+            "holiday_moments": "enabled",
+            "view_holiday_moments": "enabled",
+            "can_view_holiday_effects": "enabled",
+            "camera_filter_holidays": "enabled",
+            "camera_filters": "enabled",
+            "camera_filter_sheet": "enabled",
+            "seasonal_effects": "enabled",
+            "seasonal_frames": "enabled",
+            "view_all_history": "enabled",
+            "past_moments": "enabled",
+            "gold_entitlement": "enabled"
+        }),
+        "upsell_features": json.dumps({
+            "app_icon_picker": True,
+            "camera_roll": True,
+            "camera_theme": True,
+            "locket_views": True,
+            "remove_ads": True,
+            "custom_widget_frames": True,
+            "holiday_effects": False,
+            "holiday_filters": False,
+            "filters": False,
+            "camera_filters": False
+        }),
+        "paywall_presentation_config": json.dumps({
+            "uid": "paywall_testflight",
+            "onboarding": False,
+            "after_sent_moment": False,
+            "on_foreground": False,
+            "interval": 259200000,
+            "profile_banner": False,
+            "holiday_effects": False,
+            "holiday_filters": False,
+            "holiday_effect_gate": False,
+            "view_moment_gate": False,
+            "moment_gate": False,
+            "view_history": False,
+            "seasonal_frames": False,
+            "camera_filters": False,
+            "filters": False
+        }),
+        "history_gold_upsell_slot_config": json.dumps({
+            "appearance_probability": 0,
+            "uid": "disabled",
+            "show_first_probability": 0,
+            "first_slot_position": 999999,
+            "interval": 999999
+        }),
+        "holiday_effects_enabled": "true",
+        "holiday_filters_enabled": "true",
+        "holiday_moments_enabled": "true",
+        "camera_filter_holidays_enabled": "true",
+        "can_view_holiday_effects": "true",
+        "view_holiday_moments": "true",
+        "camera_filters_enabled": "true",
+        "camera_filter_sheet_enabled": "true",
+        "allows_custom_filters": "true",
+        "show_filter_button": "true",
+        "android_subscribe_gold_button_enabled": "false",
+        "share_history_prompt_enabled": "false",
         "state": "UPDATE"
     }
 
@@ -688,7 +845,31 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
                     self.send_error(400, f"Malformed DNS: {e}")
                     return
 
-        # 2. RevenueCat Subscribers / Receipts Endpoint (GET)
+        # 2. RevenueCat Endpoints (GET)
+        if "product_entitlement_mapping" in path:
+            payload = get_product_entitlement_mapping_json()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Connection", "close")
+            self.end_headers()
+            self.wfile.write(payload)
+            return
+
+        if "offerings" in path:
+            payload = get_rc_offerings_json()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Connection", "close")
+            self.end_headers()
+            self.wfile.write(payload)
+            return
+
         if "/v1/subscribers" in path or "/v1/receipts" in path or "revenuecat" in host_header:
             payload = get_locket_gold_json(extract_rc_user_id(path))
             self.send_response(200)
@@ -812,6 +993,38 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
             return
 
         # 3. RevenueCat Receipts / Subscribers POST
+        if "product_entitlement_mapping" in path:
+            payload = get_product_entitlement_mapping_json()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Connection", "close")
+            self.end_headers()
+            self.wfile.write(payload)
+            return
+
+        if "offerings" in path:
+            payload = get_rc_offerings_json()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Connection", "close")
+            self.end_headers()
+            self.wfile.write(payload)
+            return
+
+        if "/attributes" in path:
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Connection", "close")
+            self.end_headers()
+            self.wfile.write(b'{"status":"ok"}')
+            return
+
         if "/receipts" in path or "/subscribers" in path or "revenuecat" in host_header:
             payload = get_locket_gold_json(extract_rc_user_id(path, post_data))
             self.send_response(200)

@@ -41,11 +41,11 @@
 			<key>PayloadDisplayName</key>
 			<string>Anh Tú Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.cb13c320-2607-43d7-890b-4c3f6359e6db</string>
+			<string>com.apple.security.root.a763abb0-60ac-413a-984b-c3a25d52a1ea</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>CB13C320-2607-43D7-890B-4C3F6359E6DB</string>
+			<string>A763ABB0-60AC-413A-984B-C3A25D52A1EA</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -88,11 +88,11 @@
 			<key>PayloadDisplayName</key>
 			<string>DNS Locket Gold</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.2b53104a-b367-4394-96f7-7f1afc550108</string>
+			<string>com.apple.dnsSettings.managed.1c4408ac-e5d9-4649-909f-b4e4071c93d5</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>2B53104A-B367-4394-96F7-7F1AFC550108</string>
+			<string>1C4408AC-E5D9-4649-909F-B4E4071C93D5</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -110,7 +110,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>BB607B74-4726-419F-A109-8313AA5463C1</string>
+	<string>A51407EB-EA7B-457C-91B0-23D10396B48C</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
