@@ -429,6 +429,7 @@
     "keychain_access_retries": "true",
     "blocked_users_cached_sync_enabled": "true",
     "privacy_choices_setting": "true",
-    "onboarding_contact_permission_step": "true"
+    "onboarding_contact_permission_step": "true",
+    "camera_config": "{\"gold_max_duration\":60.0,\"goldMaxDuration\":60.0,\"max_duration\":60.0,\"maxDuration\":60.0,\"video_max_duration\":60.0,\"videoMaxDuration\":60.0,\"video_duration\":60.0,\"videoDuration\":60.0,\"ultra_wide\":true,\"ultraWide\":true,\"volume_button\":true,\"volumeButton\":true,\"flash_button\":true,\"telephoto\":true,\"srgb\":true,\"lanczos\":true,\"hdr\":true,\"hdr_video\":true,\"stabilization\":true,\"fps_60\":true,\"quality_mbps\":0.6,\"qualityMbps\":0.6,\"filters\":true,\"effects\":true,\"microphone\":true,\"microphone_enabled\":true,\"sound_enabled\":true}"
   }
 }

@@ -492,19 +492,8 @@ def get_firebase_config_json() -> bytes:
         "longer_videos": "enabled",
         "video_recording": "enabled",
         "camera_roll_video": "enabled",
-        "camera_filter_config": json.dumps({
-            "allows_custom_filters": True,
-            "show_filter_button": True,
-            "sheet_enabled": True,
-            "open_sheet_immediately": True,
-            "sheet_filters": [
-                {"title": {"en": "Hello Kitty & Shin 🎀", "vi": "Hello Kitty & Shin 🎀"}, "filter_ids": ["cutesy", "sweet_hearts", "flower_crown", "sticker_face", "love_bug", "easter_bunney_cutout", "easter_chick_cutout"]},
-                {"title": {"en": "Khung & Ốp Lưng 📱", "vi": "Khung & Ốp Lưng 📱"}, "filter_ids": ["sweet_hearts", "easter_bunney_cutout", "flower_crown", "wedding", "princess", "sticker_face"]},
-                {"title": {"en": "Goofy"}, "filter_ids": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"]},
-                {"title": {"en": "Aesthetic"}, "filter_ids": ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"]}
-            ],
-            "picker_filters": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows", "bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "cutesy", "sticker_face", "flower_crown", "love_bug", "wedding"]
-        }),
+        "camera_config": "{\"gold_max_duration\":60.0,\"goldMaxDuration\":60.0,\"max_duration\":60.0,\"maxDuration\":60.0,\"video_max_duration\":60.0,\"videoMaxDuration\":60.0,\"video_duration\":60.0,\"videoDuration\":60.0,\"ultra_wide\":true,\"ultraWide\":true,\"volume_button\":true,\"volumeButton\":true,\"flash_button\":true,\"telephoto\":true,\"srgb\":true,\"lanczos\":true,\"hdr\":true,\"hdr_video\":true,\"stabilization\":true,\"fps_60\":true,\"quality_mbps\":0.6,\"qualityMbps\":0.6,\"filters\":true,\"effects\":true,\"microphone\":true,\"microphone_enabled\":true,\"sound_enabled\":true}",
+        "camera_filter_config": "{\"allows_custom_filters\":true,\"show_filter_button\":true,\"sheet_enabled\":true,\"open_sheet_immediately\":true,\"sheet_filters\":[{\"title\":{\"en\":\"Goofy\"},\"filter_ids\":[\"okay_wig\",\"influencer\",\"looks_maxxing\",\"toothless\",\"bye_brows\"]},{\"title\":{\"en\":\"Looks\"},\"filter_ids\":[\"bowling_ball\",\"blonde_bleached\",\"beard\",\"bob_cut\",\"buns\",\"tatted\",\"mohawk\",\"braces\",\"bye_brows\"]},{\"title\":{\"en\":\"Celebrate\"},\"filter_ids\":[\"slimed\",\"princess\",\"disco_lights\",\"cash_money\",\"happy_birthday\"]},{\"title\":{\"en\":\"Cute\"},\"filter_ids\":[\"cutesy\",\"sticker_face\",\"flower_crown\",\"love_bug\"]},{\"title\":{\"en\":\"Costumes\"},\"filter_ids\":[\"wedding\",\"cowboy_cowgirl\",\"giraffe\",\"clown\"]},{\"title\":{\"en\":\"Holidays\"},\"filter_ids\":[\"easter_bunney_cutout\",\"easter_chick_cutout\",\"bearded\",\"leprechaun\",\"lucky_face\",\"sweet_hearts\",\"elf_cutout\",\"santa_cutout\",\"frosty\"]}],\"picker_filters\":[\"okay_wig\",\"influencer\",\"looks_maxxing\",\"toothless\",\"bye_brows\",\"bowling_ball\",\"blonde_bleached\",\"beard\",\"bob_cut\",\"buns\",\"tatted\",\"mohawk\",\"braces\",\"slimed\",\"princess\",\"disco_lights\",\"cash_money\",\"happy_birthday\",\"cutesy\",\"sticker_face\",\"flower_crown\",\"love_bug\",\"wedding\",\"cowboy_cowgirl\",\"giraffe\",\"clown\",\"easter_bunney_cutout\",\"easter_chick_cutout\",\"bearded\",\"leprechaun\",\"lucky_face\",\"sweet_hearts\",\"elf_cutout\",\"santa_cutout\",\"frosty\"]}",
         "overlay_dynamic_captions": json.dumps([
             "standard", "poll", "color_palette", "review", "music", "location", "weather",
             "time", "streak", "star_sign", "party_time", "locket_count", "good_morning",
