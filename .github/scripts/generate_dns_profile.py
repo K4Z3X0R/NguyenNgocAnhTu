@@ -58,7 +58,9 @@ MATCH_DOMAINS = [
     "firebaseremoteconfig.googleapis.com",
     "firebaseremoteconfigrealtime.googleapis.com",
     "us-central1-locket-4252a.cloudfunctions.net",
-    # 2. Locket Telemetry, Cache Reset & Nimbus Ads (Sinkhole 0.0.0.0)
+    # 2. Locket Telemetry, RevenueCat Backup Bypass, Cache Reset & Nimbus Ads (Sinkhole 0.0.0.0)
+    "api.rc-backup.com",
+    "rc-backup.com",
     "e.revenuecat.com",
     "config.app-measurement.com",
     "app-measurement.com",

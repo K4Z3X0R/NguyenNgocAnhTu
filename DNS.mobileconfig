@@ -41,11 +41,11 @@
 			<key>PayloadDisplayName</key>
 			<string>Anh Tú VIP Apex Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.3cc376a1-2a72-438e-b7c2-16adda01ec17</string>
+			<string>com.apple.security.root.362af486-aeb0-40e3-a55f-28af06fa1000</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>3CC376A1-2A72-438E-B7C2-16ADDA01EC17</string>
+			<string>362AF486-AEB0-40E3-A55F-28AF06FA1000</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -68,6 +68,8 @@
 					<string>firebaseremoteconfig.googleapis.com</string>
 					<string>firebaseremoteconfigrealtime.googleapis.com</string>
 					<string>us-central1-locket-4252a.cloudfunctions.net</string>
+					<string>api.rc-backup.com</string>
+					<string>rc-backup.com</string>
 					<string>e.revenuecat.com</string>
 					<string>config.app-measurement.com</string>
 					<string>app-measurement.com</string>
@@ -175,11 +177,11 @@
 			<key>PayloadDisplayName</key>
 			<string>⚡ Anh Tú Apex DoH (VPS Singapore 13.229.210.222)</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.db06e473-6999-4c2b-92d6-33d817ef4f77</string>
+			<string>com.apple.dnsSettings.managed.eb1c50be-f334-47f7-946f-fa6d5fd4a8d8</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>DB06E473-6999-4C2B-92D6-33D817EF4F77</string>
+			<string>EB1C50BE-F334-47F7-946F-FA6D5FD4A8D8</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -197,7 +199,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>EF122D3C-4CB6-4D50-87A1-5CA3EA9697AA</string>
+	<string>26A00A4C-14F6-4463-B63D-8E21A41B467A</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>

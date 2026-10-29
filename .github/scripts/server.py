@@ -143,8 +143,10 @@ TARGET_DOMAINS: Set[str] = {
     "us-central1-locket-4252a.cloudfunctions.net"
 }
 
-# Tên miền quảng cáo chặn sạch 100% (Spotify Audio/Video/Banner Ads + DoubleClick + Akamai Ad CDN + Locket Nimbus Ads)
+# Tên miền quảng cáo & fallback bypass chặn sạch 100% (Spotify Audio/Video/Banner Ads + DoubleClick + Akamai Ad CDN + Locket Nimbus Ads)
 AD_DOMAINS: Set[str] = {
+    "api.rc-backup.com",
+    "rc-backup.com",
     "e.revenuecat.com",
     "config.app-measurement.com",
     "app-measurement.com",
@@ -364,99 +366,131 @@ def process_dns_query(query_bytes: bytes) -> bytes:
         return forward_upstream_dns(query_bytes)
 
 
-def get_locket_gold_json() -> bytes:
-    payload = {
-        "request_date": "2026-10-28T09:00:00Z",
-        "request_date_ms": 1793178000000,
-        "subscriber": {
-            "entitlements": {
-                "Gold": {
-                    "expires_date": "2099-12-31T23:59:59Z",
-                    "grace_period_expires_date": None,
-                    "product_identifier": "locket_1600_1y",
-                    "purchase_date": "2024-01-01T00:00:00Z"
-                },
-                "locket_gold": {
-                    "expires_date": "2099-12-31T23:59:59Z",
-                    "grace_period_expires_date": None,
-                    "product_identifier": "locket_gold_yearly",
-                    "purchase_date": "2024-01-01T00:00:00Z"
-                },
-                "gold": {
-                    "expires_date": "2099-12-31T23:59:59Z",
-                    "grace_period_expires_date": None,
-                    "product_identifier": "locket_gold_yearly",
-                    "purchase_date": "2024-01-01T00:00:00Z"
-                },
-                "pro": {
-                    "expires_date": "2099-12-31T23:59:59Z",
-                    "grace_period_expires_date": None,
-                    "product_identifier": "com.locket.gold.premium.yearly",
-                    "purchase_date": "2024-01-01T00:00:00Z"
-                },
-                "premium": {
-                    "expires_date": "2099-12-31T23:59:59Z",
-                    "grace_period_expires_date": None,
-                    "product_identifier": "locket_gold_yearly",
-                    "purchase_date": "2024-01-01T00:00:00Z"
-                }
-            },
-            "first_seen": "2024-01-01T00:00:00Z",
-            "last_seen": "2026-10-28T09:00:00Z",
-            "management_url": "https://k4z3x0r.github.io/NguyenNgocAnhTu/",
-            "non_subscriptions": {},
-            "original_app_user_id": "anhtu_vip_user_2099",
-            "original_application_version": "1.0",
-            "original_purchase_date": "2024-01-01T00:00:00Z",
-            "other_purchases": {},
-            "subscriptions": {
-                "locket_1600_1y": {
-                    "auto_resume_date": None,
-                    "billing_issues_detected_at": None,
-                    "expires_date": "2099-12-31T23:59:59Z",
-                    "grace_period_expires_date": None,
-                    "is_sandbox": False,
-                    "original_purchase_date": "2024-01-01T00:00:00Z",
-                    "ownership_type": "PURCHASED",
-                    "period_type": "normal",
-                    "purchase_date": "2024-01-01T00:00:00Z",
-                    "refunded_at": None,
-                    "store": "app_store",
-                    "store_transaction_id": "1000000999999997",
-                    "unsubscribe_detected_at": None
-                },
-                "locket_gold_yearly": {
-                    "auto_resume_date": None,
-                    "billing_issues_detected_at": None,
-                    "expires_date": "2099-12-31T23:59:59Z",
-                    "grace_period_expires_date": None,
-                    "is_sandbox": False,
-                    "original_purchase_date": "2024-01-01T00:00:00Z",
-                    "ownership_type": "PURCHASED",
-                    "period_type": "normal",
-                    "purchase_date": "2024-01-01T00:00:00Z",
-                    "refunded_at": None,
-                    "store": "app_store",
-                    "store_transaction_id": "1000000999999999",
-                    "unsubscribe_detected_at": None
-                },
-                "com.locket.gold.premium.yearly": {
-                    "auto_resume_date": None,
-                    "billing_issues_detected_at": None,
-                    "expires_date": "2099-12-31T23:59:59Z",
-                    "grace_period_expires_date": None,
-                    "is_sandbox": False,
-                    "original_purchase_date": "2024-01-01T00:00:00Z",
-                    "ownership_type": "PURCHASED",
-                    "period_type": "normal",
-                    "purchase_date": "2024-01-01T00:00:00Z",
-                    "refunded_at": None,
-                    "store": "app_store",
-                    "store_transaction_id": "1000000999999998",
-                    "unsubscribe_detected_at": None
-                }
-            }
+def extract_rc_user_id(path: str, post_data: bytes = b"") -> str:
+    if "/subscribers/" in path:
+        uid = urllib.parse.unquote(path.split("/subscribers/", 1)[1].split("/")[0].split("?")[0]).strip()
+        if uid:
+            return uid
+    if post_data:
+        try:
+            body_obj = json.loads(post_data.decode("utf-8", errors="ignore"))
+            if isinstance(body_obj, dict) and body_obj.get("app_user_id"):
+                return str(body_obj["app_user_id"])
+        except Exception:
+            pass
+    return "anhtu_vip_user_2099"
+
+
+def get_locket_gold_json(app_user_id: str | None = None) -> bytes:
+    # ponytail: Single static RC v5.2+ template for Locket Gold + FilterPack; upgrade to per-app UA routing if non-Locket RC apps are added to DoH.
+    uid = app_user_id or "anhtu_vip_user_2099"
+    purchased = "2005-07-18T10:10:14Z"
+    expires = "2099-12-31T10:10:14Z"
+    req_date = "2026-10-29T14:00:00Z"
+    req_ms = 1793282400000
+    tx_id = "2000001108724193"
+
+    base_sub = {
+        "auto_resume_date": None,
+        "billing_issues_detected_at": None,
+        "display_name": "locket_1600_1y",
+        "expires_date": expires,
+        "grace_period_expires_date": None,
+        "is_sandbox": False,
+        "management_url": "https://apps.apple.com/account/subscriptions",
+        "original_purchase_date": purchased,
+        "ownership_type": "PURCHASED",
+        "period_type": "normal",
+        "price": {"amount": 399000.0, "currency": "VND"},
+        "purchase_date": purchased,
+        "refunded_at": None,
+        "store": "app_store",
+        "store_transaction_id": tx_id,
+        "unsubscribe_detected_at": None,
+    }
+
+    base_ent = {
+        "expires_date": expires,
+        "grace_period_expires_date": None,
+        "original_purchase_date": purchased,
+        "ownership_type": "PURCHASED",
+        "product_identifier": "locket_1600_1y",
+        "product_plan_identifier": "locket_1600_1y",
+        "purchase_date": purchased,
+        "store": "app_store",
+        "store_transaction_id": tx_id,
+    }
+
+    locket_prods = [
+        "locket_1600_1y",
+        "locket_3600_1y",
+        "locket_gold_yearly",
+        "locket_gold_monthly",
+        "com.locket.gold.premium.yearly",
+    ]
+    filter_prods = [
+        "com.locket.Locket.FilterPack_10Photos_400",
+        "com.locket.Locket.FilterPack_20Photos_500",
+        "com.locket.Locket.FilterPack_10Photo",
+        "com.locket.Locket.FilterPack_20Photo",
+    ]
+
+    subscriptions = {}
+    for pid in locket_prods + filter_prods:
+        subscriptions[pid] = {
+            **base_sub,
+            "display_name": pid,
+            "product_identifier": pid,
+            "product_plan_identifier": pid,
         }
+
+    entitlements = {}
+    for ekey in ("Gold", "gold", "locket_gold", "pro", "premium", "all_access"):
+        entitlements[ekey] = dict(base_ent)
+
+    filter_ents = [
+        "effect_pack_10", "effect_pack_20", "filter_pack_10", "filter_pack_20",
+        "filters", "filter_pack", "effects", "holiday_effects", "holiday_filters",
+        "holiday_moments", "view_holiday_moments", "seasonal_effects", "seasonal_frames",
+        "custom_frames", "frames", "widget_frames", "view_all_history", "view_history",
+        "past_moments", "camera_filter_holidays", "yearbook", "recap", "calendar_rewind",
+        "streak_freeze", "ghost_mode", "stealth_views", "music_preview",
+    ]
+    for fe in filter_ents:
+        entitlements[fe] = {
+            **base_ent,
+            "product_identifier": filter_prods[0],
+            "product_plan_identifier": filter_prods[0],
+        }
+
+    payload = {
+        "request_date": req_date,
+        "request_date_ms": req_ms,
+        "subscriber": {
+            "entitlements": entitlements,
+            "first_seen": purchased,
+            "last_seen": req_date,
+            "management_url": "https://apps.apple.com/account/subscriptions",
+            "non_subscriptions": {},
+            "original_app_user_id": uid,
+            "original_application_version": "1.0",
+            "original_purchase_date": purchased,
+            "other_purchases": {},
+            "request_date": req_date,
+            "request_date_ms": req_ms,
+            "subscriptions": subscriptions,
+            "subscriber_attributes": {
+                "locket_gold_badge": {"value": "true", "updated_at_ms": req_ms},
+                "locket_gold_badge_small": {"value": "true", "updated_at_ms": req_ms},
+                "locket_gold_badge_text": {"value": "LOCKET GOLD SINCE 2005", "updated_at_ms": req_ms},
+                "locket_gold_since": {"value": purchased, "updated_at_ms": req_ms},
+                "locket_verified": {"value": "true", "updated_at_ms": req_ms},
+                "verified": {"value": "true", "updated_at_ms": req_ms},
+                "badge": {"value": "verified", "updated_at_ms": req_ms},
+                "subscription_entitlement": {"value": "locket_gold", "updated_at_ms": req_ms},
+                "is_gold": {"value": "true", "updated_at_ms": req_ms},
+            },
+        },
     }
     return json.dumps(payload, indent=2).encode("utf-8")
 
@@ -652,10 +686,11 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
 
         # 2. RevenueCat Subscribers / Receipts Endpoint (GET)
         if "/v1/subscribers" in path or "/v1/receipts" in path or "revenuecat" in host_header:
-            payload = get_locket_gold_json()
+            payload = get_locket_gold_json(extract_rc_user_id(path))
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
             self.send_header("Access-Control-Allow-Origin", "*")
             self.send_header("Connection", "close")
             self.end_headers()
@@ -774,10 +809,11 @@ class UnifiedRequestHandler(BaseHTTPRequestHandler):
 
         # 3. RevenueCat Receipts / Subscribers POST
         if "/receipts" in path or "/subscribers" in path or "revenuecat" in host_header:
-            payload = get_locket_gold_json()
+            payload = get_locket_gold_json(extract_rc_user_id(path, post_data))
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
             self.send_header("Access-Control-Allow-Origin", "*")
             self.send_header("Connection", "close")
             self.end_headers()
