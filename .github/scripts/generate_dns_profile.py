@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-👑 Anh Tú • DNS Profile Generator (v6.0.0 - Sovereign Pure XML Edition)
+👑 Anh Tú • DNS Profile Generator (v6.2.0 - Sovereign Pure XML + Surgical Spotify AdBlock Edition)
 Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)
 
 Hồ sơ cấu hình chuẩn Apple com.apple.dnsSettings.managed + Root CA (Định dạng XML Plist thuần túy, không mã hóa nhị phân):
 - Định tuyến DoH Anycast Cloudflare siêu tốc (< 10ms tại VN), triệt tiêu 100% lag DNS.
-- SupplementalMatchDomains tinh chuẩn:
-  + Locket Gold (Vĩnh viễn 2099, Video 45s, 35 Filters, Weather, Mic): api.revenuecat.com, firebaseremoteconfig.googleapis.com, us-central1-locket-4252a.cloudfunctions.net.
-  + Spotify: spclient.wg.spotify.com, spclient.spotify.com, dealer.spotify.com, apresolve.spotify.com, spotify.com (Chứng chỉ TLS hợp lệ, khắc phục 100% lỗi 'Hiện tại bạn không có kết nối mạng').
-- TOÀN BỘ ỨNG DỤNG KHÁC (Zalo, YouTube, Facebook, Messenger, v.v.):
-  + Sử dụng 100% DNS gốc của nhà mạng người dùng (Viettel / VNPT / FPT).
-  + Khắc phục triệt để lỗi delay tin nhắn Zalo 5s, thông báo push tức thì.
-  + YouTube phát video 4K mượt mà, không giật lag hay lỗi kết nối.
+- SupplementalMatchDomains phân tách phẫu thuật (Surgical Split-Horizon):
+  1. Locket Gold (Vĩnh viễn 2099, Video Vô Cực Flex, 35 Filters, Weather, Mic):
+     + api.revenuecat.com, app.revenuecat.com, revenuecat.com
+     + firebaseremoteconfig.googleapis.com, firebaseremoteconfigrealtime.googleapis.com
+     + us-central1-locket-4252a.cloudfunctions.net
+  2. Spotify Chặn Quảng Cáo & Mở Khóa Spclient (Không chạm apresolve/dealer để chống 100% lỗi mất mạng):
+     + Cụm Spclient (MITM TLS hợp lệ): spclient.wg.spotify.com, spclient.spotify.com, gae2/guc3/gue1/gew1/gew4-spclient.spotify.com
+     + Cụm Audio Ads & Podcast Ads (Chặn NXDOMAIN RCODE=3): ads-fa.spotify.com, gads.current.spotify.com, podcastads.spotify.com, ads-west/east-colo.ads.spotify.com, audio-sp-*.pscdn.co
+     + TUYỆT ĐỐI ĐỂ DIRECT: apresolve.spotify.com, dealer.spotify.com, accounts.spotify.com, login5.spotify.com -> Miễn nhiễm 100% lỗi 'Hiện tại bạn không có kết nối mạng'.
+  3. Toàn bộ ứng dụng khác (Zalo, YouTube, Facebook, Messenger, TikTok):
+     + Sử dụng 100% DNS gốc của nhà mạng (Viettel / VNPT / FPT) -> Độ trễ 0ms, không delay Zalo, YouTube 4K mượt mà.
 """
 
 from __future__ import annotations
@@ -23,7 +27,7 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[2]
 
-# Root CA DER Base64 (Valid 2026-2036, ký chuẩn cho *.revenuecat.com & *.wg.spotify.com)
+# Root CA DER Base64 (Valid 2026-2036, ký chuẩn cho *.revenuecat.com & *.wg.spotify.com / *-spclient.spotify.com)
 CA_DER_B64 = (
     "MIIDNTCCAh2gAwIBAgIUOQqYkU7yWPiIWMNdvcQ5vM1NKgQwDQYJKoZIhvcNAQELBQAwKjETMBEGA1UE"
     "CgwKTG9ja2V0R29sZDETMBEGA1UEAwwKTG9ja2V0R29sZDAeFw0yNjA5MzAxNDI5MDhaFw0zNjA5Mjcx"
@@ -41,15 +45,42 @@ CA_DER_B64 = (
     "aWn3ulMsmth4MVHtEtf5wJq48yc7UBXjaq/h9jnO81d9yyI2RAYZ52CqMLYR"
 )
 
-# Danh sách SupplementalMatchDomains tinh chuẩn tối đa - CHỈ can thiệp Locket Gold
-# TUYỆT ĐỐI KHÔNG can thiệp Spotify, YouTube, hay Zalo để tránh lỗi 'báo mất mạng' và lag mạng
+# Danh sách SupplementalMatchDomains phẫu thuật chuẩn xác (Locket Gold + Spotify AdBlock & Spclient)
+# Lưu ý: KHÔNG đưa apresolve.spotify.com và dealer.spotify.com vào đây để giữ kết nối AccessPoint & WebSocket luôn Online 100%
 MATCH_DOMAINS = [
+    # 1. Locket Gold 2099 & Remote Config
     "api.revenuecat.com",
     "app.revenuecat.com",
     "revenuecat.com",
     "firebaseremoteconfig.googleapis.com",
     "firebaseremoteconfigrealtime.googleapis.com",
-    "us-central1-locket-4252a.cloudfunctions.net"
+    "us-central1-locket-4252a.cloudfunctions.net",
+    # 2. Spotify Spclient Endpoints (Đã xác thực TLS Cert SANs 100%)
+    "spclient.wg.spotify.com",
+    "spclient.spotify.com",
+    "gae2-spclient.spotify.com",
+    "guc3-spclient.spotify.com",
+    "gue1-spclient.spotify.com",
+    "gew1-spclient.spotify.com",
+    "gew4-spclient.spotify.com",
+    # 3. Spotify Audio Ads, Banner Ads & Podcast Ads (Chặn NXDOMAIN RCODE=3)
+    "ads-fa.spotify.com",
+    "gads.current.spotify.com",
+    "podcastads.spotify.com",
+    "ads-west-colo.ads.spotify.com",
+    "ads-east-colo.ads.spotify.com",
+    "audio-sp-sto.pscdn.co",
+    "audio-sp-ash.pscdn.co",
+    "audio-sp-dca.pscdn.co",
+    "audio-sp-lon.pscdn.co",
+    "audio-sp-tyo.pscdn.co",
+    "audio-sp-sin.pscdn.co",
+    "audio-sp-hkg.pscdn.co",
+    "audio-sp-sjc.pscdn.co",
+    "audio-sp-ord.pscdn.co",
+    "audio-sp-dfw.pscdn.co",
+    "audio-sp-ams.pscdn.co",
+    "audio-sp-fra.pscdn.co",
 ]
 
 SERVER_URL = "https://doh.2707226.xyz/dns-query/common"
@@ -61,7 +92,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
     ca_uuid = str(uuid.uuid4()).upper()
     dns_uuid = str(uuid.uuid4()).upper()
 
-    name = display_name or "👑 Anh Tú • DNS Locket Gold VIP 2099 (Miễn Nhiễm Mất Mạng Spotify)"
+    name = display_name or "👑 Anh Tú • DNS Locket Gold VIP 2099 + Chặn QC Spotify"
 
     ca_der_bytes = base64.b64decode(CA_DER_B64)
 
@@ -69,9 +100,9 @@ def build_profile_dict(display_name: str | None = None) -> dict:
         "PayloadDisplayName": name,
         "PayloadDescription": (
             "Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): "
-            "Mở khóa Locket Gold 2099 (Video Vô Cực Flex, 35 Filters, Weather, Mic) • "
-            "MIỄN NHIỄM 100% lỗi mất mạng Spotify (Spotify kết nối trực tiếp mượt mà 320kbps) • "
-            "YouTube phát video gốc 4K • Không delay tin nhắn Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)"
+            "Mở khóa Locket Gold 2099 (Video Vô Cực Flex, 35 Filters, Weather, Mic) + "
+            "Chặn 100% Quảng Cáo Spotify & Mở khóa Spclient (Không báo mất mạng) + "
+            "YouTube 4K tốc độ gốc • Không delay Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)"
         ),
         "PayloadIdentifier": "com.anhtu.dns.locketgold.v6",
         "PayloadOrganization": "Nguyễn Ngọc Anh Tú (K4Z3X0R)",
@@ -98,7 +129,7 @@ def build_profile_dict(display_name: str | None = None) -> dict:
                 "PayloadIdentifier": f"com.apple.dnsSettings.managed.{dns_uuid.lower()}",
                 "PayloadUUID": dns_uuid,
                 "PayloadDisplayName": "⚡ Anh Tú Cloudflare Anycast DoH (Siêu Tốc 0ms)",
-                "PayloadDescription": "Mã hóa DNS-over-HTTPS tốc độ cao qua Anycast Cloudflare, không delay Zalo",
+                "PayloadDescription": "Mã hóa DNS-over-HTTPS tốc độ cao qua Anycast Cloudflare, chặn QC Spotify & không delay Zalo",
                 "DNSSettings": {
                     "DNSProtocol": "HTTPS",
                     "ServerURL": SERVER_URL,

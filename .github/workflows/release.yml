@@ -19,13 +19,15 @@ jobs:
       - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "👑 Anh Tú • DNS Locket Gold VIP 2099 (${{ github.ref_name }} - Miễn Nhiễm Mất Mạng Spotify)"
+          name: "👑 Anh Tú • DNS Locket Gold VIP 2099 + Chặn QC Spotify (${{ github.ref_name }})"
           body: |
-            ## 👑 Anh Tú • DNS Locket Gold 2099 VIP (${{ github.ref_name }})
+            ## 👑 Anh Tú • DNS Locket Gold 2099 VIP + Chặn QC Spotify (${{ github.ref_name }})
             Tác giả: **Nguyễn Ngọc Anh Tú** (@z3rokaze / K4Z3X0R)
 
             ### ✨ Các Cải Tiến Cốt Lõi:
-            - 🎵 **Trị Dứt Điểm 100% Lỗi Mất Mạng Spotify**: Loại bỏ hoàn toàn các tên miền hạ tầng (`apresolve`, `dealer`, `spclient`) khỏi SupplementalMatchDomains; Spotify kết nối trực tiếp đến máy chủ gốc của Spotify qua DNS nhà mạng, xóa sổ vĩnh viễn lỗi *"Hiện tại bạn không có kết nối mạng"*.
+            - 🎵 **Chặn 100% Quảng Cáo Spotify & Miễn Nhiễm Mất Mạng (Surgical Split-Horizon)**:
+              - Tích hợp 7 cụm `*-spclient.spotify.com` (MITM TLS hợp lệ) + 17 cụm Audio Ads & Podcast Ads (`ads-fa`, `gads`, `podcastads`, `audio-sp-*.pscdn.co` chặn `NXDOMAIN` trực tiếp).
+              - Tuyệt đối để `apresolve.spotify.com` và `dealer.spotify.com` kết nối trực tiếp (DIRECT) -> Giữ trạng thái Online 100%, xóa sổ vĩnh viễn lỗi *"Hiện tại bạn không có kết nối mạng"*.
             - ♾️ **Video Vô Cực (Infinity Flex)**: Mở toang thanh cắt video Album và camera vô hạn để tha hồ flex giao diện; quay 10s - 15s gửi siêu tốc không bao giờ nghẽn server.
             - 📄 **Định Dạng XML Chuẩn Apple (Không Mã Hóa Nhị Phân)**: Xuất file XML Plist thuần túy (`<!DOCTYPE plist...`), hủy bỏ hoàn toàn binary plist `bplist00` bảo đảm tương thích 100% mọi iOS.
             - ⚡ **Khắc Phục 100% Lag DNS & Delay Tin Nhắn Zalo**: Kết nối qua Anycast Cloudflare tốc độ cao (độ trễ < 10ms tại VN), không delay tin nhắn Zalo.

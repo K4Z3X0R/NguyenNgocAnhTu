@@ -37,11 +37,11 @@
 			<key>PayloadDisplayName</key>
 			<string>Anh Tú VIP Apex Root CA</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.security.root.ee3203aa-8bd0-456f-ae40-0471388bdc1c</string>
+			<string>com.apple.security.root.8ec9c3c5-d748-4622-bf50-ac64f294672d</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>EE3203AA-8BD0-456F-AE40-0471388BDC1C</string>
+			<string>8EC9C3C5-D748-4622-BF50-AC64F294672D</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
@@ -65,6 +65,30 @@
 					<string>firebaseremoteconfig.googleapis.com</string>
 					<string>firebaseremoteconfigrealtime.googleapis.com</string>
 					<string>us-central1-locket-4252a.cloudfunctions.net</string>
+					<string>spclient.wg.spotify.com</string>
+					<string>spclient.spotify.com</string>
+					<string>gae2-spclient.spotify.com</string>
+					<string>guc3-spclient.spotify.com</string>
+					<string>gue1-spclient.spotify.com</string>
+					<string>gew1-spclient.spotify.com</string>
+					<string>gew4-spclient.spotify.com</string>
+					<string>ads-fa.spotify.com</string>
+					<string>gads.current.spotify.com</string>
+					<string>podcastads.spotify.com</string>
+					<string>ads-west-colo.ads.spotify.com</string>
+					<string>ads-east-colo.ads.spotify.com</string>
+					<string>audio-sp-sto.pscdn.co</string>
+					<string>audio-sp-ash.pscdn.co</string>
+					<string>audio-sp-dca.pscdn.co</string>
+					<string>audio-sp-lon.pscdn.co</string>
+					<string>audio-sp-tyo.pscdn.co</string>
+					<string>audio-sp-sin.pscdn.co</string>
+					<string>audio-sp-hkg.pscdn.co</string>
+					<string>audio-sp-sjc.pscdn.co</string>
+					<string>audio-sp-ord.pscdn.co</string>
+					<string>audio-sp-dfw.pscdn.co</string>
+					<string>audio-sp-ams.pscdn.co</string>
+					<string>audio-sp-fra.pscdn.co</string>
 				</array>
 			</dict>
 			<key>OnDemandRules</key>
@@ -75,23 +99,23 @@
 				</dict>
 			</array>
 			<key>PayloadDescription</key>
-			<string>Mã hóa DNS-over-HTTPS tốc độ cao qua Anycast Cloudflare, không delay Zalo</string>
+			<string>Mã hóa DNS-over-HTTPS tốc độ cao qua Anycast Cloudflare, chặn QC Spotify &amp; không delay Zalo</string>
 			<key>PayloadDisplayName</key>
 			<string>⚡ Anh Tú Cloudflare Anycast DoH (Siêu Tốc 0ms)</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.dnsSettings.managed.60eae0bc-756c-4db7-b06f-88290ace3c17</string>
+			<string>com.apple.dnsSettings.managed.97f66eea-7332-437f-acb7-209fcbc2eb19</string>
 			<key>PayloadType</key>
 			<string>com.apple.dnsSettings.managed</string>
 			<key>PayloadUUID</key>
-			<string>60EAE0BC-756C-4DB7-B06F-88290ACE3C17</string>
+			<string>97F66EEA-7332-437F-ACB7-209FCBC2EB19</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
 	</array>
 	<key>PayloadDescription</key>
-	<string>Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): Mở khóa Locket Gold 2099 (Video Vô Cực Flex, 35 Filters, Weather, Mic) • MIỄN NHIỄM 100% lỗi mất mạng Spotify (Spotify kết nối trực tiếp mượt mà 320kbps) • YouTube phát video gốc 4K • Không delay tin nhắn Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)</string>
+	<string>Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): Mở khóa Locket Gold 2099 (Video Vô Cực Flex, 35 Filters, Weather, Mic) + Chặn 100% Quảng Cáo Spotify &amp; Mở khóa Spclient (Không báo mất mạng) + YouTube 4K tốc độ gốc • Không delay Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)</string>
 	<key>PayloadDisplayName</key>
-	<string>👑 Anh Tú • DNS Locket Gold VIP 2099 (Miễn Nhiễm Mất Mạng Spotify)</string>
+	<string>👑 Anh Tú • DNS Locket Gold VIP 2099 + Chặn QC Spotify</string>
 	<key>PayloadIdentifier</key>
 	<string>com.anhtu.dns.locketgold.v6</string>
 	<key>PayloadOrganization</key>
@@ -101,7 +125,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>812C5927-3E2D-46B1-9504-F2BED3848D85</string>
+	<string>69410E24-EF7F-4ACC-BF57-B9DAD4F87C43</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
