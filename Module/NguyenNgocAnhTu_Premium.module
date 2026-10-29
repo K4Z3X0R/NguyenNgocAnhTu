@@ -1,6 +1,6 @@
 #!name=👑 Nguyễn Ngọc Anh Tú 🌸 • Sovereign Omnipotent Apex VIP Bundle (Shadowrocket Main)
 #!desc=🚀 Mở khóa 350+ App VIP (Locket Gold 2099 + 35 Bộ Lọc Camera VIP, Video 60s, Spotify, YouTube Premium, 135+ RevenueCat Apps VIP, iTunes 287+ Apps VIP...). 🛡️ Chặn Quảng Cáo 100% (AdGuard DoH, Rule-Sets Ads/Tracking/Malware/HostsVN/QC App VN). 🎮 Gaming DIRECT. 📺 Streaming PROXY. ⚡ Tối ưu DNS, Banking VN, GeoIP VN, Chặn iOS OTA & App Store Ads. | v3.2.5-apex (2026-10-30)
-#!version=3.2.4-apex
+#!version=3.2.5-apex
 #!date=2026-10-30
 #!author=Nguyễn Ngọc Anh Tú (z3rokaze)
 #!homepage=https://github.com/K4Z3X0R/NguyenNgocAnhTu
@@ -21,7 +21,7 @@ udp-policy-not-supported-behaviour = REJECT
 always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, *.turn.apple.com, *.stun.services.mozilla.com
 skip-proxy = %APPEND% 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.lan, captive.apple.com, detectportal.firefox.com, connectivitycheck.gstatic.com, clients3.google.com, www.msftconnecttest.com, www.msftncsi.com
 tun-excluded-routes = %APPEND% 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, 239.255.255.250/32
-force-http-engine-hosts = %APPEND% api.revenuecat.com:443, api.rc-backup.com:443, buy.itunes.apple.com:443, api.intsig.net:443, api-cs.intsig.net:443, vsco.co:443, h5.xiuxiu.meitu.com:443, api.xiuxiu.meitu.com:443, api-sub.meitu.com:443, user-snow-api.snow.me:443, api.mr.pixocial.com:443, newbeee-api.beautyplus.com:443, premium-api.truecaller.com:443, lapi.photomath.net:443, us-central1-alight-creative.cloudfunctions.net:443, api-account.kinemasters.com:443, www.xmind.app:443, www.xmind.net:443, www.xmind.cn:443, api.funimate.com:443, api.busuu.com:443, app.algoriddim.com:443, api.prod.headspace.com:443, api.picsart.com:443, lcs-mobile-cops.adobe.io:443, mb3admin.com:443, api-mobile.soundcloud.com:443, account.wps.com:443, account.wps.cn:443, v1.darkroom.co:443, server.yoyiapp.com:443, api.calm.com:443, com.zijayrate.analogcam:443, api.elsaspeak.com:443, api.photoroom.com:443, api.remini.ai:443, api.bazaart.me:443, *.oracle.bendingspoonsapps.com:443, license.pdfexpert.com:443, app.bilibili.com:443, api.flexibits.com:443, youtubei.googleapis.com:443, www.youtube.com:443, s.youtube.com:443, spclient.wg.spotify.com:443, *-spclient.spotify.com:443, gads.current.spotify.com:443, api.spotify.com:443, firebaseremoteconfig.googleapis.com:443, firebaseremoteconfigrealtime.googleapis.com, us-central1-locket-4252a.cloudfunctions.net, api.locketcamera.com:443, us-central1-locket-4252a.cloudfunctions.net:443, api.locketcamera.com:443
+force-http-engine-hosts = %APPEND% api.revenuecat.com:443, api.rc-backup.com:443, buy.itunes.apple.com:443, api.intsig.net:443, api-cs.intsig.net:443, vsco.co:443, h5.xiuxiu.meitu.com:443, api.xiuxiu.meitu.com:443, api-sub.meitu.com:443, user-snow-api.snow.me:443, api.mr.pixocial.com:443, newbeee-api.beautyplus.com:443, premium-api.truecaller.com:443, lapi.photomath.net:443, us-central1-alight-creative.cloudfunctions.net:443, api-account.kinemasters.com:443, www.xmind.app:443, www.xmind.net:443, www.xmind.cn:443, api.funimate.com:443, api.busuu.com:443, app.algoriddim.com:443, api.prod.headspace.com:443, api.picsart.com:443, lcs-mobile-cops.adobe.io:443, mb3admin.com:443, api-mobile.soundcloud.com:443, account.wps.com:443, account.wps.cn:443, v1.darkroom.co:443, server.yoyiapp.com:443, api.calm.com:443, com.zijayrate.analogcam:443, api.elsaspeak.com:443, api.photoroom.com:443, api.remini.ai:443, api.bazaart.me:443, *.oracle.bendingspoonsapps.com:443, license.pdfexpert.com:443, app.bilibili.com:443, api.flexibits.com:443, youtubei.googleapis.com:443, www.youtube.com:443, s.youtube.com:443, spclient.wg.spotify.com:443, *-spclient.spotify.com:443, gads.current.spotify.com:443, api.spotify.com:443, firebaseremoteconfig.googleapis.com:443, firebaseremoteconfigrealtime.googleapis.com:443, us-central1-locket-4252a.cloudfunctions.net:443, api.locketcamera.com:443
 
 [Rule]
 # === SPOTIFY DIRECT DOMAINS (PERFECT PLAYBACK - NO AUDIO DROP) ===
@@ -48,7 +48,10 @@ DOMAIN,appleid.apple.com,DIRECT
 AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,www.youtube.com), (PROTOCOL,UDP)),REJECT
-AND,((DOMAIN,firebaseremoteconfig.googleapis.com, firebaseremoteconfigrealtime.googleapis.com, us-central1-locket-4252a.cloudfunctions.net, api.locketcamera.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,firebaseremoteconfigrealtime.googleapis.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,us-central1-locket-4252a.cloudfunctions.net), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,api.locketcamera.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN-KEYWORD,spotify), (PROTOCOL,UDP)),REJECT
 
 # === BLOCK WEBRTC LEAK ===

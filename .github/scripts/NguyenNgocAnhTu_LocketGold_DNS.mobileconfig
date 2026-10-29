@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadCertificateFileName</key>
+			<string>LocketGold Root CA.cer</string>
+			<key>PayloadContent</key>
+			<data>
+			MIIDNTCCAh2gAwIBAgIUOQqYkU7yWPiIWMNdvcQ5vM1NKgQwDQYJ
+			KoZIhvcNAQELBQAwKjETMBEGA1UECgwKTG9ja2V0R29sZDETMBEG
+			A1UEAwwKTG9ja2V0R29sZDAeFw0yNjA5MzAxNDI5MDhaFw0zNjA5
+			MjcxNDI5MDhaMCoxEzARBgNVBAoMCkxvY2tldEdvbGQxEzARBgNV
+			BAMMCkxvY2tldEdvbGQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+			ggEKAoIBAQCSgDJzEKZDUijfA1HYVGAIc9e2LVUsDk82iubefLGB
+			Xp6Ia5/FzGCn7RI4kkM6B4Gzdqcj52nZ2mQkh2hlftsE4SyKGlqn
+			L/+50GnNRV8FkrIWb0UUI8SK22evSa/SW70CXTtTsezAXT5wodUc
+			OzDZvhI6pxKzySEujg7WxRzYsfq1vr8t2yGJoV5NP0tqZShWq4Rx
+			Z7Tj4HyISHFE9+Upvy/8N2KQMKvMkSEphhxpk645dl+tF0Q37VV6
+			bqZGVNEO/MdGaPzqMld8V3qbrv5eebIrOZBfZU5hRiTHiqK19FPu
+			vvGxAjPsKGx27tx6+UoAGRlbQAyNBj7vKNMT6n0tAgMBAAGjUzBR
+			MB0GA1UdDgQWBBT5dQfm6Eu5mNz5Od9cch7UlizH+jAfBgNVHSME
+			GDAWgBT5dQfm6Eu5mNz5Od9cch7UlizH+jAPBgNVHRMBAf8EBTAD
+			AQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAXwYJMRJ9nPpRmS7IVWF0P
+			cuLB9z5q3qanc/x+xOQOH4urgm8NAvHGkHNg7rE64wsMkA1O7GTU
+			T+NP2pdEDu2/zfocfflvsN1l3Gu3Z193bWhcpvr8q8YgLJ4rP6re
+			lyFLIxEQ5FkDXsXqZFf5QOn6+KgdwdIwqos7knp5quBAKqHZbXXV
+			WWxZgOILe4+8uRBAkG2ppZrZE9hocAQ8HlcQOX+FsDQZ74vKCPx+
+			mS9szHJJigHNnJRXHD8Ys1oIOjvDUT2nfMGMKk5v1hO2IlF1wsGt
+			aWn3ulMsmth4MVHtEtf5wJq48yc7UBXjaq/h9jnO81d9yyI2RAYZ
+			52CqMLYR
+			</data>
+			<key>PayloadDescription</key>
+			<string>Cài đặt chứng chỉ gốc tin cậy (Root CA) để giải mã và kích hoạt bản quyền Gold/Premium.</string>
+			<key>PayloadDisplayName</key>
+			<string>Nguyễn Ngọc Anh Tú - Root CA</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.security.root.04dd0f46-3f4b-4a33-977c-4675c701f337</string>
+			<key>PayloadType</key>
+			<string>com.apple.security.root</string>
+			<key>PayloadUUID</key>
+			<string>355a8227-b939-4d0f-90d0-42eda7688e8c</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>DNSSettings</key>
+			<dict>
+				<key>DNSProtocol</key>
+				<string>HTTPS</string>
+				<key>ServerAddresses</key>
+				<array>
+					<string>103.211.207.247</string>
+				</array>
+				<key>ServerURL</key>
+				<string>https://doh.2707226.xyz/dns-query/common</string>
+				<key>SupplementalMatchDomains</key>
+				<array>
+					<string>api.revenuecat.com</string>
+					<string>api.revenue.cat</string>
+					<string>revenuecat.com</string>
+					<string>revenue.cat</string>
+					<string>firebaseremoteconfig.googleapis.com</string>
+					<string>api.locketcamera.com</string>
+					<string>us-central1-locket-4252a.cloudfunctions.net</string>
+					<string>spclient.wg.spotify.com</string>
+					<string>spclient.spotify.com</string>
+					<string>dealer.spotify.com</string>
+					<string>apresolve.spotify.com</string>
+					<string>spotify.com</string>
+					<string>audio-ak-spotify-com.akamaized.net</string>
+				</array>
+			</dict>
+			<key>PayloadDescription</key>
+			<string>Định tuyến DNS mã hóa (DoH) Split-DNS chuyên biệt cho Locket Gold, Spotify và RevenueCat.</string>
+			<key>PayloadDisplayName</key>
+			<string>Nguyễn Ngọc Anh Tú - Split DNS (DoH)</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.dnsSettings.managed.49d046b6-0d4f-4897-ac86-ddb93fd4f15c</string>
+			<key>PayloadType</key>
+			<string>com.apple.dnsSettings.managed</string>
+			<key>PayloadUUID</key>
+			<string>dfd2ae02-b0d9-4cb3-af3d-829b5a5b422c</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Cấu hình DNS DoH &amp; Root CA kích hoạt Locket Gold vĩnh viễn không cần VPN, không gián đoạn mạng khác. Tác giả: Nguyễn Ngọc Anh Tú.</string>
+	<key>PayloadDisplayName</key>
+	<string>Nguyễn Ngọc Anh Tú - Locket Gold &amp; VIP DNS Profile</string>
+	<key>PayloadIdentifier</key>
+	<string>com.nguyenngocanhtu.locket.dns_profile.45fbaf0d</string>
+	<key>PayloadOrganization</key>
+	<string>Nguyễn Ngọc Anh Tú</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>f944ede8-67e2-4f68-b11b-464c7cd52c4f</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

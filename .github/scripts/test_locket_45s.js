@@ -8,7 +8,7 @@ console.log('====================================================\n');
 
 // 1. Kiểm tra Module/NguyenNgocAnhTu_Premium.module
 const premContent = fs.readFileSync('Module/NguyenNgocAnhTu_Premium.module', 'utf8');
-const currentVer = (premContent.match(/(\d+\.\d+\.\d+)-stable/) || [null, '2.9.5'])[1];
+const currentVer = (premContent.match(/(\d+\.\d+\.\d+)-(?:stable|apex)/) || [null, '3.2.5'])[1];
 
 const checks = [
   { name: 'UDP QUIC REJECT firebaseremoteconfig', ok: premContent.includes('AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT') },

@@ -36,10 +36,11 @@ jobs:
             ## 👑 Anh Tú • DNS Locket Gold 2099 (${{ github.ref_name }})
             Tác giả: **Nguyễn Ngọc Anh Tú** (@z3rokaze / K4Z3X0R)
 
-            ### ✨ Tính Năng Cốt Lõi:
-            - 💛 **Mở Khóa Locket Gold 2099**: Video 45s/60s, 35 bộ lọc máy ảnh VIP, Thời tiết & Mic ghi âm.
-            - ⚡ **Máy Chủ VPS Singapore (13.229.210.222)**: DNS DoH siêu tốc độ, không delay Zalo, không lag mạng.
-            - 🔒 **Định Dạng XML Chuẩn Apple**: Tương thích 100% mọi iOS.
+            ### ✨ Danh Sách 2 Bản Cấu Hình DNS Cập Nhật:
+            - ⚡ **Bản 1 (`DNS.mobileconfig`)**: Máy Chủ VPS Singapore (`13.229.210.222`), DoH siêu tốc độ, mở khóa hơn 60 entitlements Locket Gold 2099, không delay Zalo, không lag mạng, hỗ trợ Spotify & chặn quảng cáo.
+            - ⚡ **Bản 2 (`NguyenNgocAnhTu_LocketGold_DNS.mobileconfig`)**: Chuẩn hóa từ Kw Shop, định tuyến DoH `doh.2707226.xyz`, chuẩn hóa Apple XML Plist RFC 100%, UUID v4 mới, mở rộng đầy đủ domain RevenueCat.
+            - 🔒 **Định Dạng XML Chuẩn Apple**: Tương thích 100% mọi iOS (iOS 16, 17, 18).
             - 💬 **Hỗ Trợ & Liên Hệ**: [Facebook](https://www.facebook.com/NguyenNgocAnhTu.VN) • [Zalo](https://zalo.me/0332413262) (0332413262).
           files: |
             DNS.mobileconfig
+            NguyenNgocAnhTu_LocketGold_DNS.mobileconfig

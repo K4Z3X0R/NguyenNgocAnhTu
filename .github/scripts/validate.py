@@ -55,7 +55,7 @@ def strip_comment(line: str) -> str:
 
 # --- 1. Version đồng nhất ---------------------------------------------------
 def check_versions() -> None:
-    ver_re = re.compile(r"(\d+\.\d+\.\d+-stable)")
+    ver_re = re.compile(r"(\d+\.\d+\.\d+-(?:stable|apex))")
     found: dict[str, set[str]] = {}
     for f in module_files():
         vers = set(ver_re.findall(f.read_text(encoding="utf-8")))
@@ -302,18 +302,19 @@ def check_mitm_essential_parity() -> None:
 
 
 def check_dns_profile() -> None:
-    dns_file = ROOT / "DNS.mobileconfig"
-    if not dns_file.exists():
-        print("[dns] SKIP — DNS.mobileconfig không có trong repo")
-        return
-    try:
-        import plistlib
-        with open(dns_file, "rb") as fp:
-            data = plistlib.load(fp)
-        assert "PayloadContent" in data, "Thiếu PayloadContent trong profile"
-        print("[dns] OK — DNS.mobileconfig tồn tại và cấu trúc Apple Plist (Binary/XML) hợp lệ 100%")
-    except Exception as e:
-        errors.append(f"[dns] DNS.mobileconfig lỗi cấu trúc: {e}")
+    for fname in ["DNS.mobileconfig", "NguyenNgocAnhTu_LocketGold_DNS.mobileconfig"]:
+        dns_file = ROOT / fname
+        if not dns_file.exists():
+            print(f"[dns] SKIP — {fname} không có trong repo")
+            continue
+        try:
+            import plistlib
+            with open(dns_file, "rb") as fp:
+                data = plistlib.load(fp)
+            assert "PayloadContent" in data, f"Thiếu PayloadContent trong profile {fname}"
+            print(f"[dns] OK — {fname} tồn tại và cấu trúc Apple Plist (Binary/XML) hợp lệ 100%")
+        except Exception as e:
+            errors.append(f"[dns] {fname} lỗi cấu trúc: {e}")
 
 
 def check_rules_syntax() -> None:
