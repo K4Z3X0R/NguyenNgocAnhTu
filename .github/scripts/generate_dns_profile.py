@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-👑 Anh Tú • DNS Profile Generator (v6.2.0 - Sovereign Pure XML + Surgical Spotify AdBlock Edition)
+👑 Anh Tú • DNS Profile Generator (v6.5.0 - 100% Self-Hosted Sovereign VPS Singapore Edition)
 Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)
 
-Hồ sơ cấu hình chuẩn Apple com.apple.dnsSettings.managed + Root CA (Định dạng XML Plist thuần túy, không mã hóa nhị phân):
-- Định tuyến DoH Anycast Cloudflare siêu tốc (< 10ms tại VN), triệt tiêu 100% lag DNS.
+Hồ sơ cấu hình chuẩn Apple com.apple.dnsSettings.managed + Root CA riêng (Định dạng XML Plist thuần túy, không mã hóa nhị phân):
+- Máy chủ riêng 100% của Nguyễn Ngọc Anh Tú: https://13.229.210.222.sslip.io/dns-query (AWS Singapore 13.229.210.222)
 - SupplementalMatchDomains phân tách phẫu thuật (Surgical Split-Horizon):
-  1. Locket Gold (Vĩnh viễn 2099, Video 60s Max Kịch Trần, 35 Filters, Weather, Mic):
-     + api.revenuecat.com, firebaseremoteconfig.googleapis.com
-  2. Spotify Chặn Quảng Cáo & Mở Khóa Spclient (Không chạm apresolve/dealer để chống 100% lỗi mất mạng):
-     + Cụm Spclient (MITM TLS hợp lệ): spclient.wg.spotify.com, spclient.spotify.com, gae2/guc3/gue1/gew1/gew4-spclient.spotify.com
-     + Cụm Audio Ads & Podcast Ads (Chặn NXDOMAIN RCODE=3): ads-fa.spotify.com, gads.current.spotify.com, podcastads.spotify.com, ads-west/east-colo.ads.spotify.com, audio-sp-*.pscdn.co
-     + TUYỆT ĐỐI ĐỂ DIRECT: apresolve.spotify.com, dealer.spotify.com, accounts.spotify.com, login5.spotify.com -> Miễn nhiễm 100% lỗi 'Hiện tại bạn không có kết nối mạng'.
+  1. Locket Gold 2099 (Video 60s Max Kịch Trần, 35 Native Filters, Weather, Mic, ETag FIRRemoteConfig):
+     + api.revenuecat.com, app.revenuecat.com, revenuecat.com
+     + firebaseremoteconfig.googleapis.com, firebaseremoteconfigrealtime.googleapis.com
+     + us-central1-locket-4252a.cloudfunctions.net
+  2. Chặn 100% Quảng Cáo Spotify (Audio/Video/Banner Ads + Akamai Ad CDN + DoubleClick -> Sinkhole 0.0.0.0):
+     + audio-ak-spotify-com.akamaized.net, audio4-ak-spotify-com.akamaized.net, heads-ak-spotify-com.akamaized.net
+     + googleads.g.doubleclick.net, pubads.g.doubleclick.net, securepubads.g.doubleclick.net, pagead2.googlesyndication.com
+     + ads.spotify.com, adeventtracker.spotify.com, ads-fa.spotify.com, gads.spotify.com, podcastads.spotify.com, audio-sp-*.pscdn.co
+     + TUYỆT ĐỐI ĐỂ DIRECT: apresolve.spotify.com, dealer.spotify.com, spclient.wg.spotify.com -> Miễn nhiễm 100% lỗi 'Hiện tại bạn không có kết nối mạng'.
   3. Toàn bộ ứng dụng khác (Zalo, YouTube, Facebook, Messenger, TikTok):
      + Sử dụng 100% DNS gốc của nhà mạng (Viettel / VNPT / FPT) -> Độ trễ 0ms, không delay Zalo, YouTube 4K mượt mà.
 """
@@ -25,60 +28,57 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[2]
 
-# Root CA DER Base64 (Valid 2026-2036, ký chuẩn cho *.revenuecat.com & *.wg.spotify.com / *-spclient.spotify.com)
+# Root CA DER Base64 riêng của Nguyễn Ngọc Anh Tú (CN=Anh Tu VIP Apex Root CA, Valid 2026-2036)
 CA_DER_B64 = (
-    "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"
+    "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"
 )
 
-# Danh sách SupplementalMatchDomains phẫu thuật chuẩn xác (Locket Gold + 35 Filters + Full Spotify AdBlock & Spclient Matrix)
-# Lưu ý: KHÔNG đưa apresolve.spotify.com và dealer.spotify.com vào đây để giữ kết nối AccessPoint & WebSocket luôn Online 100%
+# Danh sách SupplementalMatchDomains trên VPS riêng 13.229.210.222 (Locket Gold + 35 Filters + Full Spotify/DoubleClick/Akamai AdBlock)
 MATCH_DOMAINS = [
-    # 1. Locket Gold 2099 & 35 Camera Filters (MITM TLS Cert hợp lệ 100% trên 103.211.207.247)
+    # 1. Locket Gold 2099 & 35 Camera Filters (MITM 13.229.210.222:443 kèm ETag chuẩn FIRRemoteConfig)
     "api.revenuecat.com",
+    "app.revenuecat.com",
+    "revenuecat.com",
     "firebaseremoteconfig.googleapis.com",
-    # 2. Locket Telemetry, Config Cache Invalidation & AdsByNimbus Block (NXDOMAIN RCODE=3)
+    "firebaseremoteconfigrealtime.googleapis.com",
+    "us-central1-locket-4252a.cloudfunctions.net",
+    # 2. Locket Telemetry, Cache Reset & Nimbus Ads (Sinkhole 0.0.0.0)
     "e.revenuecat.com",
     "config.app-measurement.com",
+    "app-measurement.com",
     "locket.adsbynimbus.com",
     "api.adsbynimbus.com",
     "adsbynimbus.com",
     "e.crashlytics.com",
     "settings.crashlytics.com",
     "firebase-settings.crashlytics.com",
-    # 3. Spotify Spclient Cluster (Full Global & Regional Endpoints -> MITM 103.211.207.247:443)
-    "spclient.wg.spotify.com",
-    "spclient-wg.spotify.com",
-    "spclient.spotify.com",
-    "gae-spclient.spotify.com",
-    "gae2-spclient.spotify.com",
-    "guc-spclient.spotify.com",
-    "guc3-spclient.spotify.com",
-    "gue-spclient.spotify.com",
-    "gue1-spclient.spotify.com",
-    "gew-spclient.spotify.com",
-    "gew1-spclient.spotify.com",
-    "gew4-spclient.spotify.com",
-    "partner-spclient.spotify.com",
-    "testing-spclient.spotify.com",
-    "spclient.scdn.co",
-    "spclient.pscdn.co",
-    "spclient.spotifycdn.com",
-    # 4. Spotify Audio Ads, Fastly/Akamai Ad Heads, GAds & Podcast Ads (NXDOMAIN RCODE=3)
+    "in.appcenter.ms",
+    "firebaselogging-pa.googleapis.com",
+    # 3. Spotify Audio Ads, Akamai/Fastly Ad CDN, GAds & Podcast Ads (Sinkhole 0.0.0.0)
+    "ads.spotify.com",
     "ads-fa.spotify.com",
     "ads-fa.scdn.co",
+    "adeventtracker.spotify.com",
+    "analytics.spotify.com",
+    "crashdump.spotify.com",
+    "log.spotify.com",
+    "log2.spotify.com",
     "ads-east-colo.spotify.com",
     "ads-west-colo.spotify.com",
     "ads-east-colo.ads.spotify.com",
@@ -86,6 +86,10 @@ MATCH_DOMAINS = [
     "gads.spotify.com",
     "gads.current.spotify.com",
     "podcastads.spotify.com",
+    "audio-ak-spotify-com.akamaized.net",
+    "audio4-ak-spotify-com.akamaized.net",
+    "heads-ak-spotify-com.akamaized.net",
+    "audio-akp-spotify-com.akamaized.net",
     "audio-ak.spotify.com",
     "audio4-ak.spotify.com",
     "audio-akp.spotify.com",
@@ -102,6 +106,7 @@ MATCH_DOMAINS = [
     "heads4-ak.spotify.com",
     "heads-akp.spotify.com",
     "heads4-akp.spotify.com",
+    "heads-fa.spotify.com",
     "heads4-fa.spotify.com",
     "heads-cf.spotify.com",
     "heads4-cf.spotify.com",
@@ -109,12 +114,6 @@ MATCH_DOMAINS = [
     "heads4-ec.spotify.com",
     "prod.spotify-heads.map.fastly.net",
     "weblb-wg.gslb.spotify.com",
-    "bs.serving-sys.com",
-    "ds.serving-sys.com",
-    "v.jwpcdn.com",
-    "z.moatads.com",
-    "px.moatads.com",
-    # 5. Spotify Global Audio-SP Ad POPs (23 POPs -> NXDOMAIN RCODE=3)
     "audio-sp-sto.pscdn.co",
     "audio-sp-ash.pscdn.co",
     "audio-sp-dca.pscdn.co",
@@ -138,10 +137,27 @@ MATCH_DOMAINS = [
     "audio-sp-cdg.pscdn.co",
     "audio-sp-waw.pscdn.co",
     "audio-sp-arn.pscdn.co",
+    # 4. Google DoubleClick / AdSense / Ad Networks (Sinkhole 0.0.0.0)
+    "googleads.g.doubleclick.net",
+    "pubads.g.doubleclick.net",
+    "securepubads.g.doubleclick.net",
+    "adclick.g.doubleclick.net",
+    "ad.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "pagead2.googleadservices.com",
+    "tpc.googlesyndication.com",
+    "adservice.google.com",
+    "adservice.google.com.vn",
+    "ads.pubmatic.com",
+    "bs.serving-sys.com",
+    "ds.serving-sys.com",
+    "v.jwpcdn.com",
+    "z.moatads.com",
+    "px.moatads.com",
 ]
 
-SERVER_URL = "https://doh.2707226.xyz/dns-query/common"
-SERVER_ADDRESSES = ["172.67.146.35", "104.21.10.172"]
+SERVER_URL = "https://13.229.210.222.sslip.io/dns-query"
+SERVER_ADDRESSES = ["13.229.210.222"]
 
 
 def build_profile_dict(display_name: str | None = None) -> dict:
@@ -156,9 +172,9 @@ def build_profile_dict(display_name: str | None = None) -> dict:
     return {
         "PayloadDisplayName": name,
         "PayloadDescription": (
-            "Cấu hình DNS DoH chuẩn Apple (XML Plist thuần túy, không mã hóa nhị phân): "
-            "Mở khóa Locket Gold 2099 (Video 60s Max, 35 Filters, Weather, Mic - Fix triệt để lỗi về 5s) + "
-            "Chặn 100% Quảng Cáo Spotify & Mở khóa Spclient (Không báo mất mạng) + "
+            "Cấu hình DNS DoH chuẩn Apple trên máy chủ VPS Singapore riêng của Nguyễn Ngọc Anh Tú (13.229.210.222): "
+            "Mở khóa Locket Gold 2099 (Video 60s Max, 35 Filters, Weather, Mic - Chuẩn ETag FIRRemoteConfig) + "
+            "Chặn 100% Quảng Cáo Spotify, Akamai & DoubleClick (Sinkhole 0.0.0.0, không báo mất mạng) + "
             "YouTube 4K tốc độ gốc • Không delay Zalo • Tác giả: Nguyễn Ngọc Anh Tú (@z3rokaze / K4Z3X0R)"
         ),
         "PayloadIdentifier": "com.anhtu.dns.locketgold.v6",
@@ -168,25 +184,25 @@ def build_profile_dict(display_name: str | None = None) -> dict:
         "PayloadUUID": top_uuid,
         "PayloadVersion": 1,
         "PayloadContent": [
-            # 1. ROOT CA CERTIFICATE
+            # 1. ROOT CA CERTIFICATE (Anh Tu VIP Apex Root CA)
             {
                 "PayloadType": "com.apple.security.root",
                 "PayloadVersion": 1,
                 "PayloadIdentifier": f"com.apple.security.root.{ca_uuid.lower()}",
                 "PayloadUUID": ca_uuid,
                 "PayloadDisplayName": "Anh Tú VIP Apex Root CA",
-                "PayloadDescription": "Chứng chỉ gốc bảo mật kích hoạt Locket Gold VIP 2099 & Spotify - Nguyễn Ngọc Anh Tú",
+                "PayloadDescription": "Chứng chỉ gốc bảo mật kích hoạt Locket Gold VIP 2099 & Chặn QC Spotify - Nguyễn Ngọc Anh Tú",
                 "PayloadCertificateFileName": "AnhTu_VIP_Root_CA.cer",
                 "PayloadContent": ca_der_bytes,
             },
-            # 2. MANAGED DOH SETTINGS
+            # 2. MANAGED DOH SETTINGS (13.229.210.222.sslip.io)
             {
                 "PayloadType": "com.apple.dnsSettings.managed",
                 "PayloadVersion": 1,
                 "PayloadIdentifier": f"com.apple.dnsSettings.managed.{dns_uuid.lower()}",
                 "PayloadUUID": dns_uuid,
-                "PayloadDisplayName": "⚡ Anh Tú Cloudflare Anycast DoH (Siêu Tốc 0ms)",
-                "PayloadDescription": "Mã hóa DNS-over-HTTPS tốc độ cao qua Anycast Cloudflare, chặn QC Spotify & không delay Zalo",
+                "PayloadDisplayName": "⚡ Anh Tú Apex DoH (VPS Singapore 13.229.210.222)",
+                "PayloadDescription": "Mã hóa DNS-over-HTTPS tốc độ cao qua máy chủ VPS Singapore riêng của Nguyễn Ngọc Anh Tú",
                 "DNSSettings": {
                     "DNSProtocol": "HTTPS",
                     "ServerURL": SERVER_URL,
@@ -212,7 +228,6 @@ def generate_mobileconfig(output_path: Path, binary: bool = False) -> None:
     fmt_name = "Apple Binary Plist (bplist00)" if binary else "Apple XML Plist (Thuần túy không mã hóa)"
     print(f"✅ Đã tạo cấu hình thành công ({fmt_name}): {output_path}")
 
-    # Kiểm tra tính hợp lệ bằng plistlib
     with open(output_path, "rb") as fp:
         loaded = plistlib.load(fp)
     assert "PayloadContent" in loaded, "Lỗi: Không tìm thấy PayloadContent!"
