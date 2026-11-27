@@ -310,8 +310,8 @@ if (typeof $response === "undefined" || $response === null) {
     return;
   }
 
-  // 2. Mở khóa Huy hiệu Profile Gold & Thông tin User (users / profiles / getUser / changeProfileInfo)
-  if (!reqUrl.includes("firebaseremoteconfig") && (reqUrl.includes("changeProfileInfo") || reqUrl.includes("locketcamera.com") || reqUrl.includes("getUser") || reqUrl.includes("/users/") || reqUrl.includes("/profiles/"))) {
+  // 2. Mở khóa Huy hiệu Profile Gold & Thông tin User, Moments, Feed (users / profiles / getUser / changeProfileInfo / moments)
+  if (!reqUrl.includes("firebaseremoteconfig") && (reqUrl.includes("changeProfileInfo") || reqUrl.includes("locketcamera.com") || reqUrl.includes("getUser") || reqUrl.includes("/users/") || reqUrl.includes("/profiles/") || reqUrl.includes("moments") || reqUrl.includes("activity") || reqUrl.includes("Feed") || reqUrl.includes("feed"))) {
     var userObj = null;
     try {
       userObj = JSON.parse(rawBody);
@@ -324,6 +324,8 @@ if (typeof $response === "undefined" || $response === null) {
           node.badge = "locket_gold";
           node.badge_tier = "gold";
           node.is_gold = true;
+          node.has_gold = true;
+          node.is_subscriber = true;
           node.show_badge = true;
         }
         for (var k in node) {
@@ -332,7 +334,64 @@ if (typeof $response === "undefined" || $response === null) {
           }
         }
       }
+
+      function unlockMoments(node) {
+        if (!node || typeof node !== "object") return;
+        if (
+          "requires_gold" in node ||
+          "requires_subscription" in node ||
+          "is_locked" in node ||
+          "locked" in node ||
+          "is_gold_moment" in node ||
+          "is_ai_moment" in node ||
+          "show_paywall" in node ||
+          "can_view" in node ||
+          "blurred_url" in node ||
+          "blur_url" in node ||
+          "ai_filter" in node ||
+          "ai_style" in node ||
+          "filter_id" in node
+        ) {
+          node.requires_gold = false;
+          node.requires_subscription = false;
+          node.is_locked = false;
+          node.locked = false;
+          node.can_view = true;
+          node.unlocked = true;
+          node.show_paywall = false;
+          node.is_gold_moment = false;
+          node.is_blurred = false;
+          node.allow_view = true;
+          node.ai_locked = false;
+
+          var clearUrl = node.original_url || node.image_url || node.full_url || node.hd_url || node.photo_url || node.media_url;
+          if (clearUrl) {
+            if ("blurred_url" in node) node.blurred_url = clearUrl;
+            if ("blur_url" in node) node.blur_url = clearUrl;
+            if ("preview_url" in node && typeof node.preview_url === "string" && node.preview_url.indexOf("blur") !== -1) {
+              node.preview_url = clearUrl;
+            }
+            if ("thumbnail_url" in node && typeof node.thumbnail_url === "string" && node.thumbnail_url.indexOf("blur") !== -1) {
+              node.thumbnail_url = clearUrl;
+            }
+          }
+        }
+        for (var k in node) {
+          if (Object.prototype.hasOwnProperty.call(node, k) && typeof node[k] === "object" && node[k] !== null) {
+            unlockMoments(node[k]);
+          }
+        }
+      }
+
       injectBadge(userObj);
+      unlockMoments(userObj);
+      userObj.badge = "locket_gold";
+      userObj.badge_tier = "gold";
+      userObj.is_gold = true;
+      userObj.has_gold = true;
+      userObj.is_subscriber = true;
+      userObj.show_badge = true;
+
       var uh = ($response && $response.headers) ? Object.assign({}, $response.headers) : {};
       uh["Content-Type"] = "application/json; charset=utf-8";
       uh["Cache-Control"] = "no-store, no-cache, must-revalidate";

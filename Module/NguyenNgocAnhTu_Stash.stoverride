@@ -1354,7 +1354,7 @@ scriptings:
       timeout: 60
   - http-response:
       name: locket-ai-resp
-      match: ^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/(generateFilteredImage|(users?|profiles?)\/.+|getUser.*)
+      match: ^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/(generateFilteredImage|(users?|profiles?)\/.+|getUser.*|moments.*|getMoments.*|getFeed.*|getHistorical.*|activity.*)
       script-provider: locket-30s
       require-body: true
       timeout: 60

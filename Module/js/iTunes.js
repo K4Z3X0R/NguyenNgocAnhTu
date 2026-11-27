@@ -337,6 +337,11 @@ const list = {
   'TT': { tp: 'timea', hx: 'hxpda', id: "com.55panda.hicalculator.year_sub" },  //TT_私密相册管家
   'Focos': { tp: 'timea', hx: 'hxpda', id: "com.focos.1w_t4_1w" },  //Focos
   'ProKnockOut': { tp: 'timed', hx: 'hxpda', id: "com.knockout.SVIP.50off", ids: "com.knockout.1year.AIVIP" },  //ProKnockOut
+  'com.loveyouchenapps.knockout': { tp: 'timed', hx: 'hxpda', id: "com.knockout.SVIP.50off", ids: "com.knockout.1year.AIVIP" },  //ProKnockOut Bundle ID
+  'Retake': { tp: 'timea', hx: 'hxpda', id: "FuYuan.inkDiary.YearB.Pro" },  //Retake AI Photo Restorer
+  'FuYuan.inkDiary': { tp: 'timea', hx: 'hxpda', id: "FuYuan.inkDiary.YearB.Pro" },  //Retake AI Bundle ID
+  'Relens': { tp: 'timea', hx: 'hxpda', id: "com.risingcabbage.pro.camera.yearlysubscription" },  //Relens DSLR Camera
+  'com.risingcabbage.pro.camera': { tp: 'timea', hx: 'hxpda', id: "com.risingcabbage.pro.camera.yearlysubscription" },  //Relens DSLR Bundle ID
   'com.teadoku.flashnote': { tp: 'timea', hx: 'hxpda', id: "pro_ios_ipad_mac" }  //AnkiNote
 };
 

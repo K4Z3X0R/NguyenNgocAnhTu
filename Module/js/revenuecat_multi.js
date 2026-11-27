@@ -515,6 +515,8 @@ const mapping = {
   'CPUMonitor': ['Pro', 'com.mars.cpumonitor_removeAd'],
   'totowallet': ['all', 'com.ziheng.totowallet.onetimepurchase'],
   '1Blocker': ['premium', 'blocker.ios.iap.lifetime'],
+  'Fileball': ['filebox_pro', 'filebox_pro'],
+  'filebox_pro': ['filebox_pro', 'filebox_pro'],
 };
 
 // ========= Fallback entitlement keys ========= //

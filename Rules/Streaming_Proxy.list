@@ -45,3 +45,27 @@ DOMAIN-SUFFIX,vrv.co
 
 # --- Spotify (Streaming qua Proxy nếu cần) ---
 DOMAIN-SUFFIX,spotify.com
+
+# --- Peacock ---
+DOMAIN-SUFFIX,peacocktv.com
+
+# --- Paramount+ ---
+DOMAIN-SUFFIX,paramountplus.com
+DOMAIN-SUFFIX,cbs.com
+
+# --- BBC iPlayer ---
+DOMAIN-SUFFIX,bbc.co.uk
+DOMAIN-SUFFIX,bbci.co.uk
+
+# --- DAZN ---
+DOMAIN-SUFFIX,dazn.com
+DOMAIN-SUFFIX,dazndn.com
+
+# --- ABEMA (Japan) ---
+DOMAIN-SUFFIX,abema.tv
+DOMAIN-SUFFIX,abema.io
+DOMAIN-SUFFIX,ameba.jp
+
+# --- TVING / Wavve (Korea) ---
+DOMAIN-SUFFIX,tving.com
+DOMAIN-SUFFIX,wavve.com
