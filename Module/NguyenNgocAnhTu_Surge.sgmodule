@@ -10,7 +10,7 @@
 skip-proxy = 127.0.0.1, 100.64.0.0/10, 17.0.0.0/8, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, *.lan, captive.apple.com, detectportal.firefox.com, connectivitycheck.gstatic.com, clients3.google.com, www.msftconnecttest.com, www.msftncsi.com
 always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, *.turn.apple.com, *.stun.services.mozilla.com
 tun-excluded-routes = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, 239.255.255.250/32
-force-http-engine-hosts = %APPEND% api.revenuecat.com:443, api.rc-backup.com:443, buy.itunes.apple.com:443, com.zijayrate.analogcam:443, api.elsaspeak.com:443, api.photoroom.com:443, api.remini.ai:443, api.bazaart.me, firebaseremoteconfig.googleapis.com:443, firebaseremoteconfig.googleapis.com:443
+force-http-engine-hosts = %APPEND% api.revenuecat.com:443, api.rc-backup.com:443, buy.itunes.apple.com:443, api.locketcamera.com:443, *.locketcamera.com:443, us-central1-locket-4252a.cloudfunctions.net:443, sub.store:443, com.zijayrate.analogcam:443, api.elsaspeak.com:443, api.photoroom.com:443, api.remini.ai:443, api.bazaart.me, firebaseremoteconfig.googleapis.com:443, firebaseremoteconfig.googleapis.com:443
 
 [Rule]
 # === BLOCK QUIC FOR YOUTUBE MITM ===
@@ -18,6 +18,13 @@ AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,www.youtube.com), (PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,firebaseremoteconfig.googleapis.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,api.locketcamera.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN-SUFFIX,locketcamera.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,us-central1-locket-4252a.cloudfunctions.net), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,api.revenuecat.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,api.rc-backup.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,buy.itunes.apple.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,sub.store), (PROTOCOL,UDP)),REJECT
 
 # === BLOCK WEBRTC LEAK (Specific servers) ===
 # Note: Generic KEYWORD stun/turn removed — breaks VoIP (FaceTime, WhatsApp, Zoom)

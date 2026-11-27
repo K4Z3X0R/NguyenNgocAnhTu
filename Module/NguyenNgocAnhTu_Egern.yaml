@@ -2348,7 +2348,7 @@ scriptings:
   - http_response:
       name: "RevenueCat Response"
       match: "^https://api\\.revenuecat\\.com/.+/(receipts$|subscribers/[^/]+$)"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=3.2.5"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=3.2.6"
       body_required: true
       timeout: 60
   # (2.4.4) Gỡ script deleteHeader.js: ETag X-RevenueCat-ETag đã được xóa native ở
@@ -2356,21 +2356,33 @@ scriptings:
   - http_response:
       name: "RevenueCat Backup"
       match: "^https://api\\.rc-backup\\.com/.+/(receipts$|subscribers/[^/]+$)"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=3.2.5"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=3.2.6"
       body_required: true
       timeout: 60
-  # 💛 Locket Gold 45s Video (Remote Config Rewrite)
+  # 💛 Locket Gold 45s Video & AI Features (K4Z3X0R)
   - http_request:
       name: "Locket 45s Video Request"
       match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/.*"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.2.5"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.2.6"
       timeout: 60
   - http_response:
       name: "Locket 45s Video"
       match: "^https?://firebaseremoteconfig\\.googleapis\\.com/v1/projects/.*"
-      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.2.5"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.2.6"
       body_required: true
-      timeout: 30
+      timeout: 60
+  - http_request:
+      name: "Locket AI Request"
+      match: "^https?://(us-central1-locket-4252a\\.cloudfunctions\\.net|api\\.locketcamera\\.com)/(generateFilteredImage|photoboothMoment|photobooth|changeProfileInfo)"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.2.6"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "Locket AI Response"
+      match: "^https?://(us-central1-locket-4252a\\.cloudfunctions\\.net|api\\.locketcamera\\.com)/(generateFilteredImage|(users?|profiles?)/.+|getUser.*)"
+      script_url: "https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.2.6"
+      body_required: true
+      timeout: 60
 
 
   # 🎧 SoundCloud Go+ (K4Z3X0R)
@@ -3012,5 +3024,8 @@ mitm:
     - "api.remini.ai"
     - "api.bazaart.me"
     - "firebaseremoteconfig.googleapis.com"
+    - "api.locketcamera.com"
+    - "*.locketcamera.com"
+    - "us-central1-locket-4252a.cloudfunctions.net"
     - "api.rophim1.vip"
     - "rophimapi.net"

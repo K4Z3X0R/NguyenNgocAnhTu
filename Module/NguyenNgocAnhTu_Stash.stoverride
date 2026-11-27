@@ -1034,6 +1034,9 @@ mitm:
   - "api.remini.ai"
   - "api.bazaart.me"
   - "firebaseremoteconfig.googleapis.com"
+  - "api.locketcamera.com"
+  - "*.locketcamera.com"
+  - "us-central1-locket-4252a.cloudfunctions.net"
   - "api.rophim1.vip"
   - "rophimapi.net"
 
@@ -1041,6 +1044,7 @@ force-http-engine:
   - "api.revenuecat.com:443"
   - "api.rc-backup.com:443"
   - "firebaseremoteconfig.googleapis.com:443"
+  - "api.locketcamera.com:443"
 
 http:
   url-rewrite:
@@ -1060,16 +1064,16 @@ script-providers:
     url: https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/spotify-proto.js
     interval: 86400
   sp-premium-json:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=3.2.5
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/spotify.js?v=3.2.6
     interval: 86400
   rc-res:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=3.2.5
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=3.2.6
     interval: 86400
   rc-backup:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=3.2.5
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/revenuecat_multi.js?v=3.2.6
     interval: 86400
   locket-30s:
-    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.2.5
+    url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/Locket_30s.js?v=3.2.6
     interval: 86400
   sc-res:
     url: https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/js/soundcloud.js
@@ -1339,6 +1343,18 @@ scriptings:
   - http-response:
       name: locket-30s
       match: ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/.*
+      script-provider: locket-30s
+      require-body: true
+      timeout: 60
+  - http-request:
+      name: locket-ai-req
+      match: ^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/(generateFilteredImage|photoboothMoment|photobooth|changeProfileInfo)
+      script-provider: locket-30s
+      require-body: true
+      timeout: 60
+  - http-response:
+      name: locket-ai-resp
+      match: ^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/(generateFilteredImage|(users?|profiles?)\/.+|getUser.*)
       script-provider: locket-30s
       require-body: true
       timeout: 60
