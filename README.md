@@ -16,7 +16,7 @@
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 <a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=14&duration=3000&pause=500&color=00FF00&background=00000000&center=false&vCenter=true&repeat=true&width=450&height=100&lines=%5B+%2B+%5D+Initializing+Premium+Unlocker+v3.2.3-apex...;%5B+%2B+%5D+Bypassing+security+checks+and+receipts...;%5B+%2B+%5D+Injecting+premium+payload+via+MITM...;%5B+%2B+%5D+Success!+350%2B+Applications+Unlocked." alt="Terminal Simulation" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=14&duration=3000&pause=500&color=00FF00&background=00000000&center=false&vCenter=true&repeat=true&width=450&height=100&lines=%5B+%2B+%5D+Initializing+Premium+Unlocker+v3.2.6-apex...;%5B+%2B+%5D+Bypassing+security+checks+and+receipts...;%5B+%2B+%5D+Injecting+premium+payload+via+MITM...;%5B+%2B+%5D+Success!+350%2B+Applications+Unlocked." alt="Terminal Simulation" />
 </a>
 
 <br>
@@ -47,7 +47,7 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 <!-- HÀNG 1 — THÔNG TIN DỰ ÁN -->
-<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases"><img src="https://img.shields.io/badge/%E2%9A%A1_PHI%C3%8AN_B%E1%BA%A2N-v3.2.3--stable-00F0FF?style=for-the-badge&labelColor=0D1117" alt="version"/></a>
+<a href="https://github.com/K4Z3X0R/NguyenNgocAnhTu/releases"><img src="https://img.shields.io/badge/%E2%9A%A1_PHI%C3%8AN_B%E1%BA%A2N-v3.2.6--apex-00F0FF?style=for-the-badge&labelColor=0D1117" alt="version"/></a>
 &nbsp;
 <a href="https://k4z3x0r.github.io/NguyenNgocAnhTu/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_WEB_PORTAL-ONLINE_2099-FFD700?style=for-the-badge&logo=safari&logoColor=0D1117&labelColor=0D1117" alt="web-portal"/></a>
 &nbsp;
@@ -481,6 +481,8 @@
 
 | | Phiên bản | Ngày | Nội dung cập nhật | Số app |
 |:---:|:---:|:---:|:---|:---:|
+| 👑 | **`v3.2.6-apex`** | `27.11.2026` | 🔥 **Tháng 11-2026 Community Sovereign Apex Upgrade (Locket Photobooth & AI Filter Unlock, QUIC Armor, YouTube Midroll Reject, Antigravity AI & Sub-Store Native)**: Quét sạch 107 repos cộng đồng Shadowrocket tháng 11/2026 (`LingJingMaster`, `DoKhacQuyen94`, `dtuandzxyz`, `dhungx`, `RealTrueHieu`, `TangChenTom`, `hpahm`) • Mở khóa Locket Photobooth 4-shot (mock HTTP 200 triệt tiêu lỗi 422) & AI Looks Filter (gỡ mã lỗi paywall 400/402/403) • Khóa cứng QUIC UDP cho RevenueCat & Locket (`api.revenuecat.com`, `api.rc-backup.com`, `locketcamera.com`) ép 100% traffic qua TCP cho MITM • Bắn hạ quảng cáo giữa video YouTube (`get_midroll_info`, `get_vmap` reject-200) • Xóa sạch ETag & cache Firebase/Locket qua `x-goog-if-none-match` & `Locket Camera API` headers • Chặn đứng Sentry telemetry & crash reporting (`sentry.io`, `ingest.sentry.io`) • Tích hợp trực tiếp công cụ quản lý đăng ký Sub-Store (`Sub-Store Core & Simple`) vào cả 2 module Shadowrocket • Bổ sung bộ lọc quảng cáo TikTok & Bilibili Splash • Nạp 110 endpoint AI tối tân (Antigravity Google, Claude MCP, Cline, Devin, Windsurf, Cody, OpenAI Realtime Voice LiveKit, Apple Intelligence). | **350+** |
+| 👑 | **`v3.2.5-apex`** | `30.10.2026` | 🚀 **Shadowrocket Sovereign Omnipotent Apex Upgrade & Full Ecosystem Synchronization**: Nâng cấp toàn diện bộ đôi Shadowrocket Dedicated (`NguyenNgocAnhTu_Shadowrocket.module`) & Shadowrocket Main (`NguyenNgocAnhTu_Premium.module`) • Đồng bộ DoH DNS mã hóa (AdGuard Anycast + ControlD p2), chống rò rỉ WebRTC leak, chặn OTA iOS triệt để, chặn App Store Search Ads • Bổ sung đầy đủ 81 scripts VIP kèm version query cache-busting (`?v=3.2.5`), 99 MITM hostnames hỗ trợ Sub-Store, và 100% routing rules (Banking VN DIRECT, Gaming DIRECT, Streaming PROXY, AI PROXY, GeoIP VN). | **350+** |
 | 👑 | **`v3.2.3-apex`** | `23.10.2026` | 💛 **Locket Gold 45s Video Fix**: Sửa dứt điểm lỗi video tụt về 10s do tràn ngưỡng mili-giây và schema video_config ngoại lai • Chuẩn hóa 45.0s đồng bộ trên toàn hệ thống • Bổ sung trọn bộ feature gates (longer_videos, video_recording, video_upload, camera_roll_video) & ép header Cache-Control no-store chống dính cache 304. | **350+** |
 | 👑 | **`v2.8.8-stable`** | `22.10.2026` | 💛 **Locket Gold 45s Unlimited & Hardened RevenueCat Multi-App Engine**: Mở khóa toàn diện Video 45s Locket (cả giây và mili-giây `45000ms`, `longer_video`, `camera_roll`, `trim_max_duration`, trần upload 100MB HD, bitrate 0.6 Mbps) • Gia cố tầng xác thực RevenueCat: hỗ trợ 4 Product ID Locket (`locket_1600_1y`, `locket_3600_1y`, `yearly`, `monthly`), `is_sandbox: true`, transaction chuẩn & triệt hạ toàn bộ 3 header dính cache (`X-RevenueCat-ETag`, `If-None-Match`, `If-Modified-Since`) • Tích hợp hồ sơ DNS Profile v4.0 (AdGuard DoH Anycast Unlimited & OnDemand NeverConnect) ngay tại root repo • Đạt chứng nhận 40/40 Reality Proof Assertions & 37/37 Functional Tests. | **350+** |
 | 👑 | **`v2.8.6-stable`** | `22.10.2026` | 🎬 **Locket Gold 45s Video (100MB HD), Custom Captions, Royal Gold Frames & Full Ecosystem Parity**: Nâng cấp thời lượng quay video Locket lên 45.0s, trần file upload 100MB (`104857600 bytes`), bitrate 0.6 Mbps • Tích hợp 13 danh mục Custom Captions Tiếng Việt & Khung viền Royal Gold VIP • Đồng bộ 100GB Cloud Storage cho PicsArt trên Shadowrocket & Surge Premium • Chuẩn hóa luồng YouTube trên LanceX • Tách riêng DNS Profile v4.0 độc lập sang hạ tầng AdGuard Anycast DoH không giới hạn quota và bảo toàn 100% push notifications • Bổ sung bộ kiểm thử thực thi `test_reality_proof.js` (40/40 assertions) & đạt 177/177 test pass 100%. | **350+** |
@@ -823,7 +825,7 @@ graph TD
 
 | | Ứng dụng | Giá | Link Module |
 |:---:|:---|:---:|:---|
-| ⭐ | **Shadowrocket** | `$2.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Premium.module` |
+| ⭐ | **Shadowrocket** | `$2.99` | [NguyenNgocAnhTu_Shadowrocket.module](https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Shadowrocket.module)<br><sub>*(hoặc [NguyenNgocAnhTu_Premium.module](https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Premium.module))*</sub> |
 | 💰 | **LanceX** | `$1.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_LanceX.module` |
 | 🔮 | **Egern** | `$2.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Egern.yaml` |
 | 🌊 | **Surge** | `$49.99` | `https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Surge.sgmodule` |
@@ -844,7 +846,7 @@ graph TD
 </tr>
 </table>
 
-> **v2.7.0-stable status:** 8/8 formats synced / UTF-8 clean / Regex 0 errors / Active duplicates 0 / Script and raw URLs verified live.
+> **v3.2.6-apex status:** 8/8 formats synced / UTF-8 clean / Regex 0 errors / Active duplicates 0 / Script and raw URLs verified live.
 
 </div>
 
@@ -900,10 +902,16 @@ Hoặc tải trực tiếp file ZIP từ trang [Releases](https://github.com/K4Z
 
 <div align="center">
 
-**🔗 Link module cho Shadowrocket:**
+**🔗 Link module cho Shadowrocket (Chọn 1 trong 2 link đều được - Đã đồng bộ 100% v3.2.6-apex):**
 
 </div>
 
+*Link 1 (Khuyên dùng - Bản Dedicated cho Shadowrocket):*
+```
+https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Shadowrocket.module
+```
+
+*Link 2 (Bản Main Apex - Tương thích Shadowrocket & Surge):*
 ```
 https://raw.githubusercontent.com/K4Z3X0R/NguyenNgocAnhTu/master/Module/NguyenNgocAnhTu_Premium.module
 ```

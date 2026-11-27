@@ -90,7 +90,7 @@ DOMAIN-SUFFIX,descript.com
 DOMAIN-SUFFIX,assemblyai.com
 DOMAIN-SUFFIX,glif.app
 
-# --- AI Services m?i nh?t (10-2026) ---
+# --- AI Services mới nhất (10-2026) ---
 DOMAIN-SUFFIX,v0.app
 DOMAIN-SUFFIX,trae.ai
 DOMAIN-SUFFIX,zed.dev
@@ -98,3 +98,130 @@ DOMAIN-SUFFIX,kimi.ai
 DOMAIN-SUFFIX,minimax.io
 DOMAIN-SUFFIX,hailuoai.video
 DOMAIN-SUFFIX,stepfun.com
+
+# --- Apple Intelligence & Private Cloud Compute (11-2026) ---
+DOMAIN,guzzoni.apple.com
+DOMAIN,mask-api.fe.apple-dns.net
+DOMAIN,mask-api.icloud.com
+DOMAIN,mask-t.apple-dns.net
+DOMAIN,mask.apple-dns.net
+DOMAIN-SUFFIX,smoot.apple.com
+DOMAIN-SUFFIX,apple-relay.apple.com
+DOMAIN-SUFFIX,apple-relay.cloudflare.com
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com
+DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net
+DOMAIN-SUFFIX,cp4.cloudflare.com
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com
+
+# --- OpenAI Realtime / Voice / LiveKit & Infrastructure (11-2026) ---
+DOMAIN-SUFFIX,chat.com
+DOMAIN-SUFFIX,livekit.cloud
+DOMAIN,api.statsig.com
+DOMAIN,api-iam.intercom.io
+DOMAIN,chat.openai.com.cdn.cloudflare.net
+DOMAIN,o33249.ingest.sentry.io
+DOMAIN,openai-api.arkoselabs.com
+DOMAIN,openaiapi-site.azureedge.net
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
+DOMAIN,openaicomproductionae4b.blob.core.windows.net
+DOMAIN,production-openaicom-storage.azureedge.net
+DOMAIN-SUFFIX,client-api.arkoselabs.com
+DOMAIN-KEYWORD,openaiapi
+DOMAIN-KEYWORD,openaicom
+IP-CIDR,24.199.123.28/32,no-resolve
+IP-CIDR,64.23.132.171/32,no-resolve
+
+# --- Anthropic Claude MCP & Datadog Telemetry (11-2026) ---
+DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-KEYWORD,claude
+DOMAIN-KEYWORD,anthropic
+DOMAIN,http-intake.logs.us5.datadoghq.com
+
+# --- Microsoft Copilot & Perplexity Additions (11-2026) ---
+DOMAIN-SUFFIX,githubcopilot.com
+DOMAIN-SUFFIX,pplx.ai
+DOMAIN,pplx-res.cloudinary.com
+
+# --- Anthropic Claude Ecosystem & Model Context Protocol (MCP) (11-2026) ---
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claude.app
+DOMAIN-SUFFIX,claude.new
+DOMAIN-SUFFIX,claude.site
+DOMAIN-SUFFIX,claude.dev
+DOMAIN-SUFFIX,claudestudio.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,claudepages.dev
+DOMAIN-SUFFIX,antspace.dev
+DOMAIN-SUFFIX,modelcontextprotocol.io
+DOMAIN-SUFFIX,modelcontextprotocol.com
+DOMAIN-SUFFIX,modelcontextprotocol.org
+DOMAIN-SUFFIX,modelcontextprotocol.net
+
+# --- OpenAI & LiveKit Realtime Voice Additions (11-2026) ---
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,chatgpt.livekit.cloud
+DOMAIN-SUFFIX,host.livekit.cloud
+DOMAIN-SUFFIX,turn.livekit.cloud
+DOMAIN-SUFFIX,chatgpt.site
+DOMAIN-SUFFIX,oaistatsig.com
+DOMAIN,openaiassets.blob.core.windows.net
+
+# --- Google AI, Antigravity, Gemini & DeepMind (11-2026) ---
+DOMAIN-SUFFIX,ai.google.dev
+DOMAIN-SUFFIX,ai.studio
+DOMAIN-SUFFIX,gemma.ai
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,gemini.gstatic.com
+DOMAIN-SUFFIX,jules.google
+DOMAIN-SUFFIX,notebook.google
+DOMAIN-SUFFIX,flow.google
+DOMAIN-SUFFIX,antigravity.google
+DOMAIN-SUFFIX,antigravity.google.com
+DOMAIN,antigravity.googleapis.com
+DOMAIN,antigravity-pa.googleapis.com
+
+# --- xAI Grok, Meta Llama & Perplexity Search (11-2026) ---
+DOMAIN-SUFFIX,grok.x.com
+DOMAIN-SUFFIX,grokbot.com
+DOMAIN-SUFFIX,grokipedia.com
+DOMAIN,ai.meta.com
+DOMAIN,llama.developer.meta.com
+DOMAIN-SUFFIX,llamameta.net
+DOMAIN-SUFFIX,metaaiusercontent.com
+DOMAIN-SUFFIX,metaaivm.com
+DOMAIN-SUFFIX,perplexity.com
+DOMAIN-SUFFIX,phind.com
+DOMAIN,ppl-ai-file-upload.s3.amazonaws.com
+DOMAIN-SUFFIX,you.com
+
+# --- AI Coding Agents & IDEs (Cline, Devin, Windsurf, Cody, Cursor) (11-2026) ---
+DOMAIN-SUFFIX,cline.bot
+DOMAIN-SUFFIX,devin.ai
+DOMAIN-SUFFIX,continue.dev
+DOMAIN-SUFFIX,cursorapi.com
+DOMAIN-SUFFIX,cursor-cdn.com
+DOMAIN-SUFFIX,cursorvm.com
+DOMAIN-SUFFIX,codeiumdata.com
+DOMAIN-SUFFIX,windsurf.build
+DOMAIN-SUFFIX,cody.dev
+DOMAIN-SUFFIX,tabnine.com
+DOMAIN-SUFFIX,commandcode.ai
+DOMAIN-SUFFIX,coderabbit.ai
+DOMAIN-SUFFIX,qoder.com
+
+# --- Creative Audio, Video & Generative AI (Suno, ElevenLabs, ComfyUI, Firefly) (11-2026) ---
+DOMAIN-SUFFIX,suno.com
+DOMAIN-SUFFIX,elevenlabs.com
+DOMAIN-SUFFIX,elevenlabsusercontent.com
+DOMAIN-SUFFIX,synthesia.io
+DOMAIN-SUFFIX,clipdrop.co
+DOMAIN-SUFFIX,openart.ai
+DOMAIN-SUFFIX,novita.ai
+DOMAIN-SUFFIX,comfy.org
+DOMAIN-SUFFIX,comfyregistry.org
+DOMAIN-SUFFIX,firefly.adobe.com
+DOMAIN-SUFFIX,firefly.adobe.io

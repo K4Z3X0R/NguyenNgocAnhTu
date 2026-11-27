@@ -50,6 +50,7 @@ DOMAIN-SUFFIX,spotxchange.com
 
 # --- Tracking / Analytics bổ sung (2026) ---
 DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,ingest.sentry.io
 DOMAIN-SUFFIX,bugsnag.com
 DOMAIN-SUFFIX,instabug.com
 DOMAIN-SUFFIX,embrace.io
